@@ -21,7 +21,7 @@ import {
   Paintbrush,
   CheckCircle
 } from 'lucide-react';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 // --- Components ---
 
@@ -78,12 +78,15 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
     }
   ];
 
+  const [isHovered, setIsHovered] = useState(false);
+
   useEffect(() => {
+    if (isHovered) return;
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % slides.length);
-    }, 5000); // Switch every 5 seconds
+    }, 5000);
     return () => clearInterval(timer);
-  }, [slides.length]);
+  }, [slides.length, isHovered]);
 
   const nextSlide = () => setActiveIndex((prev) => (prev + 1) % slides.length);
   const prevSlide = () => setActiveIndex((prev) => (prev - 1 + slides.length) % slides.length);
@@ -91,7 +94,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
   return (
     <section className="relative h-screen w-full overflow-hidden bg-brand-dark flex items-center">
       {/* Dynamic Immersive Background */}
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         <motion.div
           key={activeIndex}
           initial={{ opacity: 0 }}
@@ -108,17 +111,22 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
         </motion.div>
       </AnimatePresence>
 
-      {/* Bottom Stacked Carousel */}
-      <div className="absolute bottom-16 right-16 z-30 hidden lg:block h-[320px] w-[240px]">
-        <div className="relative w-full h-full">
+      {/* Expanded Horizontal / Stacked Carousel */}
+      <motion.div 
+        animate={{ width: isHovered ? 1300 : 240 }}
+        className="absolute bottom-16 right-16 z-30 hidden lg:block h-[320px]"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div className="relative h-full">
           <AnimatePresence initial={false}>
             {slides.map((slide, i) => {
               // Calculate stack position relative to activeIndex
               let index = i - activeIndex;
               if (index < 0) index += slides.length;
 
-              // Only show the top 3-4 cards in the stack for performance and clean look
-              if (index > 3) return null;
+              // Show all on hover, top 4 when stacked
+              if (!isHovered && index > 3) return null;
 
               return (
                 <motion.div
@@ -126,15 +134,19 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
                   onClick={() => setActiveIndex(i)}
                   initial={{ opacity: 0, x: 50, scale: 0.8 }}
                   animate={{
-                    x: index * -20,
-                    y: index * -15,
-                    scale: 1 - index * 0.05,
+                    x: isHovered ? index * -260 : index * -20,
+                    y: isHovered ? 0 : index * -15,
+                    scale: isHovered ? 1 : 1 - index * 0.05,
                     zIndex: slides.length - index,
-                    opacity: 1 - index * 0.2,
+                    opacity: isHovered ? 1 : 1 - index * 0.2,
                   }}
                   exit={{ opacity: 0, x: -100, scale: 0.5 }}
-                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute inset-0 cursor-pointer overflow-hidden rounded-[2rem] bg-neutral-900 border border-white/10 shadow-2xl group"
+                  transition={{ 
+                    duration: 0.8, 
+                    ease: [0.16, 1, 0.3, 1],
+                    delay: isHovered ? index * 0.02 : 0 
+                  }}
+                  className="absolute bottom-0 right-0 w-[240px] h-[320px] cursor-pointer overflow-hidden rounded-2xl bg-neutral-900 border border-white/10 shadow-2xl group"
                 >
                   <img src={slide.img} alt={slide.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
@@ -164,7 +176,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
             })}
           </AnimatePresence>
         </div>
-      </div>
+      </motion.div>
 
       {/* Progress Line (Mobile) */}
       <div className="lg:hidden absolute bottom-6 left-6 right-6 h-[1px] bg-white/10 z-30">
@@ -827,7 +839,25 @@ const PortfolioSection = () => {
     }
   ];
 
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [scrollAmount, setScrollAmount] = useState(0);
   const filteredProjects = activeFilter === 'All' ? projects : projects.filter(p => p.category === activeFilter);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (carouselRef.current) {
+      const containerWidth = carouselRef.current.offsetWidth;
+      const scrollStep = 440; // Card width + gap
+      const newScroll = direction === 'left' 
+        ? Math.max(scrollAmount - scrollStep, 0)
+        : Math.min(scrollAmount + scrollStep, (filteredProjects.length * 440) - containerWidth);
+      
+      setScrollAmount(newScroll);
+      carouselRef.current.scrollTo({
+        left: newScroll,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
     <section id="projects" className="pt-32 md:pt-48 pb-16 md:pb-24 bg-[#f0f7ff] overflow-hidden relative">
@@ -854,7 +884,11 @@ const PortfolioSection = () => {
             {["All", "Commercial", "Residential", "Interior", "Villa"].map((tab) => (
               <button
                 key={tab}
-                onClick={() => setActiveFilter(tab)}
+                onClick={() => {
+                  setActiveFilter(tab);
+                  setScrollAmount(0);
+                  if (carouselRef.current) carouselRef.current.scrollTo({ left: 0 });
+                }}
                 className={`text-[10px] font-bold uppercase tracking-widest px-6 py-2 border rounded-full transition-all ${activeFilter === tab ? 'bg-brand-dark text-white border-brand-dark' : 'text-neutral-400 border-neutral-100 hover:border-brand-primary hover:text-brand-primary'}`}
               >
                 {tab}
@@ -865,10 +899,14 @@ const PortfolioSection = () => {
 
         <div className="relative group">
           {/* Carousel Container */}
-          <div className="overflow-hidden cursor-grab active:cursor-grabbing px-4 -mx-4">
+          <div 
+            ref={carouselRef}
+            className="overflow-x-auto no-scrollbar cursor-grab active:cursor-grabbing px-4 -mx-4 scroll-smooth"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
             <motion.div
               drag="x"
-              dragConstraints={{ right: 0, left: -((filteredProjects.length * 440) - 1600) }} // Dynamic based on items
+              dragConstraints={carouselRef}
               className="flex gap-8 pb-6"
               style={{ width: 'max-content' }}
             >
@@ -928,10 +966,16 @@ const PortfolioSection = () => {
             <div className="flex items-center gap-4">
               <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-dark/40">Drag to explore</span>
               <div className="flex gap-2">
-                <button className="w-10 h-10 rounded-full border border-neutral-200 flex items-center justify-center hover:bg-brand-dark hover:text-white transition-all">
+                <button 
+                  onClick={() => scroll('left')}
+                  className="w-10 h-10 rounded-full border border-neutral-200 flex items-center justify-center hover:bg-brand-dark hover:text-white transition-all active:scale-95"
+                >
                   <ChevronRight size={18} className="rotate-180" />
                 </button>
-                <button className="w-10 h-10 rounded-full border border-neutral-200 flex items-center justify-center hover:bg-brand-dark hover:text-white transition-all">
+                <button 
+                  onClick={() => scroll('right')}
+                  className="w-10 h-10 rounded-full border border-neutral-200 flex items-center justify-center hover:bg-brand-dark hover:text-white transition-all active:scale-95"
+                >
                   <ChevronRight size={18} />
                 </button>
               </div>
