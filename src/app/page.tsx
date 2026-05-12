@@ -112,7 +112,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
       </AnimatePresence>
 
       {/* Expanded Horizontal / Stacked Carousel */}
-      <motion.div 
+      <motion.div
         animate={{ width: isHovered ? 1300 : 240 }}
         className="absolute bottom-16 right-16 z-30 hidden lg:block h-[320px]"
         onMouseEnter={() => setIsHovered(true)}
@@ -141,10 +141,10 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
                     opacity: isHovered ? 1 : 1 - index * 0.2,
                   }}
                   exit={{ opacity: 0, x: -100, scale: 0.5 }}
-                  transition={{ 
-                    duration: 0.8, 
+                  transition={{
+                    duration: 0.8,
                     ease: [0.16, 1, 0.3, 1],
-                    delay: isHovered ? index * 0.02 : 0 
+                    delay: isHovered ? index * 0.02 : 0
                   }}
                   className="absolute bottom-0 right-0 w-[240px] h-[320px] cursor-pointer overflow-hidden rounded-2xl bg-neutral-900 border border-white/10 shadow-2xl group"
                 >
@@ -393,7 +393,7 @@ const ApplicationsSection = () => {
     {
       name: "Balcony",
       icon: <Home size={32} />,
-      img: "https://images.unsplash.com/photo-1595521624992-48a59aef95e3?q=80&w=2000&auto=format&fit=crop"
+      img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000"
     },
     {
       name: "Int. Partition",
@@ -403,32 +403,32 @@ const ApplicationsSection = () => {
     {
       name: "Office space",
       icon: <Monitor size={32} />,
-      img: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2000&auto=format&fit=crop"
+      img: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2000"
     },
     {
       name: "Commercial",
       icon: <Building2 size={32} />,
-      img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop"
+      img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000"
     },
     {
       name: "Exterior",
       icon: <MapPin size={32} />,
-      img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2000&auto=format&fit=crop"
+      img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2000"
     },
     {
       name: "Terrace",
       icon: <Coffee size={32} />,
-      img: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=2000&auto=format&fit=crop"
+      img: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=2000"
     },
     {
       name: "Garden",
       icon: <Paintbrush size={32} />,
-      img: "https://images.unsplash.com/photo-1558905619-17355201afec?q=80&w=2000&auto=format&fit=crop"
+      img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2000"
     },
     {
       name: "Farm House",
       icon: <Home size={32} />,
-      img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2000&auto=format&fit=crop"
+      img: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=2000"
     }
   ];
 
@@ -847,10 +847,10 @@ const PortfolioSection = () => {
     if (carouselRef.current) {
       const containerWidth = carouselRef.current.offsetWidth;
       const scrollStep = 440; // Card width + gap
-      const newScroll = direction === 'left' 
+      const newScroll = direction === 'left'
         ? Math.max(scrollAmount - scrollStep, 0)
         : Math.min(scrollAmount + scrollStep, (filteredProjects.length * 440) - containerWidth);
-      
+
       setScrollAmount(newScroll);
       carouselRef.current.scrollTo({
         left: newScroll,
@@ -899,7 +899,7 @@ const PortfolioSection = () => {
 
         <div className="relative group">
           {/* Carousel Container */}
-          <div 
+          <div
             ref={carouselRef}
             className="overflow-x-auto no-scrollbar cursor-grab active:cursor-grabbing px-4 -mx-4 scroll-smooth"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
@@ -956,23 +956,23 @@ const PortfolioSection = () => {
           {/* Carousel Navigation Hint */}
           <div className="flex items-center justify-between mt-4 border-t border-brand-primary/10 pt-4">
             <div className="flex gap-4">
-               {/* Simplified Nav Dots */}
-               <div className="flex gap-2">
-                 <div className="w-12 h-[2px] bg-brand-primary" />
-                 <div className="w-4 h-[2px] bg-brand-primary/20" />
-                 <div className="w-4 h-[2px] bg-brand-primary/20" />
-               </div>
+              {/* Simplified Nav Dots */}
+              <div className="flex gap-2">
+                <div className="w-12 h-[2px] bg-brand-primary" />
+                <div className="w-4 h-[2px] bg-brand-primary/20" />
+                <div className="w-4 h-[2px] bg-brand-primary/20" />
+              </div>
             </div>
             <div className="flex items-center gap-4">
               <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-dark/40">Drag to explore</span>
               <div className="flex gap-2">
-                <button 
+                <button
                   onClick={() => scroll('left')}
                   className="w-10 h-10 rounded-full border border-neutral-200 flex items-center justify-center hover:bg-brand-dark hover:text-white transition-all active:scale-95"
                 >
                   <ChevronRight size={18} className="rotate-180" />
                 </button>
-                <button 
+                <button
                   onClick={() => scroll('right')}
                   className="w-10 h-10 rounded-full border border-neutral-200 flex items-center justify-center hover:bg-brand-dark hover:text-white transition-all active:scale-95"
                 >
