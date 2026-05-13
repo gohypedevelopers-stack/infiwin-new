@@ -153,7 +153,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
                     ease: [0.16, 1, 0.3, 1],
                     delay: isHovered ? index * 0.02 : 0
                   }}
-                  className="absolute bottom-0 right-0 w-[240px] h-[320px] cursor-pointer overflow-hidden rounded-none bg-neutral-900 border border-white/10 shadow-2xl group"
+                  className="absolute bottom-0 right-0 w-[240px] h-[320px] cursor-pointer overflow-hidden rounded-2xl bg-neutral-900 border border-white/10 shadow-2xl group"
                 >
                   <img src={slide.img} alt={slide.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
@@ -649,12 +649,12 @@ const ProductsGrid = () => {
                   flex: hoveredId === p.id ? 2 : hoveredId ? 0.6 : (i === 0 ? 1.5 : 0.8)
                 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="relative group cursor-pointer rounded-none overflow-hidden bg-neutral-100 min-h-[300px] lg:min-h-0"
+                className="relative group cursor-pointer rounded-2xl overflow-hidden bg-neutral-100 min-h-[300px] lg:min-h-0"
               >
                 <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60" />
                 <div className="absolute top-8 right-8">
-                  <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 text-[8px] font-bold text-white rounded-none uppercase tracking-widest">
+                  <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 text-[8px] font-bold text-white rounded-lg uppercase tracking-widest">
                     {p.series}
                   </span>
                 </div>
@@ -684,12 +684,12 @@ const ProductsGrid = () => {
                   flex: hoveredId === p.id ? 1.5 : hoveredId ? 0.7 : 1
                 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="relative group cursor-pointer rounded-none overflow-hidden bg-neutral-100 min-h-[300px] lg:min-h-0"
+                className="relative group cursor-pointer rounded-2xl overflow-hidden bg-neutral-100 min-h-[300px] lg:min-h-0"
               >
                 <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60" />
                 <div className="absolute top-8 right-8">
-                  <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 text-[8px] font-bold text-white rounded-none uppercase tracking-widest">
+                  <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 text-[8px] font-bold text-white rounded-lg uppercase tracking-widest">
                     {p.series}
                   </span>
                 </div>
