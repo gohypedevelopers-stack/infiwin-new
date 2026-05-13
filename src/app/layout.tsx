@@ -18,6 +18,7 @@ const greatVibes = Great_Vibes({ subsets: ["latin"], weight: ["400"], variable: 
 
 import SmoothScroll from "../components/SmoothScroll";
 import { Navbar } from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
   title: "INFIWIN | Reclaim Your Space",
@@ -35,6 +36,7 @@ export default function RootLayout({
         <SmoothScroll>
           <Navbar />
           {children}
+          <Footer />
         </SmoothScroll>
       </body>
     </html>

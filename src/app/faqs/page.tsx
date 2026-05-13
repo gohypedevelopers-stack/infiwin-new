@@ -10,7 +10,6 @@ import {
   ChevronRight
 } from 'lucide-react';
 import React, { useState } from 'react';
-import { Navbar } from '../../components/Navbar';
 
 const faqCategories = [
   {
@@ -48,7 +47,6 @@ export default function FAQsPage() {
 
   return (
     <main className="bg-white min-h-screen">
-      <Navbar />
 
       {/* Hero Section */}
       <section className="relative h-[40vh] flex items-center justify-center overflow-hidden bg-brand-dark pt-20">
@@ -139,10 +137,6 @@ export default function FAQsPage() {
           </div>
         </div>
       </section>
-
-      <footer className="py-20 bg-brand-dark text-white/40 text-center border-t border-white/5">
-        <p className="text-[10px] uppercase tracking-[0.4em]">© 2026 INFIWIN Systems. All Rights Reserved.</p>
-      </footer>
     </main>
   );
 }

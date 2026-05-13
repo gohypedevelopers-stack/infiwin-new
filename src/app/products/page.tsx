@@ -7,7 +7,6 @@ import {
   Maximize,
 } from 'lucide-react';
 import React from 'react';
-import { Navbar } from '../../components/Navbar';
 
 const products = [
   {
@@ -204,7 +203,6 @@ const products = [
 export default function ProductsPage() {
   return (
     <main className="bg-white min-h-screen">
-      <Navbar isSolid={false} />
       
       {/* Hero Section */}
       <section className="relative h-[80vh] flex items-center overflow-hidden bg-brand-dark">

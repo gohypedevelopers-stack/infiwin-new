@@ -10,7 +10,6 @@ import {
   MessageCircle
 } from 'lucide-react';
 import React, { useState } from 'react';
-import { Navbar } from '../../components/Navbar';
 
 export default function ContactPage() {
   const [estimate, setEstimate] = useState<number | null>(null);
@@ -24,7 +23,6 @@ export default function ContactPage() {
 
   return (
     <main className="bg-white min-h-screen">
-      <Navbar />
 
       {/* Hero Section */}
       <section className="relative h-[50vh] flex items-center justify-center overflow-hidden bg-brand-dark pt-20">
@@ -216,9 +214,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <footer className="py-20 bg-brand-dark text-white/40 text-center border-t border-white/5">
-        <p className="text-[10px] uppercase tracking-[0.4em]">© 2026 INFIWIN Systems. All Rights Reserved.</p>
-      </footer>
     </main>
   );
 }
