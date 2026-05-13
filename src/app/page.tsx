@@ -19,7 +19,14 @@ import {
   Building2,
   HardHat,
   Paintbrush,
-  CheckCircle
+  CheckCircle,
+  User,
+  Brain,
+  Flower2,
+  Heart,
+  MoreHorizontal,
+  ArrowLeft,
+  Mouse
 } from 'lucide-react';
 import React, { useState, useEffect, useRef } from 'react';
 
@@ -192,76 +199,189 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-32 md:py-48 bg-white relative overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
-          <div className="relative">
-            <motion.div
-              initial={{ opacity: 0, clipPath: 'inset(0 100% 0 0)' }}
-              whileInView={{ opacity: 1, clipPath: 'inset(0 0% 0 0)' }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-              className="aspect-[4/5] rounded-sm overflow-hidden shadow-2xl"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
-                alt="Corporate Design Excellence"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute top-6 left-6">
-                <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-brand-dark text-[8px] font-bold uppercase tracking-[0.2em] rounded-full shadow-sm">
-                  Case Study: Corporate HQ
-                </span>
-              </div>
-            </motion.div>
-            <div className="absolute -bottom-12 -right-12 w-1/2 aspect-square bg-brand-dark p-8 hidden md:flex flex-col justify-end">
-              <span className="text-brand-primary text-4xl mb-4">01</span>
-              <p className="text-white text-xs font-light leading-relaxed">
-                Architecting the future of high-performance retail and corporate environments.
-              </p>
-            </div>
-          </div>
+    <section id="about" className="py-24 relative overflow-hidden bg-[#F8FAFC]">
+      {/* Background Gradients */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-100/60 rounded-full blur-[120px]"></div>
+        <div className="absolute top-[20%] right-[-10%] w-[50%] h-[50%] bg-blue-50/60 rounded-full blur-[120px]"></div>
+        <div className="absolute bottom-[-10%] left-[20%] w-[60%] h-[60%] bg-white/80 rounded-full blur-[100px]"></div>
+      </div>
 
-          <div className="lg:pl-20">
-            <motion.span
+      <div className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12 relative z-10">
+        
+        {/* Dot Navigation */}
+        <div className="hidden xl:flex flex-col gap-4 absolute right-0 top-1/2 -translate-y-1/2 z-20 pr-4">
+          <div className="w-1.5 h-1.5 rounded-full bg-[#1A1A1A] cursor-pointer hover:scale-150 transition-transform"></div>
+          <div className="w-1.5 h-1.5 rounded-full bg-neutral-300 cursor-pointer hover:scale-150 transition-transform"></div>
+          <div className="w-1.5 h-1.5 rounded-full bg-neutral-300 cursor-pointer hover:scale-150 transition-transform"></div>
+          <div className="w-1.5 h-1.5 rounded-full bg-[#849DB9] ring-2 ring-[#849DB9] ring-offset-4 ring-offset-[#F8FAFC] cursor-pointer"></div>
+        </div>
+
+        {/* Top Content Row */}
+        <div className="grid lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20 items-center mb-16 xl:pr-12">
+          
+          {/* Left Text Block */}
+          <div>
+            <motion.h4
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-[10px] font-bold uppercase tracking-[0.4em] text-neutral-400 mb-8 block"
+              className="text-[#849DB9] text-[10px] font-bold uppercase tracking-[0.2em] mb-6"
             >
               The Foundation
-            </motion.span>
+            </motion.h4>
+
             <motion.h2
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-4xl md:text-6xl text-brand-dark mb-10 leading-tight uppercase"
+              transition={{ delay: 0.1 }}
+              className="text-5xl lg:text-[4.5rem] text-[#1A1A1A] mb-8 leading-[1.1] font-light"
             >
               Defining the <br />
-              <span className="text-brand-primary font-light italic" style={{ textTransform: 'none' }}>Spatial Narrative</span>
+              <span className="text-[#849DB9] italic font-light" style={{ textTransform: 'none' }}>Spatial Narrative</span>
             </motion.h2>
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="text-neutral-500 text-base md:text-lg font-light leading-relaxed mb-12"
+              transition={{ delay: 0.2 }}
+              className="text-[#666666] text-sm md:text-base font-light leading-relaxed max-w-md"
             >
               At INFIWIN, we don't just build spaces; we architect experiences. Our approach to architectural spatial design is rooted in the fusion of precision and ergonomics—ensuring every project we create is as functional as it is visually arresting.
             </motion.p>
-            <div className="grid grid-cols-2 gap-12">
-              <div>
-                <h4 className="text-brand-dark font-bold text-xs uppercase tracking-widest mb-4">Vision</h4>
-                <p className="text-neutral-400 text-xs leading-relaxed">To redefine the standard of luxury interiors across the GCC.</p>
+          </div>
+
+          {/* Right Image Slider Block */}
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="relative aspect-[16/9] lg:aspect-[21/10] rounded-l-[2rem] md:rounded-[2rem] overflow-hidden shadow-2xl mr-[-16px] md:mr-0"
+          >
+            <img 
+              src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" 
+              alt="Architectural Space" 
+              className="w-full h-full object-cover"
+            />
+            {/* Overlay Gradient for bottom controls */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
+            
+            {/* Controls */}
+            <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 flex items-center justify-between">
+              {/* Progress Bar */}
+              <div className="w-1/3 h-[2px] bg-white/30 rounded-full overflow-hidden flex">
+                <div className="w-1/3 h-full bg-[#A5C2EA] rounded-full shadow-[0_0_10px_rgba(165,194,234,0.8)]"></div>
               </div>
-              <div>
-                <h4 className="text-brand-dark font-bold text-xs uppercase tracking-widest mb-4">Mission</h4>
-                <p className="text-neutral-400 text-xs leading-relaxed">Delivering turnkey excellence through innovation and artisan craft.</p>
+              
+              {/* Arrows */}
+              <div className="flex gap-3 md:gap-4">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/40 flex items-center justify-center backdrop-blur-md text-white hover:bg-white/20 transition-colors cursor-pointer">
+                  <ArrowLeft size={18} strokeWidth={1.5} />
+                </div>
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/40 flex items-center justify-center backdrop-blur-md text-white hover:bg-white/20 transition-colors cursor-pointer">
+                  <ArrowRight size={18} strokeWidth={1.5} />
+                </div>
               </div>
             </div>
-          </div>
+          </motion.div>
+
         </div>
+
+        {/* Bottom Cards Row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 xl:pr-12">
+          {[
+            {
+              icon: <User className="text-white" size={24} strokeWidth={1.2} />,
+              title: "Clarity &\nDirection",
+              img: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=800&auto=format&fit=crop",
+              hoverImg: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop"
+            },
+            {
+              icon: <Brain className="text-white" size={24} strokeWidth={1.2} />,
+              title: "Emotional\nBalance",
+              img: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=800&auto=format&fit=crop",
+              hoverImg: "https://images.unsplash.com/photo-1506836467174-27f1042aa48c?q=80&w=800&auto=format&fit=crop"
+            },
+            {
+              icon: <Flower2 className="text-white" size={24} strokeWidth={1.2} />,
+              title: "Support\nWithout Pressure",
+              img: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=800&auto=format&fit=crop",
+              hoverImg: "https://images.unsplash.com/photo-1510627489930-0c1b0bfb6785?q=80&w=800&auto=format&fit=crop"
+            },
+            {
+              icon: <Heart className="text-white" size={24} strokeWidth={1.2} />,
+              title: "Space for\nEveryone",
+              img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop",
+              hoverImg: "https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?q=80&w=800&auto=format&fit=crop"
+            }
+          ].map((card, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 + (idx * 0.1) }}
+              className="relative aspect-[3/4] md:aspect-[4/5] lg:aspect-[3/4] rounded-3xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-[0_0_40px_rgba(165,194,234,0.4)] hover:ring-[3px] hover:ring-[#A5C2EA] hover:ring-offset-4 hover:ring-offset-[#F8FAFC] transition-all duration-500 hover:-translate-y-2 bg-neutral-900"
+            >
+              {/* Layer 0: Base Image */}
+              <div className="absolute inset-0 z-0 transition-transform duration-[1.5s] ease-out group-hover:scale-110">
+                <img 
+                  src={card.img} 
+                  alt={card.title.replace('\n', ' ')} 
+                  className="w-full h-full object-cover opacity-90"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/40 to-transparent"></div>
+              </div>
+
+              {/* Layer 1: Off-White Scrolling Transition Edge */}
+              <div className="absolute inset-0 bg-[#FAF8F5] -translate-y-full group-hover:translate-y-0 transition-transform duration-[600ms] ease-[cubic-bezier(0.7,0,0.3,1)] z-10 group-hover:delay-0 delay-[75ms]"></div>
+
+              {/* Layer 2: New Image Layer sliding down just behind the off-white edge */}
+              <div className="absolute inset-0 -translate-y-full group-hover:translate-y-0 transition-transform duration-[600ms] ease-[cubic-bezier(0.7,0,0.3,1)] z-20 group-hover:delay-[75ms] delay-0">
+                <img 
+                  src={card.hoverImg} 
+                  alt={`${card.title.replace('\n', ' ')} Hover`} 
+                  className="w-full h-full object-cover transition-transform duration-[2s] scale-110 group-hover:scale-100"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/40 to-[#1A1A1A]/10"></div>
+                {/* Subtle blue multiply blend to enhance the active feel on hover */}
+                <div className="absolute inset-0 bg-blue-900/30 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-300"></div>
+              </div>
+              
+              {/* Layer 3: Static Content over the transition */}
+              <div className="absolute inset-0 p-8 flex flex-col justify-between z-30">
+                <div>
+                  <div className="w-14 h-14 rounded-full border border-white/40 flex items-center justify-center backdrop-blur-sm group-hover:border-white/80 group-hover:bg-white/10 transition-colors duration-500">
+                    {card.icon}
+                  </div>
+                </div>
+                
+                <div className="transform transition-transform duration-500 group-hover:-translate-y-1">
+                  <h3 className="text-white text-[1.75rem] font-light leading-snug mb-6 whitespace-pre-line drop-shadow-md">{card.title}</h3>
+                  <div className="flex items-center text-white/70 group-hover:text-white transition-colors duration-300">
+                    <ArrowRight size={28} strokeWidth={1} className="transform transition-transform duration-500 group-hover:translate-x-2" />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Scroll Indicator */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.8 }}
+          className="flex justify-center items-center gap-3 mt-20 text-neutral-400"
+        >
+          <Mouse size={20} strokeWidth={1.5} />
+          <span className="text-[10px] tracking-[0.2em] uppercase font-bold">Scroll to explore</span>
+        </motion.div>
+
       </div>
     </section>
   );
