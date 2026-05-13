@@ -343,7 +343,7 @@ const BestSellingProduct = () => {
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             >
-              <a href="#contact" className="group inline-flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.2em] text-brand-dark border-b border-brand-dark/20 pb-2 hover:border-brand-primary transition-all">
+              <a href="/products" className="group inline-flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.2em] text-brand-dark border-b border-brand-dark/20 pb-2 hover:border-brand-primary transition-all">
                 Learn More <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
               </a>
             </motion.div>
@@ -725,7 +725,7 @@ const ProductsGrid = () => {
               Products Grid
             </h2>
           </div>
-          <a href="#" className="hidden md:flex items-center gap-4 px-8 py-3 border border-neutral-200 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-neutral-50 transition-all">
+          <a href="/products" className="hidden md:flex items-center gap-4 px-8 py-3 border border-neutral-200 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-neutral-50 transition-all">
             View All <ArrowUpRight size={14} />
           </a>
         </div>

@@ -7,11 +7,11 @@ import { Mail, Phone, ChevronDown, ArrowRight, Instagram, Linkedin, Facebook, Me
 
 const NAV_ITEMS = [
   { name: "Home", href: "/" },
-  { name: "Products", href: "#products" },
-  { name: "Applications", href: "#applications" },
-  { name: "About", href: "#about" },
-  { name: "FAQs", href: "#faqs" },
-  { name: "Contact", href: "#contact" },
+  { name: "Products", href: "/products" },
+  { name: "Applications", href: "/applications" },
+  { name: "About", href: "/about" },
+  { name: "FAQs", href: "/faqs" },
+  { name: "Contact", href: "/contact" },
 ];
 
 const PRODUCTS = [
