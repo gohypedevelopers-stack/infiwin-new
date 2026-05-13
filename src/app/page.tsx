@@ -153,7 +153,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
                     ease: [0.16, 1, 0.3, 1],
                     delay: isHovered ? index * 0.02 : 0
                   }}
-                  className="absolute bottom-0 right-0 w-[240px] h-[320px] cursor-pointer overflow-hidden rounded-2xl bg-neutral-900 border border-white/10 shadow-2xl group"
+                  className="absolute bottom-0 right-0 w-[240px] h-[320px] cursor-pointer overflow-hidden rounded-none bg-neutral-900 border border-white/10 shadow-2xl group"
                 >
                   <img src={slide.img} alt={slide.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
@@ -171,10 +171,10 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
                       <span className="text-xl font-bold text-white leading-none">{slide.price.split(' ')[1]}</span>
                       <span className="text-[10px] text-white/40 line-through tracking-tighter">$8,500</span>
                     </div>
-                    <h4 className="text-xs font-bold text-white uppercase tracking-widest leading-tight mb-1">
+                    <h4 className="text-xs font-bold text-white leading-tight mb-1">
                       {slide.title}
                     </h4>
-                    <p className="text-[8px] text-white/40 uppercase tracking-[0.2em]">
+                    <p className="text-[8px] text-white/40 tracking-[0.2em]">
                       Architectural Series
                     </p>
                   </div>
@@ -197,276 +197,63 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
   );
 };
 
-const AboutSection = () => {
-  return (
-    <section id="about" className="py-24 relative overflow-hidden bg-[#F8FAFC]">
-      {/* Background Gradients */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-100/60 rounded-full blur-[120px]"></div>
-        <div className="absolute top-[20%] right-[-10%] w-[50%] h-[50%] bg-blue-50/60 rounded-full blur-[120px]"></div>
-        <div className="absolute bottom-[-10%] left-[20%] w-[60%] h-[60%] bg-white/80 rounded-full blur-[100px]"></div>
-      </div>
-
-      <div className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12 relative z-10">
-        
-        {/* Dot Navigation */}
-        <div className="hidden xl:flex flex-col gap-4 absolute right-0 top-1/2 -translate-y-1/2 z-20 pr-4">
-          <div className="w-1.5 h-1.5 rounded-full bg-[#1A1A1A] cursor-pointer hover:scale-150 transition-transform"></div>
-          <div className="w-1.5 h-1.5 rounded-full bg-neutral-300 cursor-pointer hover:scale-150 transition-transform"></div>
-          <div className="w-1.5 h-1.5 rounded-full bg-neutral-300 cursor-pointer hover:scale-150 transition-transform"></div>
-          <div className="w-1.5 h-1.5 rounded-full bg-[#849DB9] ring-2 ring-[#849DB9] ring-offset-4 ring-offset-[#F8FAFC] cursor-pointer"></div>
-        </div>
-
-        {/* Top Content Row */}
-        <div className="grid lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20 items-center mb-16 xl:pr-12">
-          
-          {/* Left Text Block */}
-          <div>
-            <motion.h4
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-[#849DB9] text-[10px] font-bold uppercase tracking-[0.2em] mb-6"
-            >
-              The Foundation
-            </motion.h4>
-
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-5xl lg:text-[4.5rem] text-[#1A1A1A] mb-8 leading-[1.1] font-light"
-            >
-              Defining the <br />
-              <span className="text-[#849DB9] italic font-light" style={{ textTransform: 'none' }}>Spatial Narrative</span>
-            </motion.h2>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-[#666666] text-sm md:text-base font-light leading-relaxed max-w-md"
-            >
-              At INFIWIN, we don't just build spaces; we architect experiences. Our approach to architectural spatial design is rooted in the fusion of precision and ergonomics—ensuring every project we create is as functional as it is visually arresting.
-            </motion.p>
-          </div>
-
-          {/* Right Image Slider Block */}
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="relative aspect-[16/9] lg:aspect-[21/10] rounded-l-[2rem] md:rounded-[2rem] overflow-hidden shadow-2xl mr-[-16px] md:mr-0"
-          >
-            <img 
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" 
-              alt="Architectural Space" 
-              className="w-full h-full object-cover"
-            />
-            {/* Overlay Gradient for bottom controls */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
-            
-            {/* Controls */}
-            <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 flex items-center justify-between">
-              {/* Progress Bar */}
-              <div className="w-1/3 h-[2px] bg-white/30 rounded-full overflow-hidden flex">
-                <div className="w-1/3 h-full bg-[#A5C2EA] rounded-full shadow-[0_0_10px_rgba(165,194,234,0.8)]"></div>
-              </div>
-              
-              {/* Arrows */}
-              <div className="flex gap-3 md:gap-4">
-                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/40 flex items-center justify-center backdrop-blur-md text-white hover:bg-white/20 transition-colors cursor-pointer">
-                  <ArrowLeft size={18} strokeWidth={1.5} />
-                </div>
-                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/40 flex items-center justify-center backdrop-blur-md text-white hover:bg-white/20 transition-colors cursor-pointer">
-                  <ArrowRight size={18} strokeWidth={1.5} />
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-        </div>
-
-        {/* Bottom Cards Row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 xl:pr-12">
-          {[
-            {
-              icon: <User className="text-white" size={24} strokeWidth={1.2} />,
-              title: "Clarity &\nDirection",
-              img: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=800&auto=format&fit=crop",
-              hoverImg: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop"
-            },
-            {
-              icon: <Brain className="text-white" size={24} strokeWidth={1.2} />,
-              title: "Emotional\nBalance",
-              img: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=800&auto=format&fit=crop",
-              hoverImg: "https://images.unsplash.com/photo-1506836467174-27f1042aa48c?q=80&w=800&auto=format&fit=crop"
-            },
-            {
-              icon: <Flower2 className="text-white" size={24} strokeWidth={1.2} />,
-              title: "Support\nWithout Pressure",
-              img: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=800&auto=format&fit=crop",
-              hoverImg: "https://images.unsplash.com/photo-1510627489930-0c1b0bfb6785?q=80&w=800&auto=format&fit=crop"
-            },
-            {
-              icon: <Heart className="text-white" size={24} strokeWidth={1.2} />,
-              title: "Space for\nEveryone",
-              img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop",
-              hoverImg: "https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?q=80&w=800&auto=format&fit=crop"
-            }
-          ].map((card, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 + (idx * 0.1) }}
-              className="relative aspect-[3/4] md:aspect-[4/5] lg:aspect-[3/4] rounded-3xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-[0_0_40px_rgba(165,194,234,0.4)] hover:ring-[3px] hover:ring-[#A5C2EA] hover:ring-offset-4 hover:ring-offset-[#F8FAFC] transition-all duration-500 hover:-translate-y-2 bg-neutral-900"
-            >
-              {/* Layer 0: Base Image */}
-              <div className="absolute inset-0 z-0 transition-transform duration-[1.5s] ease-out group-hover:scale-110">
-                <img 
-                  src={card.img} 
-                  alt={card.title.replace('\n', ' ')} 
-                  className="w-full h-full object-cover opacity-90"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/40 to-transparent"></div>
-              </div>
-
-              {/* Layer 1: Off-White Scrolling Transition Edge */}
-              <div className="absolute inset-0 bg-[#FAF8F5] -translate-y-full group-hover:translate-y-0 transition-transform duration-[600ms] ease-[cubic-bezier(0.7,0,0.3,1)] z-10 group-hover:delay-0 delay-[75ms]"></div>
-
-              {/* Layer 2: New Image Layer sliding down just behind the off-white edge */}
-              <div className="absolute inset-0 -translate-y-full group-hover:translate-y-0 transition-transform duration-[600ms] ease-[cubic-bezier(0.7,0,0.3,1)] z-20 group-hover:delay-[75ms] delay-0">
-                <img 
-                  src={card.hoverImg} 
-                  alt={`${card.title.replace('\n', ' ')} Hover`} 
-                  className="w-full h-full object-cover transition-transform duration-[2s] scale-110 group-hover:scale-100"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/40 to-[#1A1A1A]/10"></div>
-                {/* Subtle blue multiply blend to enhance the active feel on hover */}
-                <div className="absolute inset-0 bg-blue-900/30 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-300"></div>
-              </div>
-              
-              {/* Layer 3: Static Content over the transition */}
-              <div className="absolute inset-0 p-8 flex flex-col justify-between z-30">
-                <div>
-                  <div className="w-14 h-14 rounded-full border border-white/40 flex items-center justify-center backdrop-blur-sm group-hover:border-white/80 group-hover:bg-white/10 transition-colors duration-500">
-                    {card.icon}
-                  </div>
-                </div>
-                
-                <div className="transform transition-transform duration-500 group-hover:-translate-y-1">
-                  <h3 className="text-white text-[1.75rem] font-light leading-snug mb-6 whitespace-pre-line drop-shadow-md">{card.title}</h3>
-                  <div className="flex items-center text-white/70 group-hover:text-white transition-colors duration-300">
-                    <ArrowRight size={28} strokeWidth={1} className="transform transition-transform duration-500 group-hover:translate-x-2" />
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Scroll Indicator */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.8 }}
-          className="flex justify-center items-center gap-3 mt-20 text-neutral-400"
-        >
-          <Mouse size={20} strokeWidth={1.5} />
-          <span className="text-[10px] tracking-[0.2em] uppercase font-bold">Scroll to explore</span>
-        </motion.div>
-
-      </div>
-    </section>
-  );
-};
-
-const BenefitsSection = () => {
-  const benefits = [
-    { title: "Visual Space", desc: "Maximize your panoramic views without bulky frames.", icon: <Monitor size={24} /> },
-    { title: "Sound Proof", desc: "Enjoy tranquility with high-performance acoustic glass.", icon: <Coffee size={24} /> },
-    { title: "Weather Guard", desc: "Protection against dust, rain, and extreme heat.", icon: <MapPin size={24} /> },
-    { title: "Safety First", desc: "Toughened glass systems for ultimate security.", icon: <CheckCircle size={24} /> }
-  ];
-
-  return (
-    <section className="py-24 bg-neutral-50">
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {benefits.map((b, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-white p-8 rounded-sm shadow-sm border border-neutral-100"
-            >
-              <div className="text-brand-primary mb-6">{b.icon}</div>
-              <h3 className="text-sm font-bold uppercase tracking-wider text-brand-dark mb-3">{b.title}</h3>
-              <p className="text-neutral-400 text-xs leading-relaxed">{b.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const BestSellingProduct = () => {
   return (
-    <section className="py-32 md:py-48 bg-white overflow-hidden">
+    <section className="py-24 md:py-32 bg-[#F8FAFC] overflow-hidden border-y border-neutral-100">
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
         <div className="grid lg:grid-cols-2 gap-24 items-center">
           {/* Left Column: Text */}
-          <div className="order-2 lg:order-1">
-            <motion.span
-              initial={{ opacity: 0, y: -40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-[10px] font-bold uppercase tracking-[0.4em] text-neutral-400 mb-8 block"
-            >
-              Featured System
-            </motion.span>
+          <div className="order-2 lg:order-1 relative">
 
-            <motion.h2
-              initial={{ opacity: 0, y: -60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-6xl md:text-8xl text-brand-dark mb-12 leading-[0.9] uppercase"
-            >
-              Slide & <br />
-              <span className="text-brand-primary italic font-light lowercase">Turn System</span>
-            </motion.h2>
+            <div className="relative z-10">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="flex items-center gap-4 mb-8"
+              >
+                <div className="h-[1px] w-12 bg-brand-primary" />
+                <span className="text-[10px] font-bold tracking-[0.4em] text-neutral-400 uppercase">
+                  Featured system
+                </span>
+              </motion.div>
 
-            <motion.p
-              initial={{ opacity: 0, y: -40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-neutral-500 text-base md:text-lg font-light leading-relaxed mb-16 max-w-md"
-            >
-              At INFIWIN, we believe that architectural spatial design is not just about how a space looks – it's about how it makes you feel. Our signature Slide & Turn system reclaim your outdoor space with frameless precision.
-            </motion.p>
+              <motion.h2
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="text-4xl md:text-7xl text-brand-dark mb-10 leading-[1] font-semibold"
+              >
+                Slide & <br />
+                <span className="text-brand-primary">Turn system</span>
+              </motion.h2>
 
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <a href="/products" className="group inline-flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.2em] text-brand-dark border-b border-brand-dark/20 pb-2 hover:border-brand-primary transition-all">
-                Learn More <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
-              </a>
-            </motion.div>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="text-neutral-500 text-base md:text-lg font-semibold leading-relaxed mb-12 max-w-md"
+              >
+                At INFIWIN, we believe that architectural spatial design is not just about how a space looks – it's about how it makes you feel. Our signature Slide & Turn system reclaim your outdoor space with frameless precision.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="flex items-center gap-8"
+              >
+                <a href="/products" className="group inline-flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.2em] text-brand-dark bg-white px-8 py-4 rounded-none shadow-sm hover:bg-brand-primary hover:text-white transition-all">
+                  Inquire Now <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
+                </a>
+                <a href="/products" className="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400 hover:text-brand-primary transition-colors">
+                  Technical Specs
+                </a>
+              </motion.div>
+            </div>
           </div>
 
           {/* Right Column: Images */}
@@ -784,7 +571,7 @@ const ProcessSection = () => {
               </span>
               <div className="relative z-10 pt-10">
                 <h3 className="text-lg text-brand-dark mb-4 uppercase tracking-widest">{step.title}</h3>
-                <p className="text-neutral-400 text-sm font-light leading-relaxed">{step.desc}</p>
+                <p className="text-neutral-400 text-sm font-semibold leading-relaxed">{step.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -800,38 +587,38 @@ const ProductsGrid = () => {
   const products = [
     {
       id: "p1",
-      title: "Slide & Turn System",
-      desc: "100% clear opening for seamless views.",
-      series: "S1 SERIES",
-      img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
+      title: "Folding Glass Balcony Systems",
+      desc: "100% clear opening with seamless frameless views.",
+      series: "BALCONY SERIES",
+      img: "/hero/balcony.png",
     },
     {
       id: "p2",
-      title: "Telescopic Slider",
-      desc: "Smooth multi-track sliding for wide spans.",
-      series: "T1 SERIES",
-      img: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=2158&auto=format&fit=crop",
+      title: "Insulated Glass Balcony Systems",
+      desc: "Superior thermal comfort for extreme climates.",
+      series: "THERMAL SERIES",
+      img: "/products/insulated.png",
     },
     {
       id: "p3",
-      title: "Bi-fold Doors",
-      desc: "Classic folding panels for architectural beauty.",
-      series: "B1 SERIES",
-      img: "https://images.unsplash.com/photo-1481437156560-3205f6a55735?q=80&w=2095&auto=format&fit=crop",
+      title: "Sliding Glass Systems",
+      desc: "Smooth multi-track transitions for patios and terraces.",
+      series: "SLIDER SERIES",
+      img: "/products/sliding.png",
     },
     {
       id: "p4",
-      title: "2 Track Slider",
-      desc: "Space-efficient sliding for windows and doors.",
-      series: "T2 SERIES",
-      img: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1932&auto=format&fit=crop",
+      title: "Guillotine Glass Systems",
+      desc: "Motorized vertical sliding systems for modern cafes.",
+      series: "MOTORIZED SERIES",
+      img: "/products/guillotine.png",
     },
     {
       id: "p5",
-      title: "3 Track Slider",
-      desc: "Enhanced flexibility with triple track versatility.",
-      series: "T3 SERIES",
-      img: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
+      title: "Bioclimatic Pergola",
+      desc: "IoT-enabled smart roof for ultimate light control.",
+      series: "SMART ROOF",
+      img: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop",
     }
   ];
 
@@ -840,8 +627,8 @@ const ProductsGrid = () => {
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
         <div className="flex justify-between items-end mb-16">
           <div>
-            <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-brand-primary mb-4 block">Our Systems</span>
-            <h2 className="text-4xl md:text-6xl text-brand-dark uppercase tracking-tight">
+            <span className="text-[10px] font-bold tracking-[0.5em] text-brand-primary mb-4 block">Our Systems</span>
+            <h2 className="text-4xl md:text-5xl text-brand-dark tracking-tight">
               Products Grid
             </h2>
           </div>
@@ -862,21 +649,21 @@ const ProductsGrid = () => {
                   flex: hoveredId === p.id ? 2 : hoveredId ? 0.6 : (i === 0 ? 1.5 : 0.8)
                 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="relative group cursor-pointer rounded-[2.5rem] overflow-hidden bg-neutral-100 min-h-[300px] lg:min-h-0"
+                className="relative group cursor-pointer rounded-none overflow-hidden bg-neutral-100 min-h-[300px] lg:min-h-0"
               >
                 <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60" />
                 <div className="absolute top-8 right-8">
-                  <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 text-[10px] font-bold text-white rounded-full uppercase tracking-widest">
+                  <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 text-[8px] font-bold text-white rounded-none uppercase tracking-widest">
                     {p.series}
                   </span>
                 </div>
                 <div className="absolute bottom-10 left-10 text-white max-w-[280px]">
-                  <h3 className="text-2xl lg:text-3xl mb-3 italic leading-tight">{p.title}</h3>
+                  <h3 className="text-lg lg:text-xl mb-3 leading-tight font-semibold">{p.title}</h3>
                   {i === 0 && (
                     <motion.p
                       animate={{ opacity: hoveredId === p.id || !hoveredId ? 1 : 0 }}
-                      className="text-white/60 text-[10px] uppercase tracking-widest font-light hidden lg:block"
+                      className="text-white/60 text-[8px] uppercase tracking-widest font-semibold hidden lg:block"
                     >
                       {p.desc}
                     </motion.p>
@@ -897,17 +684,17 @@ const ProductsGrid = () => {
                   flex: hoveredId === p.id ? 1.5 : hoveredId ? 0.7 : 1
                 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="relative group cursor-pointer rounded-[2.5rem] overflow-hidden bg-neutral-100 min-h-[300px] lg:min-h-0"
+                className="relative group cursor-pointer rounded-none overflow-hidden bg-neutral-100 min-h-[300px] lg:min-h-0"
               >
                 <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60" />
                 <div className="absolute top-8 right-8">
-                  <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 text-[10px] font-bold text-white rounded-full uppercase tracking-widest">
+                  <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 text-[8px] font-bold text-white rounded-none uppercase tracking-widest">
                     {p.series}
                   </span>
                 </div>
                 <div className="absolute bottom-10 left-10 text-white">
-                  <h3 className="text-2xl lg:text-3xl italic">{p.title}</h3>
+                  <h3 className="text-lg lg:text-xl font-semibold">{p.title}</h3>
                 </div>
               </motion.div>
             ))}
@@ -922,6 +709,20 @@ const PortfolioSection = () => {
   const [activeFilter, setActiveFilter] = useState('All');
 
   const projects = [
+    {
+      id: "p06",
+      category: "Residential",
+      title: "Balcony Glazing",
+      location: "DUBAI, 2025",
+      img: "/hero/balcony.png",
+    },
+    {
+      id: "p07",
+      category: "Villa",
+      title: "Patio Glazing",
+      location: "DUBAI, 2025",
+      img: "/hero/patio.png",
+    },
     {
       id: "p01",
       category: "Residential",
@@ -980,7 +781,7 @@ const PortfolioSection = () => {
   };
 
   return (
-    <section id="projects" className="pt-32 md:pt-48 pb-16 md:pb-24 bg-[#f0f7ff] overflow-hidden relative">
+    <section id="projects" className="pt-20 md:pt-24 pb-16 md:pb-24 bg-[#f0f7ff] overflow-hidden relative border-t border-neutral-50">
       {/* Architectural Background Sketch */}
       <div className="absolute top-0 left-0 w-full h-[600px] opacity-[0.5] pointer-events-none select-none">
         <img
@@ -991,13 +792,17 @@ const PortfolioSection = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#f0f7ff]" />
       </div>
 
+
       <div className="max-w-[1600px] mx-auto px-6 md:px-12 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 gap-8">
-          <div className="max-w-2xl">
-            <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-brand-primary mb-6 block">Selected Works</span>
-            <h2 className="text-4xl md:text-6xl text-brand-dark uppercase leading-tight">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-20 gap-8">
+          <div className="max-w-2xl relative">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="h-[1px] w-12 bg-brand-primary" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-brand-primary block">Selected Works</span>
+            </div>
+            <h2 className="text-4xl md:text-7xl text-brand-dark leading-[1] font-semibold">
               Excellence in <br />
-              <span className="text-neutral-300 font-light italic" style={{ textTransform: 'none' }}>Execution</span>
+              <span className="text-brand-primary">Execution</span>
             </h2>
           </div>
           <div className="flex flex-wrap gap-4">
@@ -1038,7 +843,7 @@ const PortfolioSection = () => {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -50 }}
                   transition={{ duration: 0.8, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                  className="w-[300px] md:w-[420px] aspect-[4/5] relative group/card cursor-pointer rounded-2xl overflow-hidden bg-neutral-100"
+                  className="w-[300px] md:w-[420px] aspect-[4/5] relative group/card cursor-pointer rounded-none overflow-hidden bg-neutral-100"
                 >
                   <img
                     src={project.img}
@@ -1048,7 +853,7 @@ const PortfolioSection = () => {
 
                   {/* Category Pill */}
                   <div className="absolute top-6 left-6 z-20">
-                    <span className="px-4 py-1.5 bg-white/95 text-[8px] font-bold uppercase tracking-widest text-brand-dark rounded-full shadow-sm">
+                    <span className="px-4 py-1.5 bg-white/95 text-[8px] font-bold uppercase tracking-widest text-brand-dark rounded-none shadow-sm">
                       {project.category}
                     </span>
                   </div>
@@ -1056,16 +861,16 @@ const PortfolioSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover/card:opacity-80 transition-opacity duration-500" />
 
                   <div className="absolute bottom-10 left-10 text-white">
-                    <span className="text-[10px] font-light tracking-[0.2em] uppercase text-white/60 mb-2 block">
+                    <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/60 mb-2 block">
                       {project.location}
                     </span>
-                    <h3 className="text-xl md:text-2xl italic font-light">
+                    <h3 className="text-xl md:text-2xl italic font-semibold">
                       {project.title}
                     </h3>
                   </div>
 
                   {/* Hover Arrow */}
-                  <div className="absolute top-10 right-10 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 group-hover/card:opacity-100 transition-all duration-500 -translate-y-4 group-hover/card:translate-y-0">
+                  <div className="absolute top-10 right-10 w-12 h-12 rounded-none bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 group-hover/card:opacity-100 transition-all duration-500 -translate-y-4 group-hover/card:translate-y-0">
                     <ArrowUpRight size={20} />
                   </div>
                 </motion.div>
@@ -1088,13 +893,13 @@ const PortfolioSection = () => {
               <div className="flex gap-2">
                 <button
                   onClick={() => scroll('left')}
-                  className="w-10 h-10 rounded-full border border-neutral-200 flex items-center justify-center hover:bg-brand-dark hover:text-white transition-all active:scale-95"
+                  className="w-10 h-10 rounded-none border border-neutral-200 flex items-center justify-center hover:bg-brand-dark hover:text-white transition-all active:scale-95"
                 >
                   <ChevronRight size={18} className="rotate-180" />
                 </button>
                 <button
                   onClick={() => scroll('right')}
-                  className="w-10 h-10 rounded-full border border-neutral-200 flex items-center justify-center hover:bg-brand-dark hover:text-white transition-all active:scale-95"
+                  className="w-10 h-10 rounded-none border border-neutral-200 flex items-center justify-center hover:bg-brand-dark hover:text-white transition-all active:scale-95"
                 >
                   <ChevronRight size={18} />
                 </button>
@@ -1155,7 +960,7 @@ const Testimonials = () => {
           >
             {/* Top Line: W (Cursive) + HAT (Gold) */}
             <div
-              className="text-4xl md:text-6xl uppercase tracking-[0.1em] text-brand-primary flex justify-center items-center"
+              className="text-3xl md:text-5xl tracking-[0.1em] text-brand-primary flex justify-center items-center"
             >
               <motion.span
                 variants={{
@@ -1163,7 +968,7 @@ const Testimonials = () => {
                   visible: { scale: 1, opacity: 1 }
                 }}
                 transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="font-normal italic"
+                className="font-normal"
                 style={{ textTransform: 'none' }}
               >
                 W
@@ -1185,9 +990,9 @@ const Testimonials = () => {
 
             {/* Bottom Line: CUSTOMERS SAY (Black) */}
             <div
-              className="text-4xl md:text-8xl uppercase tracking-tight -mt-1 md:-mt-2 flex justify-center items-center text-black"
+              className="text-4xl md:text-6xl tracking-tight -mt-1 md:-mt-2 flex justify-center items-center text-black"
             >
-              {"CUSTOMERS SAY".split("").map((char, i) => (
+              {"customers say".split("").map((char, i) => (
                 <motion.span
                   key={i}
                   variants={{
@@ -1317,7 +1122,7 @@ const ClientsSection = () => {
             >
               {/* Top Line: O (Cursive) + UR (Gold) */}
               <div
-                className="text-4xl md:text-6xl uppercase tracking-[0.1em] text-brand-primary flex justify-center items-center"
+                className="text-3xl md:text-5xl tracking-[0.1em] text-brand-primary flex justify-center items-center"
               >
                 <motion.span
                   variants={{
@@ -1325,7 +1130,7 @@ const ClientsSection = () => {
                     visible: { scale: 1, opacity: 1 }
                   }}
                   transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="font-normal italic"
+                  className="font-normal"
                   style={{ textTransform: 'none' }}
                 >
                   O
@@ -1347,9 +1152,9 @@ const ClientsSection = () => {
 
               {/* Bottom Line: CLIENTS (Black) */}
               <div
-                className="text-4xl md:text-8xl uppercase tracking-tight -mt-1 md:-mt-2 flex justify-center items-center text-black"
+                className="text-4xl md:text-6xl tracking-tight -mt-1 md:-mt-2 flex justify-center items-center text-black"
               >
-                {"CLIENTS".split("").map((char, i) => (
+                {"clients".split("").map((char, i) => (
                   <motion.span
                     key={i}
                     variants={{
@@ -1499,32 +1304,36 @@ const PMCSection = () => {
   ];
 
   return (
-    <section id="pmc" className="py-32 md:py-48 bg-brand-dark text-white relative overflow-hidden">
+    <section id="pmc" className="py-24 md:py-32 bg-brand-dark text-white relative overflow-hidden">
+
       <div className="max-w-[1500px] mx-auto px-6 md:px-12 relative z-10">
         <div className="grid lg:grid-cols-2 gap-24 items-center">
           <div>
-            <motion.span
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="text-[10px] font-bold uppercase tracking-[0.6em] text-brand-primary mb-10 block"
+              className="flex items-center gap-4 mb-10"
             >
-              Consultancy Excellence
-            </motion.span>
+              <div className="h-[1px] w-12 bg-brand-primary" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.6em] text-brand-primary block">
+                Consultancy Excellence
+              </span>
+            </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-7xl mb-12 uppercase leading-tight"
+              className="text-4xl md:text-7xl mb-12 uppercase leading-[1] font-semibold"
             >
               The Science <br />
-              <span className="text-neutral-500 font-light italic" style={{ textTransform: 'none' }}>of Execution</span>
+              <span className="text-neutral-500">of Execution</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-neutral-400 text-base md:text-lg font-light leading-relaxed mb-16 max-w-xl"
+              className="text-neutral-400 text-base md:text-lg font-semibold leading-relaxed mb-16 max-w-xl"
             >
               Our Project Management Consultancy provides a singular point of accountability. we orchestrate every technical detail, ensuring your vision is realized without compromise.
             </motion.p>
@@ -1542,7 +1351,7 @@ const PMCSection = () => {
                   <span className="text-brand-primary text-2xl opacity-50 group-hover:opacity-100 transition-opacity">0{i + 1}</span>
                   <div>
                     <h4 className="text-white text-lg mb-2 uppercase tracking-widest">{step.title}</h4>
-                    <p className="text-neutral-500 text-sm font-light">{step.desc}</p>
+                    <p className="text-neutral-500 text-sm font-semibold">{step.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -1576,6 +1385,58 @@ const PMCSection = () => {
   );
 };
 
+const GlazingSolutionsSection = () => {
+  return (
+    <section className="bg-white">
+      {/* Balcony Glazing Block */}
+      <div className="flex flex-col lg:flex-row h-auto lg:h-[500px]">
+        <div className="lg:w-1/2 bg-[#f4f7f9] flex flex-col items-center justify-center p-12 lg:p-24 text-center order-2 lg:order-1">
+          <h2 className="text-3xl font-bold text-[#003c71] mb-6">Balcony Glazing</h2>
+          <p className="text-neutral-600 text-sm leading-relaxed max-w-md mb-10">
+            Learn more about the INFIWIN Balcony Glazing. All the benefits, planning and see what other customers worldwide have done and get inspired.
+          </p>
+          <a 
+            href="/products#balcony" 
+            className="bg-[#a5c2ea] text-[#003c71] font-bold text-[10px] uppercase tracking-[0.2em] px-12 py-4 hover:bg-[#8eb3e4] transition-colors"
+          >
+            Balcony Glazing
+          </a>
+        </div>
+        <div className="lg:w-1/2 relative h-[400px] lg:h-full order-1 lg:order-2">
+          <img 
+            src="/hero/balcony.png" 
+            alt="Balcony Glazing" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+
+      {/* Patio Glazing Block */}
+      <div className="flex flex-col lg:flex-row h-auto lg:h-[500px]">
+        <div className="lg:w-1/2 relative h-[400px] lg:h-full">
+          <img 
+            src="/hero/patio.png" 
+            alt="Patio Glazing" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="lg:w-1/2 bg-[#f4f7f9] flex flex-col items-center justify-center p-12 lg:p-24 text-center">
+          <h2 className="text-3xl font-bold text-[#003c71] mb-6">Patio Glazing</h2>
+          <p className="text-neutral-600 text-sm leading-relaxed max-w-md mb-10">
+            See how our glazing systems turn unused outdoor places into inspiring and stylish spaces to add more room for life in your home.
+          </p>
+          <a 
+            href="/products#patio" 
+            className="bg-[#a5c2ea] text-[#003c71] font-bold text-[10px] uppercase tracking-[0.2em] px-12 py-4 hover:bg-[#8eb3e4] transition-colors"
+          >
+            Patio Glazing
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Footer = () => {
   return (
     <footer className="bg-white text-brand-dark py-24 border-t border-brand-dark/5">
@@ -1585,7 +1446,7 @@ const Footer = () => {
             <a href="#" className="flex items-center mb-10 group">
               <img src="https://www.infiwindow.com/images/logo1.png" alt="INFIWIN" className="h-20 w-auto hover:scale-105 transition-transform" />
             </a>
-            <p className="text-neutral-500 text-sm leading-relaxed mb-10 font-light">
+            <p className="text-neutral-500 text-sm leading-relaxed mb-10 font-semibold">
               Reclaiming space through architectural innovation and high-performance spatial solutions across the GCC.
             </p>
             <div className="flex gap-8">
@@ -1644,9 +1505,8 @@ export default function Page() {
 
       {/* Main Content Wrapper - No more sticky overlap */}
       <div className="relative z-10 bg-white">
-        <AboutSection />
-        <BenefitsSection />
         <BestSellingProduct />
+        <GlazingSolutionsSection />
         <ProductsGrid />
         <PortfolioSection />
         <ApplicationsSection />
