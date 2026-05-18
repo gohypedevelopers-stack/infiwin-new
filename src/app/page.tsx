@@ -45,7 +45,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
       tagline: "Unobstructed horizons meet minimalist precision.",
       price: "From $2,500",
       duration: "4-Week Turnkey",
-      img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop",
+      img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4395.JPG",
     },
     {
       id: 2,
@@ -54,7 +54,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
       tagline: "Harmonizing classic villa aesthetics with modern technology.",
       price: "From $4,200",
       duration: "6-Week Install",
-      img: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop",
+      img: "/extracted_assets/Website/Images/S&T/Hotel Penensula/IMG-20230416-WA0001.jpg",
     },
     {
       id: 3,
@@ -63,7 +63,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
       tagline: "Moody, executive environments architected for focus.",
       price: "From $3,100",
       duration: "3-Week Turnkey",
-      img: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop",
+      img: "/extracted_assets/Website/Images/Offics/IMG-20260112-WA0007.jpg",
     },
     {
       id: 4,
@@ -72,7 +72,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
       tagline: "Sculpting internal spaces through light and transparency.",
       price: "From $1,800",
       duration: "2-Week Install",
-      img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
+      img: "/extracted_assets/Website/Images/Offics/Terrece/IMG-20250312-WA0028.jpg",
     },
     {
       id: 5,
@@ -81,7 +81,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
       tagline: "Luxury pavilions defined by structural glass perfection.",
       price: "From $5,500",
       duration: "8-Week Custom",
-      img: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2071&auto=format&fit=crop",
+      img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4402.JPG",
     }
   ];
 
@@ -265,9 +265,12 @@ const BestSellingProduct = () => {
               transition={{ duration: 1.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="relative w-[70%] aspect-[3/4] rounded-sm overflow-hidden shadow-2xl"
             >
-              <img
-                src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop"
-                alt="Slide & Turn Main"
+              <video
+                src="/extracted_assets/Website/Video/S&T/VID-20230416-WA0013.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="w-full h-full object-cover scale-110 hover:scale-100 transition-transform duration-1000"
               />
             </motion.div>
@@ -280,7 +283,7 @@ const BestSellingProduct = () => {
               className="w-[45%] aspect-square mt-20 rounded-sm overflow-hidden shadow-xl"
             >
               <img
-                src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop"
+                src="/extracted_assets/Website/Images/S&T/Hotel Penensula/IMG-20230416-WA0015.jpg"
                 alt="Slide & Turn Detail"
                 className="w-full h-full object-cover scale-110 hover:scale-100 transition-transform duration-1000"
               />
@@ -300,42 +303,42 @@ const ApplicationsSection = () => {
     {
       name: "Balcony",
       icon: <Home size={32} />,
-      img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000"
+      img: "/extracted_assets/Website/Images/Offics/Terrece/IMG-20211126-WA0001.jpg"
     },
     {
       name: "Int. Partition",
       icon: <Building2 size={32} />,
-      img: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop"
+      img: "/extracted_assets/Website/Images/Offics/IMG-20260112-WA0007.jpg"
     },
     {
       name: "Office space",
       icon: <Monitor size={32} />,
-      img: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2000"
+      img: "/extracted_assets/Website/Images/Offics/IMG-20210310-WA0002.jpg"
     },
     {
       name: "Commercial",
       icon: <Building2 size={32} />,
-      img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000"
+      img: "/extracted_assets/Website/Images/S&T/Hotel Penensula/IMG-20230416-WA0001.jpg"
     },
     {
       name: "Exterior",
       icon: <MapPin size={32} />,
-      img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2000"
+      img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4395.JPG"
     },
     {
       name: "Terrace",
       icon: <Coffee size={32} />,
-      img: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=2000"
+      img: "/extracted_assets/Website/Images/Offics/Terrece/IMG-20240605-WA0011.jpg"
     },
     {
       name: "Garden",
       icon: <Paintbrush size={32} />,
-      img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2000"
+      img: "/extracted_assets/Website/Images/S&T/Open Tap/IMG-20231009-WA0004.jpg"
     },
     {
       name: "Farm House",
       icon: <Home size={32} />,
-      img: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=2000"
+      img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4402.JPG"
     }
   ];
 
@@ -618,7 +621,7 @@ const ProductsGrid = () => {
       title: "Bioclimatic Pergola",
       desc: "IoT-enabled smart roof for ultimate light control.",
       series: "SMART ROOF",
-      img: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop",
+      img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4402.JPG",
     }
   ];
 
@@ -728,35 +731,35 @@ const PortfolioSection = () => {
       category: "Residential",
       title: "Panoramic Living Suite",
       location: "DUBAI, 2025",
-      img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop",
+      img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4395.JPG",
     },
     {
       id: "p02",
       category: "Villa",
       title: "Sereno Facade",
       location: "TUSCANY, 2024",
-      img: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop",
+      img: "/extracted_assets/Website/Images/S&T/Hotel Penensula/IMG-20230416-WA0001.jpg",
     },
     {
       id: "p03",
       category: "Commercial",
       title: "Noir Workspace",
       location: "LONDON, 2025",
-      img: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop",
+      img: "/extracted_assets/Website/Images/Offics/IMG-20260112-WA0007.jpg",
     },
     {
       id: "p04",
       category: "Interior",
       title: "Serra Niche",
       location: "MALLORCA, 2024",
-      img: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=2158&auto=format&fit=crop",
+      img: "/extracted_assets/Website/Images/Offics/Terrece/IMG-20250312-WA0028.jpg",
     },
     {
       id: "p05",
       category: "Partition",
       title: "Atrium Divider",
       location: "LONDON, 2025",
-      img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
+      img: "/extracted_assets/Website/Images/Offics/IMG-20210310-WA0002.jpg",
     }
   ];
 
@@ -1366,7 +1369,7 @@ const PMCSection = () => {
             className="relative aspect-square lg:aspect-[4/5] rounded-sm overflow-hidden"
           >
             <img
-              src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2062&auto=format&fit=crop"
+              src="/extracted_assets/Website/Images/Offics/IMG-20210309-WA0018.jpg"
               alt="Engineering Precision"
               className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
             />
@@ -1395,17 +1398,17 @@ const GlazingSolutionsSection = () => {
           <p className="text-neutral-600 text-sm leading-relaxed max-w-md mb-10">
             Learn more about the INFIWIN Balcony Glazing. All the benefits, planning and see what other customers worldwide have done and get inspired.
           </p>
-          <a 
-            href="/products#balcony" 
+          <a
+            href="/products#balcony"
             className="bg-[#a5c2ea] text-[#003c71] font-bold text-[10px] uppercase tracking-[0.2em] px-12 py-4 hover:bg-[#8eb3e4] transition-colors"
           >
             Balcony Glazing
           </a>
         </div>
         <div className="lg:w-1/2 relative h-[400px] lg:h-full order-1 lg:order-2">
-          <img 
-            src="/hero/balcony.png" 
-            alt="Balcony Glazing" 
+          <img
+            src="/hero/balcony.png"
+            alt="Balcony Glazing"
             className="w-full h-full object-cover"
           />
         </div>
@@ -1414,9 +1417,9 @@ const GlazingSolutionsSection = () => {
       {/* Patio Glazing Block */}
       <div className="flex flex-col lg:flex-row h-auto lg:h-[500px]">
         <div className="lg:w-1/2 relative h-[400px] lg:h-full">
-          <img 
-            src="/hero/patio.png" 
-            alt="Patio Glazing" 
+          <img
+            src="/hero/patio.png"
+            alt="Patio Glazing"
             className="w-full h-full object-cover"
           />
         </div>
@@ -1425,8 +1428,8 @@ const GlazingSolutionsSection = () => {
           <p className="text-neutral-600 text-sm leading-relaxed max-w-md mb-10">
             See how our glazing systems turn unused outdoor places into inspiring and stylish spaces to add more room for life in your home.
           </p>
-          <a 
-            href="/products#patio" 
+          <a
+            href="/products#patio"
             className="bg-[#a5c2ea] text-[#003c71] font-bold text-[10px] uppercase tracking-[0.2em] px-12 py-4 hover:bg-[#8eb3e4] transition-colors"
           >
             Patio Glazing

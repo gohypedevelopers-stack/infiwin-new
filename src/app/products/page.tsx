@@ -28,7 +28,30 @@ const products = [
       opening: "100% Clear Opening"
     },
     img: "/hero/balcony.png",
+    video: "/extracted_assets/Website/Video/S&T/VID-20230316-WA0010.mp4",
     category: "Balcony systems"
+  },
+  {
+    id: "slide-and-turn",
+    title: "Slide & Turn Systems",
+    tagline: "Signature frameless stackable glazing",
+    desc: "The ultimate signature INFIWIN glazing system. Panels slide independently along a single track and turn 90 degrees at the end to stack completely out of the way. Ideal for high-end balconies, terraces, and cafe partitions.",
+    features: [
+      "Independently sliding and folding panels",
+      "100% opening potential with zero vertical posts",
+      "Premium double weather stripping for high performance",
+      "Suitable for complex polygonal or curved tracks",
+      "Available in single or insulated double-glazed profiles"
+    ],
+    technical: {
+      hardware: "Heavy Duty Concealed Rollers",
+      profiles: "Anodized Structural Aluminum T6063",
+      sealing: "Acoustic EPDM & Transparent H-Gaskets",
+      capacity: "Up to 80kg panel weight capacity"
+    },
+    img: "/extracted_assets/Website/Images/S&T/Hotel Penensula/IMG-20230416-WA0015.jpg",
+    video: "/extracted_assets/Website/Video/S&T/VID-20230416-WA0013.mp4",
+    category: "Sliding folding systems"
   },
   {
     id: "insulated",
@@ -70,6 +93,7 @@ const products = [
       hardware: "Stainless Steel Rollers"
     },
     img: "/products/sliding.png",
+    video: "/extracted_assets/Website/Video/Telescopic/VID-20230912-WA0001.mp4",
     category: "Sliding systems"
   },
   {
@@ -90,7 +114,8 @@ const products = [
       glass: "12mm+ Toughened / Laminated",
       profiles: "Commercial Grade Aluminum"
     },
-    img: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2074&auto=format&fit=crop",
+    img: "/extracted_assets/Website/Images/S&T/Hotel Penensula/IMG-20230416-WA0001.jpg",
+    video: "/extracted_assets/Website/Video/S&T/VID-20251210-WA0013.mp4",
     category: "Commercial"
   },
   {
@@ -132,7 +157,7 @@ const products = [
       integration: "Plug-and-play with INFIWIN systems",
       durability: "Tested for 100,000+ cycles"
     },
-    img: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop",
+    img: "/extracted_assets/Website/Images/Offics/Terrece/IMG-20250312-WA0028.jpg",
     category: "Accessories & automation"
   },
   {
@@ -153,7 +178,7 @@ const products = [
       loading: "Engineered for Wind & Snow",
       sealing: "Traction-fit Sealing Technology"
     },
-    img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
+    img: "/extracted_assets/Website/Images/Offics/Terrece/IMG-20240605-WA0011.jpg",
     category: "Roof systems"
   },
   {
@@ -174,7 +199,7 @@ const products = [
       glass: "Toughened Safety Glass",
       base: "Heavy-duty Floor Mount"
     },
-    img: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2071&auto=format&fit=crop",
+    img: "/extracted_assets/Website/Images/S&T/Open Tap/IMG-20231009-WA0004.jpg",
     category: "Outdoor protection"
   },
   {
@@ -195,7 +220,7 @@ const products = [
       structure: "Extruded Aluminum T6063",
       lighting: "Integrated RGB/White LED"
     },
-    img: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop",
+    img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4402.JPG",
     category: "Roof systems"
   }
 ];
@@ -304,11 +329,22 @@ export default function ProductsPage() {
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                 className="relative aspect-[4/5] rounded-none overflow-hidden shadow-xl group"
               >
-                <img 
-                  src={product.img} 
-                  alt={product.title} 
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
-                />
+                {product.video ? (
+                  <video 
+                    src={product.video} 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline 
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
+                  />
+                ) : (
+                  <img 
+                    src={product.img} 
+                    alt={product.title} 
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-tr from-brand-dark/20 to-transparent opacity-40" />
                 
                 {/* Product Detail Badge */}

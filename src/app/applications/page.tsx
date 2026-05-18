@@ -16,37 +16,37 @@ const applications = [
   {
     title: "Balcony & Terrace",
     desc: "Reclaim your outdoor space. Our systems protect against dust, rain, and noise while maintaining a perfect panoramic view.",
-    img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000",
+    img: "/extracted_assets/Website/Images/Offics/Terrece/IMG-20211126-WA0001.jpg",
     icon: <Home size={32} />
   },
   {
     title: "Interior Partitions",
     desc: "Create flexible living and working environments. Our frameless glass partitions provide sound insulation without visual barriers.",
-    img: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop",
+    img: "/extracted_assets/Website/Images/Offics/IMG-20260112-WA0007.jpg",
     icon: <Building2 size={32} />
   },
   {
     title: "Office Spaces",
     desc: "Modern executive environments designed for focus and collaboration. Seamlessly divide conference rooms and private offices.",
-    img: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2000",
+    img: "/extracted_assets/Website/Images/Offics/IMG-20210310-WA0002.jpg",
     icon: <Monitor size={32} />
   },
   {
     title: "Commercial & Retail",
     desc: "Invite customers in with wide-open storefronts. Our systems are durable, secure, and visually arresting for any retail space.",
-    img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000",
+    img: "/extracted_assets/Website/Images/S&T/Hotel Penensula/IMG-20230416-WA0001.jpg",
     icon: <Building2 size={32} />
   },
   {
     title: "Garden & Farmhouses",
     desc: "Blend your architecture with nature. Create stunning glass pavilions and winter gardens that can be fully opened during pleasant weather.",
-    img: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=2000",
+    img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4402.JPG",
     icon: <MapPin size={32} />
   },
   {
     title: "Hospitality",
     desc: "Cafes, restaurants, and hotels can maximize their seating capacity and offer guests a unique 'alfresco' experience year-round.",
-    img: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=2000",
+    img: "/extracted_assets/Website/Images/S&T/Open Tap/IMG-20231009-WA0004.jpg",
     icon: <Coffee size={32} />
   }
 ];
@@ -60,8 +60,8 @@ export default function ApplicationsPage() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/60 z-10" />
           <img 
-            src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2000" 
-            className="w-full h-full object-cover"
+            src="/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4395.JPG" 
+            className="w-full h-full object-cover animate-pulse-slow"
             alt="Applications Hero"
           />
         </div>
@@ -121,7 +121,7 @@ export default function ApplicationsPage() {
       {/* Full Width Callout */}
       <section className="py-48 bg-brand-dark text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2071&auto=format&fit=crop" className="w-full h-full object-cover" alt="" />
+          <img src="/extracted_assets/Website/Images/Offics/Terrece/IMG-20240605-WA0011.jpg" className="w-full h-full object-cover" alt="" />
         </div>
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <h2 className="text-4xl md:text-6xl uppercase mb-12 leading-tight">Every Space Has <br /><span className="text-brand-primary italic font-light lowercase">Potential</span></h2>
