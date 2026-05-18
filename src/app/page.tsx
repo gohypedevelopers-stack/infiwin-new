@@ -45,7 +45,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
       tagline: "Unobstructed horizons meet minimalist precision.",
       price: "From $2,500",
       duration: "4-Week Turnkey",
-      img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4395.JPG",
+      img: "/hero/one.png",
     },
     {
       id: 2,
@@ -54,7 +54,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
       tagline: "Harmonizing classic villa aesthetics with modern technology.",
       price: "From $4,200",
       duration: "6-Week Install",
-      img: "/extracted_assets/Website/Images/S&T/Hotel Penensula/IMG-20230416-WA0001.jpg",
+      img: "/hero/two.png",
     },
     {
       id: 3,
@@ -63,7 +63,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
       tagline: "Moody, executive environments architected for focus.",
       price: "From $3,100",
       duration: "3-Week Turnkey",
-      img: "/extracted_assets/Website/Images/Offics/IMG-20260112-WA0007.jpg",
+      img: "/hero/three.png",
     },
     {
       id: 4,
@@ -72,7 +72,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
       tagline: "Sculpting internal spaces through light and transparency.",
       price: "From $1,800",
       duration: "2-Week Install",
-      img: "/extracted_assets/Website/Images/Offics/Terrece/IMG-20250312-WA0028.jpg",
+      img: "/hero/four.png ",
     },
     {
       id: 5,
@@ -81,7 +81,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
       tagline: "Luxury pavilions defined by structural glass perfection.",
       price: "From $5,500",
       duration: "8-Week Custom",
-      img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4402.JPG",
+      img: "/hero/five.png",
     }
   ];
 
