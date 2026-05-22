@@ -65,7 +65,7 @@ export default function AboutPage() {
             className="text-5xl md:text-7xl text-white uppercase font-serif"
           >
             Architecting <br />
-            <span className="text-brand-primary italic lowercase font-light">Experiences</span>
+            <span className="text-brand-primary lowercase font-light">Experiences</span>
           </motion.h1>
         </div>
       </section>
@@ -80,7 +80,7 @@ export default function AboutPage() {
               viewport={{ once: true }}
             >
               <h2 className="text-4xl md:text-6xl text-brand-dark uppercase mb-12 leading-tight">
-                Beyond <br /><span className="text-brand-primary italic font-light lowercase">Boundaries</span>
+                Beyond <br /><span className="text-brand-primary font-light lowercase">Boundaries</span>
               </h2>
               <p className="text-neutral-500 text-lg font-light leading-relaxed mb-8">
                 At INFIWIN, we believe that architectural spatial design is not just about how a space looks – it's about how it makes you feel. Our mission is to reclaim your outdoor and indoor spaces with frameless precision and unparalleled aesthetics.

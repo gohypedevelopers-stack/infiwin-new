@@ -80,7 +80,7 @@ export default function ApplicationsPage() {
             className="text-5xl md:text-7xl text-white uppercase font-serif"
           >
             Spatial <br />
-            <span className="text-brand-primary italic lowercase font-light">Applications</span>
+            <span className="text-brand-primary lowercase font-light">Applications</span>
           </motion.h1>
         </div>
       </section>
@@ -124,7 +124,7 @@ export default function ApplicationsPage() {
           <img src="/extracted_assets/Website/Images/Offics/Terrece/IMG-20240605-WA0011.jpg" className="w-full h-full object-cover" alt="" />
         </div>
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-          <h2 className="text-4xl md:text-6xl uppercase mb-12 leading-tight">Every Space Has <br /><span className="text-brand-primary italic font-light lowercase">Potential</span></h2>
+          <h2 className="text-4xl md:text-6xl uppercase mb-12 leading-tight">Every Space Has <br /><span className="text-brand-primary font-light lowercase">Potential</span></h2>
           <p className="text-white/60 text-lg font-light mb-16">
             Whether it's a high-rise balcony or a boutique office, our systems are engineered to transform and elevate your environment.
           </p>

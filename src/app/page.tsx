@@ -167,10 +167,6 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
 
                   {/* Bottom Content */}
                   <div className="absolute bottom-8 left-8 right-8">
-                    <div className="flex items-baseline gap-2 mb-1">
-                      <span className="text-xl font-bold text-white leading-none">{slide.price.split(' ')[1]}</span>
-                      <span className="text-[10px] text-white/40 line-through tracking-tighter">$8,500</span>
-                    </div>
                     <h4 className="text-xs font-bold text-white leading-tight mb-1">
                       {slide.title}
                     </h4>
@@ -199,9 +195,9 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
 
 const BestSellingProduct = () => {
   return (
-    <section className="py-24 md:py-32 bg-[#F8FAFC] overflow-hidden border-y border-neutral-100">
+    <section className="py-16 md:py-20 bg-[#F8FAFC] overflow-hidden border-y border-neutral-100">
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-        <div className="grid lg:grid-cols-2 gap-24 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column: Text */}
           <div className="order-2 lg:order-1 relative">
 
@@ -210,7 +206,7 @@ const BestSellingProduct = () => {
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="flex items-center gap-4 mb-8"
+                className="flex items-center gap-4 mb-4"
               >
                 <div className="h-[1px] w-12 bg-brand-primary" />
                 <span className="text-[10px] font-bold tracking-[0.4em] text-neutral-400 uppercase">
@@ -223,7 +219,7 @@ const BestSellingProduct = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="text-4xl md:text-7xl text-brand-dark mb-10 leading-[1] font-semibold"
+                className="text-4xl md:text-7xl text-brand-dark mb-5 leading-[1] font-semibold"
               >
                 Slide & <br />
                 <span className="text-brand-primary">Turn system</span>
@@ -234,7 +230,7 @@ const BestSellingProduct = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="text-neutral-500 text-base md:text-lg font-semibold leading-relaxed mb-12 max-w-md"
+                className="text-neutral-500 text-base md:text-lg font-normal leading-relaxed mb-6 max-w-md"
               >
                 At INFIWIN, we believe that architectural spatial design is not just about how a space looks – it's about how it makes you feel. Our signature Slide & Turn system reclaim your outdoor space with frameless precision.
               </motion.p>
@@ -244,7 +240,7 @@ const BestSellingProduct = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="flex items-center gap-8"
+                className="flex items-center gap-4"
               >
                 <a href="/products" className="group inline-flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.2em] text-white bg-brand-primary px-8 py-4 rounded-full shadow-lg shadow-brand-primary/20 hover:bg-brand-dark hover:shadow-brand-dark/20 hover:scale-[1.02] transition-all">
                   Inquire Now <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
@@ -257,18 +253,18 @@ const BestSellingProduct = () => {
           </div>
 
           {/* Right Column: Premium Offset Composition */}
-          <div className="order-1 lg:order-2 relative h-[520px] w-full flex items-center justify-center">
+          <div className="order-1 lg:order-2 relative h-[460px] md:h-[480px] w-full flex items-center justify-center">
             {/* Ambient Background Glows */}
             <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-brand-primary/10 rounded-full blur-[80px] -z-10 animate-pulse" style={{ animationDuration: '6s' }} />
             <div className="absolute bottom-1/4 right-1/4 w-60 h-60 bg-blue-400/5 rounded-full blur-[60px] -z-10" />
 
             {/* Video Container (Tall Portrait) */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute left-4 top-0 w-[55%] aspect-[9/16] max-h-[480px] rounded-[24px] overflow-hidden border-4 border-white shadow-[0_32px_64px_-15px_rgba(0,0,0,0.15)] bg-neutral-900 group"
+              className="absolute left-4 top-0 w-[55%] aspect-[9/16] max-h-[420px] rounded-[24px] overflow-hidden border-4 border-white shadow-[0_32px_64px_-15px_rgba(0,0,0,0.15)] bg-neutral-900 group"
             >
               <video
                 src="/extracted_assets/Website/Video/S&T/VID-20230416-WA0013.mp4"
@@ -291,7 +287,7 @@ const BestSellingProduct = () => {
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1.4, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute right-4 bottom-2 w-[50%] aspect-square rounded-[20px] overflow-hidden border-8 border-white shadow-[0_24px_48px_-10px_rgba(0,0,0,0.12)] group z-10"
+              className="absolute right-4 bottom-0 w-[50%] aspect-square rounded-[20px] overflow-hidden border-8 border-white shadow-[0_24px_48px_-10px_rgba(0,0,0,0.12)] group z-10"
             >
               <img
                 src="/extracted_assets/Website/Images/S&T/Hotel Penensula/IMG-20230416-WA0015.jpg"
@@ -376,7 +372,7 @@ const ApplicationsSection = () => {
   return (
     <section
       id="applications"
-      className="py-32 bg-white relative overflow-visible"
+      className="py-16 md:py-20 bg-white relative overflow-visible"
       onMouseMove={handleMouseMove}
     >
       {/* Soft Architectural Grid Background and Glow */}
@@ -384,14 +380,14 @@ const ApplicationsSection = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-primary/3 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
-        <div className="text-center mb-20">
-          <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary mb-4 block">Usage</span>
+        <div className="text-center mb-10">
+          <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary mb-2 block">Usage</span>
           <h2 className="text-4xl md:text-5xl text-brand-dark tracking-tight">
             Applications
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 relative z-10">
           {apps.map((app, i) => (
             <motion.div
               key={i}
@@ -401,10 +397,10 @@ const ApplicationsSection = () => {
               transition={{ delay: i * 0.05, duration: 0.5, ease: "easeOut" }}
               onMouseEnter={() => setHoveredApp(i)}
               onMouseLeave={() => setHoveredApp(null)}
-              className="relative bg-white border border-neutral-100/90 rounded-2xl p-6 md:p-8 flex flex-col justify-between items-start overflow-hidden group cursor-pointer transition-all duration-500 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.01)] hover:shadow-[0_20px_40px_-10px_rgba(67,133,245,0.1)] hover:border-brand-primary/20 hover:scale-[1.02] min-h-[190px]"
+              className="relative bg-white border border-neutral-100/90 rounded-2xl p-5 md:p-6 flex flex-col justify-between items-start overflow-hidden group cursor-pointer transition-all duration-500 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.01)] hover:shadow-[0_20px_40px_-10px_rgba(67,133,245,0.1)] hover:border-brand-primary/20 hover:scale-[1.02] min-h-[190px]"
             >
               {/* Header: Number and Styled Icon */}
-              <div className="flex justify-between items-start w-full mb-8">
+              <div className="flex justify-between items-start w-full mb-4">
                 <span className="text-[11px] font-mono text-neutral-300 group-hover:text-brand-primary/40 transition-colors font-medium">
                   {app.number}
                 </span>
@@ -488,20 +484,20 @@ const FAQSection = () => {
   ];
 
   return (
-    <section id="faqs" className="py-24 bg-neutral-50">
+    <section id="faqs" className="py-16 md:py-20 bg-neutral-50">
       <div className="max-w-3xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary mb-4 block">Knowledge Hub</span>
+        <div className="text-center mb-10">
+          <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary mb-2 block">Knowledge Hub</span>
           <h2 className="text-3xl md:text-5xl text-brand-dark uppercase">Frequently Asked</h2>
         </div>
-        <div className="space-y-4">
+        <div className="space-y-3">
           {faqs.map((faq, i) => (
             <details key={i} className="group bg-white rounded-sm border border-neutral-200 overflow-hidden">
-              <summary className="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-neutral-50 transition-colors">
+              <summary className="flex items-center justify-between p-4 md:p-5 cursor-pointer list-none hover:bg-neutral-50 transition-colors">
                 <span className="text-xs font-bold uppercase tracking-widest text-brand-dark">{faq.q}</span>
                 <ChevronRight size={16} className="group-open:rotate-90 transition-transform" />
               </summary>
-              <div className="p-6 pt-0 text-neutral-500 text-sm leading-relaxed border-t border-neutral-100">
+              <div className="p-4 md:p-5 pt-0 text-neutral-500 text-sm leading-relaxed border-t border-neutral-100">
                 {faq.a}
               </div>
             </details>
@@ -522,18 +518,18 @@ const LeadFormSection = () => {
   };
 
   return (
-    <section id="contact" className="py-32 bg-brand-dark text-white relative overflow-hidden">
+    <section id="contact" className="py-16 md:py-20 bg-brand-dark text-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           <div>
-            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary mb-8 block">Inquiry</span>
-            <h2 className="text-5xl md:text-7xl mb-10 leading-tight">Start Your <br /><span className="text-brand-primary italic" style={{ textTransform: 'none' }}>Project</span></h2>
+            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary mb-4 block">Inquiry</span>
+            <h2 className="text-5xl md:text-7xl mb-6 leading-tight">Start Your <br /><span className="text-brand-primary" style={{ textTransform: 'none' }}>Project</span></h2>
 
-            <div className="bg-white/5 backdrop-blur-md p-10 border border-white/10 rounded-sm mb-12">
-              <h4 className="text-brand-primary text-[10px] font-bold uppercase tracking-widest mb-6">Quick Cost Estimator</h4>
-              <div className="grid grid-cols-2 gap-6 mb-8">
+            <div className="bg-white/5 backdrop-blur-md p-6 md:p-8 border border-white/10 rounded-sm mb-6">
+              <h4 className="text-brand-primary text-[10px] font-bold uppercase tracking-widest mb-4">Quick Cost Estimator</h4>
+              <div className="grid grid-cols-2 gap-4 mb-4">
                 <div>
-                  <label className="text-[9px] uppercase tracking-widest text-white/50 block mb-2">Length (ft)</label>
+                  <label className="text-[9px] uppercase tracking-widest text-white/50 block mb-1">Length (ft)</label>
                   <input
                     type="number"
                     value={dimensions.length}
@@ -542,7 +538,7 @@ const LeadFormSection = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-[9px] uppercase tracking-widest text-white/50 block mb-2">Height (ft)</label>
+                  <label className="text-[9px] uppercase tracking-widest text-white/50 block mb-1">Height (ft)</label>
                   <input
                     type="number"
                     value={dimensions.height}
@@ -559,31 +555,31 @@ const LeadFormSection = () => {
               </button>
 
               {estimate && (
-                <div className="mt-8 pt-8 border-t border-white/10">
-                  <p className="text-[9px] uppercase tracking-widest text-white/50 mb-2">Approximate Cost</p>
+                <div className="mt-6 pt-6 border-t border-white/10">
+                  <p className="text-[9px] uppercase tracking-widest text-white/50 mb-1">Approximate Cost</p>
                   <p className="text-3xl text-brand-primary mb-2">₹{estimate.toLocaleString()} + Installation</p>
-                  <p className="text-[8px] text-white/30 italic">Excluding taxes & freight charges</p>
+                  <p className="text-[8px] text-white/30">Excluding taxes & freight charges</p>
                 </div>
               )}
             </div>
           </div>
 
-          <div className="bg-white p-12 rounded-sm text-brand-dark">
-            <h3 className="text-2xl mb-8">Contact Information</h3>
-            <form className="space-y-6">
+          <div className="bg-white p-6 md:p-8 rounded-sm text-brand-dark">
+            <h3 className="text-2xl mb-4">Contact Information</h3>
+            <form className="space-y-4">
               <div>
-                <label className="text-[9px] font-bold uppercase tracking-widest text-neutral-400 block mb-2">Full Name</label>
+                <label className="text-[9px] font-bold uppercase tracking-widest text-neutral-400 block mb-1">Full Name</label>
                 <input type="text" className="w-full border-b border-neutral-200 py-3 text-sm focus:outline-none focus:border-brand-primary transition-colors" />
               </div>
               <div>
-                <label className="text-[9px] font-bold uppercase tracking-widest text-neutral-400 block mb-2">Phone Number</label>
+                <label className="text-[9px] font-bold uppercase tracking-widest text-neutral-400 block mb-1">Phone Number</label>
                 <input type="tel" className="w-full border-b border-neutral-200 py-3 text-sm focus:outline-none focus:border-brand-primary transition-colors" />
               </div>
               <div>
-                <label className="text-[9px] font-bold uppercase tracking-widest text-neutral-400 block mb-2">City</label>
+                <label className="text-[9px] font-bold uppercase tracking-widest text-neutral-400 block mb-1">City</label>
                 <input type="text" className="w-full border-b border-neutral-200 py-3 text-sm focus:outline-none focus:border-brand-primary transition-colors" />
               </div>
-              <div className="pt-8 space-y-4">
+              <div className="pt-4 space-y-4">
                 <button className="w-full py-5 bg-brand-dark text-white text-[10px] font-bold uppercase tracking-widest hover:bg-brand-primary transition-all">
                   Submit Request
                 </button>
@@ -625,7 +621,7 @@ const ProcessSection = () => {
               </span>
               <div className="relative z-10 pt-10">
                 <h3 className="text-lg text-brand-dark mb-4 uppercase tracking-widest">{step.title}</h3>
-                <p className="text-neutral-400 text-sm font-semibold leading-relaxed">{step.desc}</p>
+                <p className="text-neutral-400 text-sm font-normal leading-relaxed">{step.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -677,11 +673,11 @@ const ProductsGrid = () => {
   ];
 
   return (
-    <section id="products" className="py-32 bg-white overflow-hidden">
+    <section id="products" className="py-16 md:py-20 bg-white overflow-hidden">
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-        <div className="flex justify-between items-end mb-16">
+        <div className="flex justify-between items-end mb-10">
           <div>
-            <span className="text-[10px] font-bold tracking-[0.15em] text-brand-primary mb-4 block">Our Systems</span>
+            <span className="text-[10px] font-bold tracking-[0.15em] text-brand-primary mb-2 block">Our Systems</span>
             <h2 className="text-4xl md:text-5xl text-brand-dark tracking-tight">
               Products Grid
             </h2>
@@ -691,9 +687,9 @@ const ProductsGrid = () => {
           </a>
         </div>
 
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-6">
           {/* Top Row: P1, P2, P3 */}
-          <div className="flex flex-col lg:flex-row gap-8 h-auto lg:h-[600px]">
+          <div className="flex flex-col lg:flex-row gap-6 h-auto lg:h-[500px]">
             {products.slice(0, 3).map((p, i) => (
               <motion.div
                 key={p.id}
@@ -717,7 +713,7 @@ const ProductsGrid = () => {
                   {i === 0 && (
                     <motion.p
                       animate={{ opacity: hoveredId === p.id || !hoveredId ? 1 : 0 }}
-                      className="text-white/60 text-[8px] uppercase tracking-widest font-semibold hidden lg:block"
+                      className="text-white/60 text-[8px] uppercase tracking-widest font-normal hidden lg:block"
                     >
                       {p.desc}
                     </motion.p>
@@ -728,7 +724,7 @@ const ProductsGrid = () => {
           </div>
 
           {/* Bottom Row: P4, P5 */}
-          <div className="flex flex-col lg:flex-row gap-8 h-auto lg:h-[450px]">
+          <div className="flex flex-col lg:flex-row gap-6 h-auto lg:h-[380px]">
             {products.slice(3, 5).map((p) => (
               <motion.div
                 key={p.id}
@@ -835,7 +831,7 @@ const PortfolioSection = () => {
   };
 
   return (
-    <section id="projects" className="pt-20 md:pt-24 pb-16 md:pb-24 bg-[#f0f7ff] overflow-hidden relative border-t border-neutral-50">
+    <section id="projects" className="py-16 md:py-20 bg-[#f0f7ff] overflow-hidden relative border-t border-neutral-50">
       {/* Architectural Background Sketch */}
       <div className="absolute top-0 left-0 w-full h-[600px] opacity-[0.5] pointer-events-none select-none">
         <img
@@ -848,9 +844,9 @@ const PortfolioSection = () => {
 
 
       <div className="max-w-[1600px] mx-auto px-6 md:px-12 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-20 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-12 gap-8">
           <div className="max-w-2xl relative">
-            <div className="flex items-center gap-4 mb-6">
+            <div className="flex items-center gap-4 mb-3">
               <div className="h-[1px] w-12 bg-brand-primary" />
               <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary block">Selected Works</span>
             </div>
@@ -886,7 +882,7 @@ const PortfolioSection = () => {
             <motion.div
               drag="x"
               dragConstraints={carouselRef}
-              className="flex gap-8 pb-6"
+              className="flex gap-6 pb-4"
               style={{ width: 'max-content' }}
             >
               {filteredProjects.map((project, i) => (
@@ -918,7 +914,7 @@ const PortfolioSection = () => {
                     <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/60 mb-2 block">
                       {project.location}
                     </span>
-                    <h3 className="text-xl md:text-2xl italic font-semibold">
+                    <h3 className="text-xl md:text-2xl font-semibold">
                       {project.title}
                     </h3>
                   </div>
@@ -1003,9 +999,9 @@ const Testimonials = () => {
   }, [testimonials.length]);
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-16 md:py-20 bg-white relative overflow-hidden">
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-        <div className="text-center mb-12 md:mb-32 relative">
+        <div className="text-center mb-10 md:mb-16 relative">
           <motion.h2
             initial="hidden"
             whileInView="visible"
@@ -1072,26 +1068,26 @@ const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="px-8 flex flex-col items-start"
+              className="px-6 flex flex-col items-start"
             >
               {/* Quote Mark */}
-              <div className="mb-6 opacity-10">
+              <div className="mb-4 opacity-10">
                 <svg width="40" height="30" viewBox="0 0 40 30" fill="currentColor" className="text-brand-primary">
                   <path d="M0 30V15C0 6.71573 6.71573 0 15 0V7.5C10.8579 7.5 7.5 10.8579 7.5 15H15V30H0ZM25 30V15C25 6.71573 31.7157 0 40 0V7.5C35.8579 7.5 32.5 10.8579 32.5 15H40V30H25Z" />
                 </svg>
               </div>
 
-              <p className="text-brand-dark/80 text-sm leading-relaxed mb-12 text-left h-full italic">
+              <p className="text-brand-dark/80 text-sm leading-relaxed mb-6 text-left h-full">
                 {t.text}
               </p>
 
-              <div className="flex items-center gap-4 mt-auto pt-8 border-t border-brand-primary/10 w-full">
+              <div className="flex items-center gap-4 mt-auto pt-4 border-t border-brand-primary/10 w-full">
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-brand-primary/20 shrink-0">
                   <img src={t.photo} alt={t.name} className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <h5 className="text-brand-primary font-bold text-sm leading-tight">{t.name}</h5>
-                  <p className="text-brand-dark/60 text-[10px] uppercase tracking-wider font-medium">{t.role}</p>
+                  <p className="text-brand-dark/60 text-[10px] uppercase tracking-wider font-normal">{t.role}</p>
                 </div>
               </div>
             </motion.div>
@@ -1107,14 +1103,14 @@ const Testimonials = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.3 }}
-              className="px-6 py-8 flex flex-col items-center bg-neutral-50/50 rounded-lg border border-neutral-100"
+              className="px-4 py-6 flex flex-col items-center bg-neutral-50/50 rounded-lg border border-neutral-100"
             >
-              <div className="mb-6 opacity-10">
+              <div className="mb-4 opacity-10">
                 <svg width="40" height="30" viewBox="0 0 40 30" fill="currentColor" className="text-brand-primary">
                   <path d="M0 30V15C0 6.71573 6.71573 0 15 0V7.5C10.8579 7.5 7.5 10.8579 7.5 15H15V30H0ZM25 30V15C25 6.71573 31.7157 0 40 0V7.5C35.8579 7.5 32.5 10.8579 32.5 15H40V30H25Z" />
                 </svg>
               </div>
-              <p className="text-brand-dark/80 text-sm leading-relaxed mb-10 text-center italic">
+              <p className="text-brand-dark/80 text-sm leading-relaxed mb-6 text-center">
                 {testimonials[currentIndex].text}
               </p>
               <div className="flex flex-col items-center gap-4 mt-auto w-full">
@@ -1123,7 +1119,7 @@ const Testimonials = () => {
                 </div>
                 <div className="text-center">
                   <h5 className="text-brand-primary font-bold text-sm leading-tight">{testimonials[currentIndex].name}</h5>
-                  <p className="text-brand-dark/60 text-[10px] uppercase tracking-wider font-medium mt-1">{testimonials[currentIndex].role}</p>
+                  <p className="text-brand-dark/60 text-[10px] uppercase tracking-wider font-normal mt-1">{testimonials[currentIndex].role}</p>
                 </div>
               </div>
             </motion.div>
@@ -1278,7 +1274,7 @@ const LatestProjectsSection = () => {
                   visible: { scale: 1, opacity: 1 }
                 }}
                 transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="font-normal italic"
+                className="font-normal"
                 style={{ textTransform: 'none' }}
               >
                 L
@@ -1387,7 +1383,7 @@ const PMCSection = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-neutral-400 text-base md:text-lg font-semibold leading-relaxed mb-16 max-w-xl"
+              className="text-neutral-400 text-base md:text-lg font-normal leading-relaxed mb-16 max-w-xl"
             >
               Our Project Management Consultancy provides a singular point of accountability. we orchestrate every technical detail, ensuring your vision is realized without compromise.
             </motion.p>
@@ -1405,7 +1401,7 @@ const PMCSection = () => {
                   <span className="text-brand-primary text-2xl opacity-50 group-hover:opacity-100 transition-opacity">0{i + 1}</span>
                   <div>
                     <h4 className="text-white text-lg mb-2 uppercase tracking-widest">{step.title}</h4>
-                    <p className="text-neutral-500 text-sm font-semibold">{step.desc}</p>
+                    <p className="text-neutral-500 text-sm font-normal">{step.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -1441,90 +1437,94 @@ const PMCSection = () => {
 
 const GlazingSolutionsSection = () => {
   return (
-    <section className="bg-slate-50/50 py-20 md:py-32 overflow-hidden border-b border-neutral-100">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 space-y-24 md:space-y-36">
-        
-        {/* Balcony Glazing Block */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left: Text Content */}
-          <div className="order-2 lg:order-1 flex flex-col items-start text-left">
-            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-primary mb-4 block">
-              Architectural Series
-            </span>
-            <h2 className="text-3xl md:text-5xl font-bold text-brand-dark mb-6 leading-tight">
-              Balcony Glazing
-            </h2>
-            <p className="text-neutral-500 text-base md:text-lg font-semibold leading-relaxed mb-10 max-w-md">
-              Learn more about the INFIWIN Balcony Glazing. All the benefits, planning and see what other customers worldwide have done and get inspired.
-            </p>
-            <a
-              href="/products#balcony"
-              className="group inline-flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.2em] text-white bg-brand-primary px-10 py-4 rounded-full shadow-lg shadow-brand-primary/20 hover:bg-brand-dark hover:shadow-brand-dark/20 hover:scale-[1.02] transition-all"
-            >
-              Balcony Glazing <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
-            </a>
-          </div>
+    <section className="bg-slate-50/50 py-16 md:py-24 overflow-visible border-b border-neutral-100">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 space-y-12 md:space-y-16">
 
-          {/* Right: Smaller, Animated Image Container */}
-          <div className="order-1 lg:order-2 relative flex justify-center lg:justify-end">
-            {/* Soft Ambient Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-brand-primary/5 rounded-full blur-[60px] -z-10" />
-            
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 40 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full max-w-[540px] aspect-[4/3] rounded-[24px] overflow-hidden border-4 border-white shadow-[0_24px_48px_-15px_rgba(0,0,0,0.1)] bg-neutral-100 group"
-            >
-              <img
-                src="/hero/balcony.png"
-                alt="Balcony Glazing"
-                className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-1000"
-              />
-            </motion.div>
+        {/* Card 1: Balcony Glazing */}
+        <div className="sticky top-28 w-full bg-white rounded-[32px] border border-neutral-100/90 p-8 md:p-12 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.03)] hover:shadow-[0_32px_60px_-15px_rgba(67,133,245,0.05)] transition-all duration-500 z-10">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+            {/* Left: Text Content */}
+            <div className="order-2 lg:order-1 flex flex-col items-start text-left">
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-primary mb-2 block">
+                Architectural Series
+              </span>
+              <h2 className="text-3xl md:text-5xl font-bold text-brand-dark mb-4 leading-tight">
+                Balcony Glazing
+              </h2>
+              <p className="text-neutral-500 text-base md:text-lg font-normal leading-relaxed mb-6 max-w-md">
+                Learn more about the INFIWIN Balcony Glazing. All the benefits, planning and see what other customers worldwide have done and get inspired.
+              </p>
+              <a
+                href="/products#balcony"
+                className="group inline-flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.2em] text-white bg-brand-primary px-10 py-4 rounded-full shadow-lg shadow-brand-primary/20 hover:bg-brand-dark hover:shadow-brand-dark/20 hover:scale-[1.02] transition-all"
+              >
+                Balcony Glazing <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
+              </a>
+            </div>
+
+            {/* Right: Image Container */}
+            <div className="order-1 lg:order-2 relative flex justify-center lg:justify-end">
+              {/* Soft Ambient Background Glow */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-brand-primary/5 rounded-full blur-[60px] -z-10 animate-pulse" />
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                className="w-full max-w-[540px] aspect-[4/3] rounded-[20px] overflow-hidden border-4 border-white shadow-[0_20px_40px_-10px_rgba(0,0,0,0.08)] bg-neutral-100 group"
+              >
+                <img
+                  src="/hero/balcony.png"
+                  alt="Balcony Glazing"
+                  className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-1000"
+                />
+              </motion.div>
+            </div>
           </div>
         </div>
 
-        {/* Patio Glazing Block */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left: Smaller, Animated Image Container */}
-          <div className="relative flex justify-center lg:justify-start">
-            {/* Soft Ambient Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-brand-primary/5 rounded-full blur-[60px] -z-10" />
-            
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 40 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full max-w-[540px] aspect-[4/3] rounded-[24px] overflow-hidden border-4 border-white shadow-[0_24px_48px_-15px_rgba(0,0,0,0.1)] bg-neutral-100 group"
-            >
-              <img
-                src="/hero/patio.png"
-                alt="Patio Glazing"
-                className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-1000"
-              />
-            </motion.div>
-          </div>
+        {/* Card 2: Patio Glazing */}
+        <div className="sticky top-32 w-full bg-white rounded-[32px] border border-neutral-100/90 p-8 md:p-12 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.04)] hover:shadow-[0_32px_60px_-15px_rgba(67,133,245,0.05)] transition-all duration-500 z-20">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+            {/* Left: Text Content */}
+            <div className="order-2 lg:order-1 flex flex-col items-start text-left">
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-primary mb-2 block">
+                Outdoor Spatial Systems
+              </span>
+              <h2 className="text-3xl md:text-5xl font-bold text-brand-dark mb-4 leading-tight">
+                Patio Glazing
+              </h2>
+              <p className="text-neutral-500 text-base md:text-lg font-normal leading-relaxed mb-6 max-w-md">
+                See how our glazing systems turn unused outdoor places into inspiring and stylish spaces to add more room for life in your home.
+              </p>
+              <a
+                href="/products#patio"
+                className="group inline-flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.2em] text-white bg-brand-primary px-10 py-4 rounded-full shadow-lg shadow-brand-primary/20 hover:bg-brand-dark hover:shadow-brand-dark/20 hover:scale-[1.02] transition-all"
+              >
+                Patio Glazing <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
+              </a>
+            </div>
 
-          {/* Right: Text Content */}
-          <div className="flex flex-col items-start text-left">
-            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-primary mb-4 block">
-              Outdoor Spatial Systems
-            </span>
-            <h2 className="text-3xl md:text-5xl font-bold text-brand-dark mb-6 leading-tight">
-              Patio Glazing
-            </h2>
-            <p className="text-neutral-500 text-base md:text-lg font-semibold leading-relaxed mb-10 max-w-md">
-              See how our glazing systems turn unused outdoor places into inspiring and stylish spaces to add more room for life in your home.
-            </p>
-            <a
-              href="/products#patio"
-              className="group inline-flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.2em] text-white bg-brand-primary px-10 py-4 rounded-full shadow-lg shadow-brand-primary/20 hover:bg-brand-dark hover:shadow-brand-dark/20 hover:scale-[1.02] transition-all"
-            >
-              Patio Glazing <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
-            </a>
+            {/* Right: Image Container */}
+            <div className="order-1 lg:order-2 relative flex justify-center lg:justify-end">
+              {/* Soft Ambient Background Glow */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-brand-primary/5 rounded-full blur-[60px] -z-10 animate-pulse" />
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                className="w-full max-w-[540px] aspect-[4/3] rounded-[20px] overflow-hidden border-4 border-white shadow-[0_20px_40px_-10px_rgba(0,0,0,0.08)] bg-neutral-100 group"
+              >
+                <img
+                  src="/hero/patio.png"
+                  alt="Patio Glazing"
+                  className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-1000"
+                />
+              </motion.div>
+            </div>
           </div>
         </div>
 

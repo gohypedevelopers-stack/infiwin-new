@@ -73,7 +73,7 @@ export default function FAQsPage() {
             className="text-4xl md:text-6xl text-white uppercase font-serif"
           >
             Frequently Asked <br />
-            <span className="text-brand-primary italic lowercase font-light">Questions</span>
+            <span className="text-brand-primary lowercase font-light">Questions</span>
           </motion.h1>
         </div>
       </section>

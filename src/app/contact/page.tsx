@@ -49,7 +49,7 @@ export default function ContactPage() {
             className="text-5xl md:text-7xl text-white uppercase font-serif"
           >
             Start Your <br />
-            <span className="text-brand-primary italic lowercase font-light">Project</span>
+            <span className="text-brand-primary lowercase font-light">Project</span>
           </motion.h1>
         </div>
       </section>
@@ -180,7 +180,7 @@ export default function ContactPage() {
                     <p className="text-[9px] uppercase tracking-widest text-white/30 mb-2">Approximate Project Value</p>
                     <p className="text-4xl text-brand-primary mb-4 font-serif">₹{estimate.toLocaleString()}</p>
                     <div className="p-4 bg-white/5 rounded-sm">
-                      <p className="text-[10px] text-white/40 italic leading-relaxed">
+                      <p className="text-[10px] text-white/40 leading-relaxed">
                         *This is a ballpark figure based on standard 10mm glass. Final quote may vary based on customization, transportation, and taxes.
                       </p>
                     </div>

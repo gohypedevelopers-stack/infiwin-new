@@ -339,7 +339,7 @@ export default function GalleryPage() {
             </span>
             <h1 className="text-5xl md:text-8xl tracking-tighter uppercase font-serif mb-8 leading-none">
               Cinematic <br />
-              <span className="text-brand-primary italic font-light lowercase font-signature">Showcase</span>
+              <span className="text-brand-primary font-light lowercase font-signature">Showcase</span>
             </h1>
             <p className="text-neutral-400 text-base md:text-xl font-light leading-relaxed max-w-2xl mx-auto">
               Explore the pinnacle of spatial architecture. Review stunning 3D design concepts, operational execution videos, and a high-resolution portfolio of our regional installations.
