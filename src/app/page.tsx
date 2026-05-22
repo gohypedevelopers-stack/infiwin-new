@@ -246,24 +246,29 @@ const BestSellingProduct = () => {
                 transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                 className="flex items-center gap-8"
               >
-                <a href="/products" className="group inline-flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.2em] text-brand-dark bg-white px-8 py-4 rounded-none shadow-sm hover:bg-brand-primary hover:text-white transition-all">
+                <a href="/products" className="group inline-flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.2em] text-white bg-brand-primary px-8 py-4 rounded-full shadow-lg shadow-brand-primary/20 hover:bg-brand-dark hover:shadow-brand-dark/20 hover:scale-[1.02] transition-all">
                   Inquire Now <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
                 </a>
-                <a href="/products" className="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400 hover:text-brand-primary transition-colors">
+                <a href="/products" className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500 hover:text-brand-primary transition-colors">
                   Technical Specs
                 </a>
               </motion.div>
             </div>
           </div>
 
-          {/* Right Column: Images */}
-          <div className="order-1 lg:order-2 flex items-start gap-8">
+          {/* Right Column: Premium Offset Composition */}
+          <div className="order-1 lg:order-2 relative h-[520px] w-full flex items-center justify-center">
+            {/* Ambient Background Glows */}
+            <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-brand-primary/10 rounded-full blur-[80px] -z-10 animate-pulse" style={{ animationDuration: '6s' }} />
+            <div className="absolute bottom-1/4 right-1/4 w-60 h-60 bg-blue-400/5 rounded-full blur-[60px] -z-10" />
+
+            {/* Video Container (Tall Portrait) */}
             <motion.div
-              initial={{ clipPath: 'inset(0 0 100% 0)', opacity: 0, y: -20 }}
-              whileInView={{ clipPath: 'inset(0 0 0% 0)', opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 1.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-[70%] aspect-[3/4] rounded-sm overflow-hidden shadow-2xl"
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute left-4 top-0 w-[55%] aspect-[9/16] max-h-[480px] rounded-[24px] overflow-hidden border-4 border-white shadow-[0_32px_64px_-15px_rgba(0,0,0,0.15)] bg-neutral-900 group"
             >
               <video
                 src="/extracted_assets/Website/Video/S&T/VID-20230416-WA0013.mp4"
@@ -271,21 +276,27 @@ const BestSellingProduct = () => {
                 loop
                 muted
                 playsInline
-                className="w-full h-full object-cover scale-110 hover:scale-100 transition-transform duration-1000"
+                className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700"
               />
+              {/* Premium Video Badge */}
+              <div className="absolute top-4 left-4 bg-brand-dark/70 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-brand-primary animate-pulse" />
+                <span className="text-[9px] font-bold text-white uppercase tracking-widest">LIVE ACTION</span>
+              </div>
             </motion.div>
 
+            {/* Detail Image Container (Overlapping on Bottom Right) */}
             <motion.div
-              initial={{ clipPath: 'inset(0 0 100% 0)', opacity: 0, y: -20 }}
-              whileInView={{ clipPath: 'inset(0 0 0% 0)', opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.9, x: 20 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 1.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="w-[45%] aspect-square mt-20 rounded-sm overflow-hidden shadow-xl"
+              transition={{ duration: 1.4, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute right-4 bottom-2 w-[50%] aspect-square rounded-[20px] overflow-hidden border-8 border-white shadow-[0_24px_48px_-10px_rgba(0,0,0,0.12)] group z-10"
             >
               <img
                 src="/extracted_assets/Website/Images/S&T/Hotel Penensula/IMG-20230416-WA0015.jpg"
                 alt="Slide & Turn Detail"
-                className="w-full h-full object-cover scale-110 hover:scale-100 transition-transform duration-1000"
+                className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700"
               />
             </motion.div>
           </div>
@@ -302,41 +313,57 @@ const ApplicationsSection = () => {
   const apps = [
     {
       name: "Balcony",
+      tag: "Panoramic Outer Spaces",
+      number: "01",
       icon: <Home size={32} />,
       img: "/extracted_assets/Website/Images/Offics/Terrece/IMG-20211126-WA0001.jpg"
     },
     {
       name: "Int. Partition",
+      tag: "Frameless Glass Dividers",
+      number: "02",
       icon: <Building2 size={32} />,
       img: "/extracted_assets/Website/Images/Offics/IMG-20260112-WA0007.jpg"
     },
     {
       name: "Office space",
+      tag: "Corporate Acoustic Systems",
+      number: "03",
       icon: <Monitor size={32} />,
       img: "/extracted_assets/Website/Images/Offics/IMG-20210310-WA0002.jpg"
     },
     {
       name: "Commercial",
+      tag: "Storefront Glass Systems",
+      number: "04",
       icon: <Building2 size={32} />,
       img: "/extracted_assets/Website/Images/S&T/Hotel Penensula/IMG-20230416-WA0001.jpg"
     },
     {
       name: "Exterior",
+      tag: "Climatic Shield Enclosures",
+      number: "05",
       icon: <MapPin size={32} />,
       img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4395.JPG"
     },
     {
       name: "Terrace",
+      tag: "All-Weather Glazing",
+      number: "06",
       icon: <Coffee size={32} />,
       img: "/extracted_assets/Website/Images/Offics/Terrece/IMG-20240605-WA0011.jpg"
     },
     {
       name: "Garden",
+      tag: "Modern Spatial Boundaries",
+      number: "07",
       icon: <Paintbrush size={32} />,
       img: "/extracted_assets/Website/Images/S&T/Open Tap/IMG-20231009-WA0004.jpg"
     },
     {
       name: "Farm House",
+      tag: "Luxury Country Retreats",
+      number: "08",
       icon: <Home size={32} />,
       img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4402.JPG"
     }
@@ -349,33 +376,57 @@ const ApplicationsSection = () => {
   return (
     <section
       id="applications"
-      className="py-24 bg-white relative overflow-visible"
+      className="py-32 bg-white relative overflow-visible"
       onMouseMove={handleMouseMove}
     >
-      <div className="max-w-[1200px] mx-auto px-6">
-        <div className="text-center mb-16">
-          <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-brand-primary mb-4 block">Usage</span>
-          <h2 className="text-3xl md:text-5xl text-brand-dark uppercase">Applications</h2>
+      {/* Soft Architectural Grid Background and Glow */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000003_1px,transparent_1px),linear-gradient(to_bottom,#00000003_1px,transparent_1px)] bg-[size:6rem_6rem] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-primary/3 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+        <div className="text-center mb-20">
+          <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary mb-4 block">Usage</span>
+          <h2 className="text-4xl md:text-5xl text-brand-dark tracking-tight">
+            Applications
+          </h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 relative z-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
           {apps.map((app, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
+              transition={{ delay: i * 0.05, duration: 0.5, ease: "easeOut" }}
               onMouseEnter={() => setHoveredApp(i)}
               onMouseLeave={() => setHoveredApp(null)}
-              className="flex flex-col items-center p-8 bg-neutral-50 rounded-sm group cursor-pointer transition-all duration-300 hover:bg-neutral-100"
+              className="relative bg-white border border-neutral-100/90 rounded-2xl p-6 md:p-8 flex flex-col justify-between items-start overflow-hidden group cursor-pointer transition-all duration-500 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.01)] hover:shadow-[0_20px_40px_-10px_rgba(67,133,245,0.1)] hover:border-brand-primary/20 hover:scale-[1.02] min-h-[190px]"
             >
-              <div className="text-brand-primary mb-4 group-hover:scale-110 transition-all duration-500">
-                {app.icon}
+              {/* Header: Number and Styled Icon */}
+              <div className="flex justify-between items-start w-full mb-8">
+                <span className="text-[11px] font-mono text-neutral-300 group-hover:text-brand-primary/40 transition-colors font-medium">
+                  {app.number}
+                </span>
+                <div className="w-12 h-12 rounded-xl bg-brand-primary/5 text-brand-primary flex items-center justify-center transition-all duration-500 group-hover:bg-brand-primary group-hover:text-white group-hover:rotate-[360deg] group-hover:shadow-lg group-hover:shadow-brand-primary/20">
+                  {React.cloneElement(app.icon, { size: 20 })}
+                </div>
               </div>
-              <h4 className="text-[10px] font-bold uppercase tracking-widest text-brand-dark text-center">
-                {app.name}
-              </h4>
+
+              {/* Bottom Metadata */}
+              <div className="w-full relative">
+                <span className="text-[8px] uppercase tracking-[0.2em] text-neutral-400 font-bold group-hover:text-brand-primary/80 transition-colors mb-1.5 block">
+                  {app.tag}
+                </span>
+                <h4 className="text-sm font-semibold uppercase tracking-wider text-brand-dark transition-colors">
+                  {app.name}
+                </h4>
+              </div>
+
+              {/* Floating Action Arrow */}
+              <div className="absolute bottom-6 right-6 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-brand-primary">
+                <ArrowUpRight size={16} />
+              </div>
             </motion.div>
           ))}
         </div>
@@ -440,7 +491,7 @@ const FAQSection = () => {
     <section id="faqs" className="py-24 bg-neutral-50">
       <div className="max-w-3xl mx-auto px-6">
         <div className="text-center mb-16">
-          <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-brand-primary mb-4 block">Knowledge Hub</span>
+          <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary mb-4 block">Knowledge Hub</span>
           <h2 className="text-3xl md:text-5xl text-brand-dark uppercase">Frequently Asked</h2>
         </div>
         <div className="space-y-4">
@@ -475,7 +526,7 @@ const LeadFormSection = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="grid lg:grid-cols-2 gap-20">
           <div>
-            <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-brand-primary mb-8 block">Inquiry</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary mb-8 block">Inquiry</span>
             <h2 className="text-5xl md:text-7xl mb-10 leading-tight">Start Your <br /><span className="text-brand-primary italic" style={{ textTransform: 'none' }}>Project</span></h2>
 
             <div className="bg-white/5 backdrop-blur-md p-10 border border-white/10 rounded-sm mb-12">
@@ -630,7 +681,7 @@ const ProductsGrid = () => {
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
         <div className="flex justify-between items-end mb-16">
           <div>
-            <span className="text-[10px] font-bold tracking-[0.5em] text-brand-primary mb-4 block">Our Systems</span>
+            <span className="text-[10px] font-bold tracking-[0.15em] text-brand-primary mb-4 block">Our Systems</span>
             <h2 className="text-4xl md:text-5xl text-brand-dark tracking-tight">
               Products Grid
             </h2>
@@ -657,7 +708,7 @@ const ProductsGrid = () => {
                 <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60" />
                 <div className="absolute top-8 right-8">
-                  <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 text-[8px] font-bold text-white rounded-lg uppercase tracking-widest">
+                  <span className="px-4 py-1.5 bg-white border border-neutral-100 shadow-md text-[9px] font-extrabold text-brand-dark rounded-full uppercase tracking-wider">
                     {p.series}
                   </span>
                 </div>
@@ -692,7 +743,7 @@ const ProductsGrid = () => {
                 <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60" />
                 <div className="absolute top-8 right-8">
-                  <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 text-[8px] font-bold text-white rounded-lg uppercase tracking-widest">
+                  <span className="px-4 py-1.5 bg-white border border-neutral-100 shadow-md text-[9px] font-extrabold text-brand-dark rounded-full uppercase tracking-wider">
                     {p.series}
                   </span>
                 </div>
@@ -801,7 +852,7 @@ const PortfolioSection = () => {
           <div className="max-w-2xl relative">
             <div className="flex items-center gap-4 mb-6">
               <div className="h-[1px] w-12 bg-brand-primary" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-brand-primary block">Selected Works</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary block">Selected Works</span>
             </div>
             <h2 className="text-4xl md:text-7xl text-brand-dark leading-[1] font-semibold">
               Excellence in <br />
@@ -817,7 +868,7 @@ const PortfolioSection = () => {
                   setScrollAmount(0);
                   if (carouselRef.current) carouselRef.current.scrollTo({ left: 0 });
                 }}
-                className={`text-[10px] font-bold uppercase tracking-widest px-6 py-2 border rounded-full transition-all ${activeFilter === tab ? 'bg-brand-dark text-white border-brand-dark' : 'text-neutral-400 border-neutral-100 hover:border-brand-primary hover:text-brand-primary'}`}
+                className={`text-[10px] font-bold uppercase tracking-widest px-6 py-2 border rounded-full transition-all ${activeFilter === tab ? 'bg-brand-dark text-white border-brand-dark' : 'text-brand-dark border-neutral-300 hover:border-brand-primary hover:text-brand-primary hover:bg-white/50'}`}
               >
                 {tab}
               </button>
@@ -1390,51 +1441,93 @@ const PMCSection = () => {
 
 const GlazingSolutionsSection = () => {
   return (
-    <section className="bg-white">
-      {/* Balcony Glazing Block */}
-      <div className="flex flex-col lg:flex-row h-auto lg:h-[500px]">
-        <div className="lg:w-1/2 bg-[#f4f7f9] flex flex-col items-center justify-center p-12 lg:p-24 text-center order-2 lg:order-1">
-          <h2 className="text-3xl font-bold text-[#003c71] mb-6">Balcony Glazing</h2>
-          <p className="text-neutral-600 text-sm leading-relaxed max-w-md mb-10">
-            Learn more about the INFIWIN Balcony Glazing. All the benefits, planning and see what other customers worldwide have done and get inspired.
-          </p>
-          <a
-            href="/products#balcony"
-            className="bg-[#a5c2ea] text-[#003c71] font-bold text-[10px] uppercase tracking-[0.2em] px-12 py-4 hover:bg-[#8eb3e4] transition-colors"
-          >
-            Balcony Glazing
-          </a>
-        </div>
-        <div className="lg:w-1/2 relative h-[400px] lg:h-full order-1 lg:order-2">
-          <img
-            src="/hero/balcony.png"
-            alt="Balcony Glazing"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </div>
+    <section className="bg-slate-50/50 py-20 md:py-32 overflow-hidden border-b border-neutral-100">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 space-y-24 md:space-y-36">
+        
+        {/* Balcony Glazing Block */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left: Text Content */}
+          <div className="order-2 lg:order-1 flex flex-col items-start text-left">
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-primary mb-4 block">
+              Architectural Series
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-dark mb-6 leading-tight">
+              Balcony Glazing
+            </h2>
+            <p className="text-neutral-500 text-base md:text-lg font-semibold leading-relaxed mb-10 max-w-md">
+              Learn more about the INFIWIN Balcony Glazing. All the benefits, planning and see what other customers worldwide have done and get inspired.
+            </p>
+            <a
+              href="/products#balcony"
+              className="group inline-flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.2em] text-white bg-brand-primary px-10 py-4 rounded-full shadow-lg shadow-brand-primary/20 hover:bg-brand-dark hover:shadow-brand-dark/20 hover:scale-[1.02] transition-all"
+            >
+              Balcony Glazing <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
+            </a>
+          </div>
 
-      {/* Patio Glazing Block */}
-      <div className="flex flex-col lg:flex-row h-auto lg:h-[500px]">
-        <div className="lg:w-1/2 relative h-[400px] lg:h-full">
-          <img
-            src="/hero/patio.png"
-            alt="Patio Glazing"
-            className="w-full h-full object-cover"
-          />
+          {/* Right: Smaller, Animated Image Container */}
+          <div className="order-1 lg:order-2 relative flex justify-center lg:justify-end">
+            {/* Soft Ambient Background Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-brand-primary/5 rounded-full blur-[60px] -z-10" />
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 40 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full max-w-[540px] aspect-[4/3] rounded-[24px] overflow-hidden border-4 border-white shadow-[0_24px_48px_-15px_rgba(0,0,0,0.1)] bg-neutral-100 group"
+            >
+              <img
+                src="/hero/balcony.png"
+                alt="Balcony Glazing"
+                className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-1000"
+              />
+            </motion.div>
+          </div>
         </div>
-        <div className="lg:w-1/2 bg-[#f4f7f9] flex flex-col items-center justify-center p-12 lg:p-24 text-center">
-          <h2 className="text-3xl font-bold text-[#003c71] mb-6">Patio Glazing</h2>
-          <p className="text-neutral-600 text-sm leading-relaxed max-w-md mb-10">
-            See how our glazing systems turn unused outdoor places into inspiring and stylish spaces to add more room for life in your home.
-          </p>
-          <a
-            href="/products#patio"
-            className="bg-[#a5c2ea] text-[#003c71] font-bold text-[10px] uppercase tracking-[0.2em] px-12 py-4 hover:bg-[#8eb3e4] transition-colors"
-          >
-            Patio Glazing
-          </a>
+
+        {/* Patio Glazing Block */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left: Smaller, Animated Image Container */}
+          <div className="relative flex justify-center lg:justify-start">
+            {/* Soft Ambient Background Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-brand-primary/5 rounded-full blur-[60px] -z-10" />
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 40 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full max-w-[540px] aspect-[4/3] rounded-[24px] overflow-hidden border-4 border-white shadow-[0_24px_48px_-15px_rgba(0,0,0,0.1)] bg-neutral-100 group"
+            >
+              <img
+                src="/hero/patio.png"
+                alt="Patio Glazing"
+                className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-1000"
+              />
+            </motion.div>
+          </div>
+
+          {/* Right: Text Content */}
+          <div className="flex flex-col items-start text-left">
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-primary mb-4 block">
+              Outdoor Spatial Systems
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-dark mb-6 leading-tight">
+              Patio Glazing
+            </h2>
+            <p className="text-neutral-500 text-base md:text-lg font-semibold leading-relaxed mb-10 max-w-md">
+              See how our glazing systems turn unused outdoor places into inspiring and stylish spaces to add more room for life in your home.
+            </p>
+            <a
+              href="/products#patio"
+              className="group inline-flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.2em] text-white bg-brand-primary px-10 py-4 rounded-full shadow-lg shadow-brand-primary/20 hover:bg-brand-dark hover:shadow-brand-dark/20 hover:scale-[1.02] transition-all"
+            >
+              Patio Glazing <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
+            </a>
+          </div>
         </div>
+
       </div>
     </section>
   );
@@ -1468,3 +1561,6 @@ export default function Page() {
     </div>
   );
 }
+
+
+

@@ -1,20 +1,12 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display, Cinzel, Great_Vibes } from "next/font/google";
+import { Figtree } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const figtree = Figtree({
+  variable: "--font-figtree",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  style: ["italic"],
-});
-
-const cinzel = Cinzel({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-cinzel" });
-const greatVibes = Great_Vibes({ subsets: ["latin"], weight: ["400"], variable: "--font-great-vibes" });
 
 import SmoothScroll from "../components/SmoothScroll";
 import { Navbar } from "../components/Navbar";
@@ -32,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${playfair.variable} ${cinzel.variable} ${greatVibes.variable} antialiased`} suppressHydrationWarning>
+      <body className={`${figtree.variable} font-sans antialiased`} suppressHydrationWarning>
         <SmoothScroll>
           <Navbar />
           {children}

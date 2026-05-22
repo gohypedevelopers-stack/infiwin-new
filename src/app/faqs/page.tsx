@@ -62,7 +62,7 @@ export default function FAQsPage() {
           <motion.span 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-[10px] font-bold uppercase tracking-[0.5em] text-brand-primary mb-4 block"
+            className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary mb-4 block"
           >
             Support Center
           </motion.span>
