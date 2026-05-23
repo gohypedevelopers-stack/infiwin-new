@@ -410,56 +410,56 @@ const ApplicationsSection = () => {
       tag: "Panoramic Outer Spaces",
       number: "01",
       icon: <Home size={32} />,
-      img: "/extracted_assets/Website/Images/Offics/Terrece/IMG-20211126-WA0001.jpg"
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_25_52 PM.png"
     },
     {
       name: "Int. Partition",
       tag: "Frameless Glass Dividers",
       number: "02",
       icon: <Building2 size={32} />,
-      img: "/extracted_assets/Website/Images/Offics/IMG-20260112-WA0007.jpg"
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_15_29 PM.png"
     },
     {
       name: "Office space",
       tag: "Corporate Acoustic Systems",
       number: "03",
       icon: <Monitor size={32} />,
-      img: "/extracted_assets/Website/Images/Offics/IMG-20210310-WA0002.jpg"
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_16_49 PM.png"
     },
     {
       name: "Commercial",
       tag: "Storefront Glass Systems",
       number: "04",
       icon: <Building2 size={32} />,
-      img: "/extracted_assets/Website/Images/S&T/Hotel Penensula/IMG-20230416-WA0001.jpg"
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_52_36 PM.png"
     },
     {
       name: "Exterior",
       tag: "Climatic Shield Enclosures",
       number: "05",
       icon: <MapPin size={32} />,
-      img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4395.JPG"
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 01_10_02 PM.png"
     },
     {
       name: "Terrace",
       tag: "All-Weather Glazing",
       number: "06",
       icon: <Coffee size={32} />,
-      img: "/extracted_assets/Website/Images/Offics/Terrece/IMG-20240605-WA0011.jpg"
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_30_38 PM.png"
     },
     {
       name: "Garden",
       tag: "Modern Spatial Boundaries",
       number: "07",
       icon: <Paintbrush size={32} />,
-      img: "/extracted_assets/Website/Images/S&T/Open Tap/IMG-20231009-WA0004.jpg"
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_20_57 PM.png"
     },
     {
       name: "Farm House",
       tag: "Luxury Country Retreats",
       number: "08",
       icon: <Home size={32} />,
-      img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4402.JPG"
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_27_22 PM.png"
     }
   ];
 
