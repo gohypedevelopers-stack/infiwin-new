@@ -195,107 +195,120 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
 
 const BestSellingProduct = () => {
   return (
-    <section className="py-16 md:py-20 bg-[#F8FAFC] overflow-hidden border-y border-neutral-100">
+    <section className="py-16 md:py-24 bg-[#F8FAFC] overflow-hidden border-y border-neutral-100">
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Column: Text */}
-          <div className="order-2 lg:order-1 relative">
+        <div className="grid lg:grid-cols-12 gap-16 xl:gap-24 items-start">
+          
+          {/* LEFT COLUMN: Takes 7 grid cols. Replicates the "Interior Design" overlapping side-by-side layout */}
+          <div className="lg:col-span-7 flex flex-col md:flex-row gap-8 items-end relative w-full">
+            
+            {/* Paragraph Block on the Left (aligned top) */}
+            <div className="w-full md:w-[40%] self-start md:pt-12 mb-8 md:mb-20">
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="text-neutral-500 text-xs md:text-sm leading-relaxed max-w-[280px]"
+              >
+                At INFIWIN, we believe that architectural spatial design is not just about how a space looks – it's about how it makes you feel.
+              </motion.p>
+            </div>
 
-            <div className="relative z-10">
+            {/* Video Container (Vertical aspect, right side) */}
+            <div className="w-full md:w-[60%] relative">
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, scale: 0.98 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                className="w-full aspect-[3/4] overflow-hidden bg-neutral-900 rounded-[24px] border-4 border-white shadow-xl group relative"
+              >
+                <video
+                  src="/extracted_assets/Website/Video/S&T/VID-20230316-WA0010.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700"
+                />
+              </motion.div>
+            </div>
+
+            {/* Massive Overlapping Title: "Slide & Turn" */}
+            <motion.h2
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              style={{ fontFamily: 'Georgia, serif' }}
+              className="absolute bottom-[-24px] md:bottom-[-40px] left-0 text-6xl md:text-8xl xl:text-[110px] font-light leading-[0.85] text-brand-dark tracking-tighter z-20 select-none"
+            >
+              Slide & <br />
+              <span className="text-brand-primary">Turn</span>
+            </motion.h2>
+          </div>
+
+          {/* RIGHT COLUMN: Takes 5 grid cols. Replicates the "Recent Work" and second picture column */}
+          <div className="lg:col-span-5 flex flex-col gap-10 w-full mt-12 lg:mt-0">
+            
+            {/* Header Text Block */}
+            <div className="flex flex-col items-start gap-4 max-w-md">
+              <motion.div
+                initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="flex items-center gap-4 mb-4"
+                className="flex items-center gap-3"
               >
-                <div className="h-[1px] w-12 bg-brand-primary" />
-                <span className="text-[10px] font-bold tracking-[0.4em] text-neutral-400 uppercase">
-                  Featured system
+                <div className="h-[1px] w-8 bg-brand-primary" />
+                <span className="text-[10px] font-bold tracking-[0.3em] text-brand-primary uppercase">
+                  Featured System
                 </span>
               </motion.div>
 
-              <motion.h2
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="text-4xl md:text-7xl text-brand-dark mb-5 leading-[1] font-semibold"
-              >
-                Slide & <br />
-                <span className="text-brand-primary">Turn system</span>
-              </motion.h2>
-
-              <motion.p
+              <motion.h3
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="text-neutral-500 text-base md:text-lg font-normal leading-relaxed mb-6 max-w-md"
+                transition={{ duration: 1, delay: 0.1 }}
+                style={{ fontFamily: 'Georgia, serif' }}
+                className="text-2xl md:text-3xl font-light text-brand-dark leading-snug tracking-tight"
               >
-                At INFIWIN, we believe that architectural spatial design is not just about how a space looks – it's about how it makes you feel. Our signature Slide & Turn system reclaim your outdoor space with frameless precision.
-              </motion.p>
+                We Will Make These Unique Tastes Of Yours A <span className="text-brand-primary">Design Reality!</span>
+              </motion.h3>
 
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="flex items-center gap-4"
+                transition={{ duration: 1, delay: 0.2 }}
+                className="pt-2"
               >
-                <a href="/products" className="group inline-flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.2em] text-white bg-brand-primary px-8 py-4 rounded-full shadow-lg shadow-brand-primary/20 hover:bg-brand-dark hover:shadow-brand-dark/20 hover:scale-[1.02] transition-all">
-                  Inquire Now <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
-                </a>
-                <a href="/products" className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500 hover:text-brand-primary transition-colors">
-                  Technical Specs
+                <a
+                  href="/products"
+                  className="group inline-flex items-center gap-2 bg-brand-primary text-white text-[10px] font-bold uppercase tracking-widest px-8 py-3.5 rounded-full shadow-lg shadow-brand-primary/20 hover:bg-brand-dark hover:shadow-brand-dark/20 hover:scale-[1.02] transition-all duration-300"
+                >
+                  View Project <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                 </a>
               </motion.div>
             </div>
-          </div>
 
-          {/* Right Column: Premium Offset Composition */}
-          <div className="order-1 lg:order-2 relative h-[460px] md:h-[480px] w-full flex items-center justify-center">
-            {/* Ambient Background Glows */}
-            <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-brand-primary/10 rounded-full blur-[80px] -z-10 animate-pulse" style={{ animationDuration: '6s' }} />
-            <div className="absolute bottom-1/4 right-1/4 w-60 h-60 bg-blue-400/5 rounded-full blur-[60px] -z-10" />
-
-            {/* Video Container (Tall Portrait) */}
+            {/* Second Image Block (aligned below) */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute left-4 top-0 w-[55%] aspect-[9/16] max-h-[420px] rounded-[24px] overflow-hidden border-4 border-white shadow-[0_32px_64px_-15px_rgba(0,0,0,0.15)] bg-neutral-900 group"
-            >
-              <video
-                src="/extracted_assets/Website/Video/S&T/VID-20230416-WA0013.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700"
-              />
-              {/* Premium Video Badge */}
-              <div className="absolute top-4 left-4 bg-brand-dark/70 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-brand-primary animate-pulse" />
-                <span className="text-[9px] font-bold text-white uppercase tracking-widest">LIVE ACTION</span>
-              </div>
-            </motion.div>
-
-            {/* Detail Image Container (Overlapping on Bottom Right) */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, x: 20 }}
-              whileInView={{ opacity: 1, x: 0, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.4, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute right-4 bottom-0 w-[50%] aspect-square rounded-[20px] overflow-hidden border-8 border-white shadow-[0_24px_48px_-10px_rgba(0,0,0,0.12)] group z-10"
+              transition={{ duration: 1.2, delay: 0.3 }}
+              className="w-full aspect-[4/3] overflow-hidden bg-neutral-100 rounded-[24px] border-4 border-white shadow-xl relative group"
             >
               <img
-                src="/extracted_assets/Website/Images/S&T/Hotel Penensula/IMG-20230416-WA0015.jpg"
-                alt="Slide & Turn Detail"
-                className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700"
+                src="/extracted_assets/Website/Images/S&T/Hotel Penensula/IMG-20230416-WA0001.jpg"
+                alt="Slide & Turn System Showcase"
+                className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-1000"
               />
             </motion.div>
           </div>
+
         </div>
       </div>
     </section>
@@ -303,9 +316,6 @@ const BestSellingProduct = () => {
 };
 
 const ApplicationsSection = () => {
-  const [hoveredApp, setHoveredApp] = useState<null | number>(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
   const apps = [
     {
       name: "Balcony",
@@ -365,15 +375,10 @@ const ApplicationsSection = () => {
     }
   ];
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    setMousePos({ x: e.clientX, y: e.clientY });
-  };
-
   return (
     <section
       id="applications"
       className="py-16 md:py-20 bg-white relative overflow-visible"
-      onMouseMove={handleMouseMove}
     >
       {/* Soft Architectural Grid Background and Glow */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000003_1px,transparent_1px),linear-gradient(to_bottom,#00000003_1px,transparent_1px)] bg-[size:6rem_6rem] pointer-events-none" />
@@ -395,112 +400,43 @@ const ApplicationsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05, duration: 0.5, ease: "easeOut" }}
-              onMouseEnter={() => setHoveredApp(i)}
-              onMouseLeave={() => setHoveredApp(null)}
-              className="relative bg-white border border-neutral-100/90 rounded-2xl p-5 md:p-6 flex flex-col justify-between items-start overflow-hidden group cursor-pointer transition-all duration-500 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.01)] hover:shadow-[0_20px_40px_-10px_rgba(67,133,245,0.1)] hover:border-brand-primary/20 hover:scale-[1.02] min-h-[190px]"
+              className="relative aspect-[4/3] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-500 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.01)] hover:shadow-[0_20px_40px_-10px_rgba(67,133,245,0.15)] hover:scale-[1.02] p-5 md:p-6 flex flex-col justify-between items-start"
             >
+              {/* Background Image with Zoom */}
+              <img
+                src={app.img}
+                alt={app.name}
+                className="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-700 -z-20"
+              />
+
+              {/* Dark Ambient Overlays */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/25 group-hover:from-black/90 group-hover:via-black/55 group-hover:to-black/35 transition-all duration-500 -z-10" />
+
               {/* Header: Number and Styled Icon */}
-              <div className="flex justify-between items-start w-full mb-4">
-                <span className="text-[11px] font-mono text-neutral-300 group-hover:text-brand-primary/40 transition-colors font-medium">
+              <div className="flex justify-between items-start w-full relative z-10">
+                <span className="text-[11px] font-mono text-white/50 group-hover:text-brand-primary transition-colors font-medium">
                   {app.number}
                 </span>
-                <div className="w-12 h-12 rounded-xl bg-brand-primary/5 text-brand-primary flex items-center justify-center transition-all duration-500 group-hover:bg-brand-primary group-hover:text-white group-hover:rotate-[360deg] group-hover:shadow-lg group-hover:shadow-brand-primary/20">
-                  {React.cloneElement(app.icon, { size: 20 })}
+                <div className="w-10 h-10 rounded-xl bg-white/15 text-white backdrop-blur-md flex items-center justify-center transition-all duration-500 group-hover:bg-brand-primary group-hover:rotate-[360deg] group-hover:shadow-lg group-hover:shadow-brand-primary/30">
+                  {React.cloneElement(app.icon, { size: 18 })}
                 </div>
               </div>
 
               {/* Bottom Metadata */}
-              <div className="w-full relative">
-                <span className="text-[8px] uppercase tracking-[0.2em] text-neutral-400 font-bold group-hover:text-brand-primary/80 transition-colors mb-1.5 block">
+              <div className="w-full relative z-10">
+                <span className="text-[8px] uppercase tracking-[0.2em] text-white/60 font-bold group-hover:text-brand-primary transition-colors mb-1.5 block">
                   {app.tag}
                 </span>
-                <h4 className="text-sm font-semibold uppercase tracking-wider text-brand-dark transition-colors">
+                <h4 className="text-sm font-semibold uppercase tracking-wider text-white transition-colors">
                   {app.name}
                 </h4>
               </div>
 
               {/* Floating Action Arrow */}
-              <div className="absolute bottom-6 right-6 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-brand-primary">
+              <div className="absolute bottom-6 right-6 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-white group-hover:text-brand-primary z-10">
                 <ArrowUpRight size={16} />
               </div>
             </motion.div>
-          ))}
-        </div>
-      </div>
-
-      {/* Floating Cursor Image */}
-      <AnimatePresence>
-        {hoveredApp !== null && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              x: mousePos.x + 20, // Offset to the right of cursor
-              y: mousePos.y + 20  // Offset below cursor
-            }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            transition={{
-              type: "spring",
-              stiffness: 250,
-              damping: 25,
-              mass: 0.5,
-              opacity: { duration: 0.15 }
-            }}
-            style={{
-              position: 'fixed',
-              left: 0,
-              top: 0,
-              width: '320px',
-              height: '220px',
-              pointerEvents: 'none',
-              zIndex: 9999, // Ensure it's above everything
-              borderRadius: '12px',
-              overflow: 'hidden',
-              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4)'
-            }}
-          >
-            <img
-              src={apps[hoveredApp].img}
-              alt=""
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </section>
-
-
-
-  );
-};
-
-const FAQSection = () => {
-  const faqs = [
-    { q: "Is the glass safe?", a: "Yes, we use 10mm or 12mm toughened safety glass which is highly resistant to impact." },
-    { q: "Is it waterproof?", a: "Our systems are designed to be weather-resistant, effectively keeping out rain and wind." },
-    { q: "How long is the warranty?", a: "We provide a comprehensive 5-year warranty on all our hardware and mechanisms." },
-    { q: "Can it be installed in rentals?", a: "Yes, our installations are minimally invasive and can often be approved for high-end rentals." }
-  ];
-
-  return (
-    <section id="faqs" className="py-16 md:py-20 bg-neutral-50">
-      <div className="max-w-3xl mx-auto px-6">
-        <div className="text-center mb-10">
-          <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary mb-2 block">Knowledge Hub</span>
-          <h2 className="text-3xl md:text-5xl text-brand-dark uppercase">Frequently Asked</h2>
-        </div>
-        <div className="space-y-3">
-          {faqs.map((faq, i) => (
-            <details key={i} className="group bg-white rounded-sm border border-neutral-200 overflow-hidden">
-              <summary className="flex items-center justify-between p-4 md:p-5 cursor-pointer list-none hover:bg-neutral-50 transition-colors">
-                <span className="text-xs font-bold uppercase tracking-widest text-brand-dark">{faq.q}</span>
-                <ChevronRight size={16} className="group-open:rotate-90 transition-transform" />
-              </summary>
-              <div className="p-4 md:p-5 pt-0 text-neutral-500 text-sm leading-relaxed border-t border-neutral-100">
-                {faq.a}
-              </div>
-            </details>
           ))}
         </div>
       </div>
@@ -1437,18 +1373,18 @@ const PMCSection = () => {
 
 const GlazingSolutionsSection = () => {
   return (
-    <section className="bg-slate-50/50 py-16 md:py-24 overflow-visible border-b border-neutral-100">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 space-y-12 md:space-y-16">
+    <section className="bg-white overflow-visible border-b border-neutral-100">
+      <div className="w-full">
 
         {/* Card 1: Balcony Glazing */}
-        <div className="sticky top-28 w-full bg-white rounded-[32px] border border-neutral-100/90 p-8 md:p-12 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.03)] hover:shadow-[0_32px_60px_-15px_rgba(67,133,245,0.05)] transition-all duration-500 z-10">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+        <div className="sticky top-20 w-full bg-white border-b border-neutral-100 py-16 md:py-24 px-6 md:px-12 xl:px-16 transition-all duration-500 z-10">
+          <div className="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left: Text Content */}
             <div className="order-2 lg:order-1 flex flex-col items-start text-left">
               <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-primary mb-2 block">
                 Architectural Series
               </span>
-              <h2 className="text-3xl md:text-5xl font-bold text-brand-dark mb-4 leading-tight">
+              <h2 className="text-4xl md:text-6xl font-semibold text-brand-dark mb-5 leading-[1.1] tracking-tight">
                 Balcony Glazing
               </h2>
               <p className="text-neutral-500 text-base md:text-lg font-normal leading-relaxed mb-6 max-w-md">
@@ -1463,16 +1399,16 @@ const GlazingSolutionsSection = () => {
             </div>
 
             {/* Right: Image Container */}
-            <div className="order-1 lg:order-2 relative flex justify-center lg:justify-end">
+            <div className="order-1 lg:order-2 relative flex justify-center lg:justify-end w-full">
               {/* Soft Ambient Background Glow */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-brand-primary/5 rounded-full blur-[60px] -z-10 animate-pulse" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-brand-primary/5 rounded-full blur-[80px] -z-10 animate-pulse" />
 
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                className="w-full max-w-[540px] aspect-[4/3] rounded-[20px] overflow-hidden border-4 border-white shadow-[0_20px_40px_-10px_rgba(0,0,0,0.08)] bg-neutral-100 group"
+                className="w-full max-w-[600px] aspect-[4/3] rounded-[24px] overflow-hidden border-4 border-white shadow-[0_32px_64px_-15px_rgba(0,0,0,0.15)] bg-neutral-100 group"
               >
                 <img
                   src="/hero/balcony.png"
@@ -1485,14 +1421,14 @@ const GlazingSolutionsSection = () => {
         </div>
 
         {/* Card 2: Patio Glazing */}
-        <div className="sticky top-32 w-full bg-white rounded-[32px] border border-neutral-100/90 p-8 md:p-12 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.04)] hover:shadow-[0_32px_60px_-15px_rgba(67,133,245,0.05)] transition-all duration-500 z-20">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+        <div className="sticky top-20 w-full bg-white border-b border-neutral-100 py-16 md:py-24 px-6 md:px-12 xl:px-16 transition-all duration-500 z-20">
+          <div className="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left: Text Content */}
             <div className="order-2 lg:order-1 flex flex-col items-start text-left">
               <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-primary mb-2 block">
                 Outdoor Spatial Systems
               </span>
-              <h2 className="text-3xl md:text-5xl font-bold text-brand-dark mb-4 leading-tight">
+              <h2 className="text-4xl md:text-6xl font-semibold text-brand-dark mb-5 leading-[1.1] tracking-tight">
                 Patio Glazing
               </h2>
               <p className="text-neutral-500 text-base md:text-lg font-normal leading-relaxed mb-6 max-w-md">
@@ -1507,16 +1443,16 @@ const GlazingSolutionsSection = () => {
             </div>
 
             {/* Right: Image Container */}
-            <div className="order-1 lg:order-2 relative flex justify-center lg:justify-end">
+            <div className="order-1 lg:order-2 relative flex justify-center lg:justify-end w-full">
               {/* Soft Ambient Background Glow */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-brand-primary/5 rounded-full blur-[60px] -z-10 animate-pulse" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-brand-primary/5 rounded-full blur-[80px] -z-10 animate-pulse" />
 
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                className="w-full max-w-[540px] aspect-[4/3] rounded-[20px] overflow-hidden border-4 border-white shadow-[0_20px_40px_-10px_rgba(0,0,0,0.08)] bg-neutral-100 group"
+                className="w-full max-w-[600px] aspect-[4/3] rounded-[24px] overflow-hidden border-4 border-white shadow-[0_32px_64px_-15px_rgba(0,0,0,0.15)] bg-neutral-100 group"
               >
                 <img
                   src="/hero/patio.png"
@@ -1556,7 +1492,6 @@ export default function Page() {
         <ApplicationsSection />
         <Testimonials />
         <LeadFormSection />
-        <FAQSection />
       </div>
     </div>
   );

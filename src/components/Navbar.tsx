@@ -16,27 +16,27 @@ const NAV_ITEMS = [
 ];
 
 const PRODUCTS = [
-  { name: "Folding Glass Balcony Systems", href: "/products#folding", category: "Balcony Systems", desc: "100% opening frameless balcony spatial solution" },
-  { name: "Insulated Glass Balcony Systems", href: "/products#insulated", category: "Balcony Systems", desc: "Premium insulated double-glazed thermal spatial systems" },
-  { name: "Sliding Glass Systems", href: "/products#sliding", category: "Balcony Systems", desc: "Minimalist sliding multi-track panoramic doors" },
-  { name: "Slide & Turn Systems", href: "/products#slide-turn", category: "Balcony Systems", desc: "Premium space-saving slide and turn balcony partitions" },
-  { name: "Guillotine Glass Systems", href: "/products#guillotine", category: "Advanced Glass Systems", desc: "Vertical motorized smart glass panels for commercial use" },
-  { name: "Walking Motor System", href: "/products#motor", category: "Advanced Glass Systems", desc: "Motorized folding sliding glass spatial solution" },
-  { name: "Shop Window Glass Systems", href: "/products#shop", category: "Advanced Glass Systems", desc: "High-exposure frameless storefront glass dividers" },
-  { name: "Fixed Glass Roof (Veranda) System", href: "/products#roof", category: "Roof & Cover Systems", desc: "Custom transparent architectural glass roofs" },
-  { name: "Windbreaker System", href: "/products#windbreaker", category: "Roof & Cover Systems", desc: "Adjustable height wind barrier glass guards" },
-  { name: "Bioclimatic Pergola (IOT Smart Roof)", href: "/products#bioclimatic", category: "Roof & Cover Systems", desc: "Smart louvered aluminum climate control roofs" }
+  { name: "Folding Glass Balcony Systems", href: "/products#folding", category: "Balcony Systems", desc: "100% opening frameless balcony spatial solution", img: "/hero/balcony.png" },
+  { name: "Insulated Glass Balcony Systems", href: "/products#insulated", category: "Balcony Systems", desc: "Premium insulated double-glazed thermal spatial systems", img: "/extracted_assets/Website/Images/Offics/Terrece/IMG-20240605-WA0011.jpg" },
+  { name: "Sliding Glass Systems", href: "/products#sliding", category: "Balcony Systems", desc: "Minimalist sliding multi-track panoramic doors", img: "/extracted_assets/Website/Images/S&T/Open Tap/IMG-20231009-WA0004.jpg" },
+  { name: "Slide & Turn Systems", href: "/products#slide-turn", category: "Balcony Systems", desc: "Premium space-saving slide and turn balcony partitions", img: "/extracted_assets/Website/Images/S&T/Hotel Penensula/IMG-20230416-WA0001.jpg" },
+  { name: "Guillotine Glass Systems", href: "/products#guillotine", category: "Advanced Glass Systems", desc: "Vertical motorized smart glass panels for commercial use", img: "/extracted_assets/Website/Images/Offics/IMG-20260112-WA0007.jpg" },
+  { name: "Walking Motor System", href: "/products#motor", category: "Advanced Glass Systems", desc: "Motorized folding sliding glass spatial solution", img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4395.JPG" },
+  { name: "Shop Window Glass Systems", href: "/products#shop", category: "Advanced Glass Systems", desc: "High-exposure frameless storefront glass dividers", img: "/extracted_assets/Website/Images/Offics/IMG-20210310-WA0002.jpg" },
+  { name: "Fixed Glass Roof (Veranda) System", href: "/products#roof", category: "Roof & Cover Systems", desc: "Custom transparent architectural glass roofs", img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4402.JPG" },
+  { name: "Windbreaker System", href: "/products#windbreaker", category: "Roof & Cover Systems", desc: "Adjustable height wind barrier glass guards", img: "/hero/patio.png" },
+  { name: "Bioclimatic Pergola (IOT Smart Roof)", href: "/products#bioclimatic", category: "Roof & Cover Systems", desc: "Smart louvered aluminum climate control roofs", img: "/extracted_assets/Website/Images/Offics/Terrece/IMG-20211126-WA0001.jpg" }
 ];
 
 const APPLICATIONS = [
-  { name: "Balcony", href: "/applications#balcony", category: "Residential Applications", desc: "Transform your home balcony into a panoramic oasis" },
-  { name: "Exterior", href: "/applications#exterior", category: "Residential Applications", desc: "Seamless integration between home indoor and outdoor spaces" },
-  { name: "Terrace", href: "/applications#terrace", category: "Residential Applications", desc: "Widescreen panoramic views for structural terrace covers" },
-  { name: "Garden", href: "/applications#garden", category: "Residential Applications", desc: "Custom aesthetic framing solutions for green surroundings" },
-  { name: "Farm House", href: "/applications#farm-house", category: "Residential Applications", desc: "Grand glass entries and structural verandas for country homes" },
-  { name: "Interior Partition", href: "/applications#partition", category: "Commercial Applications", desc: "Modern acoustic glass dividers for home or office partitions" },
-  { name: "Office space", href: "/applications#office", category: "Commercial Applications", desc: "Sleek professional conference room walls and workspace panels" },
-  { name: "Commercial", href: "/applications#commercial", category: "Commercial Applications", desc: "Robust high-exposure entries for restaurants and retail fronts" }
+  { name: "Balcony", href: "/applications#balcony", category: "Residential Applications", desc: "Transform your home balcony into a panoramic oasis", img: "/hero/balcony.png" },
+  { name: "Exterior", href: "/applications#exterior", category: "Residential Applications", desc: "Seamless integration between home indoor and outdoor spaces", img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4395.JPG" },
+  { name: "Terrace", href: "/applications#terrace", category: "Residential Applications", desc: "Widescreen panoramic views for structural terrace covers", img: "/extracted_assets/Website/Images/Offics/Terrece/IMG-20240605-WA0011.jpg" },
+  { name: "Garden", href: "/applications#garden", category: "Residential Applications", desc: "Custom aesthetic framing solutions for green surroundings", img: "/extracted_assets/Website/Images/S&T/Open Tap/IMG-20231009-WA0004.jpg" },
+  { name: "Farm House", href: "/applications#farm-house", category: "Residential Applications", desc: "Grand glass entries and structural verandas for country homes", img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4402.JPG" },
+  { name: "Interior Partition", href: "/applications#partition", category: "Commercial Applications", desc: "Modern acoustic glass dividers for home or office partitions", img: "/extracted_assets/Website/Images/Offics/IMG-20260112-WA0007.jpg" },
+  { name: "Office space", href: "/applications#office", category: "Commercial Applications", desc: "Sleek professional conference room walls and workspace panels", img: "/extracted_assets/Website/Images/Offics/IMG-20210310-WA0002.jpg" },
+  { name: "Commercial", href: "/applications#commercial", category: "Commercial Applications", desc: "Robust high-exposure entries for restaurants and retail fronts", img: "/extracted_assets/Website/Images/S&T/Hotel Penensula/IMG-20230416-WA0001.jpg" }
 ];
 
 const ALL_SEARCH_ITEMS = [
@@ -135,10 +135,10 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
             <div ref={searchContainerRef} className="relative w-full max-w-[240px] xl:max-w-[300px]">
               <div
                 className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all duration-300 ${isSearchFocused
-                    ? 'bg-white border-brand-primary shadow-sm ring-2 ring-brand-primary/10'
+                    ? 'bg-white border-brand-primary shadow-sm ring-2 ring-brand-primary/10 text-brand-dark'
                     : showSolid
                       ? 'bg-neutral-100 border-neutral-200 text-brand-dark'
-                      : 'bg-white/10 border-white/20 text-white placeholder-white/60'
+                      : 'bg-white/10 border-white/20 text-white'
                   }`}
               >
                 <Search size={16} className={isSearchFocused ? 'text-brand-primary' : showSolid ? 'text-neutral-400' : 'text-white/60'} />
@@ -148,10 +148,21 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onFocus={() => setIsSearchFocused(true)}
                   placeholder="Search products, systems..."
-                  className="bg-transparent border-none outline-none text-xs w-full focus:ring-0 focus:outline-none p-0"
+                  className={`bg-transparent border-none outline-none text-xs w-full focus:ring-0 focus:outline-none p-0 transition-colors duration-300 ${
+                    isSearchFocused || showSolid
+                      ? 'text-brand-dark placeholder:text-neutral-400'
+                      : 'text-white placeholder:text-white/60'
+                  }`}
                 />
                 {searchQuery && (
-                  <button onClick={() => setSearchQuery('')} className="text-neutral-400 hover:text-neutral-600">
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    className={`transition-colors duration-300 ${
+                      isSearchFocused || showSolid
+                        ? 'text-neutral-400 hover:text-neutral-600'
+                        : 'text-white/60 hover:text-white'
+                    }`}
+                  >
                     <X size={14} />
                   </button>
                 )}
@@ -239,28 +250,36 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
             </button>
           </div>
 
-          {/* ======================================= */}
-          {/* MYNTRA-STYLE WIDESCREEN MEGA DROPDOWNS  */}
-          {/* ======================================= */}
-          <AnimatePresence>
-            {activeMenu === 'products' && (
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 15 }}
-                transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute top-full left-0 right-0 w-full bg-white shadow-2xl border-t border-neutral-100 py-10 px-12 z-[110] grid grid-cols-4 gap-8 max-w-[1600px] mx-auto"
-                onMouseEnter={() => setActiveMenu('products')}
-                onMouseLeave={() => setActiveMenu(null)}
-              >
+        </div>
+
+        {/* ======================================= */}
+        {/* MYNTRA-STYLE WIDESCREEN MEGA DROPDOWNS  */}
+        {/* ======================================= */}
+        <AnimatePresence>
+          {activeMenu === 'products' && (
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 15 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute top-full left-0 right-0 w-full bg-white shadow-2xl border-t border-neutral-100 py-10 px-6 md:px-12 z-[110]"
+              onMouseEnter={() => setActiveMenu('products')}
+              onMouseLeave={() => setActiveMenu(null)}
+            >
+              <div className="max-w-[1600px] mx-auto grid grid-cols-4 gap-8">
                 {/* Column 1: Balcony Systems */}
                 <div>
                   <h5 className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-4">Balcony Systems</h5>
                   <div className="flex flex-col gap-3">
                     {PRODUCTS.filter(p => p.category === "Balcony Systems").map((prod) => (
-                      <Link key={prod.name} href={prod.href} className="group block">
-                        <div className="text-[13px] font-semibold text-brand-dark group-hover:text-brand-primary transition-colors">{prod.name}</div>
-                        <div className="text-[11px] text-neutral-400 leading-tight mt-0.5 line-clamp-1">{prod.desc}</div>
+                      <Link key={prod.name} href={prod.href} onClick={() => setActiveMenu(null)} className="group flex items-start gap-3.5 p-2 rounded-xl hover:bg-neutral-50 transition-colors duration-300">
+                        <div className="w-16 h-12 rounded-lg overflow-hidden shrink-0 bg-neutral-100 border border-neutral-200/60 shadow-sm relative">
+                          <img src={prod.img} alt={prod.name} className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-500" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-[13px] font-semibold text-brand-dark group-hover:text-brand-primary transition-colors leading-tight">{prod.name}</div>
+                          <div className="text-[10px] text-neutral-400 leading-tight mt-1 line-clamp-1">{prod.desc}</div>
+                        </div>
                       </Link>
                     ))}
                   </div>
@@ -271,9 +290,14 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                   <h5 className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-4">Advanced Glass Systems</h5>
                   <div className="flex flex-col gap-3">
                     {PRODUCTS.filter(p => p.category === "Advanced Glass Systems").map((prod) => (
-                      <Link key={prod.name} href={prod.href} className="group block">
-                        <div className="text-[13px] font-semibold text-brand-dark group-hover:text-brand-primary transition-colors">{prod.name}</div>
-                        <div className="text-[11px] text-neutral-400 leading-tight mt-0.5 line-clamp-1">{prod.desc}</div>
+                      <Link key={prod.name} href={prod.href} onClick={() => setActiveMenu(null)} className="group flex items-start gap-3.5 p-2 rounded-xl hover:bg-neutral-50 transition-colors duration-300">
+                        <div className="w-16 h-12 rounded-lg overflow-hidden shrink-0 bg-neutral-100 border border-neutral-200/60 shadow-sm relative">
+                          <img src={prod.img} alt={prod.name} className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-500" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-[13px] font-semibold text-brand-dark group-hover:text-brand-primary transition-colors leading-tight">{prod.name}</div>
+                          <div className="text-[10px] text-neutral-400 leading-tight mt-1 line-clamp-1">{prod.desc}</div>
+                        </div>
                       </Link>
                     ))}
                   </div>
@@ -284,9 +308,14 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                   <h5 className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-4">Roof & Cover Systems</h5>
                   <div className="flex flex-col gap-3">
                     {PRODUCTS.filter(p => p.category === "Roof & Cover Systems").map((prod) => (
-                      <Link key={prod.name} href={prod.href} className="group block">
-                        <div className="text-[13px] font-semibold text-brand-dark group-hover:text-brand-primary transition-colors">{prod.name}</div>
-                        <div className="text-[11px] text-neutral-400 leading-tight mt-0.5 line-clamp-1">{prod.desc}</div>
+                      <Link key={prod.name} href={prod.href} onClick={() => setActiveMenu(null)} className="group flex items-start gap-3.5 p-2 rounded-xl hover:bg-neutral-50 transition-colors duration-300">
+                        <div className="w-16 h-12 rounded-lg overflow-hidden shrink-0 bg-neutral-100 border border-neutral-200/60 shadow-sm relative">
+                          <img src={prod.img} alt={prod.name} className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-500" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-[13px] font-semibold text-brand-dark group-hover:text-brand-primary transition-colors leading-tight">{prod.name}</div>
+                          <div className="text-[10px] text-neutral-400 leading-tight mt-1 line-clamp-1">{prod.desc}</div>
+                        </div>
                       </Link>
                     ))}
                   </div>
@@ -295,7 +324,7 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                 {/* Column 4: Premium Visual Showcase Card */}
                 <div className="relative rounded-2xl overflow-hidden shadow-md border border-neutral-100 flex flex-col justify-end p-6 group aspect-[4/3] bg-neutral-900">
                   <img
-                    src="https://www.infiwindow.com/images/gallery/balcony/large/balcony1.jpg"
+                    src="/hero/balcony.png"
                     alt="Premium Showcase"
                     className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-700"
                   />
@@ -309,27 +338,34 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                     </Link>
                   </div>
                 </div>
-              </motion.div>
-            )}
+              </div>
+            </motion.div>
+          )}
 
-            {activeMenu === 'applications' && (
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 15 }}
-                transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute top-full left-0 right-0 w-full bg-white shadow-2xl border-t border-neutral-100 py-10 px-12 z-[110] grid grid-cols-3 gap-10 max-w-[1600px] mx-auto"
-                onMouseEnter={() => setActiveMenu('applications')}
-                onMouseLeave={() => setActiveMenu(null)}
-              >
+          {activeMenu === 'applications' && (
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 15 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute top-full left-0 right-0 w-full bg-white shadow-2xl border-t border-neutral-100 py-10 px-6 md:px-12 z-[110]"
+              onMouseEnter={() => setActiveMenu('applications')}
+              onMouseLeave={() => setActiveMenu(null)}
+            >
+              <div className="max-w-[1600px] mx-auto grid grid-cols-3 gap-10">
                 {/* Column 1: Residential Applications */}
                 <div>
                   <h5 className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-4">Residential Applications</h5>
                   <div className="flex flex-col gap-3">
                     {APPLICATIONS.filter(a => a.category === "Residential Applications").map((app) => (
-                      <Link key={app.name} href={app.href} className="group block">
-                        <div className="text-[13px] font-semibold text-brand-dark group-hover:text-brand-primary transition-colors">{app.name} Space</div>
-                        <div className="text-[11px] text-neutral-400 leading-tight mt-0.5 line-clamp-1">{app.desc}</div>
+                      <Link key={app.name} href={app.href} onClick={() => setActiveMenu(null)} className="group flex items-start gap-3.5 p-2 rounded-xl hover:bg-neutral-50 transition-colors duration-300">
+                        <div className="w-16 h-12 rounded-lg overflow-hidden shrink-0 bg-neutral-100 border border-neutral-200/60 shadow-sm relative">
+                          <img src={app.img} alt={app.name} className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-500" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-[13px] font-semibold text-brand-dark group-hover:text-brand-primary transition-colors leading-tight">{app.name} Space</div>
+                          <div className="text-[10px] text-neutral-400 leading-tight mt-1 line-clamp-1">{app.desc}</div>
+                        </div>
                       </Link>
                     ))}
                   </div>
@@ -340,9 +376,14 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                   <h5 className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-4">Commercial Applications</h5>
                   <div className="flex flex-col gap-3">
                     {APPLICATIONS.filter(a => a.category === "Commercial Applications").map((app) => (
-                      <Link key={app.name} href={app.href} className="group block">
-                        <div className="text-[13px] font-semibold text-brand-dark group-hover:text-brand-primary transition-colors">{app.name}</div>
-                        <div className="text-[11px] text-neutral-400 leading-tight mt-0.5 line-clamp-1">{app.desc}</div>
+                      <Link key={app.name} href={app.href} onClick={() => setActiveMenu(null)} className="group flex items-start gap-3.5 p-2 rounded-xl hover:bg-neutral-50 transition-colors duration-300">
+                        <div className="w-16 h-12 rounded-lg overflow-hidden shrink-0 bg-neutral-100 border border-neutral-200/60 shadow-sm relative">
+                          <img src={app.img} alt={app.name} className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-500" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-[13px] font-semibold text-brand-dark group-hover:text-brand-primary transition-colors leading-tight">{app.name}</div>
+                          <div className="text-[10px] text-neutral-400 leading-tight mt-1 line-clamp-1">{app.desc}</div>
+                        </div>
                       </Link>
                     ))}
                   </div>
@@ -351,7 +392,7 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                 {/* Column 3: Featured Partition Banner */}
                 <div className="relative rounded-2xl overflow-hidden shadow-md border border-neutral-100 flex flex-col justify-end p-6 group bg-neutral-900">
                   <img
-                    src="https://www.infiwindow.com/images/gallery/office/large/office1.jpg"
+                    src="/extracted_assets/Website/Images/Offics/IMG-20260112-WA0007.jpg"
                     alt="Office partition"
                     className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-700"
                   />
@@ -365,10 +406,10 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                     </Link>
                   </div>
                 </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
 
       {/* Mobile Navigation Menu */}
