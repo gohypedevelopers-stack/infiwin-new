@@ -11,6 +11,7 @@ import {
   Instagram,
   Facebook,
   Linkedin,
+  ChevronLeft,
   ChevronRight,
   ArrowUpRight,
   Monitor,
@@ -42,7 +43,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
       id: 1,
       title: "Panoramic Living",
       location: "DUBAI",
-      tagline: "Unobstructed horizons meet minimalist precision.",
+      tagline: "Create brighter living spaces with precision glass systems that open interiors to wide views, natural light, and a refined sense of calm.",
       price: "From $2,500",
       duration: "4-Week Turnkey",
       img: "/hero/one.png",
@@ -51,7 +52,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
       id: 2,
       title: "Sereno Facade",
       location: "TUSCANY",
-      tagline: "Harmonizing classic villa aesthetics with modern technology.",
+      tagline: "Bring timeless facades to life with modern glazing, clean profiles, and weather-ready performance designed for elegant residential architecture.",
       price: "From $4,200",
       duration: "6-Week Install",
       img: "/hero/two.png",
@@ -60,7 +61,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
       id: 3,
       title: "Noir Workspace",
       location: "LONDON",
-      tagline: "Moody, executive environments architected for focus.",
+      tagline: "Shape focused work environments with premium partitions, acoustic comfort, and a polished architectural finish that supports productivity every day.",
       price: "From $3,100",
       duration: "3-Week Turnkey",
       img: "/hero/three.png",
@@ -69,16 +70,16 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
       id: 4,
       title: "Atrium Divider",
       location: "LONDON",
-      tagline: "Sculpting internal spaces through light and transparency.",
+      tagline: "Define open interiors without closing them off, using slim glass dividers that preserve daylight, visibility, and spatial flow.",
       price: "From $1,800",
       duration: "2-Week Install",
-      img: "/hero/four.png ",
+      img: "/hero/four.png",
     },
     {
       id: 5,
       title: "Glaze Pavilion",
       location: "SINGAPORE",
-      tagline: "Luxury pavilions defined by structural glass perfection.",
+      tagline: "Build standout pavilions with structural glass detailing, seamless transitions, and durable systems made for premium indoor-outdoor experiences.",
       price: "From $5,500",
       duration: "8-Week Custom",
       img: "/hero/five.png",
@@ -95,99 +96,166 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
     return () => clearInterval(timer);
   }, [slides.length, isHovered]);
 
-  const nextSlide = () => setActiveIndex((prev) => (prev + 1) % slides.length);
-  const prevSlide = () => setActiveIndex((prev) => (prev - 1 + slides.length) % slides.length);
-
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-brand-dark flex items-center">
+    <section 
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="relative w-full h-screen min-h-screen overflow-hidden bg-zinc-950 flex flex-col justify-between pt-24 pb-8 px-6 md:px-12 lg:px-16"
+    >
+      {/* Structural ambient glow */}
+      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-primary/5 rounded-full blur-[150px] pointer-events-none -z-10" />
+
       {/* Dynamic Immersive Background */}
-      <AnimatePresence>
+      <div className="absolute inset-0 z-0">
+        <AnimatePresence mode="popLayout">
+          <motion.div
+            key={activeIndex}
+            initial={{ opacity: 0, scale: 1 }}
+            animate={{ opacity: 1, scale: 1.12 }}
+            exit={{ opacity: 0 }}
+            transition={{ opacity: { duration: 0.9, ease: [0.16, 1, 0.3, 1] }, scale: { duration: 5.8, ease: "linear" } }}
+            className="absolute inset-0"
+          >
+            <img
+              src={slides[activeIndex].img}
+              alt={slides[activeIndex].title}
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Top Tagline */}
+      <div className="relative z-20 self-start opacity-0 pointer-events-none transition-opacity">
+        <span className="text-[10px] uppercase tracking-[0.25em] text-white/60 bg-black/30 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full font-bold">
+          INFIWIN ARCHITECTURAL SYSTEMS
+        </span>
+      </div>
+
+      {/* Center Text Section */}
+      <div className="absolute z-20 left-6 md:left-12 lg:left-16 top-1/2 -translate-y-1/2 max-w-[620px] flex flex-col items-start gap-3 md:gap-4">
+        <div className="overflow-hidden">
+          <motion.h1
+            key={`title-${activeIndex}`}
+            initial={{ y: 56, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -24, opacity: 0 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="text-[40px] sm:text-5xl md:text-6xl lg:text-[68px] font-extrabold text-white leading-[0.98] font-sans drop-shadow-[0_3px_18px_rgba(0,0,0,0.65)]"
+          >
+            {slides[activeIndex].title}
+          </motion.h1>
+        </div>
+        
+        <div className="overflow-hidden">
+          <motion.p
+            key={`tagline-${activeIndex}`}
+            initial={{ y: 38, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -18, opacity: 0 }}
+            transition={{ duration: 0.9, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+            className="text-white/85 text-base sm:text-lg md:text-xl max-w-[560px] font-semibold leading-[1.55] drop-shadow-[0_2px_14px_rgba(0,0,0,0.75)]"
+          >
+            {slides[activeIndex].tagline}
+          </motion.p>
+        </div>
+
         <motion.div
-          key={activeIndex}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.2 }}
-          className="absolute inset-0 z-0"
+          key={`actions-${activeIndex}`}
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.16, ease: [0.16, 1, 0.3, 1] }}
+          className="hidden"
         >
-          <img
-            src={slides[activeIndex].img}
-            alt={slides[activeIndex].title}
-            className="w-full h-full object-cover"
-          />
+          <a
+            href="/contact"
+            className="group inline-flex items-center gap-2 bg-brand-primary text-white text-[11px] font-bold uppercase tracking-widest px-8 py-4 rounded-full shadow-lg shadow-brand-primary/25 hover:bg-white hover:text-black hover:scale-[1.02] transition-all duration-300"
+          >
+            Consult Now <ArrowRight size={14} className="group-hover:translate-x-1.5 transition-transform duration-300" />
+          </a>
+          
+          <div className="flex flex-col text-[10px] text-white/50 tracking-wider font-semibold uppercase gap-0.5 border-l border-white/20 pl-4 sm:pl-6 py-0.5">
+            <span className="text-white/80">{slides[activeIndex].location} SERIES</span>
+            <span>{slides[activeIndex].duration}</span>
+          </div>
         </motion.div>
-      </AnimatePresence>
+      </div>
 
-      {/* Expanded Horizontal / Stacked Carousel */}
-      <motion.div
-        animate={{ width: isHovered ? 1300 : 240 }}
-        className="absolute bottom-16 right-16 z-30 hidden lg:block h-[320px]"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <div className="relative h-full">
-          <AnimatePresence initial={false}>
-            {slides.map((slide, i) => {
-              // Calculate stack position relative to activeIndex
-              let index = i - activeIndex;
-              if (index < 0) index += slides.length;
+      {/* Bottom Bar Controls */}
+      <div className="relative z-20 w-full flex flex-col md:flex-row items-end justify-between gap-5 md:gap-8">
+        {/* Left: Interactive Thumbnail Carousel */}
+        <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar w-full md:max-w-[58%] lg:max-w-[56%]">
+          {slides.map((slide, i) => {
+            const isActive = activeIndex === i;
+            return (
+              <button
+                key={slide.id}
+                onClick={() => setActiveIndex(i)}
+                className={`relative shrink-0 overflow-hidden cursor-pointer transition-all duration-500 bg-neutral-900 border focus:outline-none rounded-[8px] ${
+                  isActive
+                    ? 'w-[122px] h-[70px] sm:w-[124px] sm:h-[70px] border-white shadow-2xl z-30 opacity-100'
+                    : 'w-[122px] h-[70px] sm:w-[124px] sm:h-[70px] border-white/15 opacity-70 hover:opacity-100 hover:border-white/40'
+                }`}
+                style={{
+                  transition: 'all 500ms cubic-bezier(0.16, 1, 0.3, 1)',
+                }}
+              >
+                <img
+                  src={slide.img}
+                  alt={slide.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+                <div className={`absolute inset-0 transition-colors duration-500 ${isActive ? 'bg-black/0' : 'bg-black/25'}`} />
+                
+                {/* Subtle hover status bar/border inside */}
+                {isActive && (
+                  <motion.div
+                    layoutId="activeBorder"
+                    className="absolute inset-0 border-2 border-white rounded-[8px] z-40 pointer-events-none"
+                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                  />
+                )}
+              </button>
+            );
+          })}
+        </div>
 
-              // Show all on hover, top 4 when stacked
-              if (!isHovered && index > 3) return null;
-
+        {/* Right: Dynamic Pagination Indicators & Circular Navigation Chevrons */}
+        <div className="flex items-center gap-5 shrink-0 self-end">
+          {/* Pagination Indicators (Dots / Pills) */}
+          <div className="flex items-center gap-2">
+            {slides.map((_, i) => {
+              const isActive = activeIndex === i;
               return (
-                <motion.div
-                  key={slide.id}
+                <button
+                  key={i}
                   onClick={() => setActiveIndex(i)}
-                  initial={{ opacity: 0, x: 50, scale: 0.8 }}
-                  animate={{
-                    x: isHovered ? index * -260 : index * -20,
-                    y: isHovered ? 0 : index * -15,
-                    scale: isHovered ? 1 : 1 - index * 0.05,
-                    zIndex: slides.length - index,
-                    opacity: isHovered ? 1 : 1 - index * 0.2,
-                  }}
-                  exit={{ opacity: 0, x: -100, scale: 0.5 }}
-                  transition={{
-                    duration: 0.8,
-                    ease: [0.16, 1, 0.3, 1],
-                    delay: isHovered ? index * 0.02 : 0
-                  }}
-                  className="absolute bottom-0 right-0 w-[240px] h-[320px] cursor-pointer overflow-hidden rounded-2xl bg-neutral-900 border border-white/10 shadow-2xl group"
-                >
-                  <img src={slide.img} alt={slide.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-
-                  {/* Top Right Index */}
-                  <div className="absolute top-6 right-8">
-                    <span className="text-4xl font-bold text-white/40 group-hover:text-brand-primary transition-colors">
-                      {slide.id}
-                    </span>
-                  </div>
-
-                  {/* Bottom Content */}
-                  <div className="absolute bottom-8 left-8 right-8">
-                    <h4 className="text-xs font-bold text-white leading-tight mb-1">
-                      {slide.title}
-                    </h4>
-                    <p className="text-[8px] text-white/40 tracking-[0.2em]">
-                      Architectural Series
-                    </p>
-                  </div>
-                </motion.div>
+                  className={`focus:outline-none transition-all duration-500 cursor-pointer rounded-full ${
+                    isActive
+                      ? 'w-5 h-1.5 bg-white opacity-100'
+                      : 'w-1.5 h-1.5 bg-white/45 hover:bg-white/75'
+                  }`}
+                />
               );
             })}
-          </AnimatePresence>
-        </div>
-      </motion.div>
+          </div>
 
-      {/* Progress Line (Mobile) */}
-      <div className="lg:hidden absolute bottom-6 left-6 right-6 h-[1px] bg-white/10 z-30">
-        <motion.div
-          className="h-full bg-brand-primary"
-          initial={{ width: 0 }}
-          animate={{ width: `${((activeIndex + 1) / slides.length) * 100}%` }}
-        />
+          {/* Navigation Buttons (Circular glassmorphic chevrons) */}
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setActiveIndex((prev) => (prev - 1 + slides.length) % slides.length)}
+              className="w-10 h-10 rounded-full bg-white/20 border border-white/10 hover:bg-white/30 active:scale-95 transition-all flex items-center justify-center cursor-pointer text-white focus:outline-none backdrop-blur-md"
+            >
+              <ChevronLeft size={18} className="stroke-[1.75]" />
+            </button>
+            <button
+              onClick={() => setActiveIndex((prev) => (prev + 1) % slides.length)}
+              className="w-10 h-10 rounded-full bg-white/20 border border-white/10 hover:bg-white/30 active:scale-95 transition-all flex items-center justify-center cursor-pointer text-white focus:outline-none backdrop-blur-md"
+            >
+              <ChevronRight size={18} className="stroke-[1.75]" />
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -454,7 +522,7 @@ const LeadFormSection = () => {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-20 bg-brand-dark text-white relative overflow-hidden">
+    <section id="contact" className="py-16 md:py-20 bg-[#18181b] text-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           <div>
