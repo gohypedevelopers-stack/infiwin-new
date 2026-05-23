@@ -932,16 +932,8 @@ const PortfolioSection = () => {
             </motion.div>
           </div>
 
-          {/* Carousel Navigation Hint */}
-          <div className="flex items-center justify-between mt-4 border-t border-brand-primary/10 pt-4">
-            <div className="flex gap-4">
-              {/* Simplified Nav Dots */}
-              <div className="flex gap-2">
-                <div className="w-12 h-[2px] bg-brand-primary" />
-                <div className="w-4 h-[2px] bg-brand-primary/20" />
-                <div className="w-4 h-[2px] bg-brand-primary/20" />
-              </div>
-            </div>
+          {/* Carousel Navigation */}
+          <div className="flex items-center justify-end mt-4">
             <div className="flex items-center gap-4">
               <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-dark/40">Drag to explore</span>
               <div className="flex gap-2">
