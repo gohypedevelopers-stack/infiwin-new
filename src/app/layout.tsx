@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${figtree.variable} font-sans antialiased`} suppressHydrationWarning>
+      <body className={`${figtree.variable} font-sans antialiased overflow-x-hidden w-full relative`} suppressHydrationWarning>
         <SmoothScroll>
           <Navbar />
           {children}

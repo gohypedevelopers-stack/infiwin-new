@@ -149,7 +149,7 @@ export default function AboutPage() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="text-center mb-24">
             <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary mb-4 block">Our Values</span>
-            <h2 className="text-4xl md:text-6xl text-brand-dark uppercase">What We Stand For</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-6xl text-brand-dark uppercase">What We Stand For</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-12">
             {values.map((v, i) => (

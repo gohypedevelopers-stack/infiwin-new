@@ -269,7 +269,7 @@ const BestSellingProduct = () => {
           <div className="lg:col-span-7 flex flex-col md:flex-row gap-8 items-end relative w-full">
 
             {/* Paragraph Block on the Left (aligned top) */}
-            <div className="w-full md:w-[40%] self-stretch md:pt-12 pb-44 flex flex-col justify-between items-start">
+            <div className="w-full md:w-[40%] self-stretch md:pt-12 pb-12 md:pb-44 flex flex-col justify-between items-start">
               <motion.p
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -301,6 +301,19 @@ const BestSellingProduct = () => {
                   <span className="text-xs font-semibold text-brand-dark">100% Retractable / Clear View</span>
                 </div>
               </motion.div>
+
+              {/* Massive Title: "Slide & Turn" (Responsive Positioning to prevent video watermark overlap) */}
+              <motion.h2
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                style={{ fontFamily: 'Georgia, serif' }}
+                className="relative md:absolute bottom-auto md:bottom-[-24px] lg:bottom-[-40px] left-auto md:left-0 mt-8 md:mt-0 text-5xl sm:text-6xl md:text-8xl xl:text-[110px] font-light leading-[0.85] text-brand-dark tracking-tighter z-20 select-none w-full"
+              >
+                Slide & <br />
+                <span className="text-brand-primary">Turn</span>
+              </motion.h2>
             </div>
 
             {/* Video Container (Vertical aspect, right side) */}
@@ -322,19 +335,6 @@ const BestSellingProduct = () => {
                 />
               </motion.div>
             </div>
-
-            {/* Massive Overlapping Title: "Slide & Turn" */}
-            <motion.h2
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              style={{ fontFamily: 'Georgia, serif' }}
-              className="absolute bottom-[-24px] md:bottom-[-40px] left-0 text-6xl md:text-8xl xl:text-[110px] font-light leading-[0.85] text-brand-dark tracking-tighter z-20 select-none"
-            >
-              Slide & <br />
-              <span className="text-brand-primary">Turn</span>
-            </motion.h2>
           </div>
 
           {/* RIGHT COLUMN: Takes 5 grid cols. Replicates the "Recent Work" and second picture column */}
@@ -474,7 +474,7 @@ const ApplicationsSection = () => {
   return (
     <section
       id="applications"
-      className="py-16 md:py-20 bg-white relative overflow-visible"
+      className="py-16 md:py-20 bg-white relative overflow-hidden"
     >
       {/* Soft Architectural Grid Background and Glow */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000003_1px,transparent_1px),linear-gradient(to_bottom,#00000003_1px,transparent_1px)] bg-[size:6rem_6rem] pointer-events-none" />

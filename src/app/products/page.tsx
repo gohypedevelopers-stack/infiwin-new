@@ -303,7 +303,7 @@ export default function ProductsPage() {
                 </div>
 
                 {/* Technical Specs Card */}
-                <div className="bg-neutral-50 p-8 rounded-2xl border border-neutral-100 grid grid-cols-2 gap-8">
+                <div className="bg-neutral-50 p-6 sm:p-8 rounded-2xl border border-neutral-100 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
                   {Object.entries(product.technical).map(([key, value], i) => (
                     <div key={i}>
                       <span className="text-[9px] font-bold uppercase tracking-widest text-neutral-400 block mb-1">

@@ -103,7 +103,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="bg-neutral-50 p-12 rounded-sm">
+              <div className="bg-neutral-50 p-6 sm:p-12 rounded-sm">
                 <h3 className="text-2xl text-brand-dark mb-8 uppercase tracking-widest">Inquiry Form</h3>
                 <form className="space-y-8">
                   <div className="grid md:grid-cols-2 gap-8">
@@ -138,7 +138,7 @@ export default function ContactPage() {
 
             {/* Right: Estimator & Location */}
             <div className="space-y-12">
-              <div className="bg-brand-dark p-12 text-white rounded-sm shadow-2xl">
+              <div className="bg-brand-dark p-6 sm:p-12 text-white rounded-sm shadow-2xl">
                 <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-brand-primary mb-6 block">Immediate Tool</span>
                 <h3 className="text-3xl font-serif mb-8">Cost Estimator</h3>
                 <p className="text-white/50 text-sm font-light mb-10 leading-relaxed">

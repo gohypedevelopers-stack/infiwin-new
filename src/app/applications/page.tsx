@@ -131,7 +131,7 @@ export default function ApplicationsPage() {
           <img src="/infiwin images new/ChatGPT Image May 23, 2026, 03_18_04 PM.png" className="w-full h-full object-cover" alt="" />
         </div>
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-          <h2 className="text-4xl md:text-6xl uppercase mb-12 leading-tight">Every Space Has <br /><span className="text-brand-primary font-light lowercase">Potential</span></h2>
+          <h2 className="text-3xl sm:text-4xl md:text-6xl uppercase mb-12 leading-tight">Every Space Has <br /><span className="text-brand-primary font-light lowercase">Potential</span></h2>
           <p className="text-white/60 text-lg font-light mb-16">
             Whether it's a high-rise balcony or a boutique office, our systems are engineered to transform and elevate your environment.
           </p>
