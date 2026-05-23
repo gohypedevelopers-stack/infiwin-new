@@ -53,8 +53,8 @@ export default function FAQsPage() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/70 z-10" />
           <img 
-            src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop" 
-            className="w-full h-full object-cover"
+            src="/infiwin images new/ChatGPT Image May 23, 2026, 02_16_49 PM.png" 
+            className="w-full h-full object-cover opacity-60"
             alt="FAQ Hero"
           />
         </div>

@@ -27,7 +27,7 @@ const products = [
       profiles: "Minimalist Aluminum Rails",
       opening: "100% Clear Opening"
     },
-    img: "/hero/balcony.png",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_25_52 PM.png",
     video: "/extracted_assets/Website/Video/S&T/VID-20230316-WA0010.mp4",
     category: "Balcony systems"
   },
@@ -49,7 +49,7 @@ const products = [
       sealing: "Acoustic EPDM & Transparent H-Gaskets",
       capacity: "Up to 80kg panel weight capacity"
     },
-    img: "/extracted_assets/Website/Images/S&T/Hotel Penensula/IMG-20230416-WA0015.jpg",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_13_49 PM.png",
     video: "/extracted_assets/Website/Video/S&T/VID-20230416-WA0013.mp4",
     category: "Sliding folding systems"
   },
@@ -71,7 +71,7 @@ const products = [
       sealing: "Multi-layered EPDM",
       insulation: "Thermal Break Profiles"
     },
-    img: "/products/insulated.png",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_29_01 PM.png",
     category: "Balcony systems"
   },
   {
@@ -92,7 +92,7 @@ const products = [
       glass: "10mm / 12mm Toughened",
       hardware: "Stainless Steel Rollers"
     },
-    img: "/products/sliding.png",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_50_39 PM.png",
     video: "/extracted_assets/Website/Video/Telescopic/VID-20230912-WA0001.mp4",
     category: "Sliding systems"
   },
@@ -114,7 +114,7 @@ const products = [
       glass: "12mm+ Toughened / Laminated",
       profiles: "Commercial Grade Aluminum"
     },
-    img: "/extracted_assets/Website/Images/S&T/Hotel Penensula/IMG-20230416-WA0001.jpg",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_52_36 PM.png",
     video: "/extracted_assets/Website/Video/S&T/VID-20251210-WA0013.mp4",
     category: "Commercial"
   },
@@ -136,7 +136,7 @@ const products = [
       glass: "8mm / 10mm / Double Glazed",
       safety: "Automatic Stop Sensors"
     },
-    img: "/products/guillotine.png",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_14_59 PM.png",
     category: "Motorized systems"
   },
   {
@@ -157,7 +157,7 @@ const products = [
       integration: "Plug-and-play with INFIWIN systems",
       durability: "Tested for 100,000+ cycles"
     },
-    img: "/extracted_assets/Website/Images/Offics/Terrece/IMG-20250312-WA0028.jpg",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_15_29 PM.png",
     category: "Accessories & automation"
   },
   {
@@ -178,7 +178,7 @@ const products = [
       loading: "Engineered for Wind & Snow",
       sealing: "Traction-fit Sealing Technology"
     },
-    img: "/extracted_assets/Website/Images/Offics/Terrece/IMG-20240605-WA0011.jpg",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_30_38 PM.png",
     category: "Roof systems"
   },
   {
@@ -199,7 +199,7 @@ const products = [
       glass: "Toughened Safety Glass",
       base: "Heavy-duty Floor Mount"
     },
-    img: "/extracted_assets/Website/Images/S&T/Open Tap/IMG-20231009-WA0004.jpg",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_20_57 PM.png",
     category: "Outdoor protection"
   },
   {
@@ -220,7 +220,7 @@ const products = [
       structure: "Extruded Aluminum T6063",
       lighting: "Integrated RGB/White LED"
     },
-    img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4402.JPG",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_27_22 PM.png",
     category: "Roof systems"
   }
 ];
@@ -234,7 +234,7 @@ export default function ProductsPage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
+            src="/infiwin images new/ChatGPT Image May 23, 2026, 01_10_02 PM.png" 
             alt="Architectural Excellence" 
             className="w-full h-full object-cover opacity-60"
           />

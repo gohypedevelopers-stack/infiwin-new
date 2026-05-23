@@ -410,56 +410,64 @@ const ApplicationsSection = () => {
       tag: "Panoramic Outer Spaces",
       number: "01",
       icon: <Home size={32} />,
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_25_52 PM.png"
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_25_52 PM.png",
+      href: "/applications#balcony-terrace"
     },
     {
       name: "Int. Partition",
       tag: "Frameless Glass Dividers",
       number: "02",
       icon: <Building2 size={32} />,
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_15_29 PM.png"
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_15_29 PM.png",
+      href: "/applications#partitions"
     },
     {
       name: "Office space",
       tag: "Corporate Acoustic Systems",
       number: "03",
       icon: <Monitor size={32} />,
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_16_49 PM.png"
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_16_49 PM.png",
+      href: "/applications#office"
     },
     {
       name: "Commercial",
       tag: "Storefront Glass Systems",
       number: "04",
       icon: <Building2 size={32} />,
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_52_36 PM.png"
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_52_36 PM.png",
+      href: "/applications#commercial"
     },
     {
       name: "Exterior",
       tag: "Climatic Shield Enclosures",
       number: "05",
       icon: <MapPin size={32} />,
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 01_10_02 PM.png"
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 01_10_02 PM.png",
+      href: "/applications#balcony-terrace"
     },
     {
       name: "Terrace",
       tag: "All-Weather Glazing",
       number: "06",
       icon: <Coffee size={32} />,
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_30_38 PM.png"
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_30_38 PM.png",
+      href: "/applications#balcony-terrace"
     },
     {
       name: "Garden",
       tag: "Modern Spatial Boundaries",
       number: "07",
       icon: <Paintbrush size={32} />,
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_20_57 PM.png"
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_20_57 PM.png",
+      href: "/applications#garden-farmhouses"
     },
     {
       name: "Farm House",
       tag: "Luxury Country Retreats",
       number: "08",
       icon: <Home size={32} />,
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_27_22 PM.png"
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_27_22 PM.png",
+      href: "/applications#garden-farmhouses"
     }
   ];
 
@@ -482,13 +490,14 @@ const ApplicationsSection = () => {
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 relative z-10">
           {apps.map((app, i) => (
-            <motion.div
+            <motion.a
+              href={app.href}
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05, duration: 0.5, ease: "easeOut" }}
-              className="relative aspect-[4/3] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-500 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.01)] hover:shadow-[0_20px_40px_-10px_rgba(67,133,245,0.15)] hover:scale-[1.02] p-5 md:p-6 flex flex-col justify-between items-start"
+              className="relative aspect-[4/3] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-500 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.01)] hover:shadow-[0_20px_40px_-10px_rgba(67,133,245,0.15)] hover:scale-[1.02] p-5 md:p-6 flex flex-col justify-between items-start block"
             >
               {/* Background Image with Zoom */}
               <img
@@ -524,7 +533,7 @@ const ApplicationsSection = () => {
               <div className="absolute bottom-6 right-6 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-white group-hover:text-brand-primary z-10">
                 <ArrowUpRight size={16} />
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>
@@ -665,6 +674,7 @@ const ProductsGrid = () => {
       desc: "100% clear opening with seamless frameless views.",
       series: "BALCONY SERIES",
       img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_25_52 PM.png",
+      href: "/products#folding",
     },
     {
       id: "p2",
@@ -672,6 +682,7 @@ const ProductsGrid = () => {
       desc: "Superior thermal comfort for extreme climates.",
       series: "THERMAL SERIES",
       img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_29_01 PM.png",
+      href: "/products#insulated",
     },
     {
       id: "p3",
@@ -679,6 +690,7 @@ const ProductsGrid = () => {
       desc: "Smooth multi-track transitions for patios and terraces.",
       series: "SLIDER SERIES",
       img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_50_39 PM.png",
+      href: "/products#sliding",
     },
     {
       id: "p4",
@@ -686,6 +698,7 @@ const ProductsGrid = () => {
       desc: "Motorized vertical sliding systems for modern cafes.",
       series: "MOTORIZED SERIES",
       img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_13_49 PM.png",
+      href: "/products#guillotine",
     },
     {
       id: "p5",
@@ -693,6 +706,7 @@ const ProductsGrid = () => {
       desc: "IoT-enabled smart roof for ultimate light control.",
       series: "SMART ROOF",
       img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_27_22 PM.png",
+      href: "/products#bioclimatic",
     }
   ];
 
@@ -715,7 +729,8 @@ const ProductsGrid = () => {
           {/* Top Row: P1, P2, P3 */}
           <div className="flex flex-col lg:flex-row gap-6 h-auto lg:h-[500px]">
             {products.slice(0, 3).map((p, i) => (
-              <motion.div
+              <motion.a
+                href={p.href}
                 key={p.id}
                 onMouseEnter={() => setHoveredId(p.id)}
                 onMouseLeave={() => setHoveredId(null)}
@@ -723,7 +738,7 @@ const ProductsGrid = () => {
                   flex: hoveredId === p.id ? 2 : hoveredId ? 0.6 : (i === 0 ? 1.5 : 0.8)
                 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="relative group cursor-pointer rounded-2xl overflow-hidden bg-neutral-100 min-h-[300px] lg:min-h-0"
+                className="relative group cursor-pointer rounded-2xl overflow-hidden bg-neutral-100 min-h-[300px] lg:min-h-0 block"
               >
                 <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60" />
@@ -743,14 +758,15 @@ const ProductsGrid = () => {
                     </motion.p>
                   )}
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
 
           {/* Bottom Row: P4, P5 */}
           <div className="flex flex-col lg:flex-row gap-6 h-auto lg:h-[380px]">
             {products.slice(3, 5).map((p) => (
-              <motion.div
+              <motion.a
+                href={p.href}
                 key={p.id}
                 onMouseEnter={() => setHoveredId(p.id)}
                 onMouseLeave={() => setHoveredId(null)}
@@ -758,7 +774,7 @@ const ProductsGrid = () => {
                   flex: hoveredId === p.id ? 1.5 : hoveredId ? 0.7 : 1
                 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="relative group cursor-pointer rounded-2xl overflow-hidden bg-neutral-100 min-h-[300px] lg:min-h-0"
+                className="relative group cursor-pointer rounded-2xl overflow-hidden bg-neutral-100 min-h-[300px] lg:min-h-0 block"
               >
                 <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60" />
@@ -770,7 +786,7 @@ const ProductsGrid = () => {
                 <div className="absolute bottom-10 left-10 text-white">
                   <h3 className="text-lg lg:text-xl font-semibold">{p.title}</h3>
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
         </div>

@@ -14,39 +14,45 @@ import React from 'react';
 
 const applications = [
   {
+    id: "balcony-terrace",
     title: "Balcony & Terrace",
     desc: "Reclaim your outdoor space. Our systems protect against dust, rain, and noise while maintaining a perfect panoramic view.",
-    img: "/extracted_assets/Website/Images/Offics/Terrece/IMG-20211126-WA0001.jpg",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_25_52 PM.png",
     icon: <Home size={32} />
   },
   {
+    id: "partitions",
     title: "Interior Partitions",
     desc: "Create flexible living and working environments. Our frameless glass partitions provide sound insulation without visual barriers.",
-    img: "/extracted_assets/Website/Images/Offics/IMG-20260112-WA0007.jpg",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_15_29 PM.png",
     icon: <Building2 size={32} />
   },
   {
+    id: "office",
     title: "Office Spaces",
     desc: "Modern executive environments designed for focus and collaboration. Seamlessly divide conference rooms and private offices.",
-    img: "/extracted_assets/Website/Images/Offics/IMG-20210310-WA0002.jpg",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_16_49 PM.png",
     icon: <Monitor size={32} />
   },
   {
+    id: "commercial",
     title: "Commercial & Retail",
     desc: "Invite customers in with wide-open storefronts. Our systems are durable, secure, and visually arresting for any retail space.",
-    img: "/extracted_assets/Website/Images/S&T/Hotel Penensula/IMG-20230416-WA0001.jpg",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_52_36 PM.png",
     icon: <Building2 size={32} />
   },
   {
+    id: "garden-farmhouses",
     title: "Garden & Farmhouses",
     desc: "Blend your architecture with nature. Create stunning glass pavilions and winter gardens that can be fully opened during pleasant weather.",
-    img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4402.JPG",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_27_22 PM.png",
     icon: <MapPin size={32} />
   },
   {
+    id: "hospitality",
     title: "Hospitality",
     desc: "Cafes, restaurants, and hotels can maximize their seating capacity and offer guests a unique 'alfresco' experience year-round.",
-    img: "/extracted_assets/Website/Images/S&T/Open Tap/IMG-20231009-WA0004.jpg",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_30_38 PM.png",
     icon: <Coffee size={32} />
   }
 ];
@@ -60,7 +66,7 @@ export default function ApplicationsPage() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/60 z-10" />
           <img 
-            src="/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4395.JPG" 
+            src="/infiwin images new/ChatGPT Image May 23, 2026, 01_10_02 PM.png" 
             className="w-full h-full object-cover animate-pulse-slow"
             alt="Applications Hero"
           />
@@ -91,12 +97,13 @@ export default function ApplicationsPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
             {applications.map((app, i) => (
               <motion.div 
+                id={app.id}
                 key={i}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group cursor-pointer"
+                className="group cursor-pointer scroll-mt-24"
               >
                 <div className="relative aspect-video rounded-sm overflow-hidden mb-8 shadow-xl">
                   <img src={app.img} alt={app.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
@@ -121,7 +128,7 @@ export default function ApplicationsPage() {
       {/* Full Width Callout */}
       <section className="py-48 bg-brand-dark text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <img src="/extracted_assets/Website/Images/Offics/Terrece/IMG-20240605-WA0011.jpg" className="w-full h-full object-cover" alt="" />
+          <img src="/infiwin images new/ChatGPT Image May 23, 2026, 03_18_04 PM.png" className="w-full h-full object-cover" alt="" />
         </div>
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <h2 className="text-4xl md:text-6xl uppercase mb-12 leading-tight">Every Space Has <br /><span className="text-brand-primary font-light lowercase">Potential</span></h2>

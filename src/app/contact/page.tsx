@@ -29,8 +29,8 @@ export default function ContactPage() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/70 z-10" />
           <img 
-            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop" 
-            className="w-full h-full object-cover"
+            src="/infiwin images new/ChatGPT Image May 23, 2026, 01_10_02 PM.png" 
+            className="w-full h-full object-cover opacity-60"
             alt="Contact Hero"
           />
         </div>
@@ -195,7 +195,7 @@ export default function ContactPage() {
                 <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-brand-dark/0 transition-all duration-700 pointer-events-none z-10" />
                 {/* Mock Map using Unsplash */}
                 <img 
-                  src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=2066&auto=format&fit=crop" 
+                  src="/infiwin images new/ChatGPT Image May 23, 2026, 02_52_36 PM.png" 
                   className="w-full h-full object-cover"
                   alt="Location Map"
                 />

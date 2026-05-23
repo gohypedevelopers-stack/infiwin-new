@@ -45,8 +45,8 @@ export default function AboutPage() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/70 z-10" />
           <img 
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" 
-            className="w-full h-full object-cover"
+            src="/infiwin images new/ChatGPT Image May 23, 2026, 01_10_02 PM.png" 
+            className="w-full h-full object-cover opacity-60"
             alt="About Hero"
           />
         </div>
@@ -109,7 +109,7 @@ export default function AboutPage() {
             >
               <div className="aspect-[4/5] rounded-sm overflow-hidden shadow-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop" 
+                  src="/infiwin images new/ChatGPT Image May 23, 2026, 03_18_04 PM.png" 
                   className="w-full h-full object-cover"
                   alt="Our Work"
                 />
