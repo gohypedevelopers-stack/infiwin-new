@@ -46,7 +46,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
       tagline: "Create brighter living spaces with precision glass systems that open interiors to wide views, natural light, and a refined sense of calm.",
       price: "From $2,500",
       duration: "4-Week Turnkey",
-      img: "/hero/one.png",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 01_10_02 PM.png",
     },
     {
       id: 2,
@@ -55,7 +55,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
       tagline: "Bring timeless facades to life with modern glazing, clean profiles, and weather-ready performance designed for elegant residential architecture.",
       price: "From $4,200",
       duration: "6-Week Install",
-      img: "/hero/two.png",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_18_04 PM.png",
     },
     {
       id: 3,
@@ -64,7 +64,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
       tagline: "Shape focused work environments with premium partitions, acoustic comfort, and a polished architectural finish that supports productivity every day.",
       price: "From $3,100",
       duration: "3-Week Turnkey",
-      img: "/hero/three.png",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_16_49 PM.png",
     },
     {
       id: 4,
@@ -73,7 +73,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
       tagline: "Define open interiors without closing them off, using slim glass dividers that preserve daylight, visibility, and spatial flow.",
       price: "From $1,800",
       duration: "2-Week Install",
-      img: "/hero/four.png",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_15_29 PM.png",
     },
     {
       id: 5,
@@ -82,7 +82,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
       tagline: "Build standout pavilions with structural glass detailing, seamless transitions, and durable systems made for premium indoor-outdoor experiences.",
       price: "From $5,500",
       duration: "8-Week Custom",
-      img: "/hero/five.png",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_52_36 PM.png",
     }
   ];
 
@@ -97,7 +97,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
   }, [slides.length, isHovered]);
 
   return (
-    <section 
+    <section
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="relative w-full h-screen min-h-screen overflow-hidden bg-zinc-950 flex flex-col justify-between pt-24 pb-8 px-6 md:px-12 lg:px-16"
@@ -146,7 +146,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
             {slides[activeIndex].title}
           </motion.h1>
         </div>
-        
+
         <div className="overflow-hidden">
           <motion.p
             key={`tagline-${activeIndex}`}
@@ -173,7 +173,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
           >
             Consult Now <ArrowRight size={14} className="group-hover:translate-x-1.5 transition-transform duration-300" />
           </a>
-          
+
           <div className="flex flex-col text-[10px] text-white/50 tracking-wider font-semibold uppercase gap-0.5 border-l border-white/20 pl-4 sm:pl-6 py-0.5">
             <span className="text-white/80">{slides[activeIndex].location} SERIES</span>
             <span>{slides[activeIndex].duration}</span>
@@ -191,11 +191,10 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
               <button
                 key={slide.id}
                 onClick={() => setActiveIndex(i)}
-                className={`relative shrink-0 overflow-hidden cursor-pointer transition-all duration-500 bg-neutral-900 border focus:outline-none rounded-[8px] ${
-                  isActive
+                className={`relative shrink-0 overflow-hidden cursor-pointer transition-all duration-500 bg-neutral-900 border focus:outline-none rounded-[8px] ${isActive
                     ? 'w-[122px] h-[70px] sm:w-[124px] sm:h-[70px] border-white shadow-2xl z-30 opacity-100'
                     : 'w-[122px] h-[70px] sm:w-[124px] sm:h-[70px] border-white/15 opacity-70 hover:opacity-100 hover:border-white/40'
-                }`}
+                  }`}
                 style={{
                   transition: 'all 500ms cubic-bezier(0.16, 1, 0.3, 1)',
                 }}
@@ -206,7 +205,7 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
                 <div className={`absolute inset-0 transition-colors duration-500 ${isActive ? 'bg-black/0' : 'bg-black/25'}`} />
-                
+
                 {/* Subtle hover status bar/border inside */}
                 {isActive && (
                   <motion.div
@@ -230,11 +229,10 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
                 <button
                   key={i}
                   onClick={() => setActiveIndex(i)}
-                  className={`focus:outline-none transition-all duration-500 cursor-pointer rounded-full ${
-                    isActive
+                  className={`focus:outline-none transition-all duration-500 cursor-pointer rounded-full ${isActive
                       ? 'w-5 h-1.5 bg-white opacity-100'
                       : 'w-1.5 h-1.5 bg-white/45 hover:bg-white/75'
-                  }`}
+                    }`}
                 />
               );
             })}
@@ -266,12 +264,12 @@ const BestSellingProduct = () => {
     <section className="py-16 md:py-24 bg-[#F8FAFC] overflow-hidden border-y border-neutral-100">
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
         <div className="grid lg:grid-cols-12 gap-16 xl:gap-24 items-start">
-          
+
           {/* LEFT COLUMN: Takes 7 grid cols. Replicates the "Interior Design" overlapping side-by-side layout */}
           <div className="lg:col-span-7 flex flex-col md:flex-row gap-8 items-end relative w-full">
-            
+
             {/* Paragraph Block on the Left (aligned top) */}
-            <div className="w-full md:w-[40%] self-start md:pt-12 mb-8 md:mb-20">
+            <div className="w-full md:w-[40%] self-stretch md:pt-12 pb-44 flex flex-col justify-between items-start">
               <motion.p
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -281,6 +279,28 @@ const BestSellingProduct = () => {
               >
                 At INFIWIN, we believe that architectural spatial design is not just about how a space looks – it's about how it makes you feel.
               </motion.p>
+
+              {/* Premium Feature Specifications List (Vertically Centered and Left-Aligned) */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="flex flex-col gap-3.5 border-l border-brand-primary/30 pl-4 py-0.5 my-auto"
+              >
+                <div>
+                  <span className="text-[10px] font-bold text-brand-primary uppercase tracking-[0.15em] block mb-0.5">System Category</span>
+                  <span className="text-xs font-semibold text-brand-dark">Folding & Retractable</span>
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold text-brand-primary uppercase tracking-[0.15em] block mb-0.5">Thermal Rating</span>
+                  <span className="text-xs font-semibold text-brand-dark">Double Glazed / Insulated</span>
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold text-brand-primary uppercase tracking-[0.15em] block mb-0.5">Spatial Opening</span>
+                  <span className="text-xs font-semibold text-brand-dark">100% Retractable / Clear View</span>
+                </div>
+              </motion.div>
             </div>
 
             {/* Video Container (Vertical aspect, right side) */}
@@ -319,7 +339,7 @@ const BestSellingProduct = () => {
 
           {/* RIGHT COLUMN: Takes 5 grid cols. Replicates the "Recent Work" and second picture column */}
           <div className="lg:col-span-5 flex flex-col gap-10 w-full mt-12 lg:mt-0">
-            
+
             {/* Header Text Block */}
             <div className="flex flex-col items-start gap-4 max-w-md">
               <motion.div
@@ -370,7 +390,7 @@ const BestSellingProduct = () => {
               className="w-full aspect-[4/3] overflow-hidden bg-neutral-100 rounded-[24px] border-4 border-white shadow-xl relative group"
             >
               <img
-                src="/extracted_assets/Website/Images/S&T/Hotel Penensula/IMG-20230416-WA0001.jpg"
+                src="/infiwin images new/ChatGPT Image May 23, 2026, 02_13_49 PM.png"
                 alt="Slide & Turn System Showcase"
                 className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-1000"
               />
@@ -644,35 +664,35 @@ const ProductsGrid = () => {
       title: "Folding Glass Balcony Systems",
       desc: "100% clear opening with seamless frameless views.",
       series: "BALCONY SERIES",
-      img: "/hero/balcony.png",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_25_52 PM.png",
     },
     {
       id: "p2",
       title: "Insulated Glass Balcony Systems",
       desc: "Superior thermal comfort for extreme climates.",
       series: "THERMAL SERIES",
-      img: "/products/insulated.png",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_29_01 PM.png",
     },
     {
       id: "p3",
       title: "Sliding Glass Systems",
       desc: "Smooth multi-track transitions for patios and terraces.",
       series: "SLIDER SERIES",
-      img: "/products/sliding.png",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_50_39 PM.png",
     },
     {
       id: "p4",
       title: "Guillotine Glass Systems",
       desc: "Motorized vertical sliding systems for modern cafes.",
       series: "MOTORIZED SERIES",
-      img: "/products/guillotine.png",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_13_49 PM.png",
     },
     {
       id: "p5",
       title: "Bioclimatic Pergola",
       desc: "IoT-enabled smart roof for ultimate light control.",
       series: "SMART ROOF",
-      img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4402.JPG",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_27_22 PM.png",
     }
   ];
 
@@ -768,49 +788,49 @@ const PortfolioSection = () => {
       category: "Residential",
       title: "Balcony Glazing",
       location: "DUBAI, 2025",
-      img: "/hero/balcony.png",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_25_52 PM.png",
     },
     {
       id: "p07",
       category: "Villa",
       title: "Patio Glazing",
       location: "DUBAI, 2025",
-      img: "/hero/patio.png",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_30_38 PM.png",
     },
     {
       id: "p01",
       category: "Residential",
       title: "Panoramic Living Suite",
       location: "DUBAI, 2025",
-      img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4395.JPG",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_52_36 PM.png",
     },
     {
       id: "p02",
       category: "Villa",
       title: "Sereno Facade",
       location: "TUSCANY, 2024",
-      img: "/extracted_assets/Website/Images/S&T/Hotel Penensula/IMG-20230416-WA0001.jpg",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 01_15_54 PM.png",
     },
     {
       id: "p03",
       category: "Commercial",
       title: "Noir Workspace",
       location: "LONDON, 2025",
-      img: "/extracted_assets/Website/Images/Offics/IMG-20260112-WA0007.jpg",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_16_49 PM.png",
     },
     {
       id: "p04",
       category: "Interior",
       title: "Serra Niche",
       location: "MALLORCA, 2024",
-      img: "/extracted_assets/Website/Images/Offics/Terrece/IMG-20250312-WA0028.jpg",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_53_25 PM.png",
     },
     {
       id: "p05",
       category: "Partition",
       title: "Atrium Divider",
       location: "LONDON, 2025",
-      img: "/extracted_assets/Website/Images/Offics/IMG-20210310-WA0002.jpg",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_25_42 PM.png",
     }
   ];
 
@@ -1471,7 +1491,7 @@ const GlazingSolutionsSection = () => {
                 className="w-full max-w-[600px] aspect-[4/3] rounded-[24px] overflow-hidden border-4 border-white shadow-[0_32px_64px_-15px_rgba(0,0,0,0.15)] bg-neutral-100 group"
               >
                 <img
-                  src="/hero/balcony.png"
+                  src="/infiwin images new/ChatGPT Image May 23, 2026, 02_29_01 PM.png"
                   alt="Balcony Glazing"
                   className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-1000"
                 />
@@ -1515,7 +1535,7 @@ const GlazingSolutionsSection = () => {
                 className="w-full max-w-[600px] aspect-[4/3] rounded-[24px] overflow-hidden border-4 border-white shadow-[0_32px_64px_-15px_rgba(0,0,0,0.15)] bg-neutral-100 group"
               >
                 <img
-                  src="/hero/patio.png"
+                  src="/infiwin images new/ChatGPT Image May 23, 2026, 02_30_38 PM.png"
                   alt="Patio Glazing"
                   className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-1000"
                 />
