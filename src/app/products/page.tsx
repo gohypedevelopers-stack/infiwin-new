@@ -27,8 +27,7 @@ const products = [
       profiles: "Minimalist Aluminum Rails",
       opening: "100% Clear Opening"
     },
-    img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_25_52 PM.png",
-    video: "/extracted_assets/Website/Video/S&T/VID-20230316-WA0010.mp4",
+    img: "/infi new/Folding glass balcony systems.png",
     category: "Balcony systems"
   },
   {
@@ -49,8 +48,7 @@ const products = [
       sealing: "Acoustic EPDM & Transparent H-Gaskets",
       capacity: "Up to 80kg panel weight capacity"
     },
-    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_13_49 PM.png",
-    video: "/extracted_assets/Website/Video/S&T/VID-20230416-WA0013.mp4",
+    img: "/infi new/Slide & Turn Systems.png",
     category: "Sliding folding systems"
   },
   {
@@ -71,7 +69,7 @@ const products = [
       sealing: "Multi-layered EPDM",
       insulation: "Thermal Break Profiles"
     },
-    img: "https://i.postimg.cc/5ybtjBZp/151ad56b-9ad9-4878-9df0-2303e6faf017.png",
+    img: "/infi new/Insulated glass balcony systems image.png",
     category: "Balcony systems"
   },
   {
@@ -92,8 +90,7 @@ const products = [
       glass: "10mm / 12mm Toughened",
       hardware: "Stainless Steel Rollers"
     },
-    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_50_39 PM.png",
-    video: "/extracted_assets/Website/Video/Telescopic/VID-20230912-WA0001.mp4",
+    img: "/infi new/Sliding glass systems images.png",
     category: "Sliding systems"
   },
   {
@@ -114,8 +111,7 @@ const products = [
       glass: "12mm+ Toughened / Laminated",
       profiles: "Commercial Grade Aluminum"
     },
-    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_52_36 PM.png",
-    video: "/extracted_assets/Website/Video/S&T/VID-20251210-WA0013.mp4",
+    img: "/infi new/Shop window glass.png",
     category: "Commercial"
   },
   {
@@ -136,7 +132,7 @@ const products = [
       glass: "8mm / 10mm / Double Glazed",
       safety: "Automatic Stop Sensors"
     },
-    img: "Guillotine glass systems.png",
+    img: "/infi new/Guillotine glass systems.png",
     category: "Motorized systems"
   },
   {
@@ -157,7 +153,7 @@ const products = [
       integration: "Plug-and-play with INFIWIN systems",
       durability: "Tested for 100,000+ cycles"
     },
-    img: "/walking motor.png",
+    img: "/infi new/Walking motor system.png",
     category: "Accessories & automation"
   },
   {
@@ -178,7 +174,7 @@ const products = [
       loading: "Engineered for Wind & Snow",
       sealing: "Traction-fit Sealing Technology"
     },
-    img: "/roof.png",
+    img: "/infi new/Fixed glass roof.png",
     category: "Roof systems"
   },
   {
@@ -199,7 +195,7 @@ const products = [
       glass: "Toughened Safety Glass",
       base: "Heavy-duty Floor Mount"
     },
-    img: "/wind breaker.png",
+    img: "/infi new/Windbreaker system.png",
     category: "Outdoor protection"
   },
   {
@@ -220,7 +216,7 @@ const products = [
       structure: "Extruded Aluminum T6063",
       lighting: "Integrated RGB/White LED"
     },
-    img: "bioclimatic.png",
+    img: "/infi new/Bioclimatic pergola.png",
     category: "Roof systems"
   }
 ];
@@ -329,22 +325,11 @@ export default function ProductsPage() {
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                 className="relative aspect-[4/5] rounded-none overflow-hidden shadow-xl group"
               >
-                {product.video ? (
-                  <video 
-                    src={product.video} 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline 
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
-                  />
-                ) : (
-                  <img 
-                    src={product.img} 
-                    alt={product.title} 
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
-                  />
-                )}
+                <img 
+                  src={product.img} 
+                  alt={product.title} 
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
+                />
                 <div className="absolute inset-0 bg-gradient-to-tr from-brand-dark/20 to-transparent opacity-40" />
                 
                 {/* Product Detail Badge */}
