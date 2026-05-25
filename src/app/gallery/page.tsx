@@ -307,9 +307,6 @@ export default function GalleryPage() {
   return (
     <main className="bg-[#030712] text-white min-h-screen font-sans selection:bg-brand-primary selection:text-white pb-32">
       
-      {/* Background Graphic Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f293710_1px,transparent_1px),linear-gradient(to_bottom,#1f293710_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
-      
       {/* Cinematic Hero Header */}
       <section className="relative h-[65vh] flex items-center justify-center overflow-hidden border-b border-white/10">
         {/* Background Looping Brand Video */}
@@ -319,13 +316,15 @@ export default function GalleryPage() {
             loop 
             muted 
             playsInline
-            className="w-full h-full object-cover opacity-30 scale-105"
+            preload="auto"
+            className="w-full h-full object-cover opacity-80 scale-105"
           >
             <source src="/extracted_assets/Website/Concepts/infiwin shatter animation.mp4" type="video/mp4" />
           </video>
           {/* Radial dark gradient mask */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-[#030712]/75 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#030712] via-transparent to-[#030712]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-[#030712]/35 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#030712]/70 via-transparent to-[#030712]/70" />
+          <div className="absolute inset-0 bg-[#030712]/10" />
         </div>
 
         <div className="relative z-10 text-center max-w-4xl px-6">

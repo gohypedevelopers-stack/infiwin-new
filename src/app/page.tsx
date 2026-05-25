@@ -1507,7 +1507,7 @@ const GlazingSolutionsSection = () => {
                 className="w-full max-w-[600px] aspect-[4/3] rounded-[24px] overflow-hidden border-4 border-white shadow-[0_32px_64px_-15px_rgba(0,0,0,0.15)] bg-neutral-100 group"
               >
                 <img
-                  src="/infiwin images new/ChatGPT Image May 23, 2026, 02_29_01 PM.png"
+                  src="https://alfaaken.ee/wp-content/uploads/2024/07/Matison-market-balcony-glazing-series-630-1920x1280px-5.jpg"
                   alt="Balcony Glazing"
                   className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-1000"
                 />
@@ -1551,7 +1551,7 @@ const GlazingSolutionsSection = () => {
                 className="w-full max-w-[600px] aspect-[4/3] rounded-[24px] overflow-hidden border-4 border-white shadow-[0_32px_64px_-15px_rgba(0,0,0,0.15)] bg-neutral-100 group"
               >
                 <img
-                  src="/infiwin images new/ChatGPT Image May 23, 2026, 02_30_38 PM.png"
+                  src="https://lumon.com/us/wp-content/uploads/sites/16/2023/06/Lumon-Sunroom-Patio-Ontario-2.jpg"
                   alt="Patio Glazing"
                   className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-1000"
                 />

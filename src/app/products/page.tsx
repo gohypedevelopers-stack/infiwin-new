@@ -71,7 +71,7 @@ const products = [
       sealing: "Multi-layered EPDM",
       insulation: "Thermal Break Profiles"
     },
-    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_29_01 PM.png",
+    img: "https://i.postimg.cc/5ybtjBZp/151ad56b-9ad9-4878-9df0-2303e6faf017.png",
     category: "Balcony systems"
   },
   {
@@ -136,7 +136,7 @@ const products = [
       glass: "8mm / 10mm / Double Glazed",
       safety: "Automatic Stop Sensors"
     },
-    img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_14_59 PM.png",
+    img: "Guillotine glass systems.png",
     category: "Motorized systems"
   },
   {
@@ -157,7 +157,7 @@ const products = [
       integration: "Plug-and-play with INFIWIN systems",
       durability: "Tested for 100,000+ cycles"
     },
-    img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_15_29 PM.png",
+    img: "/walking motor.png",
     category: "Accessories & automation"
   },
   {
@@ -178,7 +178,7 @@ const products = [
       loading: "Engineered for Wind & Snow",
       sealing: "Traction-fit Sealing Technology"
     },
-    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_30_38 PM.png",
+    img: "/roof.png",
     category: "Roof systems"
   },
   {
@@ -199,7 +199,7 @@ const products = [
       glass: "Toughened Safety Glass",
       base: "Heavy-duty Floor Mount"
     },
-    img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_20_57 PM.png",
+    img: "/wind breaker.png",
     category: "Outdoor protection"
   },
   {
@@ -220,7 +220,7 @@ const products = [
       structure: "Extruded Aluminum T6063",
       lighting: "Integrated RGB/White LED"
     },
-    img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_27_22 PM.png",
+    img: "bioclimatic.png",
     category: "Roof systems"
   }
 ];
@@ -314,9 +314,9 @@ export default function ProductsPage() {
                   ))}
                 </div>
 
-                <button className="mt-12 group flex items-center gap-4 px-10 py-4 bg-brand-dark text-white rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-brand-primary transition-all shadow-xl shadow-brand-dark/10">
-                  Request technical info <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform" />
-                </button>
+                <a href="/contact" className="mt-12 group inline-flex items-center gap-4 px-10 py-4 bg-brand-dark text-white rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-brand-primary transition-all shadow-xl shadow-brand-dark/10">
+                  Contact us <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform" />
+                </a>
               </motion.div>
             </div>
 

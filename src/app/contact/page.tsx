@@ -192,12 +192,11 @@ export default function ContactPage() {
               </div>
 
               <div className="aspect-square w-full bg-neutral-100 rounded-sm overflow-hidden relative group">
-                <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-brand-dark/0 transition-all duration-700 pointer-events-none z-10" />
-                {/* Mock Map using Unsplash */}
+                <div className="absolute inset-0 bg-brand-dark/5 group-hover:bg-brand-dark/0 transition-all duration-700 pointer-events-none z-10" />
                 <img 
-                  src="/infiwin images new/ChatGPT Image May 23, 2026, 02_52_36 PM.png" 
-                  className="w-full h-full object-cover"
-                  alt="Location Map"
+                  src="/global-presence-globe.svg" 
+                  className="w-full h-full object-contain p-8"
+                  alt="Global presence globe"
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
                   <div className="h-12 w-12 bg-brand-primary rounded-full flex items-center justify-center text-white shadow-2xl animate-bounce">
