@@ -1020,6 +1020,27 @@ const Testimonials = () => {
       role: "Tandooriya Dhaba",
       photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2070&auto=format&fit=crop",
       logo: ""
+    },
+    {
+      text: "The balcony glazing installation was handled with excellent coordination from survey to handover. The finished system feels premium, operates smoothly, and has made our outdoor area far more usable throughout the year.",
+      name: "Mariam Al Mansoori",
+      role: "Private Villa, Dubai",
+      photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop",
+      logo: ""
+    },
+    {
+      text: "Their team understood the needs of a busy commercial space and delivered a clean, practical glass solution without disrupting operations. The final result improved both visibility and comfort for our guests.",
+      name: "Rohit Menon",
+      role: "Urban Cafe Group",
+      photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974&auto=format&fit=crop",
+      logo: ""
+    },
+    {
+      text: "From material selection to the final alignment checks, INFIWIN showed strong technical knowledge and careful execution. The glass enclosure looks elegant and performs exactly as promised.",
+      name: "Sara Thomas",
+      role: "Residential Project, Abu Dhabi",
+      photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop",
+      logo: ""
     }
   ];
 
@@ -1029,6 +1050,32 @@ const Testimonials = () => {
     }, 5000);
     return () => clearInterval(timer);
   }, [testimonials.length]);
+
+  const goToPrevious = () => {
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const handleDragEnd = (
+    _event: MouseEvent | TouchEvent | PointerEvent,
+    info: { offset: { x: number }; velocity: { x: number } }
+  ) => {
+    if (info.offset.x < -80 || info.velocity.x < -500) {
+      goToNext();
+    }
+
+    if (info.offset.x > 80 || info.velocity.x > 500) {
+      goToPrevious();
+    }
+  };
+
+  const visibleTestimonials = [0, 1, 2].map((offset) => {
+    const index = (currentIndex + offset) % testimonials.length;
+    return { ...testimonials[index], index };
+  });
 
   return (
     <section className="py-16 md:py-20 bg-white relative overflow-hidden">
@@ -1091,39 +1138,60 @@ const Testimonials = () => {
           </motion.h2>
         </div>
 
-        {/* Desktop Grid */}
-        <div className="hidden md:grid md:grid-cols-3 md:divide-x divide-brand-primary/30">
-          {testimonials.map((t, i) => (
+        {/* Desktop Carousel */}
+        <div className="hidden md:block relative">
+          <AnimatePresence mode="wait">
             <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="px-6 flex flex-col items-start"
+              key={currentIndex}
+              initial={{ opacity: 0, x: 28 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -28 }}
+              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.16}
+              onDragEnd={handleDragEnd}
+              className="grid grid-cols-3 divide-x divide-brand-primary/30 cursor-grab active:cursor-grabbing select-none touch-pan-y"
             >
-              {/* Quote Mark */}
-              <div className="mb-4 opacity-10">
-                <svg width="40" height="30" viewBox="0 0 40 30" fill="currentColor" className="text-brand-primary">
-                  <path d="M0 30V15C0 6.71573 6.71573 0 15 0V7.5C10.8579 7.5 7.5 10.8579 7.5 15H15V30H0ZM25 30V15C25 6.71573 31.7157 0 40 0V7.5C35.8579 7.5 32.5 10.8579 32.5 15H40V30H25Z" />
-                </svg>
-              </div>
+              {visibleTestimonials.map((t) => (
+                <div
+                  key={t.index}
+                  className="px-6 flex flex-col items-start min-h-[280px]"
+                >
+                  <div className="mb-4 opacity-10">
+                    <svg width="40" height="30" viewBox="0 0 40 30" fill="currentColor" className="text-brand-primary">
+                      <path d="M0 30V15C0 6.71573 6.71573 0 15 0V7.5C10.8579 7.5 7.5 10.8579 7.5 15H15V30H0ZM25 30V15C25 6.71573 31.7157 0 40 0V7.5C35.8579 7.5 32.5 10.8579 32.5 15H40V30H25Z" />
+                    </svg>
+                  </div>
 
-              <p className="text-brand-dark/80 text-sm leading-relaxed mb-6 text-left h-full">
-                {t.text}
-              </p>
+                  <p className="text-brand-dark/80 text-sm leading-relaxed mb-6 text-left h-full">
+                    {t.text}
+                  </p>
 
-              <div className="flex items-center gap-4 mt-auto pt-4 border-t border-brand-primary/10 w-full">
-                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-brand-primary/20 shrink-0">
-                  <img src={t.photo} alt={t.name} className="w-full h-full object-cover" />
+                  <div className="flex items-center gap-4 mt-auto pt-4 border-t border-brand-primary/10 w-full">
+                    <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-brand-primary/20 shrink-0">
+                      <img src={t.photo} alt={t.name} className="w-full h-full object-cover" />
+                    </div>
+                    <div>
+                      <h5 className="text-brand-primary font-bold text-sm leading-tight">{t.name}</h5>
+                      <p className="text-brand-dark/60 text-[10px] uppercase tracking-wider font-normal">{t.role}</p>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <h5 className="text-brand-primary font-bold text-sm leading-tight">{t.name}</h5>
-                  <p className="text-brand-dark/60 text-[10px] uppercase tracking-wider font-normal">{t.role}</p>
-                </div>
-              </div>
+              ))}
             </motion.div>
-          ))}
+          </AnimatePresence>
+
+          <div className="flex justify-center gap-3 mt-10">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentIndex(i)}
+                aria-label={`Show testimonial ${i + 1}`}
+                className={`h-2 rounded-full transition-all duration-300 ${i === currentIndex ? 'w-8 bg-brand-primary' : 'w-2 bg-brand-primary/20 hover:bg-brand-primary/50'}`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Mobile Carousel */}
@@ -1135,7 +1203,11 @@ const Testimonials = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.3 }}
-              className="px-4 py-6 flex flex-col items-center bg-neutral-50/50 rounded-lg border border-neutral-100"
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.22}
+              onDragEnd={handleDragEnd}
+              className="px-4 py-6 flex flex-col items-center bg-neutral-50/50 rounded-lg border border-neutral-100 cursor-grab active:cursor-grabbing select-none touch-pan-y"
             >
               <div className="mb-4 opacity-10">
                 <svg width="40" height="30" viewBox="0 0 40 30" fill="currentColor" className="text-brand-primary">
@@ -1161,7 +1233,8 @@ const Testimonials = () => {
               <button
                 key={i}
                 onClick={() => setCurrentIndex(i)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${i === currentIndex ? 'bg-brand-primary w-6' : 'bg-brand-primary/20'}`}
+                aria-label={`Show testimonial ${i + 1}`}
+                className={`h-2 rounded-full transition-all duration-300 ${i === currentIndex ? 'bg-brand-primary w-6' : 'bg-brand-primary/20 w-2'}`}
               />
             ))}
           </div>
