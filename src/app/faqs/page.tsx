@@ -79,11 +79,11 @@ export default function FAQsPage() {
       </section>
 
       {/* FAQs Section */}
-      <section className="py-32">
+      <section className="py-12 md:py-32">
         <div className="max-w-4xl mx-auto px-6">
           {faqCategories.map((category, catIdx) => (
-            <div key={catIdx} className="mb-20">
-              <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-brand-primary mb-10 border-b border-neutral-100 pb-4">
+            <div key={catIdx} className="mb-10 md:mb-20">
+              <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-brand-primary mb-4 md:mb-10 border-b border-neutral-100 pb-4">
                 {category.name}
               </h3>
               <div className="space-y-4">
@@ -120,11 +120,11 @@ export default function FAQsPage() {
       </section>
 
       {/* Support CTA */}
-      <section className="py-24 bg-neutral-50 border-y border-neutral-100">
+      <section className="py-12 md:py-24 bg-neutral-50 border-y border-neutral-100">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <HelpCircle size={48} className="text-brand-primary mx-auto mb-8" />
-          <h2 className="text-3xl text-brand-dark uppercase mb-6">Still Have Questions?</h2>
-          <p className="text-neutral-400 text-base font-light mb-12">
+          <HelpCircle size={48} className="text-brand-primary mx-auto mb-4 md:mb-8" />
+          <h2 className="text-3xl text-brand-dark uppercase mb-4 md:mb-6">Still Have Questions?</h2>
+          <p className="text-neutral-400 text-base font-light mb-6 md:mb-12">
             Our expert team is ready to help you with any technical or design inquiries you may have.
           </p>
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">

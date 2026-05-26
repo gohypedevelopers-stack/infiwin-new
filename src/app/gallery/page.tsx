@@ -305,7 +305,7 @@ export default function GalleryPage() {
     : IMAGES.filter(img => img.category === photoFilter);
 
   return (
-    <main className="bg-[#030712] text-white min-h-screen font-sans selection:bg-brand-primary selection:text-white pb-32">
+    <main className="bg-[#030712] text-white min-h-screen font-sans selection:bg-brand-primary selection:text-white pb-12 md:pb-32">
       
       {/* Cinematic Hero Header */}
       <section className="relative h-[65vh] flex items-center justify-center overflow-hidden border-b border-white/10">
@@ -348,7 +348,7 @@ export default function GalleryPage() {
       </section>
 
       {/* Main Tab Controller */}
-      <section className="max-w-[1600px] mx-auto px-6 md:px-12 -mt-10 relative z-20">
+      <section className="max-w-[1600px] mx-auto px-6 md:px-12 -mt-6 md:-mt-10 relative z-20">
         <div className="bg-[#0b0f19] border border-white/10 p-2 flex flex-col md:flex-row gap-2 justify-between items-center backdrop-blur-xl shadow-2xl rounded-none">
           <div className="flex flex-col sm:flex-row w-full md:w-auto gap-2">
             {[
@@ -377,7 +377,7 @@ export default function GalleryPage() {
       </section>
 
       {/* Tab Contents */}
-      <section className="max-w-[1600px] mx-auto px-6 md:px-12 py-20">
+      <section className="max-w-[1600px] mx-auto px-6 md:px-12 py-10 md:py-20 px-4 md:px-12">
         <AnimatePresence mode="wait">
           
           {/* TAB 1: CONCEPTS & 3D RENDERS */}
@@ -388,13 +388,13 @@ export default function GalleryPage() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="space-y-16"
+              className="space-y-8 md:space-y-16"
             >
               {/* Theater Layout */}
-              <div className="grid lg:grid-cols-12 gap-10 bg-[#070b13] border border-white/5 p-6 md:p-10 rounded-none shadow-2xl">
+              <div className="grid lg:grid-cols-12 gap-6 lg:gap-10 bg-[#070b13] border border-white/5 p-4 md:p-10 rounded-none shadow-2xl">
                 
                 {/* Main Player Area (8 Cols) */}
-                <div className="lg:col-span-8 space-y-6">
+                <div className="lg:col-span-8 space-y-4 md:space-y-6">
                   <div className="relative aspect-video bg-black overflow-hidden border border-white/10 group">
                     <video
                       ref={theaterVideoRef}
@@ -407,7 +407,7 @@ export default function GalleryPage() {
                     />
                     
                     {/* Floating Info Pill */}
-                    <div className="absolute top-6 left-6 bg-black/60 backdrop-blur-md px-4 py-2 border border-white/10 flex items-center gap-2">
+                    <div className="absolute top-3 left-3 md:top-6 md:left-6 bg-black/60 backdrop-blur-md px-4 py-2 border border-white/10 flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" />
                       <span className="text-[10px] font-bold uppercase tracking-widest text-white">4K Render Preview</span>
                     </div>
@@ -419,7 +419,7 @@ export default function GalleryPage() {
                         setModalTitle(selectedConcept.title);
                         setModalDesc(selectedConcept.desc);
                       }}
-                      className="absolute bottom-6 right-6 p-3 bg-brand-primary hover:scale-105 transition-transform text-white rounded-none opacity-0 group-hover:opacity-100 backdrop-blur-sm"
+                      className="absolute bottom-3 right-3 md:bottom-6 md:right-6 p-3 bg-brand-primary hover:scale-105 transition-transform text-white rounded-none opacity-0 group-hover:opacity-100 backdrop-blur-sm"
                       title="Expand Cinema Player"
                     >
                       <Maximize2 size={16} />
@@ -427,9 +427,9 @@ export default function GalleryPage() {
                   </div>
 
                   {/* Operational Details */}
-                  <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between gap-6">
+                  <div className="border-t border-white/10 pt-4 md:pt-8 flex flex-col md:flex-row justify-between gap-4 md:gap-6">
                     <div className="max-w-xl">
-                      <h3 className="text-2xl md:text-3xl text-white font-semibold mb-4 tracking-tight">
+                      <h3 className="text-2xl md:text-3xl text-white font-semibold mb-2 md:mb-4 tracking-tight">
                         {selectedConcept.title}
                       </h3>
                       <p className="text-neutral-400 text-sm md:text-base leading-relaxed font-light">
@@ -438,7 +438,7 @@ export default function GalleryPage() {
                     </div>
                     
                     {/* Tech Specs Block */}
-                    <div className="bg-[#0c101a] border border-white/10 p-6 md:w-80 shrink-0">
+                    <div className="bg-[#0c101a] border border-white/10 p-4 md:p-6 md:w-80 shrink-0">
                       <h4 className="text-[10px] font-bold text-brand-primary uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
                         <Info size={12} /> System Specifications
                       </h4>
@@ -455,18 +455,18 @@ export default function GalleryPage() {
                 </div>
 
                 {/* Concept Playlist Sidebar (4 Cols) */}
-                <div className="lg:col-span-4 space-y-6 lg:border-l lg:border-white/10 lg:pl-10">
+                <div className="lg:col-span-4 space-y-4 lg:space-y-6 lg:border-l lg:border-white/10 lg:pl-10">
                   <div>
                     <h3 className="text-xs font-bold text-brand-primary uppercase tracking-[0.4em] mb-2">Design Concepts</h3>
                     <p className="text-neutral-500 text-xs font-light">Select a conceptual animation to view full rendering details.</p>
                   </div>
 
-                  <div className="space-y-4 overflow-y-auto max-h-[600px] pr-2 no-scrollbar">
+                  <div className="space-y-2 md:space-y-4 overflow-y-auto max-h-[600px] pr-2 no-scrollbar">
                     {CONCEPTS.map((concept) => (
                       <button
                         key={concept.id}
                         onClick={() => setSelectedConcept(concept)}
-                        className={`w-full text-left p-5 border transition-all duration-300 flex gap-4 items-center group rounded-none ${
+                        className={`w-full text-left p-3 md:p-5 border transition-all duration-300 flex gap-4 items-center group rounded-none ${
                           selectedConcept.id === concept.id
                             ? 'bg-brand-primary/10 border-brand-primary'
                             : 'bg-[#0b0f19]/40 border-white/5 hover:border-white/20 hover:bg-[#0b0f19]/80'
@@ -490,7 +490,7 @@ export default function GalleryPage() {
                   </div>
 
                   {/* Consultation Banner */}
-                  <div className="bg-gradient-to-r from-brand-primary/20 to-transparent p-6 border-l-2 border-brand-primary space-y-4">
+                  <div className="bg-gradient-to-r from-brand-primary/20 to-transparent p-4 md:p-6 border-l-2 border-brand-primary space-y-4">
                     <h4 className="text-xs font-bold uppercase tracking-wider text-white">Have a custom architectural vision?</h4>
                     <p className="text-[11px] text-neutral-400 leading-relaxed font-light">
                       Our engineering division specializes in fabricating custom, heavy-duty structural glazing and automated mechanisms. Let's consult.
@@ -513,10 +513,10 @@ export default function GalleryPage() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="space-y-12"
+              className="space-y-6 md:space-y-12"
             >
               {/* Secondary Category Filters */}
-              <div className="flex flex-wrap gap-3 border-b border-white/5 pb-8">
+              <div className="flex flex-wrap gap-3 border-b border-white/5 pb-4 md:pb-8">
                 {['All', 'S&T', 'Telescopic', 'Bathroom'].map((cat) => (
                   <button
                     key={cat}
@@ -533,7 +533,7 @@ export default function GalleryPage() {
               </div>
 
               {/* Video Masonry Grid */}
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8">
                 {filteredVideos.map((item, idx) => (
                   <motion.div
                     key={item.id}
@@ -581,7 +581,7 @@ export default function GalleryPage() {
                     </div>
 
                     {/* Metadata Card Info */}
-                    <div className="p-6 space-y-4">
+                    <div className="p-4 space-y-3 md:p-6 md:space-y-4">
                       <div className="space-y-1">
                         <div className="flex items-center gap-2 text-neutral-500 text-[9px] font-bold uppercase tracking-widest">
                           <MapPin size={10} className="text-brand-primary" /> {item.location}
@@ -619,10 +619,10 @@ export default function GalleryPage() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="space-y-12"
+              className="space-y-6 md:space-y-12"
             >
               {/* Portfolio Filters */}
-              <div className="flex flex-wrap gap-3 border-b border-white/5 pb-8">
+              <div className="flex flex-wrap gap-3 border-b border-white/5 pb-4 md:pb-8">
                 {photoCategories.map((cat) => (
                   <button
                     key={cat}
@@ -639,7 +639,7 @@ export default function GalleryPage() {
               </div>
 
               {/* Photos Grid */}
-              <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
                 {filteredPhotos.map((item, idx) => (
                   <motion.div
                     key={item.id}
@@ -673,7 +673,7 @@ export default function GalleryPage() {
                     </div>
 
                     {/* Bottom Metadata Info */}
-                    <div className="absolute bottom-6 left-6 right-6 text-white space-y-1 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                    <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 text-white space-y-1 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                       <span className="text-[9px] font-bold uppercase tracking-widest text-brand-primary/95 flex items-center gap-1.5">
                         <MapPin size={10} /> {item.location}
                       </span>
@@ -686,7 +686,7 @@ export default function GalleryPage() {
                     </div>
 
                     {/* Hover Zoom Eye Icon */}
-                    <div className="absolute top-6 right-6 w-10 h-10 bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-500 -translate-y-2 group-hover:translate-y-0">
+                    <div className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-500 -translate-y-2 group-hover:translate-y-0">
                       <Eye size={16} />
                     </div>
                   </motion.div>

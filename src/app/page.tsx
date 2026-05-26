@@ -192,8 +192,8 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
                 key={slide.id}
                 onClick={() => setActiveIndex(i)}
                 className={`relative shrink-0 overflow-hidden cursor-pointer transition-all duration-500 bg-neutral-900 border focus:outline-none rounded-[8px] ${isActive
-                    ? 'w-[122px] h-[70px] sm:w-[124px] sm:h-[70px] border-white shadow-2xl z-30 opacity-100'
-                    : 'w-[122px] h-[70px] sm:w-[124px] sm:h-[70px] border-white/15 opacity-70 hover:opacity-100 hover:border-white/40'
+                  ? 'w-[122px] h-[70px] sm:w-[124px] sm:h-[70px] border-white shadow-2xl z-30 opacity-100'
+                  : 'w-[122px] h-[70px] sm:w-[124px] sm:h-[70px] border-white/15 opacity-70 hover:opacity-100 hover:border-white/40'
                   }`}
                 style={{
                   transition: 'all 500ms cubic-bezier(0.16, 1, 0.3, 1)',
@@ -230,8 +230,8 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
                   key={i}
                   onClick={() => setActiveIndex(i)}
                   className={`focus:outline-none transition-all duration-500 cursor-pointer rounded-full ${isActive
-                      ? 'w-5 h-1.5 bg-white opacity-100'
-                      : 'w-1.5 h-1.5 bg-white/45 hover:bg-white/75'
+                    ? 'w-5 h-1.5 bg-white opacity-100'
+                    : 'w-1.5 h-1.5 bg-white/45 hover:bg-white/75'
                     }`}
                 />
               );
@@ -261,15 +261,15 @@ const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
 
 const BestSellingProduct = () => {
   return (
-    <section className="py-16 md:py-24 bg-[#F8FAFC] overflow-hidden border-y border-neutral-100">
+    <section className="hidden md:block py-10 md:py-24 bg-[#F8FAFC] overflow-hidden border-y border-neutral-100">
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-        <div className="grid lg:grid-cols-12 gap-16 xl:gap-24 items-start">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 xl:gap-24 items-start">
 
           {/* LEFT COLUMN: Takes 7 grid cols. Replicates the "Interior Design" overlapping side-by-side layout */}
-          <div className="lg:col-span-7 flex flex-col md:flex-row gap-8 items-end relative w-full">
+          <div className="lg:col-span-7 flex flex-col md:flex-row gap-6 md:gap-8 items-end relative w-full">
 
             {/* Paragraph Block on the Left (aligned top) */}
-            <div className="w-full md:w-[40%] self-stretch md:pt-12 pb-12 md:pb-44 flex flex-col justify-between items-start">
+            <div className="w-full md:w-[40%] self-stretch md:pt-12 pb-6 flex flex-col justify-between items-start gap-6">
               <motion.p
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -280,43 +280,21 @@ const BestSellingProduct = () => {
                 At INFIWIN, we believe that architectural spatial design is not just about how a space looks – it's about how it makes you feel.
               </motion.p>
 
-              {/* Premium Feature Specifications List (Vertically Centered and Left-Aligned) */}
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="flex flex-col gap-3.5 border-l border-brand-primary/30 pl-4 py-0.5 my-auto"
-              >
-                <div>
-                  <span className="text-[10px] font-bold text-brand-primary uppercase tracking-[0.15em] block mb-0.5">System Category</span>
-                  <span className="text-xs font-semibold text-brand-dark">Folding & Retractable</span>
-                </div>
-                <div>
-                  <span className="text-[10px] font-bold text-brand-primary uppercase tracking-[0.15em] block mb-0.5">Thermal Rating</span>
-                  <span className="text-xs font-semibold text-brand-dark">Double Glazed / Insulated</span>
-                </div>
-                <div>
-                  <span className="text-[10px] font-bold text-brand-primary uppercase tracking-[0.15em] block mb-0.5">Spatial Opening</span>
-                  <span className="text-xs font-semibold text-brand-dark">100% Retractable / Clear View</span>
-                </div>
-              </motion.div>
-
-              {/* Massive Title: "Slide & Turn" (Responsive Positioning to prevent video watermark overlap) */}
+              {/* Massive Title: "Slide & Turn" */}
               <motion.h2
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 style={{ fontFamily: 'Georgia, serif' }}
-                className="relative md:absolute bottom-auto md:bottom-[-24px] lg:bottom-[-40px] left-auto md:left-0 mt-8 md:mt-0 text-5xl sm:text-6xl md:text-8xl xl:text-[110px] font-light leading-[0.85] text-brand-dark tracking-tighter z-20 select-none w-full"
+                className="text-5xl sm:text-6xl md:text-8xl xl:text-[100px] font-light leading-[0.85] text-brand-dark tracking-tighter select-none"
               >
                 Slide & <br />
                 <span className="text-brand-primary">Turn</span>
               </motion.h2>
             </div>
 
-            {/* Video Container (Vertical aspect, right side) */}
+            {/* Image Container (Vertical aspect, right side) */}
             <div className="w-full md:w-[60%] relative">
               <motion.div
                 initial={{ opacity: 0, scale: 0.98 }}
@@ -325,12 +303,9 @@ const BestSellingProduct = () => {
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                 className="w-full aspect-[3/4] overflow-hidden bg-neutral-900 rounded-[24px] border-4 border-white shadow-xl group relative"
               >
-                <video
-                  src="/extracted_assets/Website/Video/S&T/VID-20230316-WA0010.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
+                <img
+                  src="/infiwin images new/ChatGPT Image May 23, 2026, 02_13_49 PM.png"
+                  alt="Slide & Turn System"
                   className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700"
                 />
               </motion.div>
@@ -338,10 +313,10 @@ const BestSellingProduct = () => {
           </div>
 
           {/* RIGHT COLUMN: Takes 5 grid cols. Replicates the "Recent Work" and second picture column */}
-          <div className="lg:col-span-5 flex flex-col gap-10 w-full mt-12 lg:mt-0">
+          <div className="lg:col-span-5 flex flex-col gap-6 md:gap-10 w-full mt-6 lg:mt-0">
 
             {/* Header Text Block */}
-            <div className="flex flex-col items-start gap-4 max-w-md">
+            <div className="flex flex-col items-start gap-3 md:gap-4 max-w-md">
               <motion.div
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -474,21 +449,21 @@ const ApplicationsSection = () => {
   return (
     <section
       id="applications"
-      className="py-16 md:py-20 bg-white relative overflow-hidden"
+      className="py-10 md:py-20 bg-white relative overflow-hidden px-4 md:px-12"
     >
       {/* Soft Architectural Grid Background and Glow */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000003_1px,transparent_1px),linear-gradient(to_bottom,#00000003_1px,transparent_1px)] bg-[size:6rem_6rem] pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-primary/3 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
-        <div className="text-center mb-10">
+        <div className="text-center mb-6 md:mb-10">
           <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary mb-2 block">Usage</span>
           <h2 className="text-4xl md:text-5xl text-brand-dark tracking-tight">
             Applications
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 relative z-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5 relative z-10">
           {apps.map((app, i) => (
             <motion.a
               href={app.href}
@@ -497,7 +472,7 @@ const ApplicationsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05, duration: 0.5, ease: "easeOut" }}
-              className="relative aspect-[4/3] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-500 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.01)] hover:shadow-[0_20px_40px_-10px_rgba(67,133,245,0.15)] hover:scale-[1.02] p-5 md:p-6 flex flex-col justify-between items-start block"
+              className="relative aspect-[4/3] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-500 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.01)] hover:shadow-[0_20px_40px_-10px_rgba(67,133,245,0.15)] hover:scale-[1.02] p-3.5 md:p-6 flex flex-col justify-between items-start block"
             >
               {/* Background Image with Zoom */}
               <img
@@ -530,7 +505,7 @@ const ApplicationsSection = () => {
               </div>
 
               {/* Floating Action Arrow */}
-              <div className="absolute bottom-6 right-6 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-white group-hover:text-brand-primary z-10">
+              <div className="absolute bottom-4 right-4 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-white group-hover:text-brand-primary z-10">
                 <ArrowUpRight size={16} />
               </div>
             </motion.a>
@@ -551,14 +526,14 @@ const LeadFormSection = () => {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-20 bg-[#18181b] text-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+    <section id="contact" className="py-10 md:py-20 bg-[#18181b] text-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 md:px-12 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
           <div>
             <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary mb-4 block">Inquiry</span>
-            <h2 className="text-5xl md:text-7xl mb-6 leading-tight">Start Your <br /><span className="text-brand-primary" style={{ textTransform: 'none' }}>Project</span></h2>
+            <h2 className="text-3xl sm:text-4xl md:text-7xl mb-4 sm:mb-6 leading-tight">Start Your <br /><span className="text-brand-primary" style={{ textTransform: 'none' }}>Project</span></h2>
 
-            <div className="bg-white/5 backdrop-blur-md p-6 md:p-8 border border-white/10 rounded-sm mb-6">
+            <div className="bg-white/5 backdrop-blur-md p-4 md:p-8 border border-white/10 rounded-sm mb-6">
               <h4 className="text-brand-primary text-[10px] font-bold uppercase tracking-widest mb-4">Quick Cost Estimator</h4>
               <div className="grid grid-cols-2 gap-4 mb-4">
                 <div>
@@ -597,7 +572,7 @@ const LeadFormSection = () => {
             </div>
           </div>
 
-          <div className="bg-white p-6 md:p-8 rounded-sm text-brand-dark">
+          <div className="bg-white p-4 md:p-8 rounded-sm text-brand-dark">
             <h3 className="text-2xl mb-4">Contact Information</h3>
             <form className="space-y-4">
               <div>
@@ -711,9 +686,9 @@ const ProductsGrid = () => {
   ];
 
   return (
-    <section id="products" className="py-16 md:py-20 bg-white overflow-hidden">
+    <section id="products" className="py-10 md:py-20 bg-white overflow-hidden">
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-        <div className="flex justify-between items-end mb-10">
+        <div className="flex justify-between items-end mb-6 md:mb-10">
           <div>
             <span className="text-[10px] font-bold tracking-[0.15em] text-brand-primary mb-2 block">Our Systems</span>
             <h2 className="text-4xl md:text-5xl text-brand-dark tracking-tight">
@@ -725,9 +700,9 @@ const ProductsGrid = () => {
           </a>
         </div>
 
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4 md:gap-6">
           {/* Top Row: P1, P2, P3 */}
-          <div className="flex flex-col lg:flex-row gap-6 h-auto lg:h-[500px]">
+          <div className="flex flex-col lg:flex-row gap-4 md:gap-6 h-auto lg:h-[500px]">
             {products.slice(0, 3).map((p, i) => (
               <motion.a
                 href={p.href}
@@ -738,16 +713,16 @@ const ProductsGrid = () => {
                   flex: hoveredId === p.id ? 2 : hoveredId ? 0.6 : (i === 0 ? 1.5 : 0.8)
                 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="relative group cursor-pointer rounded-2xl overflow-hidden bg-neutral-100 min-h-[300px] lg:min-h-0 block"
+                className="relative group cursor-pointer rounded-2xl overflow-hidden bg-neutral-100 min-h-[220px] md:min-h-[300px] lg:min-h-0 block"
               >
                 <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60" />
-                <div className="absolute top-8 right-8">
+                <div className="absolute top-4 right-4 md:top-8 md:right-8">
                   <span className="px-4 py-1.5 bg-white border border-neutral-100 shadow-md text-[9px] font-extrabold text-brand-dark rounded-full uppercase tracking-wider">
                     {p.series}
                   </span>
                 </div>
-                <div className="absolute bottom-10 left-10 text-white max-w-[280px]">
+                <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 text-white max-w-[280px]">
                   <h3 className="text-lg lg:text-xl mb-3 leading-tight font-semibold">{p.title}</h3>
                   {i === 0 && (
                     <motion.p
@@ -763,7 +738,7 @@ const ProductsGrid = () => {
           </div>
 
           {/* Bottom Row: P4, P5 */}
-          <div className="flex flex-col lg:flex-row gap-6 h-auto lg:h-[380px]">
+          <div className="flex flex-col lg:flex-row gap-4 md:gap-6 h-auto lg:h-[380px]">
             {products.slice(3, 5).map((p) => (
               <motion.a
                 href={p.href}
@@ -774,16 +749,16 @@ const ProductsGrid = () => {
                   flex: hoveredId === p.id ? 1.5 : hoveredId ? 0.7 : 1
                 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="relative group cursor-pointer rounded-2xl overflow-hidden bg-neutral-100 min-h-[300px] lg:min-h-0 block"
+                className="relative group cursor-pointer rounded-2xl overflow-hidden bg-neutral-100 min-h-[220px] md:min-h-[300px] lg:min-h-0 block"
               >
                 <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60" />
-                <div className="absolute top-8 right-8">
+                <div className="absolute top-4 right-4 md:top-8 md:right-8">
                   <span className="px-4 py-1.5 bg-white border border-neutral-100 shadow-md text-[9px] font-extrabold text-brand-dark rounded-full uppercase tracking-wider">
                     {p.series}
                   </span>
                 </div>
-                <div className="absolute bottom-10 left-10 text-white">
+                <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 text-white">
                   <h3 className="text-lg lg:text-xl font-semibold">{p.title}</h3>
                 </div>
               </motion.a>
@@ -871,7 +846,7 @@ const PortfolioSection = () => {
   };
 
   return (
-    <section id="projects" className="py-16 md:py-20 bg-[#f0f7ff] overflow-hidden relative border-t border-neutral-50">
+    <section id="projects" className="py-8 md:py-20 bg-[#f0f7ff] overflow-hidden relative border-t border-neutral-50">
       {/* Architectural Background Sketch */}
       <div className="absolute top-0 left-0 w-full h-[600px] opacity-[0.5] pointer-events-none select-none">
         <img
@@ -884,7 +859,7 @@ const PortfolioSection = () => {
 
 
       <div className="max-w-[1600px] mx-auto px-6 md:px-12 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-12 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 md:mb-12 gap-4 md:gap-8">
           <div className="max-w-2xl relative">
             <div className="flex items-center gap-4 mb-3">
               <div className="h-[1px] w-12 bg-brand-primary" />
@@ -933,7 +908,7 @@ const PortfolioSection = () => {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -50 }}
                   transition={{ duration: 0.8, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                  className="w-[300px] md:w-[420px] aspect-[4/5] relative group/card cursor-pointer rounded-none overflow-hidden bg-neutral-100"
+                  className="w-[280px] md:w-[420px] aspect-[4/5] relative group/card cursor-pointer rounded-none overflow-hidden bg-neutral-100"
                 >
                   <img
                     src={project.img}
@@ -942,7 +917,7 @@ const PortfolioSection = () => {
                   />
 
                   {/* Category Pill */}
-                  <div className="absolute top-6 left-6 z-20">
+                  <div className="absolute top-4 left-4 z-20">
                     <span className="px-4 py-1.5 bg-white/95 text-[8px] font-bold uppercase tracking-widest text-brand-dark rounded-none shadow-sm">
                       {project.category}
                     </span>
@@ -950,7 +925,7 @@ const PortfolioSection = () => {
 
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover/card:opacity-80 transition-opacity duration-500" />
 
-                  <div className="absolute bottom-10 left-10 text-white">
+                  <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 text-white">
                     <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/60 mb-2 block">
                       {project.location}
                     </span>
@@ -960,7 +935,7 @@ const PortfolioSection = () => {
                   </div>
 
                   {/* Hover Arrow */}
-                  <div className="absolute top-10 right-10 w-12 h-12 rounded-none bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 group-hover/card:opacity-100 transition-all duration-500 -translate-y-4 group-hover/card:translate-y-0">
+                  <div className="absolute top-6 right-6 w-10 h-10 rounded-none bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 group-hover/card:opacity-100 transition-all duration-500 -translate-y-4 group-hover/card:translate-y-0">
                     <ArrowUpRight size={20} />
                   </div>
                 </motion.div>
@@ -1078,9 +1053,9 @@ const Testimonials = () => {
   });
 
   return (
-    <section className="py-16 md:py-20 bg-white relative overflow-hidden">
+    <section className="py-10 md:py-20 bg-white relative overflow-hidden">
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-        <div className="text-center mb-10 md:mb-16 relative">
+        <div className="text-center mb-6 md:mb-16 relative">
           <motion.h2
             initial="hidden"
             whileInView="visible"
@@ -1265,9 +1240,9 @@ const ClientsSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden border-t border-brand-primary/5">
+    <section className="py-10 md:py-24 bg-white relative overflow-hidden border-t border-brand-primary/5">
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-        <div className="flex justify-center mb-32 relative">
+        <div className="flex justify-center mb-10 md:mb-20 lg:mb-32 relative">
           <div className="text-center">
             <motion.h2
               initial="hidden"
@@ -1328,7 +1303,7 @@ const ClientsSection = () => {
         </div>
       </div>
 
-      <div className="w-full overflow-hidden border-y border-brand-dark/5 py-12 bg-white flex">
+      <div className="w-full overflow-hidden border-y border-brand-dark/5 py-6 md:py-12 bg-white flex">
         <div className="flex w-max animate-marquee">
           {[...clients, ...clients].map((client, index) => (
             <div
@@ -1360,9 +1335,9 @@ const LatestProjectsSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-10 md:py-24 bg-white relative overflow-hidden">
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 relative gap-12">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-6 md:mb-12 relative gap-4 md:gap-12">
           <motion.h2
             initial="hidden"
             whileInView="visible"
@@ -1459,7 +1434,7 @@ const PMCSection = () => {
   ];
 
   return (
-    <section id="pmc" className="py-24 md:py-32 bg-brand-dark text-white relative overflow-hidden">
+    <section id="pmc" className="py-10 md:py-24 lg:py-32 bg-brand-dark text-white relative overflow-hidden">
 
       <div className="max-w-[1500px] mx-auto px-6 md:px-12 relative z-10">
         <div className="grid lg:grid-cols-2 gap-24 items-center">
@@ -1468,7 +1443,7 @@ const PMCSection = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="flex items-center gap-4 mb-10"
+              className="flex items-center gap-4 mb-6 md:mb-10"
             >
               <div className="h-[1px] w-12 bg-brand-primary" />
               <span className="text-[10px] font-bold uppercase tracking-[0.6em] text-brand-primary block">
@@ -1479,7 +1454,7 @@ const PMCSection = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-7xl mb-12 uppercase leading-[1] font-semibold"
+              className="text-4xl md:text-7xl mb-6 md:mb-12 uppercase leading-[1] font-semibold"
             >
               The Science <br />
               <span className="text-neutral-500">of Execution</span>
@@ -1488,7 +1463,7 @@ const PMCSection = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-neutral-400 text-base md:text-lg font-normal leading-relaxed mb-16 max-w-xl"
+              className="text-neutral-400 text-base md:text-lg font-normal leading-relaxed mb-8 md:mb-16 max-w-xl"
             >
               Our Project Management Consultancy provides a singular point of accountability. we orchestrate every technical detail, ensuring your vision is realized without compromise.
             </motion.p>
@@ -1546,8 +1521,8 @@ const GlazingSolutionsSection = () => {
       <div className="w-full">
 
         {/* Card 1: Balcony Glazing */}
-        <div className="sticky top-20 w-full bg-white border-b border-neutral-100 py-16 md:py-24 px-6 md:px-12 xl:px-16 transition-all duration-500 z-10">
-          <div className="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="sticky top-20 w-full bg-white border-b border-neutral-100 py-8 md:py-24 px-4 md:px-12 xl:px-16 transition-all duration-500 z-10">
+          <div className="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-center">
             {/* Left: Text Content */}
             <div className="order-2 lg:order-1 flex flex-col items-start text-left">
               <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-primary mb-2 block">
@@ -1590,8 +1565,8 @@ const GlazingSolutionsSection = () => {
         </div>
 
         {/* Card 2: Patio Glazing */}
-        <div className="sticky top-20 w-full bg-white border-b border-neutral-100 py-16 md:py-24 px-6 md:px-12 xl:px-16 transition-all duration-500 z-20">
-          <div className="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="sticky top-20 w-full bg-white border-b border-neutral-100 py-8 md:py-24 px-4 md:px-12 xl:px-16 transition-all duration-500 z-20">
+          <div className="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-center">
             {/* Left: Text Content */}
             <div className="order-2 lg:order-1 flex flex-col items-start text-left">
               <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-primary mb-2 block">
@@ -1654,6 +1629,51 @@ export default function Page() {
 
       {/* Main Content Wrapper - No more sticky overlap */}
       <div className="relative z-10 bg-white">
+        {/* Mobile-only About Section */}
+        <section className="md:hidden bg-[#F8FAFC] border-y border-neutral-100 px-6 py-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col items-center text-center gap-6"
+          >
+            {/* Label */}
+            <div className="flex items-center gap-3">
+              <div className="h-[1px] w-8 bg-brand-primary" />
+              <span className="text-[10px] font-bold tracking-[0.3em] text-brand-primary uppercase">About INFIWIN</span>
+              <div className="h-[1px] w-8 bg-brand-primary" />
+            </div>
+
+            {/* Heading */}
+            <h2 style={{ fontFamily: 'Georgia, serif' }} className="text-3xl font-light text-brand-dark leading-snug tracking-tight">
+              Reclaiming <span className="text-brand-primary">Your Space</span>
+            </h2>
+
+            {/* Image */}
+            <div className="w-full rounded-2xl overflow-hidden border-4 border-white shadow-xl aspect-[4/3]">
+              <img
+                src="/infiwin images new/ChatGPT Image May 23, 2026, 02_13_49 PM.png"
+                alt="INFIWIN Glass Systems"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Description */}
+            <p className="text-neutral-500 text-sm leading-relaxed max-w-sm">
+              At INFIWIN, we believe that architectural spatial design is not just about how a space looks — it's about how it makes you feel. We craft premium glass systems that transform ordinary spaces into extraordinary experiences.
+            </p>
+
+            {/* CTA */}
+            <a
+              href="/about"
+              className="inline-flex items-center gap-2 bg-brand-primary text-white text-[10px] font-bold uppercase tracking-widest px-8 py-3.5 rounded-full shadow-lg shadow-brand-primary/20 hover:bg-brand-dark transition-all duration-300"
+            >
+              Learn More <ArrowRight size={12} />
+            </a>
+          </motion.div>
+        </section>
+
         <BestSellingProduct />
         <GlazingSolutionsSection />
         <ProductsGrid />

@@ -4,7 +4,6 @@ import { motion } from 'motion/react';
 import {
   ArrowRight,
   CheckCircle,
-  Maximize,
 } from 'lucide-react';
 import React from 'react';
 
@@ -226,11 +225,11 @@ export default function ProductsPage() {
     <main className="bg-white min-h-screen">
       
       {/* Hero Section */}
-      <section className="relative h-[80vh] flex items-center overflow-hidden bg-brand-dark">
+      <section className="relative h-[60vh] md:h-[80vh] flex items-center overflow-hidden bg-brand-dark">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/infiwin images new/ChatGPT Image May 23, 2026, 01_10_02 PM.png" 
+            src="/infiwin images new/ChatGPT Image May 23, 2026, 03_18_04 PM.png" 
             alt="Architectural Excellence" 
             className="w-full h-full object-cover opacity-60"
           />
@@ -244,8 +243,8 @@ export default function ProductsPage() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-4xl"
           >
-            <span className="text-[10px] font-bold tracking-[0.6em] text-brand-primary mb-8 block uppercase">Our solutions</span>
-            <h1 className="text-5xl md:text-8xl text-white tracking-tighter leading-[0.9] mb-12 select-none">
+            <span className="text-[10px] font-bold tracking-[0.6em] text-brand-primary mb-4 md:mb-8 block uppercase">Our solutions</span>
+            <h1 className="text-4xl md:text-8xl text-white tracking-tighter leading-[0.9] mb-6 md:mb-12 select-none">
               Premium <br />
               <span className="text-white/40 font-semibold" style={{ textTransform: 'none' }}>Architectural</span> <br />
               <span className="text-white/40 font-semibold" style={{ textTransform: 'none' }}>Glazing</span>
@@ -258,12 +257,12 @@ export default function ProductsPage() {
       </section>
 
       {/* Product List */}
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12 space-y-32 py-32">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12 space-y-12 md:space-y-32 py-12 md:py-32">
         {products.map((product, index) => (
           <section 
             id={product.id} 
             key={product.id}
-            className={`flex flex-col lg:flex-row gap-16 items-center ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
+            className={`flex flex-col lg:flex-row gap-8 lg:gap-16 items-center ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
           >
             {/* Content Side */}
             <div className="lg:w-7/12">
@@ -273,21 +272,21 @@ export default function ProductsPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
               >
-                <span className="text-[10px] font-bold tracking-[0.4em] text-brand-primary mb-4 block">
+                <span className="text-[10px] font-bold tracking-[0.4em] text-brand-primary mb-2 md:mb-4 block">
                   {product.category}
                 </span>
-                <h2 className="text-3xl md:text-4xl text-brand-dark tracking-tight mb-6">
+                <h2 className="text-3xl md:text-4xl text-brand-dark tracking-tight mb-4 md:mb-6">
                   {product.title}
                 </h2>
-                <p className="text-brand-primary font-medium mb-8 text-lg">
+                <p className="text-brand-primary font-medium mb-4 md:mb-8 text-lg">
                   {product.tagline}
                 </p>
-                <p className="text-neutral-600 text-base md:text-lg font-semibold leading-relaxed mb-12 max-w-xl">
+                <p className="text-neutral-600 text-base md:text-lg font-semibold leading-relaxed mb-6 md:mb-12 max-w-xl">
                   {product.desc}
                 </p>
 
                 {/* Features Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 md:mb-12">
                   {product.features.map((feature, i) => (
                     <div key={i} className="flex gap-3 items-start group">
                       <div className="h-5 w-5 rounded-full bg-neutral-50 flex items-center justify-center shrink-0 group-hover:bg-brand-primary transition-colors">
@@ -299,7 +298,7 @@ export default function ProductsPage() {
                 </div>
 
                 {/* Technical Specs Card */}
-                <div className="bg-neutral-50 p-6 sm:p-8 rounded-2xl border border-neutral-100 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+                <div className="bg-neutral-50 p-4 sm:p-8 rounded-2xl border border-neutral-100 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
                   {Object.entries(product.technical).map(([key, value], i) => (
                     <div key={i}>
                       <span className="text-[9px] font-bold uppercase tracking-widest text-neutral-400 block mb-1">
@@ -310,7 +309,7 @@ export default function ProductsPage() {
                   ))}
                 </div>
 
-                <a href="/contact" className="mt-12 group inline-flex items-center gap-4 px-10 py-4 bg-brand-dark text-white rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-brand-primary transition-all shadow-xl shadow-brand-dark/10">
+                <a href="/contact" className="mt-6 md:mt-12 group inline-flex items-center gap-4 px-10 py-4 bg-brand-dark text-white rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-brand-primary transition-all shadow-xl shadow-brand-dark/10">
                   Contact us <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform" />
                 </a>
               </motion.div>
@@ -332,19 +331,16 @@ export default function ProductsPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-brand-dark/20 to-transparent opacity-40" />
                 
-                {/* Product Detail Badge */}
-                <div className="absolute top-10 right-10 bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-full">
-                  <Maximize className="h-6 w-6 text-white" />
-                </div>
+
               </motion.div>
             </div>
           </section>
         ))}
       </div>
 
-      <section className="py-24 bg-brand-dark text-white text-center">
+      <section className="py-12 md:py-24 bg-brand-dark text-white text-center">
         <div className="max-w-[1600px] mx-auto px-6">
-          <h2 className="text-3xl md:text-5xl tracking-tight mb-12">Ready to start <br /> <span className="text-neutral-500 font-semibold" style={{ textTransform: 'none' }}>your project?</span></h2>
+          <h2 className="text-3xl md:text-5xl tracking-tight mb-6 md:mb-12">Ready to start <br /> <span className="text-neutral-500 font-semibold" style={{ textTransform: 'none' }}>your project?</span></h2>
           <a href="/contact" className="inline-flex items-center gap-4 px-12 py-5 bg-brand-primary text-white rounded-full text-[12px] font-bold tracking-widest hover:scale-105 transition-all">
             Contact engineering team <ArrowRight className="h-5 w-5" />
           </a>

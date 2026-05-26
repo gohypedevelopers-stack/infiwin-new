@@ -92,9 +92,9 @@ export default function ApplicationsPage() {
       </section>
 
       {/* Application Grid */}
-      <section className="py-32">
+      <section className="py-12 md:py-32">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12">
             {applications.map((app, i) => (
               <motion.div 
                 id={app.id}
@@ -105,15 +105,15 @@ export default function ApplicationsPage() {
                 transition={{ delay: i * 0.1 }}
                 className="group cursor-pointer scroll-mt-24"
               >
-                <div className="relative aspect-video rounded-sm overflow-hidden mb-8 shadow-xl">
+                <div className="relative aspect-video rounded-sm overflow-hidden mb-4 md:mb-8 shadow-xl">
                   <img src={app.img} alt={app.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-brand-dark/0 transition-all duration-500" />
                   <div className="absolute top-6 left-6 p-4 bg-white/90 backdrop-blur-md rounded-full text-brand-primary">
                     {app.icon}
                   </div>
                 </div>
-                <h3 className="text-2xl text-brand-dark mb-4 uppercase tracking-widest">{app.title}</h3>
-                <p className="text-neutral-400 text-sm font-light leading-relaxed mb-6">
+                <h3 className="text-2xl text-brand-dark mb-2 md:mb-4 uppercase tracking-widest">{app.title}</h3>
+                <p className="text-neutral-400 text-sm font-light leading-relaxed mb-4 md:mb-6">
                   {app.desc}
                 </p>
                 <a href="/contact" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-brand-primary opacity-0 group-hover:opacity-100 transition-all duration-500">
@@ -126,13 +126,13 @@ export default function ApplicationsPage() {
       </section>
 
       {/* Full Width Callout */}
-      <section className="py-48 bg-brand-dark text-white relative overflow-hidden">
+      <section className="py-20 md:py-32 lg:py-48 bg-brand-dark text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <img src="/infiwin images new/ChatGPT Image May 23, 2026, 03_18_04 PM.png" className="w-full h-full object-cover" alt="" />
         </div>
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-          <h2 className="text-3xl sm:text-4xl md:text-6xl uppercase mb-12 leading-tight">Every Space Has <br /><span className="text-brand-primary font-light lowercase">Potential</span></h2>
-          <p className="text-white/60 text-lg font-light mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl uppercase mb-6 md:mb-12 leading-tight">Every Space Has <br /><span className="text-brand-primary font-light lowercase">Potential</span></h2>
+          <p className="text-white/60 text-lg font-light mb-8 md:mb-16">
             Whether it's a high-rise balcony or a boutique office, our systems are engineered to transform and elevate your environment.
           </p>
           <a href="/contact" className="px-12 py-5 bg-brand-primary text-white text-[10px] font-bold uppercase tracking-widest hover:brightness-110 transition-all">

@@ -71,25 +71,25 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-32">
+      <section className="py-12 md:py-32">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid lg:grid-cols-2 gap-24 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-6xl text-brand-dark uppercase mb-12 leading-tight">
+              <h2 className="text-4xl md:text-6xl text-brand-dark uppercase mb-6 md:mb-12 leading-tight">
                 Beyond <br /><span className="text-brand-primary font-light lowercase">Boundaries</span>
               </h2>
               <p className="text-neutral-500 text-lg font-light leading-relaxed mb-8">
                 At INFIWIN, we believe that architectural spatial design is not just about how a space looks – it's about how it makes you feel. Our mission is to reclaim your outdoor and indoor spaces with frameless precision and unparalleled aesthetics.
               </p>
-              <p className="text-neutral-400 text-base font-light leading-relaxed mb-12">
+              <p className="text-neutral-400 text-base font-light leading-relaxed mb-6 md:mb-12">
                 Founded with a vision to redefine luxury interiors, we have grown into a leading provider of high-performance glass systems. Our approach combines artisan craft with modern technology, ensuring every project is a masterpiece of light and transparency.
               </p>
               
-              <div className="grid grid-cols-2 gap-12 pt-12 border-t border-neutral-100">
+              <div className="grid grid-cols-2 gap-6 md:gap-12 pt-6 md:pt-12 border-t border-neutral-100">
                 <div>
                   <h4 className="text-brand-dark font-bold text-xs uppercase tracking-widest mb-4">Vision</h4>
                   <p className="text-neutral-400 text-xs leading-relaxed">To be the global benchmark for architectural glass innovation and spatial excellence.</p>
@@ -124,7 +124,7 @@ export default function AboutPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-24 bg-brand-dark text-white">
+      <section className="py-12 md:py-24 bg-brand-dark text-white">
         <div className="max-w-[1600px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
             {stats.map((stat, i) => (
@@ -145,13 +145,13 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="py-32 bg-neutral-50">
+      <section className="py-12 md:py-32 bg-neutral-50">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="text-center mb-24">
+          <div className="text-center mb-10 md:mb-24">
             <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary mb-4 block">Our Values</span>
             <h2 className="text-3xl sm:text-4xl md:text-6xl text-brand-dark uppercase">What We Stand For</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-12">
             {values.map((v, i) => (
               <motion.div 
                 key={i}
@@ -159,7 +159,7 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white p-12 rounded-sm shadow-sm border border-neutral-100 group hover:border-brand-primary transition-all duration-500"
+                className="bg-white p-6 md:p-12 rounded-sm shadow-sm border border-neutral-100 group hover:border-brand-primary transition-all duration-500"
               >
                 <div className="text-brand-primary mb-8 group-hover:scale-110 transition-transform duration-500">
                   {v.icon}

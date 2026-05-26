@@ -7,13 +7,13 @@ import Link from 'next/link';
 const Footer = () => {
   return (
     <footer className="bg-white text-brand-dark border-t border-brand-dark/5">
-      <div className="max-w-7xl mx-auto px-10 py-24">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-20 mb-24">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 py-12 md:py-24">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-12 md:gap-20 mb-12 md:mb-24">
           <div className="max-w-sm">
-            <Link href="/" className="flex items-center mb-10 group">
+            <Link href="/" className="flex items-center mb-6 md:mb-10 group">
               <img src="https://www.infiwindow.com/images/logo1.png" alt="INFIWIN" className="h-20 w-auto hover:scale-105 transition-transform" />
             </Link>
-            <p className="text-neutral-500 text-sm leading-relaxed mb-10 font-semibold">
+            <p className="text-neutral-500 text-sm leading-relaxed mb-6 md:mb-10 font-semibold">
               Reclaiming space through architectural innovation and high-performance spatial solutions across the GCC.
             </p>
             <div className="flex gap-8">
@@ -23,9 +23,9 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-24">
+          <div className="grid grid-cols-2 gap-12 md:gap-24">
             <div>
-              <h5 className="text-[10px] font-bold uppercase tracking-[0.3em] mb-10 text-brand-dark">Registry</h5>
+              <h5 className="text-[10px] font-bold uppercase tracking-[0.3em] mb-6 md:mb-10 text-brand-dark">Registry</h5>
               <ul className="space-y-4 text-neutral-500 text-[10px] uppercase tracking-widest">
                 <li><Link href="/products" className="hover:text-brand-primary transition-colors">Methods</Link></li>
                 <li><Link href="/#projects" className="hover:text-brand-primary transition-colors">Portfolio</Link></li>
@@ -33,7 +33,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h5 className="text-[10px] font-bold uppercase tracking-[0.3em] mb-10 text-brand-dark">Hubs</h5>
+              <h5 className="text-[10px] font-bold uppercase tracking-[0.3em] mb-6 md:mb-10 text-brand-dark">Hubs</h5>
               <ul className="space-y-4 text-neutral-500 text-[10px] uppercase tracking-widest">
                 <li>
                   <a
