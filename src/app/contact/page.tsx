@@ -2,13 +2,13 @@
 
 import { motion } from 'motion/react';
 import { 
-  Phone, 
-  Mail, 
-  MapPin, 
+  Telephone as Phone, 
+  Envelope as Mail, 
+  GeoAlt as MapPin, 
   Clock, 
   Send,
-  MessageCircle
-} from 'lucide-react';
+  ChatDots as MessageCircle
+} from 'react-bootstrap-icons';
 import React, { useState } from 'react';
 
 export default function ContactPage() {
@@ -67,8 +67,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-[10px] font-bold uppercase tracking-widest text-brand-dark mb-2">Call Us</h4>
-                    <p className="text-neutral-500 text-sm font-light">+971 54 236 5212</p>
-                    <p className="text-neutral-500 text-sm font-light">+91 98765 43210</p>
+                    <p className="text-neutral-500 text-sm font-light">+91 73370 74370</p>
                   </div>
                 </div>
                 <div className="flex gap-6">
@@ -77,8 +76,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-[10px] font-bold uppercase tracking-widest text-brand-dark mb-2">Email</h4>
-                    <p className="text-neutral-500 text-sm font-light">info@infiwindow.com</p>
-                    <p className="text-neutral-500 text-sm font-light">sales@infiwindow.com</p>
+                    <p className="text-neutral-500 text-sm font-light">hi@infiwindow.com</p>
                   </div>
                 </div>
                 <div className="flex gap-6">
@@ -87,8 +85,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-[10px] font-bold uppercase tracking-widest text-brand-dark mb-2">Headquarters</h4>
-                    <p className="text-neutral-500 text-sm font-light">Business Bay, Dubai, UAE</p>
-                    <p className="text-neutral-500 text-sm font-light">Regional Office: Mumbai, India</p>
+                    <p className="text-neutral-500 text-sm font-light">Corporate Office: H 195, Sector 63, Noida, Uttar Pradesh - 201309</p>
                   </div>
                 </div>
                 <div className="flex gap-6">
@@ -184,7 +181,7 @@ export default function ContactPage() {
                         *This is a ballpark figure based on standard 10mm glass. Final quote may vary based on customization, transportation, and taxes.
                       </p>
                     </div>
-                    <a href="https://wa.me/971542365212" target="_blank" className="mt-8 w-full py-4 border border-green-500 text-green-500 text-[10px] font-bold uppercase tracking-widest hover:bg-green-500 hover:text-white transition-all flex items-center justify-center gap-2">
+                    <a href="https://wa.me/917337074370" target="_blank" className="mt-8 w-full py-4 border border-green-500 text-green-500 text-[10px] font-bold uppercase tracking-widest hover:bg-green-500 hover:text-white transition-all flex items-center justify-center gap-2">
                       <MessageCircle size={16} /> Confirm via WhatsApp
                     </a>
                   </motion.div>

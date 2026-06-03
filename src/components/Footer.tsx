@@ -1,68 +1,81 @@
 'use client';
 
 import React from 'react';
-import { Instagram, Linkedin, Facebook } from 'lucide-react';
+import { Instagram, Linkedin, Facebook, Envelope as Mail, Telephone as Phone, GeoAlt as MapPin } from 'react-bootstrap-icons';
 import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-brand-dark border-t border-brand-dark/5">
+    <footer className="bg-white text-brand-dark border-t border-brand-dark/5 pb-0">
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-12 md:py-24">
         <div className="flex flex-col md:flex-row justify-between items-start gap-12 md:gap-20 mb-12 md:mb-24">
           <div className="max-w-sm">
             <Link href="/" className="flex items-center mb-6 md:mb-10 group">
-              <img src="https://www.infiwindow.com/images/logo1.png" alt="INFIWIN" className="h-20 w-auto hover:scale-105 transition-transform" />
+              <img src="https://www.infiwindow.com/images/logo1.png" alt="INFIWIN" className="h-16 w-auto hover:scale-105 transition-transform" />
             </Link>
             <p className="text-neutral-500 text-sm leading-relaxed mb-6 md:mb-10 font-semibold">
-              Reclaiming space through architectural innovation and high-performance spatial solutions across the GCC.
+              Premium architectural glass and slide & turn frameless balcony structures designed for Indian climatic conditions.
             </p>
             <div className="flex gap-8">
-              <Instagram size={18} className="text-neutral-400 hover:text-brand-primary cursor-pointer transition-colors" />
-              <Linkedin size={18} className="text-neutral-400 hover:text-brand-primary cursor-pointer transition-colors" />
-              <Facebook size={18} className="text-neutral-400 hover:text-brand-primary cursor-pointer transition-colors" />
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <Instagram size={18} className="text-neutral-400 hover:text-brand-primary cursor-pointer transition-colors" />
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Linkedin">
+                <Linkedin size={18} className="text-neutral-400 hover:text-brand-primary cursor-pointer transition-colors" />
+              </a>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <Facebook size={18} className="text-neutral-400 hover:text-brand-primary cursor-pointer transition-colors" />
+              </a>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-12 md:gap-24">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 md:gap-24 w-full md:w-auto">
+            {/* Column 1: 6 Product Lines */}
             <div>
-              <h5 className="text-[10px] font-bold uppercase tracking-[0.3em] mb-6 md:mb-10 text-brand-dark">Registry</h5>
-              <ul className="space-y-4 text-neutral-500 text-[10px] uppercase tracking-widest">
-                <li><Link href="/products" className="hover:text-brand-primary transition-colors">Methods</Link></li>
-                <li><Link href="/#projects" className="hover:text-brand-primary transition-colors">Portfolio</Link></li>
-                <li><Link href="/contact" className="hover:text-brand-primary transition-colors">Inquiry</Link></li>
+              <h5 className="text-[11px] font-bold uppercase tracking-[0.3em] mb-6 md:mb-10 text-brand-dark">6 Product Lines</h5>
+              <ul className="space-y-4 text-neutral-500 text-[10px] uppercase tracking-widest font-semibold">
+                <li><Link href="/products#folding" className="hover:text-brand-primary transition-colors">Slide & Turn System</Link></li>
+                <li><Link href="/products#sliding" className="hover:text-brand-primary transition-colors">Telescopic Slider System</Link></li>
+                <li><Link href="/products#centre-open" className="hover:text-brand-primary transition-colors">Centre Open System</Link></li>
+                <li><Link href="/products#bifold" className="hover:text-brand-primary transition-colors">Bi-fold Enclosures</Link></li>
+                <li><Link href="/products#sliding-2track" className="hover:text-brand-primary transition-colors">2 Track Slider System</Link></li>
+                <li><Link href="/products#sliding-3track" className="hover:text-brand-primary transition-colors">3 Track Slider System</Link></li>
               </ul>
             </div>
+            
+            {/* Column 2: Space Usages */}
             <div>
-              <h5 className="text-[10px] font-bold uppercase tracking-[0.3em] mb-6 md:mb-10 text-brand-dark">Hubs</h5>
-              <ul className="space-y-4 text-neutral-500 text-[10px] uppercase tracking-widest">
-                <li>
-                  <a
-                    href="https://maps.google.com/?q=Abu+Dhabi,+UAE"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-brand-primary transition-colors"
-                  >
-                    Abu Dhabi
+              <h5 className="text-[11px] font-bold uppercase tracking-[0.3em] mb-6 md:mb-10 text-brand-dark">Space Usages</h5>
+              <ul className="space-y-4 text-neutral-500 text-[10px] uppercase tracking-widest font-semibold">
+                <li><Link href="/applications#balcony" className="hover:text-brand-primary transition-colors">Balcony Glass</Link></li>
+                <li><Link href="/applications#office" className="hover:text-brand-primary transition-colors">Office Glass Partitions</Link></li>
+                <li><Link href="/applications#commercial" className="hover:text-brand-primary transition-colors">Commercial Facades</Link></li>
+                <li><Link href="/applications#terrace" className="hover:text-brand-primary transition-colors">Terrace & Gardens</Link></li>
+              </ul>
+            </div>
+
+            {/* Column 3: Contact Info */}
+            <div>
+              <h5 className="text-[11px] font-bold uppercase tracking-[0.3em] mb-6 md:mb-10 text-brand-dark">Contact Info</h5>
+              <ul className="space-y-4 text-neutral-500 text-[11px] font-medium">
+                <li className="flex items-start gap-2 text-neutral-500">
+                  <MapPin size={16} className="text-brand-primary shrink-0 mt-0.5" />
+                  <span>
+                    Corporate Office:<br />
+                    H 195, Sector 63, Noida,<br />
+                    Uttar Pradesh - 201309
+                  </span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-brand-primary shrink-0">📧</span>
+                  <a href="mailto:hi@infiwindow.com" className="hover:text-brand-primary transition-colors break-all">
+                    hi@infiwindow.com
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="https://maps.google.com/?q=Business+Bay,+Dubai,+UAE"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-brand-primary transition-colors"
-                  >
-                    Dubai
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://maps.google.com/?q=London,+UK"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-brand-primary transition-colors"
-                  >
-                    London
+                <li className="flex items-center gap-2">
+                  <span className="text-brand-primary shrink-0">📞</span>
+                  <a href="tel:+917337074370" className="hover:text-brand-primary transition-colors">
+                    +91 73370 74370
                   </a>
                 </li>
               </ul>
@@ -70,7 +83,10 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-12 border-t border-brand-dark/5 flex justify-end items-center text-[10px] uppercase tracking-[0.4em] text-neutral-400">
+        <div className="pt-12 border-t border-brand-dark/5 flex justify-between items-center text-[10px] uppercase tracking-[0.4em] text-neutral-400 flex-wrap gap-4">
+          <p className="normal-case tracking-normal">
+            Certified ISO 9001 | ISO 45001 | CE Compliant
+          </p>
           <div className="flex gap-12">
             <Link href="/legal?tab=privacy" className="hover:text-neutral-500 transition-colors">Privacy</Link>
             <Link href="/legal?tab=terms" className="hover:text-neutral-500 transition-colors">Terms</Link>
@@ -80,9 +96,9 @@ const Footer = () => {
       </div>
 
       {/* Black Copyright Strip */}
-      <div className="bg-black py-4 flex justify-center items-center">
-        <p className="text-[10px] uppercase tracking-[0.4em] text-white/40">
-          © 2026 INFIWIN SYSTEMS. ALL RIGHTS RESERVED.
+      <div className="bg-black py-4 pb-20 md:pb-4 flex flex-col justify-center items-center px-4 text-center">
+        <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-white/45 leading-relaxed">
+          © 2026 Infiwin Glazing Inc. All rights reserved.
         </p>
       </div>
     </footer>

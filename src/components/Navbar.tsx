@@ -2,41 +2,35 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Mail, Phone, ChevronDown, ArrowRight, Menu, X, Search, ChevronRight } from 'lucide-react';
+import { Envelope as Mail, Telephone as Phone, ChevronDown, ArrowRight, List as Menu, X, Search, ChevronRight, Whatsapp } from 'react-bootstrap-icons';
 import Link from 'next/link';
 
 const NAV_ITEMS = [
   { name: "Home", href: "/" },
   { name: "Products", href: "/products" },
   { name: "Applications", href: "/applications" },
-  { name: "Gallery", href: "/gallery" },
   { name: "About", href: "/about" },
   { name: "FAQs", href: "/faqs" },
-  { name: "Contact", href: "/contact" },
 ];
 
 const PRODUCTS = [
-  { name: "Folding Glass Balcony Systems", href: "/products#folding", category: "Balcony Systems", desc: "100% opening frameless balcony spatial solution", img: "/hero/balcony.png" },
-  { name: "Insulated Glass Balcony Systems", href: "/products#insulated", category: "Balcony Systems", desc: "Premium insulated double-glazed thermal spatial systems", img: "/extracted_assets/Website/Images/Offics/Terrece/IMG-20240605-WA0011.jpg" },
-  { name: "Sliding Glass Systems", href: "/products#sliding", category: "Balcony Systems", desc: "Minimalist sliding multi-track panoramic doors", img: "/extracted_assets/Website/Images/S&T/Open Tap/IMG-20231009-WA0004.jpg" },
-  { name: "Slide & Turn Systems", href: "/products#slide-turn", category: "Balcony Systems", desc: "Premium space-saving slide and turn balcony partitions", img: "/extracted_assets/Website/Images/S&T/Hotel Penensula/IMG-20230416-WA0001.jpg" },
-  { name: "Guillotine Glass Systems", href: "/products#guillotine", category: "Advanced Glass Systems", desc: "Vertical motorized smart glass panels for commercial use", img: "/extracted_assets/Website/Images/Offics/IMG-20260112-WA0007.jpg" },
-  { name: "Walking Motor System", href: "/products#motor", category: "Advanced Glass Systems", desc: "Motorized folding sliding glass spatial solution", img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4395.JPG" },
-  { name: "Shop Window Glass Systems", href: "/products#shop", category: "Advanced Glass Systems", desc: "High-exposure frameless storefront glass dividers", img: "/extracted_assets/Website/Images/Offics/IMG-20210310-WA0002.jpg" },
-  { name: "Fixed Glass Roof (Veranda) System", href: "/products#roof", category: "Roof & Cover Systems", desc: "Custom transparent architectural glass roofs", img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4402.JPG" },
-  { name: "Windbreaker System", href: "/products#windbreaker", category: "Roof & Cover Systems", desc: "Adjustable height wind barrier glass guards", img: "/hero/patio.png" },
-  { name: "Bioclimatic Pergola (IOT Smart Roof)", href: "/products#bioclimatic", category: "Roof & Cover Systems", desc: "Smart louvered aluminum climate control roofs", img: "/extracted_assets/Website/Images/Offics/Terrece/IMG-20211126-WA0001.jpg" }
+  { name: "Slide & Turn System", href: "/products#folding", category: "Balcony Systems", desc: "Premium space-saving slide and turn balcony partitions", img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_13_49 PM.png" },
+  { name: "Telescopic Slider System", href: "/products#sliding", category: "Balcony Systems", desc: "Overlapping glazed sheets for continuous tracks", img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_50_39 PM.png" },
+  { name: "Centre Open System", href: "/products#centre-open", category: "Balcony Systems", desc: "Panels partition left and right symmetrically", img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_29_01 PM.png" },
+  { name: "Bi-fold Glass System", href: "/products#bifold", category: "Advanced Glass Systems", desc: "Sleek folding structure for rapid partition transition zones", img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_27_22 PM.png" },
+  { name: "2 Track Slider", href: "/products#sliding-2track", category: "Advanced Glass Systems", desc: "Classic, cost-effective structural system layout", img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_25_52 PM.png" },
+  { name: "3 Track Slider", href: "/products#sliding-3track", category: "Advanced Glass Systems", desc: "Wider spans of clear views with bug mesh capability", img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_30_38 PM.png" }
 ];
 
 const APPLICATIONS = [
-  { name: "Balcony", href: "/applications#balcony", category: "Residential Applications", desc: "Transform your home balcony into a panoramic oasis", img: "/hero/balcony.png" },
-  { name: "Exterior", href: "/applications#exterior", category: "Residential Applications", desc: "Seamless integration between home indoor and outdoor spaces", img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4395.JPG" },
-  { name: "Terrace", href: "/applications#terrace", category: "Residential Applications", desc: "Widescreen panoramic views for structural terrace covers", img: "/extracted_assets/Website/Images/Offics/Terrece/IMG-20240605-WA0011.jpg" },
-  { name: "Garden", href: "/applications#garden", category: "Residential Applications", desc: "Custom aesthetic framing solutions for green surroundings", img: "/extracted_assets/Website/Images/S&T/Open Tap/IMG-20231009-WA0004.jpg" },
-  { name: "Farm House", href: "/applications#farm-house", category: "Residential Applications", desc: "Grand glass entries and structural verandas for country homes", img: "/extracted_assets/Website/Images/S&T/Farmhouse/IMG_4402.JPG" },
-  { name: "Interior Partition", href: "/applications#partition", category: "Commercial Applications", desc: "Modern acoustic glass dividers for home or office partitions", img: "/extracted_assets/Website/Images/Offics/IMG-20260112-WA0007.jpg" },
-  { name: "Office space", href: "/applications#office", category: "Commercial Applications", desc: "Sleek professional conference room walls and workspace panels", img: "/extracted_assets/Website/Images/Offics/IMG-20210310-WA0002.jpg" },
-  { name: "Commercial", href: "/applications#commercial", category: "Commercial Applications", desc: "Robust high-exposure entries for restaurants and retail fronts", img: "/extracted_assets/Website/Images/S&T/Hotel Penensula/IMG-20230416-WA0001.jpg" }
+  { name: "Balcony", href: "/applications#balcony", category: "Residential Applications", desc: "Unobstructed frameless premium safety glazing barriers", img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_25_52 PM.png" },
+  { name: "Int. Partition", href: "/applications#partition", category: "Residential Applications", desc: "Sleek separation zones for functional multi-use spaces", img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_15_29 PM.png" },
+  { name: "Commercial", href: "/applications#commercial", category: "Commercial Applications", desc: "High durability storefront facades & internal partition grids", img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_52_36 PM.png" },
+  { name: "Exterior", href: "/applications#exterior", category: "Residential Applications", desc: "Rigid wind resistance profile constructs for elevations", img: "/infiwin images new/ChatGPT Image May 23, 2026, 01_10_02 PM.png" },
+  { name: "Terrace", href: "/applications#terrace", category: "Residential Applications", desc: "Convert open terraces into year-round glass lounges", img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_30_38 PM.png" },
+  { name: "Farm House", href: "/applications#farm-house", category: "Residential Applications", desc: "Connect country landscaping with spacious interiors", img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_27_22 PM.png" },
+  { name: "Office Space", href: "/applications#office", category: "Commercial Applications", desc: "Acoustically isolated conference cubes & cabins", img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_16_49 PM.png" },
+  { name: "Garden", href: "/applications#garden", category: "Residential Applications", desc: "Sleek verandas merging greenery with thermal comfort", img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_20_57 PM.png" }
 ];
 
 const ALL_SEARCH_ITEMS = [
@@ -60,7 +54,6 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Handle click outside search component to close suggestions
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (searchContainerRef.current && !searchContainerRef.current.contains(event.target as Node)) {
@@ -79,16 +72,19 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
     item.category.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const defaultWhatsAppUrl = "https://wa.me/917337074370?text=Hi%20Infiwin%2C%20I%20am%20interested%20in%20getting%20a%20Slide%20%26%20Turn%20Balcony%20System.%20Please%20share%20your%20product%20catalog!";
+
   return (
     <>
       <nav
-        className={`fixed w-full z-[100] transition-all duration-500 ${showSolid
-            ? 'bg-white/95 backdrop-blur-md py-4 shadow-sm border-b border-neutral-100'
-            : 'bg-white/10 backdrop-blur-md py-4 border-b border-white/10 shadow-sm'
-          }`}
+        className={`fixed left-0 right-0 top-0 z-[100] transition-all duration-500 ${
+          showSolid
+            ? 'w-full bg-white/90 backdrop-blur-md py-4 px-6 shadow-[0_12px_40px_rgba(0,0,0,0.08)] border-b border-neutral-100'
+            : 'w-full bg-white/10 backdrop-blur-md py-4 px-6 border-b border-white/10 shadow-sm'
+        }`}
         onMouseLeave={() => setActiveMenu(null)}
       >
-        <div className="max-w-[1600px] mx-auto px-6 md:px-12 flex justify-between items-center relative">
+        <div className="max-w-[1600px] mx-auto flex justify-between items-center relative">
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0 mr-4">
             <img
@@ -98,7 +94,7 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
             />
           </Link>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Navigation Menu (Home, Products, Applications, About, FAQs, Contact us) */}
           <div className="hidden lg:flex items-center gap-6 xl:gap-8 font-sans">
             {NAV_ITEMS.map((item) => {
               const hasDropdown = item.name === "Products" || item.name === "Applications";
@@ -112,7 +108,7 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                 >
                   <Link
                     href={item.href}
-                    className={`text-[14px] font-medium tracking-wide transition-colors duration-300 hover:text-brand-primary flex items-center gap-1.5 relative py-1 ${showSolid ? 'text-brand-dark' : 'text-white'}`}
+                    className={`text-[14px] font-semibold tracking-wide transition-colors duration-300 hover:text-brand-primary flex items-center gap-1.5 relative py-1 ${showSolid ? 'text-brand-dark' : 'text-white'}`}
                   >
                     {item.name}
                     {hasDropdown && (
@@ -132,7 +128,7 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
           {/* Right Row: Search & Button */}
           <div className="hidden lg:flex items-center gap-4 xl:gap-6 flex-1 max-w-sm xl:max-w-md justify-end relative">
             {/* Myntra-Style Interactive Search Bar */}
-            <div ref={searchContainerRef} className="relative w-full max-w-[240px] xl:max-w-[300px]">
+            <div ref={searchContainerRef} className="relative w-full max-w-[200px] xl:max-w-[250px]">
               <div
                 className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all duration-300 ${isSearchFocused
                     ? 'bg-white border-brand-primary shadow-sm ring-2 ring-brand-primary/10 text-brand-dark'
@@ -147,7 +143,7 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onFocus={() => setIsSearchFocused(true)}
-                  placeholder="Search products, systems..."
+                  placeholder="Search..."
                   className={`bg-transparent border-none outline-none text-xs w-full focus:ring-0 focus:outline-none p-0 transition-colors duration-300 ${
                     isSearchFocused || showSolid
                       ? 'text-brand-dark placeholder:text-neutral-400'
@@ -176,7 +172,7 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full right-0 mt-3 w-[340px] bg-white border border-neutral-100 shadow-2xl rounded-2xl p-4 overflow-hidden z-[120]"
+                    className="absolute top-[110%] right-0 w-[340px] bg-white border border-neutral-100 shadow-2xl rounded-2xl p-4 overflow-hidden z-[120]"
                   >
                     <div className="text-[10px] font-semibold text-neutral-400 uppercase tracking-wider mb-2">
                       {searchQuery ? `Search Results (${filteredSearchItems.length})` : 'Popular Searches'}
@@ -228,7 +224,7 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
               </AnimatePresence>
             </div>
 
-            {/* CTA Quote Button */}
+            {/* Header Call-to-Action (CTA) */}
             <Link
               href="/contact"
               className={`px-6 py-2.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 shadow-sm shrink-0 ${showSolid
@@ -236,24 +232,25 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                   : 'bg-white text-brand-dark hover:bg-brand-primary hover:text-white'
                 }`}
             >
-              Get Quote
+              Get Free Quote
             </Link>
           </div>
 
-          {/* Mobile Navigation Toggle */}
+          {/* Mobile Navigation Toggle - Guaranteed 48x48px target */}
           <div className="flex items-center gap-3 lg:hidden">
             <button
-              className={`h-10 w-10 flex items-center justify-center rounded-full transition-all duration-300 ${showSolid ? 'bg-brand-dark text-white' : 'bg-white text-brand-dark'}`}
+              className={`h-12 w-12 flex items-center justify-center rounded-full transition-all duration-300 ${showSolid ? 'bg-brand-dark text-white' : 'bg-white text-brand-dark'}`}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle Menu"
             >
-              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
 
         </div>
 
         {/* ======================================= */}
-        {/* MYNTRA-STYLE WIDESCREEN MEGA DROPDOWNS  */}
+        {/* MYNTRA-STYLE FLOATING MEGA DROPDOWNS  */}
         {/* ======================================= */}
         <AnimatePresence>
           {activeMenu === 'products' && (
@@ -262,11 +259,11 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 15 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute top-full left-0 right-0 w-full bg-white shadow-2xl border-t border-neutral-100 py-10 px-6 md:px-12 z-[110]"
+              className="absolute top-[110%] left-1/2 -translate-x-1/2 w-screen max-w-[95vw] lg:max-w-6xl bg-white shadow-2xl border border-neutral-100 rounded-3xl py-8 px-8 z-[110]"
               onMouseEnter={() => setActiveMenu('products')}
               onMouseLeave={() => setActiveMenu(null)}
             >
-              <div className="max-w-[1600px] mx-auto grid grid-cols-4 gap-8">
+              <div className="grid grid-cols-4 gap-8">
                 {/* Column 1: Balcony Systems */}
                 <div>
                   <h5 className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-4">Balcony Systems</h5>
@@ -307,7 +304,7 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                 <div>
                   <h5 className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-4">Roof & Cover Systems</h5>
                   <div className="flex flex-col gap-3">
-                    {PRODUCTS.filter(p => p.category === "Roof & Cover Systems").map((prod) => (
+                    {PRODUCTS.slice(4).map((prod) => (
                       <Link key={prod.name} href={prod.href} onClick={() => setActiveMenu(null)} className="group flex items-start gap-3.5 p-2 rounded-xl hover:bg-neutral-50 transition-colors duration-300">
                         <div className="w-16 h-12 rounded-lg overflow-hidden shrink-0 bg-neutral-100 border border-neutral-200/60 shadow-sm relative">
                           <img src={prod.img} alt={prod.name} className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-500" />
@@ -324,7 +321,7 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                 {/* Column 4: Premium Visual Showcase Card */}
                 <div className="relative rounded-2xl overflow-hidden shadow-md border border-neutral-100 flex flex-col justify-end p-6 group aspect-[4/3] bg-neutral-900">
                   <img
-                    src="/hero/balcony.png"
+                    src="/infiwin images new/ChatGPT Image May 23, 2026, 01_10_02 PM.png"
                     alt="Premium Showcase"
                     className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-700"
                   />
@@ -333,7 +330,7 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                     <span className="text-[9px] px-2 py-0.5 rounded bg-brand-primary text-white font-bold uppercase tracking-widest mb-2 inline-block">Featured</span>
                     <h6 className="text-sm font-bold text-white mb-1">Architectural Solutions</h6>
                     <p className="text-[11px] text-neutral-300 line-clamp-2 leading-tight mb-3">Reclaim and redefine your spaces with modern high-performance glazing.</p>
-                    <Link href="/products" className="inline-flex items-center gap-1.5 text-xs font-semibold text-white group-hover:text-brand-primary transition-colors">
+                    <Link href="/products" onClick={() => setActiveMenu(null)} className="inline-flex items-center gap-1.5 text-xs font-semibold text-white group-hover:text-brand-primary transition-colors">
                       Explore Series <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>
@@ -348,16 +345,16 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 15 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute top-full left-0 right-0 w-full bg-white shadow-2xl border-t border-neutral-100 py-10 px-6 md:px-12 z-[110]"
+              className="absolute top-[110%] left-1/2 -translate-x-1/2 w-screen max-w-[95vw] lg:max-w-6xl bg-white shadow-2xl border border-neutral-100 rounded-3xl py-8 px-8 z-[110]"
               onMouseEnter={() => setActiveMenu('applications')}
               onMouseLeave={() => setActiveMenu(null)}
             >
-              <div className="max-w-[1600px] mx-auto grid grid-cols-3 gap-10">
+              <div className="grid grid-cols-3 gap-10">
                 {/* Column 1: Residential Applications */}
                 <div>
                   <h5 className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-4">Residential Applications</h5>
                   <div className="flex flex-col gap-3">
-                    {APPLICATIONS.filter(a => a.category === "Residential Applications").map((app) => (
+                    {APPLICATIONS.slice(0, 4).map((app) => (
                       <Link key={app.name} href={app.href} onClick={() => setActiveMenu(null)} className="group flex items-start gap-3.5 p-2 rounded-xl hover:bg-neutral-50 transition-colors duration-300">
                         <div className="w-16 h-12 rounded-lg overflow-hidden shrink-0 bg-neutral-100 border border-neutral-200/60 shadow-sm relative">
                           <img src={app.img} alt={app.name} className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-500" />
@@ -375,7 +372,7 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                 <div>
                   <h5 className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-4">Commercial Applications</h5>
                   <div className="flex flex-col gap-3">
-                    {APPLICATIONS.filter(a => a.category === "Commercial Applications").map((app) => (
+                    {APPLICATIONS.slice(4).map((app) => (
                       <Link key={app.name} href={app.href} onClick={() => setActiveMenu(null)} className="group flex items-start gap-3.5 p-2 rounded-xl hover:bg-neutral-50 transition-colors duration-300">
                         <div className="w-16 h-12 rounded-lg overflow-hidden shrink-0 bg-neutral-100 border border-neutral-200/60 shadow-sm relative">
                           <img src={app.img} alt={app.name} className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-500" />
@@ -392,7 +389,7 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                 {/* Column 3: Featured Partition Banner */}
                 <div className="relative rounded-2xl overflow-hidden shadow-md border border-neutral-100 flex flex-col justify-end p-6 group bg-neutral-900">
                   <img
-                    src="/extracted_assets/Website/Images/Offics/IMG-20260112-WA0007.jpg"
+                    src="/infiwin images new/ChatGPT Image May 23, 2026, 02_16_49 PM.png"
                     alt="Office partition"
                     className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-700"
                   />
@@ -401,7 +398,7 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                     <span className="text-[9px] px-2 py-0.5 rounded bg-brand-primary text-white font-bold uppercase tracking-widest mb-2 inline-block">Modern Workspaces</span>
                     <h6 className="text-sm font-bold text-white mb-1">Acoustic Glazing Partitions</h6>
                     <p className="text-[11px] text-neutral-300 line-clamp-2 leading-tight mb-3">Sleek visual frames designed to create acoustic comfort and premium aesthetics.</p>
-                    <Link href="/applications" className="inline-flex items-center gap-1.5 text-xs font-semibold text-white group-hover:text-brand-primary transition-colors">
+                    <Link href="/applications" onClick={() => setActiveMenu(null)} className="inline-flex items-center gap-1.5 text-xs font-semibold text-white group-hover:text-brand-primary transition-colors">
                       Learn More <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>
@@ -412,14 +409,14 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
         </AnimatePresence>
       </nav>
 
-      {/* Mobile Navigation Menu */}
+      {/* Mobile Navigation Menu - Transition <300ms, Tap targets min 48px */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.25, ease: 'easeOut' }} // 250ms (<300ms)
             className="fixed inset-0 bg-white z-[150] lg:hidden p-8 flex flex-col"
           >
             {/* Header */}
@@ -431,135 +428,106 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
               />
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="h-10 w-10 flex items-center justify-center rounded-full bg-neutral-100 text-brand-dark"
+                className="h-12 w-12 flex items-center justify-center rounded-full bg-neutral-100 text-brand-dark"
+                aria-label="Close Menu"
               >
-                <X size={20} />
+                <X size={22} />
               </button>
             </div>
 
-            {/* Links List */}
-            <div className="flex-1 overflow-y-auto flex flex-col gap-6 pr-2">
-              {NAV_ITEMS.map((item) => {
-                const hasDropdown = item.name === "Products" || item.name === "Applications";
-                const isDropdownActive = activeMenu === `${item.name.toLowerCase()}-mobile`;
-
-                return (
-                  <div key={item.name} className="flex flex-col border-b border-neutral-100 pb-4">
-                    <div className="flex items-center justify-between">
-                      <Link
-                        href={item.href}
-                        onClick={() => !hasDropdown && setIsMobileMenuOpen(false)}
-                        className="text-xl font-medium text-brand-dark hover:text-brand-primary transition-colors"
-                      >
-                        {item.name}
-                      </Link>
-                      {hasDropdown && (
-                        <button
-                          onClick={() => setActiveMenu(isDropdownActive ? null : `${item.name.toLowerCase()}-mobile`)}
-                          className="h-9 w-9 flex items-center justify-center rounded-full bg-neutral-50 text-neutral-500"
-                        >
-                          <ChevronDown className={`transition-transform duration-300 ${isDropdownActive ? 'rotate-180 text-brand-primary' : ''}`} size={18} />
-                        </button>
-                      )}
-                    </div>
-
-                    {/* Submenu on Mobile */}
-                    {hasDropdown && isDropdownActive && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="flex flex-col gap-3 mt-3 pl-4 bg-neutral-50 py-3 rounded-xl"
-                      >
-                        {item.name === "Products" ? (
-                          PRODUCTS.map((prod) => (
-                            <Link
-                              key={prod.name}
-                              href={prod.href}
-                              onClick={() => setIsMobileMenuOpen(false)}
-                              className="text-xs font-medium text-neutral-600 hover:text-brand-primary block py-1"
-                            >
-                              {prod.name}
-                            </Link>
-                          ))
-                        ) : (
-                          APPLICATIONS.map((app) => (
-                            <Link
-                              key={app.name}
-                              href={app.href}
-                              onClick={() => setIsMobileMenuOpen(false)}
-                              className="text-xs font-medium text-neutral-600 hover:text-brand-primary block py-1"
-                            >
-                              {app.name} Space
-                            </Link>
-                          ))
-                        )}
-                      </motion.div>
-                    )}
+            {/* Mobile Link list: Home, Products, Applications, About Us, FAQs */}
+            <div className="flex-1 overflow-y-auto flex flex-col gap-5 pr-2">
+              {[
+                { name: "Home", href: "/" },
+                { name: "Products", href: "/products" },
+                { name: "Applications", href: "/applications" },
+                { name: "About Us", href: "/about" },
+                { name: "FAQs", href: "/faqs" }
+              ].map((item) => (
+                <div key={item.name} className="flex flex-col border-b border-neutral-100 pb-3">
+                  <div className="flex items-center justify-between min-h-[48px]">
+                    <Link
+                      href={item.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="text-lg font-semibold text-brand-dark hover:text-brand-primary transition-colors py-2 flex-1 block"
+                    >
+                      {item.name}
+                    </Link>
                   </div>
-                );
-              })}
+                </div>
+              ))}
             </div>
 
-            {/* Mobile Footer Contact CTAs */}
+            {/* Mobile Drawer CTAs */}
             <div className="mt-8 flex flex-col gap-3 border-t border-neutral-100 pt-6">
               <a
-                href="tel:+971542365212"
-                className="flex items-center justify-center gap-2 bg-brand-dark text-white py-3 rounded-full font-semibold text-xs tracking-wider uppercase hover:bg-brand-primary transition-colors"
+                href="/contact"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-2 bg-brand-primary text-white h-12 rounded-full font-semibold text-xs tracking-wider uppercase transition-colors min-h-[48px]"
               >
-                <Phone size={14} /> Call Office
+                Request Design Quote
               </a>
               <a
-                href="https://wa.me/971542365212"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-green-500 text-white py-3 rounded-full font-semibold text-xs tracking-wider uppercase hover:bg-green-600 transition-colors"
+                href="tel:+917337074370"
+                className="flex items-center justify-center gap-2 bg-neutral-100 text-brand-dark border border-neutral-200 h-12 rounded-full font-semibold text-xs tracking-wider uppercase transition-colors min-h-[48px]"
               >
-                <Phone size={14} /> Connect WhatsApp
+                <Phone size={14} /> Call
               </a>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Mobile Sticky Bottom CTA Bar */}
-      <div className="lg:hidden fixed bottom-6 left-6 right-6 z-[90] flex gap-3">
-        <a
-          href="tel:+971542365212"
-          className="flex-1 bg-brand-dark text-white h-14 rounded-full flex items-center justify-center gap-2 shadow-2xl font-bold uppercase tracking-wider text-[10px]"
-        >
-          <Phone size={14} /> Call
-        </a>
-        <a
-          href="https://wa.me/971542365212"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 bg-green-500 text-white h-14 rounded-full flex items-center justify-center gap-2 shadow-2xl font-bold uppercase tracking-wider text-[10px]"
-        >
-          <Phone size={14} /> WhatsApp
-        </a>
-        <Link
-          href="/contact"
-          className="flex-1 bg-brand-primary text-white h-14 rounded-full flex items-center justify-center gap-2 shadow-2xl font-bold uppercase tracking-wider text-[10px]"
-        >
-          Quote
-        </Link>
-      </div>
-
-      {/* Floating Desktop WhatsApp Trigger */}
+      {/* Sticky Bottom Mobile CTA Bar (High-Visibility Viewport Lock) */}
       <AnimatePresence>
         {isScrolled && (
+          <motion.div
+            key="mobile-sticky-cta"
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "100%" }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="lg:hidden fixed bottom-0 left-0 right-0 z-[140] bg-white border-t border-neutral-200 shadow-[0_-8px_30px_rgba(0,0,0,0.08)] flex justify-between items-stretch h-16"
+          >
+            <a
+              href="tel:+917337074370"
+              className="flex-1 bg-white hover:bg-neutral-50 text-neutral-800 flex items-center justify-center gap-2 font-bold uppercase tracking-wider text-[10px] border-r border-neutral-200 min-h-[48px]"
+            >
+              <Phone size={13} className="text-neutral-700" /> Call Now
+            </a>
+            <a
+              href={defaultWhatsAppUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 bg-green-500 hover:bg-green-600 text-white flex items-center justify-center gap-2 font-bold uppercase tracking-wider text-[10px] min-h-[48px]"
+            >
+              <Whatsapp size={13} className="text-white" /> WhatsApp
+            </a>
+            <a
+              href="#estimator"
+              className="flex-1 bg-brand-primary hover:bg-brand-dark text-white flex items-center justify-center gap-2 font-bold uppercase tracking-wider text-[10px] min-h-[48px]"
+            >
+              Get Quote <ArrowRight size={12} className="text-white" />
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Floating Desktop WhatsApp Trigger on bottom right */}
+      <AnimatePresence>
+        {(isScrolled || showSolid) && (
           <motion.a
             key="floating-whatsapp"
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
-            href="https://wa.me/971542365212"
+            href={defaultWhatsAppUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="hidden lg:flex fixed bottom-8 right-8 z-[90] h-16 w-16 items-center justify-center rounded-full bg-green-500 text-white shadow-2xl hover:scale-110 transition-transform duration-300"
+            aria-label="Chat on WhatsApp"
           >
-            <Phone size={28} />
+            <Whatsapp size={28} />
           </motion.a>
         )}
       </AnimatePresence>

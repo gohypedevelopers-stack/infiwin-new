@@ -1,1621 +1,73 @@
 "use client";
 
-import { motion, AnimatePresence, useScroll, useTransform, Variants } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import {
-  Menu,
-  X,
   ArrowRight,
-  Phone,
-  Mail,
-  MapPin,
-  Instagram,
-  Facebook,
-  Linkedin,
+  Telephone as Phone,
+  ChatLeftText as MessageSquare,
+  ChevronDown,
+  ChevronUp,
+  ArrowUpRight,
+  Display as Monitor,
+  House as Home,
+  CupHot as Coffee,
+  Building as Building2,
+  Brush as Paintbrush,
+  CheckCircle,
+  Shield,
+  Layers,
   ChevronLeft,
   ChevronRight,
-  ArrowUpRight,
-  Monitor,
-  Home,
-  Coffee,
-  Building2,
-  HardHat,
-  Paintbrush,
-  CheckCircle,
-  User,
-  Brain,
-  Flower2,
-  Heart,
-  MoreHorizontal,
-  ArrowLeft,
-  Mouse
-} from 'lucide-react';
+  Wind,
+  ArrowsAngleExpand as Maximize2,
+  Stars as Sparkles,
+  Eye,
+  Cloud,
+  Lock,
+  Grid3x3
+} from 'react-bootstrap-icons';
 import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
+
+// --- Hero Slide Configuration ---
+const HERO_SLIDES = [
+  {
+    id: 1,
+    title: "Frameless Panoramic Living",
+    subtitle: "INFIWIN SYSTEMS",
+    tagline: "Experience open-air freedom with premium folding glass balcony systems. Reclaim your space with 100% clear openings and uninterrupted views.",
+    badge: "100% Clear Opening",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 01_10_02 PM.png",
+  },
+  {
+    id: 2,
+    title: "Slide & Turn Systems",
+    subtitle: "BEST-SELLING SYSTEM",
+    tagline: "Unmatched flexibility for balconies and terraces. Individual panels slide and pivot to stack neatly out of sight against the wall.",
+    badge: "Most Popular",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_18_04 PM.png",
+  },
+  {
+    id: 3,
+    title: "Acoustic Office Partitions",
+    subtitle: "CORPORATE GLASSHOUSES",
+    tagline: "Create focused work environments with premium frameless partitions. Elegant aesthetics met with high acoustic control.",
+    badge: "Toughened Safety Glass",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_16_49 PM.png",
+  },
+  {
+    id: 4,
+    title: "Smart Bioclimatic Pergolas",
+    subtitle: "OUTDOOR ARCHITECTURE",
+    tagline: "All-weather comfort with IOT-integrated motorized smart roofs. Complete control over ventilation, sunlight, and rain protection.",
+    badge: "ISO 9001 Certified",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_27_22 PM.png",
+  }
+];
 
-// --- Components ---
-
-
-
-const Hero = ({ isLoaded }: { isLoaded: boolean }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const slides = [
-    {
-      id: 1,
-      title: "Panoramic Living",
-      location: "DUBAI",
-      tagline: "Create brighter living spaces with precision glass systems that open interiors to wide views, natural light, and a refined sense of calm.",
-      price: "From $2,500",
-      duration: "4-Week Turnkey",
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 01_10_02 PM.png",
-    },
-    {
-      id: 2,
-      title: "Sereno Facade",
-      location: "TUSCANY",
-      tagline: "Bring timeless facades to life with modern glazing, clean profiles, and weather-ready performance designed for elegant residential architecture.",
-      price: "From $4,200",
-      duration: "6-Week Install",
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_18_04 PM.png",
-    },
-    {
-      id: 3,
-      title: "Noir Workspace",
-      location: "LONDON",
-      tagline: "Shape focused work environments with premium partitions, acoustic comfort, and a polished architectural finish that supports productivity every day.",
-      price: "From $3,100",
-      duration: "3-Week Turnkey",
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_16_49 PM.png",
-    },
-    {
-      id: 4,
-      title: "Atrium Divider",
-      location: "LONDON",
-      tagline: "Define open interiors without closing them off, using slim glass dividers that preserve daylight, visibility, and spatial flow.",
-      price: "From $1,800",
-      duration: "2-Week Install",
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_15_29 PM.png",
-    },
-    {
-      id: 5,
-      title: "Glaze Pavilion",
-      location: "SINGAPORE",
-      tagline: "Build standout pavilions with structural glass detailing, seamless transitions, and durable systems made for premium indoor-outdoor experiences.",
-      price: "From $5,500",
-      duration: "8-Week Custom",
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_52_36 PM.png",
-    }
-  ];
-
-  const [isHovered, setIsHovered] = useState(false);
-
-  useEffect(() => {
-    if (isHovered) return;
-    const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [slides.length, isHovered]);
-
-  return (
-    <section
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="relative w-full h-screen min-h-screen overflow-hidden bg-zinc-950 flex flex-col justify-between pt-24 pb-8 px-6 md:px-12 lg:px-16"
-    >
-      {/* Structural ambient glow */}
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-primary/5 rounded-full blur-[150px] pointer-events-none -z-10" />
-
-      {/* Dynamic Immersive Background */}
-      <div className="absolute inset-0 z-0">
-        <AnimatePresence mode="popLayout">
-          <motion.div
-            key={activeIndex}
-            initial={{ opacity: 0, scale: 1 }}
-            animate={{ opacity: 1, scale: 1.12 }}
-            exit={{ opacity: 0 }}
-            transition={{ opacity: { duration: 0.9, ease: [0.16, 1, 0.3, 1] }, scale: { duration: 5.8, ease: "linear" } }}
-            className="absolute inset-0"
-          >
-            <img
-              src={slides[activeIndex].img}
-              alt={slides[activeIndex].title}
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      {/* Top Tagline */}
-      <div className="relative z-20 self-start opacity-0 pointer-events-none transition-opacity">
-        <span className="text-[10px] uppercase tracking-[0.25em] text-white/60 bg-black/30 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full font-bold">
-          INFIWIN ARCHITECTURAL SYSTEMS
-        </span>
-      </div>
-
-      {/* Center Text Section */}
-      <div className="absolute z-20 left-6 md:left-12 lg:left-16 top-1/2 -translate-y-1/2 max-w-[620px] flex flex-col items-start gap-3 md:gap-4">
-        <div className="overflow-hidden">
-          <motion.h1
-            key={`title-${activeIndex}`}
-            initial={{ y: 56, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -24, opacity: 0 }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[40px] sm:text-5xl md:text-6xl lg:text-[68px] font-extrabold text-white leading-[0.98] font-sans drop-shadow-[0_3px_18px_rgba(0,0,0,0.65)]"
-          >
-            {slides[activeIndex].title}
-          </motion.h1>
-        </div>
-
-        <div className="overflow-hidden">
-          <motion.p
-            key={`tagline-${activeIndex}`}
-            initial={{ y: 38, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -18, opacity: 0 }}
-            transition={{ duration: 0.9, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-            className="text-white/85 text-base sm:text-lg md:text-xl max-w-[560px] font-semibold leading-[1.55] drop-shadow-[0_2px_14px_rgba(0,0,0,0.75)]"
-          >
-            {slides[activeIndex].tagline}
-          </motion.p>
-        </div>
-
-        <motion.div
-          key={`actions-${activeIndex}`}
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.16, ease: [0.16, 1, 0.3, 1] }}
-          className="hidden"
-        >
-          <a
-            href="/contact"
-            className="group inline-flex items-center gap-2 bg-brand-primary text-white text-[11px] font-bold uppercase tracking-widest px-8 py-4 rounded-full shadow-lg shadow-brand-primary/25 hover:bg-white hover:text-black hover:scale-[1.02] transition-all duration-300"
-          >
-            Consult Now <ArrowRight size={14} className="group-hover:translate-x-1.5 transition-transform duration-300" />
-          </a>
-
-          <div className="flex flex-col text-[10px] text-white/50 tracking-wider font-semibold uppercase gap-0.5 border-l border-white/20 pl-4 sm:pl-6 py-0.5">
-            <span className="text-white/80">{slides[activeIndex].location} SERIES</span>
-            <span>{slides[activeIndex].duration}</span>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Bottom Bar Controls */}
-      <div className="relative z-20 w-full flex flex-col md:flex-row items-end justify-between gap-5 md:gap-8">
-        {/* Left: Interactive Thumbnail Carousel */}
-        <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar w-full md:max-w-[58%] lg:max-w-[56%]">
-          {slides.map((slide, i) => {
-            const isActive = activeIndex === i;
-            return (
-              <button
-                key={slide.id}
-                onClick={() => setActiveIndex(i)}
-                className={`relative shrink-0 overflow-hidden cursor-pointer transition-all duration-500 bg-neutral-900 border focus:outline-none rounded-[8px] ${isActive
-                  ? 'w-[122px] h-[70px] sm:w-[124px] sm:h-[70px] border-white shadow-2xl z-30 opacity-100'
-                  : 'w-[122px] h-[70px] sm:w-[124px] sm:h-[70px] border-white/15 opacity-70 hover:opacity-100 hover:border-white/40'
-                  }`}
-                style={{
-                  transition: 'all 500ms cubic-bezier(0.16, 1, 0.3, 1)',
-                }}
-              >
-                <img
-                  src={slide.img}
-                  alt={slide.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                />
-                <div className={`absolute inset-0 transition-colors duration-500 ${isActive ? 'bg-black/0' : 'bg-black/25'}`} />
-
-                {/* Subtle hover status bar/border inside */}
-                {isActive && (
-                  <motion.div
-                    layoutId="activeBorder"
-                    className="absolute inset-0 border-2 border-white rounded-[8px] z-40 pointer-events-none"
-                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                  />
-                )}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Right: Dynamic Pagination Indicators & Circular Navigation Chevrons */}
-        <div className="flex items-center gap-5 shrink-0 self-end">
-          {/* Pagination Indicators (Dots / Pills) */}
-          <div className="flex items-center gap-2">
-            {slides.map((_, i) => {
-              const isActive = activeIndex === i;
-              return (
-                <button
-                  key={i}
-                  onClick={() => setActiveIndex(i)}
-                  className={`focus:outline-none transition-all duration-500 cursor-pointer rounded-full ${isActive
-                    ? 'w-5 h-1.5 bg-white opacity-100'
-                    : 'w-1.5 h-1.5 bg-white/45 hover:bg-white/75'
-                    }`}
-                />
-              );
-            })}
-          </div>
-
-          {/* Navigation Buttons (Circular glassmorphic chevrons) */}
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => setActiveIndex((prev) => (prev - 1 + slides.length) % slides.length)}
-              className="w-10 h-10 rounded-full bg-white/20 border border-white/10 hover:bg-white/30 active:scale-95 transition-all flex items-center justify-center cursor-pointer text-white focus:outline-none backdrop-blur-md"
-            >
-              <ChevronLeft size={18} className="stroke-[1.75]" />
-            </button>
-            <button
-              onClick={() => setActiveIndex((prev) => (prev + 1) % slides.length)}
-              className="w-10 h-10 rounded-full bg-white/20 border border-white/10 hover:bg-white/30 active:scale-95 transition-all flex items-center justify-center cursor-pointer text-white focus:outline-none backdrop-blur-md"
-            >
-              <ChevronRight size={18} className="stroke-[1.75]" />
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const BestSellingProduct = () => {
-  return (
-    <section className="hidden md:block py-10 md:py-24 bg-[#F8FAFC] overflow-hidden border-y border-neutral-100">
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 xl:gap-24 items-start">
-
-          {/* LEFT COLUMN: Takes 7 grid cols. Replicates the "Interior Design" overlapping side-by-side layout */}
-          <div className="lg:col-span-7 flex flex-col md:flex-row gap-6 md:gap-8 items-end relative w-full">
-
-            {/* Paragraph Block on the Left (aligned top) */}
-            <div className="w-full md:w-[40%] self-stretch md:pt-12 pb-6 flex flex-col justify-between items-start gap-6">
-              <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="text-neutral-500 text-xs md:text-sm leading-relaxed max-w-[280px]"
-              >
-                At INFIWIN, we believe that architectural spatial design is not just about how a space looks – it's about how it makes you feel.
-              </motion.p>
-
-              {/* Massive Title: "Slide & Turn" */}
-              <motion.h2
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                style={{ fontFamily: 'Georgia, serif' }}
-                className="text-5xl sm:text-6xl md:text-8xl xl:text-[100px] font-light leading-[0.85] text-brand-dark tracking-tighter select-none"
-              >
-                Slide & <br />
-                <span className="text-brand-primary">Turn</span>
-              </motion.h2>
-            </div>
-
-            {/* Image Container (Vertical aspect, right side) */}
-            <div className="w-full md:w-[60%] relative">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.98 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                className="w-full aspect-[3/4] overflow-hidden bg-neutral-900 rounded-[24px] border-4 border-white shadow-xl group relative"
-              >
-                <img
-                  src="/infiwin images new/ChatGPT Image May 23, 2026, 02_13_49 PM.png"
-                  alt="Slide & Turn System"
-                  className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700"
-                />
-              </motion.div>
-            </div>
-          </div>
-
-          {/* RIGHT COLUMN: Takes 5 grid cols. Replicates the "Recent Work" and second picture column */}
-          <div className="lg:col-span-5 flex flex-col gap-6 md:gap-10 w-full mt-6 lg:mt-0">
-
-            {/* Header Text Block */}
-            <div className="flex flex-col items-start gap-3 md:gap-4 max-w-md">
-              <motion.div
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="flex items-center gap-3"
-              >
-                <div className="h-[1px] w-8 bg-brand-primary" />
-                <span className="text-[10px] font-bold tracking-[0.3em] text-brand-primary uppercase">
-                  Featured System
-                </span>
-              </motion.div>
-
-              <motion.h3
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: 0.1 }}
-                style={{ fontFamily: 'Georgia, serif' }}
-                className="text-2xl md:text-3xl font-light text-brand-dark leading-snug tracking-tight"
-              >
-                We Will Make These Unique Tastes Of Yours A <span className="text-brand-primary">Design Reality!</span>
-              </motion.h3>
-
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: 0.2 }}
-                className="pt-2"
-              >
-                <a
-                  href="/products"
-                  className="group inline-flex items-center gap-2 bg-brand-primary text-white text-[10px] font-bold uppercase tracking-widest px-8 py-3.5 rounded-full shadow-lg shadow-brand-primary/20 hover:bg-brand-dark hover:shadow-brand-dark/20 hover:scale-[1.02] transition-all duration-300"
-                >
-                  View Project <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
-                </a>
-              </motion.div>
-            </div>
-
-            {/* Second Image Block (aligned below) */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, delay: 0.3 }}
-              className="w-full aspect-[4/3] overflow-hidden bg-neutral-100 rounded-[24px] border-4 border-white shadow-xl relative group"
-            >
-              <img
-                src="/infiwin images new/ChatGPT Image May 23, 2026, 02_13_49 PM.png"
-                alt="Slide & Turn System Showcase"
-                className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-1000"
-              />
-            </motion.div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const ApplicationsSection = () => {
-  const apps = [
-    {
-      name: "Balcony",
-      tag: "Panoramic Outer Spaces",
-      number: "01",
-      icon: <Home size={32} />,
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_25_52 PM.png",
-      href: "/applications#balcony-terrace"
-    },
-    {
-      name: "Int. Partition",
-      tag: "Frameless Glass Dividers",
-      number: "02",
-      icon: <Building2 size={32} />,
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_15_29 PM.png",
-      href: "/applications#partitions"
-    },
-    {
-      name: "Office space",
-      tag: "Corporate Acoustic Systems",
-      number: "03",
-      icon: <Monitor size={32} />,
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_16_49 PM.png",
-      href: "/applications#office"
-    },
-    {
-      name: "Commercial",
-      tag: "Storefront Glass Systems",
-      number: "04",
-      icon: <Building2 size={32} />,
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_52_36 PM.png",
-      href: "/applications#commercial"
-    },
-    {
-      name: "Exterior",
-      tag: "Climatic Shield Enclosures",
-      number: "05",
-      icon: <MapPin size={32} />,
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 01_10_02 PM.png",
-      href: "/applications#balcony-terrace"
-    },
-    {
-      name: "Terrace",
-      tag: "All-Weather Glazing",
-      number: "06",
-      icon: <Coffee size={32} />,
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_30_38 PM.png",
-      href: "/applications#balcony-terrace"
-    },
-    {
-      name: "Garden",
-      tag: "Modern Spatial Boundaries",
-      number: "07",
-      icon: <Paintbrush size={32} />,
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_20_57 PM.png",
-      href: "/applications#garden-farmhouses"
-    },
-    {
-      name: "Farm House",
-      tag: "Luxury Country Retreats",
-      number: "08",
-      icon: <Home size={32} />,
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_27_22 PM.png",
-      href: "/applications#garden-farmhouses"
-    }
-  ];
-
-  return (
-    <section
-      id="applications"
-      className="py-10 md:py-20 bg-white relative overflow-hidden px-4 md:px-12"
-    >
-      {/* Soft Architectural Grid Background and Glow */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000003_1px,transparent_1px),linear-gradient(to_bottom,#00000003_1px,transparent_1px)] bg-[size:6rem_6rem] pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-primary/3 rounded-full blur-[120px] pointer-events-none" />
-
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
-        <div className="text-center mb-6 md:mb-10">
-          <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary mb-2 block">Usage</span>
-          <h2 className="text-4xl md:text-5xl text-brand-dark tracking-tight">
-            Applications
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5 relative z-10">
-          {apps.map((app, i) => (
-            <motion.a
-              href={app.href}
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05, duration: 0.5, ease: "easeOut" }}
-              className="relative aspect-[4/3] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-500 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.01)] hover:shadow-[0_20px_40px_-10px_rgba(67,133,245,0.15)] hover:scale-[1.02] p-3.5 md:p-6 flex flex-col justify-between items-start block"
-            >
-              {/* Background Image with Zoom */}
-              <img
-                src={app.img}
-                alt={app.name}
-                className="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-700 -z-20"
-              />
-
-              {/* Dark Ambient Overlays */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/25 group-hover:from-black/90 group-hover:via-black/55 group-hover:to-black/35 transition-all duration-500 -z-10" />
-
-              {/* Header: Number and Styled Icon */}
-              <div className="flex justify-between items-start w-full relative z-10">
-                <span className="text-[11px] font-mono text-white/50 group-hover:text-brand-primary transition-colors font-medium">
-                  {app.number}
-                </span>
-                <div className="w-10 h-10 rounded-xl bg-white/15 text-white backdrop-blur-md flex items-center justify-center transition-all duration-500 group-hover:bg-brand-primary group-hover:rotate-[360deg] group-hover:shadow-lg group-hover:shadow-brand-primary/30">
-                  {React.cloneElement(app.icon, { size: 18 })}
-                </div>
-              </div>
-
-              {/* Bottom Metadata */}
-              <div className="w-full relative z-10">
-                <span className="text-[8px] uppercase tracking-[0.2em] text-white/60 font-bold group-hover:text-brand-primary transition-colors mb-1.5 block">
-                  {app.tag}
-                </span>
-                <h4 className="text-sm font-semibold uppercase tracking-wider text-white transition-colors">
-                  {app.name}
-                </h4>
-              </div>
-
-              {/* Floating Action Arrow */}
-              <div className="absolute bottom-4 right-4 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-white group-hover:text-brand-primary z-10">
-                <ArrowUpRight size={16} />
-              </div>
-            </motion.a>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const LeadFormSection = () => {
-  const [estimate, setEstimate] = useState<number | null>(null);
-  const [dimensions, setDimensions] = useState({ length: 10, height: 10 });
-
-  const calculateEstimate = () => {
-    const area = dimensions.length * dimensions.height;
-    setEstimate(area * 1800);
-  };
-
-  return (
-    <section id="contact" className="py-10 md:py-20 bg-[#18181b] text-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 md:px-12 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
-          <div>
-            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary mb-4 block">Inquiry</span>
-            <h2 className="text-3xl sm:text-4xl md:text-7xl mb-4 sm:mb-6 leading-tight">Start Your <br /><span className="text-brand-primary" style={{ textTransform: 'none' }}>Project</span></h2>
-
-            <div className="bg-white/5 backdrop-blur-md p-4 md:p-8 border border-white/10 rounded-sm mb-6">
-              <h4 className="text-brand-primary text-[10px] font-bold uppercase tracking-widest mb-4">Quick Cost Estimator</h4>
-              <div className="grid grid-cols-2 gap-4 mb-4">
-                <div>
-                  <label className="text-[9px] uppercase tracking-widest text-white/50 block mb-1">Length (ft)</label>
-                  <input
-                    type="number"
-                    value={dimensions.length}
-                    onChange={(e) => setDimensions({ ...dimensions, length: Number(e.target.value) })}
-                    className="w-full bg-white/5 border border-white/10 p-3 text-sm focus:outline-none focus:border-brand-primary"
-                  />
-                </div>
-                <div>
-                  <label className="text-[9px] uppercase tracking-widest text-white/50 block mb-1">Height (ft)</label>
-                  <input
-                    type="number"
-                    value={dimensions.height}
-                    onChange={(e) => setDimensions({ ...dimensions, height: Number(e.target.value) })}
-                    className="w-full bg-white/5 border border-white/10 p-3 text-sm focus:outline-none focus:border-brand-primary"
-                  />
-                </div>
-              </div>
-              <button
-                onClick={calculateEstimate}
-                className="w-full py-4 bg-brand-primary text-white text-[10px] font-bold uppercase tracking-widest hover:brightness-110 transition-all"
-              >
-                Calculate Estimate
-              </button>
-
-              {estimate && (
-                <div className="mt-6 pt-6 border-t border-white/10">
-                  <p className="text-[9px] uppercase tracking-widest text-white/50 mb-1">Approximate Cost</p>
-                  <p className="text-3xl text-brand-primary mb-2">₹{estimate.toLocaleString()} + Installation</p>
-                  <p className="text-[8px] text-white/30">Excluding taxes & freight charges</p>
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className="bg-white p-4 md:p-8 rounded-sm text-brand-dark">
-            <h3 className="text-2xl mb-4">Contact Information</h3>
-            <form className="space-y-4">
-              <div>
-                <label className="text-[9px] font-bold uppercase tracking-widest text-neutral-400 block mb-1">Full Name</label>
-                <input type="text" className="w-full border-b border-neutral-200 py-3 text-sm focus:outline-none focus:border-brand-primary transition-colors" />
-              </div>
-              <div>
-                <label className="text-[9px] font-bold uppercase tracking-widest text-neutral-400 block mb-1">Phone Number</label>
-                <input type="tel" className="w-full border-b border-neutral-200 py-3 text-sm focus:outline-none focus:border-brand-primary transition-colors" />
-              </div>
-              <div>
-                <label className="text-[9px] font-bold uppercase tracking-widest text-neutral-400 block mb-1">City</label>
-                <input type="text" className="w-full border-b border-neutral-200 py-3 text-sm focus:outline-none focus:border-brand-primary transition-colors" />
-              </div>
-              <div className="pt-4 space-y-4">
-                <button className="w-full py-5 bg-brand-dark text-white text-[10px] font-bold uppercase tracking-widest hover:bg-brand-primary transition-all">
-                  Submit Request
-                </button>
-                <a href="https://wa.me/971542365212" target="_blank" className="w-full py-5 border border-green-500 text-green-500 text-[10px] font-bold uppercase tracking-widest hover:bg-green-50 transition-all flex items-center justify-center gap-2">
-                  <Phone size={14} /> Chat on WhatsApp
-                </a>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const ProcessSection = () => {
-  const steps = [
-    { title: "Consultation", desc: "Understanding your vision and spatial objectives." },
-    { title: "Strategy", desc: "Meticulous planning and material curation." },
-    { title: "Creation", desc: "Execution with uncompromising precision." },
-    { title: "Curatorship", desc: "Final refinement and seamless handover." }
-  ];
-
-  return (
-    <section className="py-24 bg-white border-y border-neutral-100">
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {steps.map((step, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="relative"
-            >
-              <span className="text-neutral-100 text-8xl absolute -top-8 -left-4 z-0 select-none">
-                0{i + 1}
-              </span>
-              <div className="relative z-10 pt-10">
-                <h3 className="text-lg text-brand-dark mb-4 uppercase tracking-widest">{step.title}</h3>
-                <p className="text-neutral-400 text-sm font-normal leading-relaxed">{step.desc}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const ProductsGrid = () => {
-  const [hoveredId, setHoveredId] = useState(null);
-
-  const products = [
-    {
-      id: "p1",
-      title: "Folding Glass Balcony Systems",
-      desc: "100% clear opening with seamless frameless views.",
-      series: "BALCONY SERIES",
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_25_52 PM.png",
-      href: "/products#folding",
-    },
-    {
-      id: "p2",
-      title: "Insulated Glass Balcony Systems",
-      desc: "Superior thermal comfort for extreme climates.",
-      series: "THERMAL SERIES",
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_29_01 PM.png",
-      href: "/products#insulated",
-    },
-    {
-      id: "p3",
-      title: "Sliding Glass Systems",
-      desc: "Smooth multi-track transitions for patios and terraces.",
-      series: "SLIDER SERIES",
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_50_39 PM.png",
-      href: "/products#sliding",
-    },
-    {
-      id: "p4",
-      title: "Guillotine Glass Systems",
-      desc: "Motorized vertical sliding systems for modern cafes.",
-      series: "MOTORIZED SERIES",
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_13_49 PM.png",
-      href: "/products#guillotine",
-    },
-    {
-      id: "p5",
-      title: "Bioclimatic Pergola",
-      desc: "IoT-enabled smart roof for ultimate light control.",
-      series: "SMART ROOF",
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_27_22 PM.png",
-      href: "/products#bioclimatic",
-    }
-  ];
-
-  return (
-    <section id="products" className="py-10 md:py-20 bg-white overflow-hidden">
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-        <div className="flex justify-between items-end mb-6 md:mb-10">
-          <div>
-            <span className="text-[10px] font-bold tracking-[0.15em] text-brand-primary mb-2 block">Our Systems</span>
-            <h2 className="text-4xl md:text-5xl text-brand-dark tracking-tight">
-              Products Grid
-            </h2>
-          </div>
-          <a href="/products" className="hidden md:flex items-center gap-4 px-8 py-3 border border-neutral-200 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-neutral-50 transition-all">
-            View All <ArrowUpRight size={14} />
-          </a>
-        </div>
-
-        <div className="flex flex-col gap-4 md:gap-6">
-          {/* Top Row: P1, P2, P3 */}
-          <div className="flex flex-col lg:flex-row gap-4 md:gap-6 h-auto lg:h-[500px]">
-            {products.slice(0, 3).map((p, i) => (
-              <motion.a
-                href={p.href}
-                key={p.id}
-                onMouseEnter={() => setHoveredId(p.id)}
-                onMouseLeave={() => setHoveredId(null)}
-                animate={{
-                  flex: hoveredId === p.id ? 2 : hoveredId ? 0.6 : (i === 0 ? 1.5 : 0.8)
-                }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="relative group cursor-pointer rounded-2xl overflow-hidden bg-neutral-100 min-h-[220px] md:min-h-[300px] lg:min-h-0 block"
-              >
-                <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60" />
-                <div className="absolute top-4 right-4 md:top-8 md:right-8">
-                  <span className="px-4 py-1.5 bg-white border border-neutral-100 shadow-md text-[9px] font-extrabold text-brand-dark rounded-full uppercase tracking-wider">
-                    {p.series}
-                  </span>
-                </div>
-                <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 text-white max-w-[280px]">
-                  <h3 className="text-lg lg:text-xl mb-3 leading-tight font-semibold">{p.title}</h3>
-                  {i === 0 && (
-                    <motion.p
-                      animate={{ opacity: hoveredId === p.id || !hoveredId ? 1 : 0 }}
-                      className="text-white/60 text-[8px] uppercase tracking-widest font-normal hidden lg:block"
-                    >
-                      {p.desc}
-                    </motion.p>
-                  )}
-                </div>
-              </motion.a>
-            ))}
-          </div>
-
-          {/* Bottom Row: P4, P5 */}
-          <div className="flex flex-col lg:flex-row gap-4 md:gap-6 h-auto lg:h-[380px]">
-            {products.slice(3, 5).map((p) => (
-              <motion.a
-                href={p.href}
-                key={p.id}
-                onMouseEnter={() => setHoveredId(p.id)}
-                onMouseLeave={() => setHoveredId(null)}
-                animate={{
-                  flex: hoveredId === p.id ? 1.5 : hoveredId ? 0.7 : 1
-                }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="relative group cursor-pointer rounded-2xl overflow-hidden bg-neutral-100 min-h-[220px] md:min-h-[300px] lg:min-h-0 block"
-              >
-                <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60" />
-                <div className="absolute top-4 right-4 md:top-8 md:right-8">
-                  <span className="px-4 py-1.5 bg-white border border-neutral-100 shadow-md text-[9px] font-extrabold text-brand-dark rounded-full uppercase tracking-wider">
-                    {p.series}
-                  </span>
-                </div>
-                <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 text-white">
-                  <h3 className="text-lg lg:text-xl font-semibold">{p.title}</h3>
-                </div>
-              </motion.a>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const PortfolioSection = () => {
-  const [activeFilter, setActiveFilter] = useState('All');
-
-  const projects = [
-    {
-      id: "p06",
-      category: "Residential",
-      title: "Balcony Glazing",
-      location: "DUBAI, 2025",
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_25_52 PM.png",
-    },
-    {
-      id: "p07",
-      category: "Villa",
-      title: "Patio Glazing",
-      location: "DUBAI, 2025",
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_30_38 PM.png",
-    },
-    {
-      id: "p01",
-      category: "Residential",
-      title: "Panoramic Living Suite",
-      location: "DUBAI, 2025",
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_52_36 PM.png",
-    },
-    {
-      id: "p02",
-      category: "Villa",
-      title: "Sereno Facade",
-      location: "TUSCANY, 2024",
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 01_15_54 PM.png",
-    },
-    {
-      id: "p03",
-      category: "Commercial",
-      title: "Noir Workspace",
-      location: "LONDON, 2025",
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_16_49 PM.png",
-    },
-    {
-      id: "p04",
-      category: "Interior",
-      title: "Serra Niche",
-      location: "MALLORCA, 2024",
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_53_25 PM.png",
-    },
-    {
-      id: "p05",
-      category: "Partition",
-      title: "Atrium Divider",
-      location: "LONDON, 2025",
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_25_42 PM.png",
-    }
-  ];
-
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const [scrollAmount, setScrollAmount] = useState(0);
-  const filteredProjects = activeFilter === 'All' ? projects : projects.filter(p => p.category === activeFilter);
-
-  const scroll = (direction: 'left' | 'right') => {
-    if (carouselRef.current) {
-      const containerWidth = carouselRef.current.offsetWidth;
-      const scrollStep = 440; // Card width + gap
-      const newScroll = direction === 'left'
-        ? Math.max(scrollAmount - scrollStep, 0)
-        : Math.min(scrollAmount + scrollStep, (filteredProjects.length * 440) - containerWidth);
-
-      setScrollAmount(newScroll);
-      carouselRef.current.scrollTo({
-        left: newScroll,
-        behavior: 'smooth'
-      });
-    }
-  };
-
-  return (
-    <section id="projects" className="py-8 md:py-20 bg-[#f0f7ff] overflow-hidden relative border-t border-neutral-50">
-      {/* Architectural Background Sketch */}
-      <div className="absolute top-0 left-0 w-full h-[600px] opacity-[0.5] pointer-events-none select-none">
-        <img
-          src="/WhatsApp%20Image%202026-05-12%20at%205.30.55%20PM.jpeg"
-          alt=""
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#f0f7ff]" />
-      </div>
-
-
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 md:mb-12 gap-4 md:gap-8">
-          <div className="max-w-2xl relative">
-            <div className="flex items-center gap-4 mb-3">
-              <div className="h-[1px] w-12 bg-brand-primary" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary block">Selected Works</span>
-            </div>
-            <h2 className="text-4xl md:text-7xl text-brand-dark leading-[1] font-semibold">
-              Excellence in <br />
-              <span className="text-brand-primary">Execution</span>
-            </h2>
-          </div>
-          <div className="flex flex-wrap gap-4">
-            {["All", "Commercial", "Residential", "Interior", "Villa"].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => {
-                  setActiveFilter(tab);
-                  setScrollAmount(0);
-                  if (carouselRef.current) carouselRef.current.scrollTo({ left: 0 });
-                }}
-                className={`text-[10px] font-bold uppercase tracking-widest px-6 py-2 border rounded-full transition-all ${activeFilter === tab ? 'bg-brand-dark text-white border-brand-dark' : 'text-brand-dark border-neutral-300 hover:border-brand-primary hover:text-brand-primary hover:bg-white/50'}`}
-              >
-                {tab}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="relative group">
-          {/* Carousel Container */}
-          <div
-            ref={carouselRef}
-            className="overflow-x-auto no-scrollbar cursor-grab active:cursor-grabbing px-4 -mx-4 scroll-smooth"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
-            <motion.div
-              drag="x"
-              dragConstraints={carouselRef}
-              className="flex gap-6 pb-4"
-              style={{ width: 'max-content' }}
-            >
-              {filteredProjects.map((project, i) => (
-                <motion.div
-                  key={project.id}
-                  layout
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -50 }}
-                  transition={{ duration: 0.8, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                  className="w-[280px] md:w-[420px] aspect-[4/5] relative group/card cursor-pointer rounded-none overflow-hidden bg-neutral-100"
-                >
-                  <img
-                    src={project.img}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover/card:scale-105"
-                  />
-
-                  {/* Category Pill */}
-                  <div className="absolute top-4 left-4 z-20">
-                    <span className="px-4 py-1.5 bg-white/95 text-[8px] font-bold uppercase tracking-widest text-brand-dark rounded-none shadow-sm">
-                      {project.category}
-                    </span>
-                  </div>
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover/card:opacity-80 transition-opacity duration-500" />
-
-                  <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 text-white">
-                    <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/60 mb-2 block">
-                      {project.location}
-                    </span>
-                    <h3 className="text-xl md:text-2xl font-semibold">
-                      {project.title}
-                    </h3>
-                  </div>
-
-                  {/* Hover Arrow */}
-                  <div className="absolute top-6 right-6 w-10 h-10 rounded-none bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 group-hover/card:opacity-100 transition-all duration-500 -translate-y-4 group-hover/card:translate-y-0">
-                    <ArrowUpRight size={20} />
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Carousel Navigation */}
-          <div className="flex items-center justify-end mt-4">
-            <div className="flex items-center gap-4">
-              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-dark/40">Drag to explore</span>
-              <div className="flex gap-2">
-                <button
-                  onClick={() => scroll('left')}
-                  className="w-10 h-10 rounded-none border border-neutral-200 flex items-center justify-center hover:bg-brand-dark hover:text-white transition-all active:scale-95"
-                >
-                  <ChevronRight size={18} className="rotate-180" />
-                </button>
-                <button
-                  onClick={() => scroll('right')}
-                  className="w-10 h-10 rounded-none border border-neutral-200 flex items-center justify-center hover:bg-brand-dark hover:text-white transition-all active:scale-95"
-                >
-                  <ChevronRight size={18} />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// --- Main App ---
-
-const Testimonials = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const testimonials = [
-    {
-      text: "I wanted to take a moment to express my gratitude for the exemplary effort and dedication that you and your team put into completing our project (Gerard Cafe at Adnoc station - Ajman) successfully and efficiently. Your attention to detail, creativity, and design truly shone through every step of the way.",
-      name: "Ahmad Masarani",
-      role: "Gerard Cafe",
-      photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop",
-      logo: "https://mattermind.ae/wp-content/uploads/2023/06/gerard-logo.png"
-    },
-    {
-      text: "Collaborating with INFIWIN has been truly seamless. Their expertise, attention to detail, and deep understanding of our vision have consistently stood out. Their professionalism and ease of working together make every project a delightful experience.",
-      name: "Naseem Abdul Khader",
-      role: "Al Rumooz Central Kitchen Equipment Installation LLC",
-      photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop",
-      logo: ""
-    },
-    {
-      text: "INFIWIN truly exceeded our expectations with their impeccable execution of the full fit out project of our new restaurant at Khalidiyah Mall. Their professionalism, creative approach, and timely completion showcased their commitment.",
-      name: "Haris Kunnumpurath",
-      role: "Tandooriya Dhaba",
-      photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2070&auto=format&fit=crop",
-      logo: ""
-    },
-    {
-      text: "The balcony glazing installation was handled with excellent coordination from survey to handover. The finished system feels premium, operates smoothly, and has made our outdoor area far more usable throughout the year.",
-      name: "Mariam Al Mansoori",
-      role: "Private Villa, Dubai",
-      photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop",
-      logo: ""
-    },
-    {
-      text: "Their team understood the needs of a busy commercial space and delivered a clean, practical glass solution without disrupting operations. The final result improved both visibility and comfort for our guests.",
-      name: "Rohit Menon",
-      role: "Urban Cafe Group",
-      photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974&auto=format&fit=crop",
-      logo: ""
-    },
-    {
-      text: "From material selection to the final alignment checks, INFIWIN showed strong technical knowledge and careful execution. The glass enclosure looks elegant and performs exactly as promised.",
-      name: "Sara Thomas",
-      role: "Residential Project, Abu Dhabi",
-      photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop",
-      logo: ""
-    }
-  ];
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [testimonials.length]);
-
-  const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
-  const goToNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const handleDragEnd = (
-    _event: MouseEvent | TouchEvent | PointerEvent,
-    info: { offset: { x: number }; velocity: { x: number } }
-  ) => {
-    if (info.offset.x < -80 || info.velocity.x < -500) {
-      goToNext();
-    }
-
-    if (info.offset.x > 80 || info.velocity.x > 500) {
-      goToPrevious();
-    }
-  };
-
-  const visibleTestimonials = [0, 1, 2].map((offset) => {
-    const index = (currentIndex + offset) % testimonials.length;
-    return { ...testimonials[index], index };
-  });
-
-  return (
-    <section className="py-10 md:py-20 bg-white relative overflow-hidden">
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-        <div className="text-center mb-6 md:mb-16 relative">
-          <motion.h2
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            className="inline-block select-none leading-[0.85]"
-          >
-            {/* Top Line: W (Cursive) + HAT (Gold) */}
-            <div
-              className="text-3xl md:text-5xl tracking-[0.1em] text-brand-primary flex justify-center items-center"
-            >
-              <motion.span
-                variants={{
-                  hidden: { scale: 0, opacity: 0 },
-                  visible: { scale: 1, opacity: 1 }
-                }}
-                transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="font-normal"
-                style={{ textTransform: 'none' }}
-              >
-                W
-              </motion.span>
-              {"hat".split("").map((char, i) => (
-                <motion.span
-                  key={i}
-                  variants={{
-                    hidden: { y: "100%", opacity: 0 },
-                    visible: { y: 0, opacity: 1 }
-                  }}
-                  transition={{ duration: 0.8, delay: 0.3 + (i * 0.05), ease: [0.215, 0.61, 0.355, 1] }}
-                  className="inline-block"
-                >
-                  {char}
-                </motion.span>
-              ))}
-            </div>
-
-            {/* Bottom Line: CUSTOMERS SAY (Black) */}
-            <div
-              className="text-4xl md:text-6xl tracking-tight -mt-1 md:-mt-2 flex justify-center items-center text-black"
-            >
-              {"customers say".split("").map((char, i) => (
-                <motion.span
-                  key={i}
-                  variants={{
-                    hidden: { y: "100%", opacity: 0 },
-                    visible: { y: 0, opacity: 1 }
-                  }}
-                  transition={{ duration: 0.8, delay: 0.7 + (i * 0.05), ease: [0.215, 0.61, 0.355, 1] }}
-                  className="inline-block whitespace-pre"
-                >
-                  {char === " " ? "\u00A0" : char}
-                </motion.span>
-              ))}
-            </div>
-          </motion.h2>
-        </div>
-
-        {/* Desktop Carousel */}
-        <div className="hidden md:block relative">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, x: 28 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -28 }}
-              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0.16}
-              onDragEnd={handleDragEnd}
-              className="grid grid-cols-3 divide-x divide-brand-primary/30 cursor-grab active:cursor-grabbing select-none touch-pan-y"
-            >
-              {visibleTestimonials.map((t) => (
-                <div
-                  key={t.index}
-                  className="px-6 flex flex-col items-start min-h-[280px]"
-                >
-                  <div className="mb-4 opacity-10">
-                    <svg width="40" height="30" viewBox="0 0 40 30" fill="currentColor" className="text-brand-primary">
-                      <path d="M0 30V15C0 6.71573 6.71573 0 15 0V7.5C10.8579 7.5 7.5 10.8579 7.5 15H15V30H0ZM25 30V15C25 6.71573 31.7157 0 40 0V7.5C35.8579 7.5 32.5 10.8579 32.5 15H40V30H25Z" />
-                    </svg>
-                  </div>
-
-                  <p className="text-brand-dark/80 text-sm leading-relaxed mb-6 text-left h-full">
-                    {t.text}
-                  </p>
-
-                  <div className="flex items-center gap-4 mt-auto pt-4 border-t border-brand-primary/10 w-full">
-                    <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-brand-primary/20 shrink-0">
-                      <img src={t.photo} alt={t.name} className="w-full h-full object-cover" />
-                    </div>
-                    <div>
-                      <h5 className="text-brand-primary font-bold text-sm leading-tight">{t.name}</h5>
-                      <p className="text-brand-dark/60 text-[10px] uppercase tracking-wider font-normal">{t.role}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
-
-          <div className="flex justify-center gap-3 mt-10">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrentIndex(i)}
-                aria-label={`Show testimonial ${i + 1}`}
-                className={`h-2 rounded-full transition-all duration-300 ${i === currentIndex ? 'w-8 bg-brand-primary' : 'w-2 bg-brand-primary/20 hover:bg-brand-primary/50'}`}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Mobile Carousel */}
-        <div className="md:hidden relative">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.3 }}
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0.22}
-              onDragEnd={handleDragEnd}
-              className="px-4 py-6 flex flex-col items-center bg-neutral-50/50 rounded-lg border border-neutral-100 cursor-grab active:cursor-grabbing select-none touch-pan-y"
-            >
-              <div className="mb-4 opacity-10">
-                <svg width="40" height="30" viewBox="0 0 40 30" fill="currentColor" className="text-brand-primary">
-                  <path d="M0 30V15C0 6.71573 6.71573 0 15 0V7.5C10.8579 7.5 7.5 10.8579 7.5 15H15V30H0ZM25 30V15C25 6.71573 31.7157 0 40 0V7.5C35.8579 7.5 32.5 10.8579 32.5 15H40V30H25Z" />
-                </svg>
-              </div>
-              <p className="text-brand-dark/80 text-sm leading-relaxed mb-6 text-center">
-                {testimonials[currentIndex].text}
-              </p>
-              <div className="flex flex-col items-center gap-4 mt-auto w-full">
-                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-brand-primary/20 shrink-0">
-                  <img src={testimonials[currentIndex].photo} alt={testimonials[currentIndex].name} className="w-full h-full object-cover" />
-                </div>
-                <div className="text-center">
-                  <h5 className="text-brand-primary font-bold text-sm leading-tight">{testimonials[currentIndex].name}</h5>
-                  <p className="text-brand-dark/60 text-[10px] uppercase tracking-wider font-normal mt-1">{testimonials[currentIndex].role}</p>
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-          <div className="flex justify-center gap-3 mt-8">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrentIndex(i)}
-                aria-label={`Show testimonial ${i + 1}`}
-                className={`h-2 rounded-full transition-all duration-300 ${i === currentIndex ? 'bg-brand-primary w-6' : 'bg-brand-primary/20 w-2'}`}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const ClientsSection = () => {
-  const clients = [
-    { name: "Client 01", logo: "https://mattermind.ae/wp-content/themes/meiveda/mattermind/images/client-logo-01.png" },
-    { name: "Client 02", logo: "https://mattermind.ae/wp-content/themes/meiveda/mattermind/images/client-logo-02.png" },
-    { name: "Americana", logo: "https://mattermind.ae/wp-content/themes/meiveda/images/americana-logo-1.png" },
-    { name: "Client 03", logo: "https://mattermind.ae/wp-content/themes/meiveda/mattermind/images/client-logo-03.png" },
-    { name: "Client 04", logo: "https://mattermind.ae/wp-content/themes/meiveda/mattermind/images/client-logo-04.png" },
-    { name: "Client 05", logo: "https://mattermind.ae/wp-content/themes/meiveda/mattermind/images/client-logo-05.png" },
-    { name: "Client 07", logo: "https://mattermind.ae/wp-content/themes/meiveda/mattermind/images/client-logo-07.png" },
-    { name: "Client 19", logo: "https://mattermind.ae/wp-content/themes/meiveda/mattermind/images/client-logo-19.png" },
-    { name: "Client 21", logo: "https://mattermind.ae/wp-content/themes/meiveda/mattermind/images/client-logo-21.png" },
-    { name: "CA Logo", logo: "https://mattermind.ae/wp-content/uploads/2024/12/ca-logo.png" },
-    { name: "Client 17", logo: "https://mattermind.ae/wp-content/themes/meiveda/mattermind/images/client-logo-17.png" },
-    { name: "Client 18", logo: "https://mattermind.ae/wp-content/themes/meiveda/mattermind/images/client-logo-18.png" },
-    { name: "Client 08", logo: "https://mattermind.ae/wp-content/themes/meiveda/mattermind/images/client-logo-08.png" },
-    { name: "Client 13", logo: "https://mattermind.ae/wp-content/themes/meiveda/mattermind/images/client-logo-13.png" },
-    { name: "Client 14", logo: "https://mattermind.ae/wp-content/themes/meiveda/mattermind/images/client-logo-14.png" },
-
-  ];
-
-  return (
-    <section className="py-10 md:py-24 bg-white relative overflow-hidden border-t border-brand-primary/5">
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-        <div className="flex justify-center mb-10 md:mb-20 lg:mb-32 relative">
-          <div className="text-center">
-            <motion.h2
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.5 }}
-              className="inline-block select-none leading-[0.85]"
-            >
-              {/* Top Line: O (Cursive) + UR (Gold) */}
-              <div
-                className="text-3xl md:text-5xl tracking-[0.1em] text-brand-primary flex justify-center items-center"
-              >
-                <motion.span
-                  variants={{
-                    hidden: { scale: 0, opacity: 0 },
-                    visible: { scale: 1, opacity: 1 }
-                  }}
-                  transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="font-normal"
-                  style={{ textTransform: 'none' }}
-                >
-                  O
-                </motion.span>
-                {"ur".split("").map((char, i) => (
-                  <motion.span
-                    key={i}
-                    variants={{
-                      hidden: { y: "100%", opacity: 0 },
-                      visible: { y: 0, opacity: 1 }
-                    }}
-                    transition={{ duration: 0.8, delay: 0.3 + (i * 0.05), ease: [0.215, 0.61, 0.355, 1] }}
-                    className="inline-block"
-                  >
-                    {char}
-                  </motion.span>
-                ))}
-              </div>
-
-              {/* Bottom Line: CLIENTS (Black) */}
-              <div
-                className="text-4xl md:text-6xl tracking-tight -mt-1 md:-mt-2 flex justify-center items-center text-black"
-              >
-                {"clients".split("").map((char, i) => (
-                  <motion.span
-                    key={i}
-                    variants={{
-                      hidden: { y: "100%", opacity: 0 },
-                      visible: { y: 0, opacity: 1 }
-                    }}
-                    transition={{ duration: 0.8, delay: 0.7 + (i * 0.05), ease: [0.215, 0.61, 0.355, 1] }}
-                    className="inline-block"
-                  >
-                    {char}
-                  </motion.span>
-                ))}
-              </div>
-            </motion.h2>
-          </div>
-        </div>
-      </div>
-
-      <div className="w-full overflow-hidden border-y border-brand-dark/5 py-6 md:py-12 bg-white flex">
-        <div className="flex w-max animate-marquee">
-          {[...clients, ...clients].map((client, index) => (
-            <div
-              key={index}
-              className="flex shrink-0 items-center justify-center px-12 md:px-20 group h-24"
-            >
-              <img
-                src={client.logo}
-                alt={client.name}
-                className="w-auto h-16 object-contain transition-all duration-500 group-hover:scale-110"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(client.name)}&background=f9f9f8&color=c29d59&size=128`;
-                }}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const LatestProjectsSection = () => {
-  const projects = [
-    { name: "ROLEX BOUTIQUE", img: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2074&auto=format&fit=crop" },
-    { name: "APPLE INNOVATION CENTER", img: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop" },
-    { name: "MINIMALIST DESIGN STUDIO", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" },
-    { name: "COSTA COFFEE", img: "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=2074&auto=format&fit=crop" },
-  ];
-
-  return (
-    <section className="py-10 md:py-24 bg-white relative overflow-hidden">
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-6 md:mb-12 relative gap-4 md:gap-12">
-          <motion.h2
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            className="inline-block select-none leading-[0.85]"
-          >
-            {/* Top Line: L (Cursive) + ATEST (Gold) */}
-            <div
-              className="text-4xl md:text-6xl uppercase tracking-[0.1em] text-brand-primary flex justify-start items-center"
-            >
-              <motion.span
-                variants={{
-                  hidden: { scale: 0, opacity: 0 },
-                  visible: { scale: 1, opacity: 1 }
-                }}
-                transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="font-normal"
-                style={{ textTransform: 'none' }}
-              >
-                L
-              </motion.span>
-              {"atest".split("").map((char, i) => (
-                <motion.span
-                  key={i}
-                  variants={{
-                    hidden: { y: "100%", opacity: 0 },
-                    visible: { y: 0, opacity: 1 }
-                  }}
-                  transition={{ duration: 0.8, delay: 0.3 + (i * 0.05), ease: [0.215, 0.61, 0.355, 1] }}
-                  className="inline-block"
-                >
-                  {char}
-                </motion.span>
-              ))}
-            </div>
-
-            {/* Bottom Line: PROJECTS (Black) */}
-            <div
-              className="text-4xl md:text-8xl uppercase tracking-tight -mt-1 md:-mt-2 flex justify-start items-center text-black"
-            >
-              {"PROJECTS".split("").map((char, i) => (
-                <motion.span
-                  key={i}
-                  variants={{
-                    hidden: { y: "100%", opacity: 0 },
-                    visible: { y: 0, opacity: 1 }
-                  }}
-                  transition={{ duration: 0.8, delay: 0.7 + (i * 0.05), ease: [0.215, 0.61, 0.355, 1] }}
-                  className="inline-block"
-                >
-                  {char}
-                </motion.span>
-              ))}
-            </div>
-          </motion.h2>
-
-          <a href="#" className="flex items-center gap-4 text-brand-primary font-medium border-b border-brand-primary pb-1 group hover:text-black hover:border-black transition-all mb-4">
-            View All Projects <ArrowUpRight className="w-5 h-5 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-          </a>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group cursor-pointer relative aspect-[3/4] overflow-hidden rounded-sm"
-            >
-              <img
-                src={project.img}
-                alt={project.name}
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
-              <div className="absolute inset-x-0 bottom-8 text-center">
-                <span className="text-white text-xs font-bold tracking-[0.3em] uppercase drop-shadow-lg">{project.name}</span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const PMCSection = () => {
-  const steps = [
-    { title: 'Project Strategy', desc: 'Comprehensive feasibility and fiscal planning.' },
-    { title: 'Procurement', desc: 'Direct sourcing from an elite global network of artisans.' },
-    { title: 'Technical Oversight', desc: 'Rigorous quality control and engineering precision.' }
-  ];
-
-  return (
-    <section id="pmc" className="py-10 md:py-24 lg:py-32 bg-brand-dark text-white relative overflow-hidden">
-
-      <div className="max-w-[1500px] mx-auto px-6 md:px-12 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-24 items-center">
-          <div>
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="flex items-center gap-4 mb-6 md:mb-10"
-            >
-              <div className="h-[1px] w-12 bg-brand-primary" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.6em] text-brand-primary block">
-                Consultancy Excellence
-              </span>
-            </motion.div>
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-7xl mb-6 md:mb-12 uppercase leading-[1] font-semibold"
-            >
-              The Science <br />
-              <span className="text-neutral-500">of Execution</span>
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-neutral-400 text-base md:text-lg font-normal leading-relaxed mb-8 md:mb-16 max-w-xl"
-            >
-              Our Project Management Consultancy provides a singular point of accountability. we orchestrate every technical detail, ensuring your vision is realized without compromise.
-            </motion.p>
-
-            <div className="space-y-12">
-              {steps.map((step, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="group flex gap-8 pb-8 border-b border-white/5 hover:border-brand-primary transition-colors duration-500"
-                >
-                  <span className="text-brand-primary text-2xl opacity-50 group-hover:opacity-100 transition-opacity">0{i + 1}</span>
-                  <div>
-                    <h4 className="text-white text-lg mb-2 uppercase tracking-widest">{step.title}</h4>
-                    <p className="text-neutral-500 text-sm font-normal">{step.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 1.1 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative aspect-square lg:aspect-[4/5] rounded-sm overflow-hidden"
-          >
-            <img
-              src="/extracted_assets/Website/Images/Offics/IMG-20210309-WA0018.jpg"
-              alt="Engineering Precision"
-              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
-            />
-            <div className="absolute inset-0 bg-brand-dark/20" />
-            <div className="absolute top-10 right-10 flex flex-col items-end">
-              <span className="text-[9px] font-bold text-brand-primary uppercase tracking-[0.4em] mb-2">Technical Detail</span>
-              <div className="h-[1px] w-12 bg-brand-primary/50" />
-              <p className="text-white/60 text-[8px] mt-2 max-w-[120px] text-right leading-relaxed">
-                Meticulous blueprinting and engineering oversight for complex retail fit-outs.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const GlazingSolutionsSection = () => {
-  return (
-    <section className="bg-white overflow-visible border-b border-neutral-100">
-      <div className="w-full">
-
-        {/* Card 1: Balcony Glazing */}
-        <div className="sticky top-20 w-full bg-white border-b border-neutral-100 py-8 md:py-24 px-4 md:px-12 xl:px-16 transition-all duration-500 z-10">
-          <div className="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-center">
-            {/* Left: Text Content */}
-            <div className="order-2 lg:order-1 flex flex-col items-start text-left">
-              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-primary mb-2 block">
-                Architectural Series
-              </span>
-              <h2 className="text-4xl md:text-6xl font-semibold text-brand-dark mb-5 leading-[1.1] tracking-tight">
-                Balcony Glazing
-              </h2>
-              <p className="text-neutral-500 text-base md:text-lg font-normal leading-relaxed mb-6 max-w-md">
-                Learn more about the INFIWIN Balcony Glazing. All the benefits, planning and see what other customers worldwide have done and get inspired.
-              </p>
-              <a
-                href="/products#balcony"
-                className="group inline-flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.2em] text-white bg-brand-primary px-10 py-4 rounded-full shadow-lg shadow-brand-primary/20 hover:bg-brand-dark hover:shadow-brand-dark/20 hover:scale-[1.02] transition-all"
-              >
-                Balcony Glazing <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
-              </a>
-            </div>
-
-            {/* Right: Image Container */}
-            <div className="order-1 lg:order-2 relative flex justify-center lg:justify-end w-full">
-              {/* Soft Ambient Background Glow */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-brand-primary/5 rounded-full blur-[80px] -z-10 animate-pulse" />
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                className="w-full max-w-[600px] aspect-[4/3] rounded-[24px] overflow-hidden border-4 border-white shadow-[0_32px_64px_-15px_rgba(0,0,0,0.15)] bg-neutral-100 group"
-              >
-                <img
-                  src="https://alfaaken.ee/wp-content/uploads/2024/07/Matison-market-balcony-glazing-series-630-1920x1280px-5.jpg"
-                  alt="Balcony Glazing"
-                  className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-1000"
-                />
-              </motion.div>
-            </div>
-          </div>
-        </div>
-
-        {/* Card 2: Patio Glazing */}
-        <div className="sticky top-20 w-full bg-white border-b border-neutral-100 py-8 md:py-24 px-4 md:px-12 xl:px-16 transition-all duration-500 z-20">
-          <div className="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-center">
-            {/* Left: Text Content */}
-            <div className="order-2 lg:order-1 flex flex-col items-start text-left">
-              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-primary mb-2 block">
-                Outdoor Spatial Systems
-              </span>
-              <h2 className="text-4xl md:text-6xl font-semibold text-brand-dark mb-5 leading-[1.1] tracking-tight">
-                Patio Glazing
-              </h2>
-              <p className="text-neutral-500 text-base md:text-lg font-normal leading-relaxed mb-6 max-w-md">
-                See how our glazing systems turn unused outdoor places into inspiring and stylish spaces to add more room for life in your home.
-              </p>
-              <a
-                href="/products#patio"
-                className="group inline-flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.2em] text-white bg-brand-primary px-10 py-4 rounded-full shadow-lg shadow-brand-primary/20 hover:bg-brand-dark hover:shadow-brand-dark/20 hover:scale-[1.02] transition-all"
-              >
-                Patio Glazing <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
-              </a>
-            </div>
-
-            {/* Right: Image Container */}
-            <div className="order-1 lg:order-2 relative flex justify-center lg:justify-end w-full">
-              {/* Soft Ambient Background Glow */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-brand-primary/5 rounded-full blur-[80px] -z-10 animate-pulse" />
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                className="w-full max-w-[600px] aspect-[4/3] rounded-[24px] overflow-hidden border-4 border-white shadow-[0_32px_64px_-15px_rgba(0,0,0,0.15)] bg-neutral-100 group"
-              >
-                <img
-                  src="https://lumon.com/us/wp-content/uploads/sites/16/2023/06/Lumon-Sunroom-Patio-Ontario-2.jpg"
-                  alt="Patio Glazing"
-                  className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-1000"
-                />
-              </motion.div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-  );
-};
-
-// --- Main Page ---
 export default function Page() {
   const [hasMounted, setHasMounted] = useState(false);
+  const [selectedApp, setSelectedApp] = useState<string | null>(null);
 
   useEffect(() => {
     setHasMounted(true);
@@ -1624,67 +76,1153 @@ export default function Page() {
   if (!hasMounted) return null;
 
   return (
-    <div className="font-sans relative bg-white">
-      <Hero isLoaded={true} />
-
-      {/* Main Content Wrapper - No more sticky overlap */}
+    <div className="font-sans relative bg-white overflow-x-hidden">
+      <HeroSection />
       <div className="relative z-10 bg-white">
-        {/* Mobile-only About Section */}
-        <section className="md:hidden bg-[#F8FAFC] border-y border-neutral-100 px-6 py-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="flex flex-col items-center text-center gap-6"
-          >
-            {/* Label */}
-            <div className="flex items-center gap-3">
-              <div className="h-[1px] w-8 bg-brand-primary" />
-              <span className="text-[10px] font-bold tracking-[0.3em] text-brand-primary uppercase">About INFIWIN</span>
-              <div className="h-[1px] w-8 bg-brand-primary" />
-            </div>
-
-            {/* Heading */}
-            <h2 style={{ fontFamily: 'Georgia, serif' }} className="text-3xl font-light text-brand-dark leading-snug tracking-tight">
-              Reclaiming <span className="text-brand-primary">Your Space</span>
-            </h2>
-
-            {/* Image */}
-            <div className="w-full rounded-2xl overflow-hidden border-4 border-white shadow-xl aspect-[4/3]">
-              <img
-                src="/infiwin images new/ChatGPT Image May 23, 2026, 02_13_49 PM.png"
-                alt="INFIWIN Glass Systems"
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            {/* Description */}
-            <p className="text-neutral-500 text-sm leading-relaxed max-w-sm">
-              At INFIWIN, we believe that architectural spatial design is not just about how a space looks — it's about how it makes you feel. We craft premium glass systems that transform ordinary spaces into extraordinary experiences.
-            </p>
-
-            {/* CTA */}
-            <a
-              href="/about"
-              className="inline-flex items-center gap-2 bg-brand-primary text-white text-[10px] font-bold uppercase tracking-widest px-8 py-3.5 rounded-full shadow-lg shadow-brand-primary/20 hover:bg-brand-dark transition-all duration-300"
-            >
-              Learn More <ArrowRight size={12} />
-            </a>
-          </motion.div>
-        </section>
-
-        <BestSellingProduct />
-        <GlazingSolutionsSection />
-        <ProductsGrid />
-        <PortfolioSection />
-        <ApplicationsSection />
-        <Testimonials />
+        <BenefitsSection />
+        <BestSellingProductSection />
+        <ProductsGridSection selectedApp={selectedApp} setSelectedApp={setSelectedApp} />
+        <ApplicationsSection selectedApp={selectedApp} setSelectedApp={setSelectedApp} />
+        <TestimonialsSection />
         <LeadFormSection />
+        <FAQSection />
       </div>
     </div>
   );
 }
 
+// ==========================================
+// 1. HERO SECTION
+// ==========================================
+function HeroSection() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
+  useEffect(() => {
+    if (isHovered) return;
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [isHovered]);
 
+  return (
+    <section
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="relative w-full h-screen min-h-[600px] sm:min-h-[650px] overflow-hidden bg-zinc-950 flex flex-col justify-between pt-20 md:pt-28 pb-6 md:pb-10 px-6 md:px-12 lg:px-16"
+    >
+      {/* Background Slides */}
+      <div className="absolute inset-0 z-0">
+        <AnimatePresence mode="popLayout">
+          <motion.div
+            key={activeIndex}
+            initial={{ opacity: 0, scale: 1 }}
+            animate={{ opacity: 1, scale: 1.08 }}
+            exit={{ opacity: 0 }}
+            transition={{
+              opacity: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+              scale: { duration: 6, ease: "linear" }
+            }}
+            className="absolute inset-0"
+          >
+            <img
+              src={HERO_SLIDES[activeIndex].img}
+              alt="Infiwin Frameless Glazing"
+              className="w-full h-full object-cover brightness-[0.6]"
+            />
+          </motion.div>
+        </AnimatePresence>
+        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-zinc-950/40 z-10" />
+      </div>
+
+      {/* Hero Content */}
+      <div className="relative z-20 flex-1 flex flex-col justify-center max-w-[750px] mt-4 md:mt-8">
+        <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-brand-primary bg-white/10 backdrop-blur-md border border-white/20 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full font-bold self-start mb-4 md:mb-6">
+          Frameless Glazing Redefined
+        </span>
+
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-4 md:mb-6 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+          Breathtaking Views,<br />
+          Uncompromised Protection
+        </h1>
+
+        <p className="text-white/90 text-sm sm:text-lg md:text-xl font-medium leading-[1.5] max-w-[620px] mb-6 md:mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
+          Infiwin manufactures premier Slide & Turn frameless glass balcony enclosures. Extend your home space with architectural glass walls.
+        </p>
+
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto mt-2 md:mt-4">
+          <a
+            href="#estimator"
+            className="group inline-flex items-center justify-center gap-2 bg-brand-primary text-white text-xs font-bold uppercase tracking-wider px-6 py-3.5 sm:px-8 sm:py-4 rounded-full shadow-lg shadow-brand-primary/20 hover:bg-white hover:text-black hover:scale-[1.02] transition-all duration-300 w-full sm:w-auto text-center"
+          >
+            Calculate Cost Instantly
+            <ArrowRight size={14} className="group-hover:translate-x-1.5 transition-transform duration-300" />
+          </a>
+          <a
+            href="#products-grid"
+            className="group inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold uppercase tracking-wider px-5 py-3.5 sm:px-6 sm:py-4 rounded-full hover:bg-white hover:text-black transition-all duration-300 w-full sm:w-auto text-center"
+          >
+            <Grid3x3 size={13} className="text-white group-hover:text-black" />
+            Explore Products
+          </a>
+        </div>
+      </div>
+
+      {/* Carousel Dots & Trust Badges */}
+      <div className="relative z-20 w-full flex flex-col md:flex-row items-center justify-between gap-4 border-t border-white/10 pt-4 mt-4 pb-12 md:pb-12">
+        {/* Trust Indicators / Live Proof Statistics */}
+        <div className="grid grid-cols-3 gap-2 w-full md:flex md:w-auto md:flex-wrap md:items-center md:gap-12 text-white">
+          <div className="flex flex-col">
+            <span className="text-[8px] sm:text-[10px] text-white/50 uppercase tracking-wider font-bold">Starting Price</span>
+            <span className="text-sm sm:text-xl font-extrabold text-brand-primary">₹1,800</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-[8px] sm:text-[10px] text-white/50 uppercase tracking-wider font-bold">Rain & Wind</span>
+            <span className="text-sm sm:text-xl font-extrabold text-brand-primary">100%</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-[8px] sm:text-[10px] text-white/50 uppercase tracking-wider font-bold">Warranty</span>
+            <span className="text-sm sm:text-xl font-extrabold text-brand-primary">10+ Yrs</span>
+          </div>
+        </div>
+
+        {/* Carousel Indicators */}
+        <div className="flex items-center justify-center gap-3">
+          {HERO_SLIDES.map((slide, i) => (
+            <button
+              key={slide.id}
+              onClick={() => setActiveIndex(i)}
+              className={`h-2 rounded-full transition-all duration-500 cursor-pointer ${activeIndex === i ? 'w-8 bg-brand-primary' : 'w-2 bg-white/40 hover:bg-white/70'
+                }`}
+              aria-label={`Slide ${i + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Dynamic Marquee absolute base at the bottom of Hero Section */}
+      <div className="absolute bottom-0 left-0 right-0 z-30 w-full bg-[#4385F5] text-white py-2 text-xs font-bold overflow-hidden select-none border-t border-white/10 shadow-lg">
+        <div className="flex w-max animate-marquee">
+          <span className="px-6">Transform your home with premium India-built glass systems starting from ₹1,800/sq.ft!</span>
+          <span className="px-6">Transform your home with premium India-built glass systems starting from ₹1,800/sq.ft!</span>
+          <span className="px-6">Transform your home with premium India-built glass systems starting from ₹1,800/sq.ft!</span>
+          <span className="px-6">Transform your home with premium India-built glass systems starting from ₹1,800/sq.ft!</span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ==========================================
+// 2. BENEFITS SECTION ("The Slide & Turn Edge")
+// ==========================================
+function BenefitsSection() {
+  const benefits = [
+    {
+      id: 1,
+      title: "Unobstructed Panoramic Views",
+      desc: "No vertical frames between glass structures ensures completely transparent viewports, expanding visual horizons and natural luxury lighting levels instantly.",
+      icon: <Eye className="h-6 w-6 text-brand-primary" />
+    },
+    {
+      id: 2,
+      title: "100% Weather Shield Protection",
+      desc: "Blocks dust, windstorms, flying debris, and intense monsoon rains. Fully customized rubber profiles keep balconies immaculate through extreme climates.",
+      icon: <Cloud className="h-6 w-6 text-brand-primary" />
+    },
+    {
+      id: 3,
+      title: "Noise Dampening Isolation",
+      desc: "Attenuate high-decibel street noises by up to to . Convert chaotic urban balconies into tranquil spaces suited for deep focus and reading.",
+      icon: <Lock className="h-6 w-6 text-brand-primary" />
+    }
+  ];
+
+  return (
+    <section className="py-20 md:py-28 bg-[#F8FAFC]">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-primary mb-2 block">
+            Core Advantages
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-brand-dark tracking-tight leading-tight">
+            The Premium Slide & Turn Edge
+          </h2>
+          <p className="text-neutral-500 text-sm sm:text-base mt-4">
+            Discover why modern homeowners and commercial spaces are replacing conventional iron grills with custom frameless folding structures.
+          </p>
+        </div>
+
+        {/* Benefits Grid (3 Columns) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {benefits.map((b) => (
+            <div
+              key={b.id}
+              className="relative bg-white border border-neutral-100 p-8 rounded-3xl transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between overflow-hidden min-h-[280px]"
+            >
+              <div className="absolute top-0 right-0 h-32 w-32 bg-brand-primary/5 rounded-full blur-2xl pointer-events-none" />
+
+              <div className="relative z-10">
+                <div className="h-12 w-12 rounded-2xl bg-brand-primary/10 flex items-center justify-center mb-6">
+                  {b.icon}
+                </div>
+                <h3 className="text-xl font-bold text-brand-dark mb-4">
+                  {b.title}
+                </h3>
+                <p className="text-neutral-500 text-sm leading-relaxed">
+                  {b.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ==========================================
+// 3. BEST SELLING PRODUCT SECTION
+// ==========================================
+// ==========================================
+// 3. BEST SELLING PRODUCT SECTION
+// ==========================================
+function BestSellingProductSection() {
+  const [activeVariant, setActiveVariant] = useState<'A' | 'B'>('A');
+
+  const variants = {
+    A: {
+      name: "Full Length Option",
+      desc: "Floor to ceiling coverage structure. Spans continuously from the floor straight up to the concrete ceiling line, creating a stunning, seamless floor-to-ceiling glazed sunroom style with direct outdoor views.",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_13_49 PM.png"
+    },
+    B: {
+      name: "Half Length Option",
+      desc: "Railing to ceiling / fixed system. Designed to begin either at the top boundary of an existing protective balcony metal/concrete railing, or alternatively feature a pre-installed bottom glass panel acting as a rigid structural railing while the Slide & Turn sliding panes operate seamlessly above it.",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_18_04 PM.png"
+    }
+  };
+
+  return (
+    <section className="py-20 md:py-28 bg-white border-y border-neutral-100">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+          {/* Left Column: Premium Dynamic Image Display */}
+          <div className="relative">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-neutral-150 aspect-[4/3] bg-zinc-100">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={activeVariant}
+                  src={variants[activeVariant].img}
+                  alt={variants[activeVariant].name}
+                  initial={{ opacity: 0, scale: 0.98 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 1.02 }}
+                  transition={{ duration: 0.4 }}
+                  className="w-full h-full object-cover"
+                />
+              </AnimatePresence>
+
+              {/* Overlapping Ribbon */}
+              <div className="absolute top-6 left-6 z-20 flex items-center gap-1.5 bg-brand-primary text-white text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">
+                <Sparkles size={12} />
+                <span>MOST POPULAR BEST SELLER</span>
+              </div>
+            </div>
+
+            {/* Thumbs to click to switch */}
+            <div className="grid grid-cols-2 gap-6 mt-6">
+              <button
+                onClick={() => setActiveVariant('A')}
+                className={`rounded-2xl overflow-hidden border-2 aspect-[4/3] shadow-lg transition-all ${activeVariant === 'A' ? 'border-brand-primary scale-[1.02]' : 'border-transparent opacity-60 hover:opacity-100'
+                  }`}
+              >
+                <img
+                  src={variants.A.img}
+                  alt="Full Length Option Thumb"
+                  className="w-full h-full object-cover"
+                />
+              </button>
+              <button
+                onClick={() => setActiveVariant('B')}
+                className={`rounded-2xl overflow-hidden border-2 aspect-[4/3] shadow-lg transition-all ${activeVariant === 'B' ? 'border-brand-primary scale-[1.02]' : 'border-transparent opacity-60 hover:opacity-100'
+                  }`}
+              >
+                <img
+                  src={variants.B.img}
+                  alt="Half Length Option Thumb"
+                  className="w-full h-full object-cover"
+                />
+              </button>
+            </div>
+          </div>
+
+          {/* Right Column: Copy & Interactive Tab Selector */}
+          <div className="flex flex-col items-start">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="h-[1px] w-8 bg-brand-primary" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-primary">
+                BALCONY ENCLOSURE CATEGORY
+              </span>
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-brand-dark tracking-tight leading-tight mb-6">
+              Slide & Turn System
+            </h2>
+
+            <p className="text-neutral-500 text-sm sm:text-base leading-relaxed mb-8">
+              Our iconic signature slide and turn glides on ultra-smooth tracks, allowing individual sheets of toughened glass to fully stack to either extreme corner. Offers 100% opening potential when desired, making it absolute king of balcony utility layout concepts.
+            </p>
+
+            {/* Interactive Tab UI */}
+            <div className="w-full bg-slate-50 p-6 rounded-3xl border border-neutral-100 mb-8">
+              <h4 className="text-xs font-extrabold uppercase tracking-widest text-neutral-400 mb-4">
+                Interactive Variant Check:
+              </h4>
+
+              <div className="flex gap-2 sm:gap-3 mb-4">
+                <button
+                  onClick={() => setActiveVariant('A')}
+                  className={`flex-1 py-2 sm:py-3 px-2 sm:px-4 rounded-lg sm:rounded-xl text-[9px] sm:text-xs font-bold uppercase tracking-wider border transition-all ${activeVariant === 'A'
+                    ? 'bg-brand-primary text-white border-brand-primary shadow-sm'
+                    : 'bg-white text-neutral-600 border-neutral-200 hover:bg-neutral-50'
+                    }`}
+                >
+                  Full Length <span className="hidden xs:inline">Option</span>
+                </button>
+                <button
+                  onClick={() => setActiveVariant('B')}
+                  className={`flex-1 py-2 sm:py-3 px-2 sm:px-4 rounded-lg sm:rounded-xl text-[9px] sm:text-xs font-bold uppercase tracking-wider border transition-all ${activeVariant === 'B'
+                    ? 'bg-brand-primary text-white border-brand-primary shadow-sm'
+                    : 'bg-white text-neutral-600 border-neutral-200 hover:bg-neutral-50'
+                    }`}
+                >
+                  Half Length <span className="hidden xs:inline">Option</span>
+                </button>
+              </div>
+
+              <div className="p-4 bg-white rounded-2xl border border-neutral-100/60 min-h-[100px] flex flex-col justify-center">
+                <h5 className="text-sm font-bold text-brand-dark mb-2">
+                  {variants[activeVariant].name}
+                </h5>
+                <p className="text-neutral-500 text-xs leading-relaxed">
+                  {variants[activeVariant].desc}
+                </p>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/products#folding"
+                className="group inline-flex items-center gap-2 bg-brand-dark text-white text-xs font-bold uppercase tracking-wider px-8 py-4 rounded-full shadow-lg hover:bg-brand-primary transition-all duration-300"
+              >
+                Inspect Custom Variants
+                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <a
+                href="#estimator"
+                className="group inline-flex items-center gap-2 bg-white border border-neutral-300 text-neutral-800 text-xs font-bold uppercase tracking-wider px-6 py-4 rounded-full hover:bg-neutral-50 transition-all duration-300"
+              >
+                Calculate Approximate Quote
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const APPLICATION_RECOMMENDATIONS: Record<string, string[]> = {
+  "Balcony": ["Slide & Turn System", "Telescopic Slider System"],
+  "Int. Partition": ["Bi-fold Glass System", "Centre Open System"],
+  "Commercial": ["Telescopic Slider System", "Slide & Turn System"],
+  "Exterior": ["3 Track Slider", "Slide & Turn System"],
+  "Terrace": ["Slide & Turn System", "Bi-fold Glass System"],
+  "Farm House": ["Slide & Turn System", "3 Track Slider"],
+  "Office Space": ["Centre Open System", "Bi-fold Glass System"],
+  "Garden": ["3 Track Slider", "Telescopic Slider System"]
+};
+
+// ==========================================
+// 4. PRODUCTS GRID (Vertical Card Stack)
+// ==========================================
+function ProductsGridSection({ selectedApp, setSelectedApp }: { selectedApp: string | null; setSelectedApp: (app: string | null) => void }) {
+  const products = [
+    {
+      id: "p1",
+      title: "Slide & Turn System",
+      subtitle: "Balcony Enclosure",
+      benefit: "Perfect view maximization with foldaway tracking system layout.",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_13_49 PM.png",
+      href: "/products#folding",
+      popular: true,
+      popularTag: "Best Seller"
+    },
+    {
+      id: "p2",
+      title: "Telescopic Slider System",
+      subtitle: "Super Smooth Gliding",
+      benefit: "Overlapping glazed sheets for continuous uninterrupted tracks.",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_50_39 PM.png",
+      href: "/products#sliding"
+    },
+    {
+      id: "p3",
+      title: "Centre Open System",
+      subtitle: "Split-fold Symmetrical",
+      benefit: "Panels partition left and right symmetrically to retain optimal balances.",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_29_01 PM.png",
+      href: "/products#insulated"
+    },
+    {
+      id: "p4",
+      title: "Bi-fold Glass System",
+      subtitle: "Premium Partition",
+      benefit: "Sleek folding structure for rapid internal partition transition zones.",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_27_22 PM.png",
+      href: "/products#bifold"
+    },
+    {
+      id: "p5",
+      title: "2 Track Slider",
+      subtitle: "Doors & Windows",
+      benefit: "Classic, cost-effective structural system layout with premium hardware profiles.",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_25_52 PM.png",
+      href: "/products#sliding-2track"
+    },
+    {
+      id: "p6",
+      title: "3 Track Slider",
+      subtitle: "Doors & Windows",
+      benefit: "Wider spans of clear structural views integrating bug mesh slider capability.",
+      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_30_38 PM.png",
+      href: "/products#sliding-3track"
+    }
+  ];
+
+  return (
+    <section id="products-grid" className="py-20 md:py-28 bg-[#F8FAFC]">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+          <div>
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-primary mb-2 block">
+              Our Product Portfolio
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-brand-dark tracking-tight leading-tight">
+              Explore All Architectural Glass Offerings
+            </h2>
+            <p className="text-neutral-500 text-sm sm:text-base mt-2 max-w-2xl">
+              Select from our 6 major structural builds for standard window heights, door frames, or interior partition boundaries.
+            </p>
+          </div>
+          <Link
+            href="/products"
+            className="group flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-primary border-b border-brand-primary/30 pb-1 hover:text-brand-dark hover:border-brand-dark transition-all shrink-0"
+          >
+            Explore Technical Specs
+            <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </Link>
+        </div>
+
+        {/* Active Filter status banner */}
+        {selectedApp && (
+          <div className="mb-10 p-4 bg-brand-primary/10 border border-brand-primary/20 rounded-2xl flex flex-wrap items-center justify-between gap-4">
+            <p className="text-sm font-semibold text-brand-dark">
+              Displaying product recommendations suitable for: <span className="text-brand-primary font-bold">{selectedApp}</span>
+            </p>
+            <button
+              onClick={() => setSelectedApp(null)}
+              className="px-4 py-2 bg-white text-xs font-bold uppercase tracking-wider text-brand-primary border border-brand-primary/20 rounded-full hover:bg-brand-primary hover:text-white transition-all cursor-pointer shadow-sm"
+            >
+              Show all systems
+            </button>
+          </div>
+        )}
+
+        {/* Grid layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {products.map((p) => {
+            const isRecommended = !selectedApp || APPLICATION_RECOMMENDATIONS[selectedApp]?.includes(p.title);
+            return (
+              <div
+                key={p.id}
+                className={`group bg-white rounded-3xl border overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col justify-between ${isRecommended
+                  ? 'border-neutral-100 opacity-100 scale-100'
+                  : 'border-transparent opacity-40 hover:opacity-60 scale-[0.98] blur-[0.5px]'
+                  }`}
+              >
+                {/* Product Image Stack */}
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100">
+                  <img
+                    src={p.img}
+                    alt={p.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+
+                  {p.popular && (
+                    <div className="absolute top-4 left-4 bg-brand-primary text-white text-[9px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md">
+                      {p.popularTag}
+                    </div>
+                  )}
+                </div>
+
+                {/* Product Info */}
+                <div className="p-6 md:p-8 flex-1 flex flex-col justify-between">
+                  <div>
+                    <span className="text-[9px] font-extrabold text-brand-primary uppercase tracking-widest block mb-2">
+                      {p.subtitle}
+                    </span>
+                    <h3 className="text-lg md:text-xl font-bold text-brand-dark mb-2">
+                      {p.title}
+                    </h3>
+                    <p className="text-neutral-500 text-xs sm:text-sm leading-relaxed mb-6">
+                      {p.benefit}
+                    </p>
+                  </div>
+
+                  {/* CTAs */}
+                  <div className="flex items-center justify-between border-t border-neutral-50 pt-4 mt-auto">
+                    <Link
+                      href={p.href}
+                      className="text-[10px] font-extrabold text-brand-dark hover:text-brand-primary uppercase tracking-wider transition-colors"
+                    >
+                      Variants
+                    </Link>
+                    <a
+                      href="#estimator"
+                      className="flex items-center gap-1 bg-brand-primary/10 text-brand-primary hover:bg-brand-primary hover:text-white px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all"
+                    >
+                      Get Price <ArrowRight size={10} />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ==========================================
+// 5. APPLICATIONS SECTION
+// ==========================================
+function ApplicationsSection({ selectedApp, setSelectedApp }: { selectedApp: string | null; setSelectedApp: (app: string | null) => void }) {
+  const apps = [
+    {
+      name: "Balcony",
+      tag: "Residential",
+      desc: "Unobstructed frameless premium safety glazing barriers.",
+      icon: <Home size={28} className="text-white" />,
+      img: "/infiwin%20images%20new/ChatGPT%20Image%20May%2023,%202026,%2003_25_52%20PM.png"
+    },
+    {
+      name: "Int. Partition",
+      tag: "Residential",
+      desc: "Sleek separation zones for functional multi-use spaces.",
+      icon: <Layers size={28} className="text-white" />,
+      img: "/infiwin%20images%20new/ChatGPT%20Image%20May%2023,%202026,%2012_15_29%20PM.png"
+    },
+    {
+      name: "Commercial",
+      tag: "Commercial",
+      desc: "High durability storefront facades & internal partition grids.",
+      icon: <Building2 size={28} className="text-white" />,
+      img: "/infiwin%20images%20new/ChatGPT%20Image%20May%2023,%202026,%2002_52_36%20PM.png"
+    },
+    {
+      name: "Exterior",
+      tag: "Residential",
+      desc: "Rigid wind resistance profile constructs for elevations.",
+      icon: <Wind size={28} className="text-white" />,
+      img: "/infiwin%20images%20new/ChatGPT%20Image%20May%2023,%202026,%2001_10_02%20PM.png"
+    },
+    {
+      name: "Terrace",
+      tag: "Residential",
+      desc: "Convert open terraces into delightful year-round glass lounges.",
+      icon: <Coffee size={28} className="text-white" />,
+      img: "/infiwin%20images%20new/ChatGPT%20Image%20May%2023,%202026,%2002_30_38%20PM.png"
+    },
+    {
+      name: "Farm House",
+      tag: "Residential",
+      desc: "Connect beautiful country landscaping with spacious interiors.",
+      icon: <Sparkles size={28} className="text-white" />,
+      img: "/infiwin%20images%20new/ChatGPT%20Image%20May%2023,%202026,%2012_27_22%20PM.png"
+    },
+    {
+      name: "Office Space",
+      tag: "Commercial",
+      desc: "Acoustically isolated conference cubes & manager cabins.",
+      icon: <Monitor size={28} className="text-white" />,
+      img: "/infiwin%20images%20new/ChatGPT%20Image%20May%2023,%202026,%2002_16_49%20PM.png"
+    },
+    {
+      name: "Garden",
+      tag: "Residential",
+      desc: "Sleek verandas merging beautiful greenery with indoor thermal comfort.",
+      icon: <Paintbrush size={28} className="text-white" />,
+      img: "/infiwin%20images%20new/ChatGPT%20Image%20May%2023,%202026,%2003_20_57%20PM.png"
+    }
+  ];
+
+  const handleAppClick = (appName: string) => {
+    setSelectedApp(appName);
+    // Smooth scroll to products-grid to see the highlighted offerings
+    const el = document.getElementById('products-grid');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  return (
+    <section className="py-20 md:py-28 bg-white border-t border-neutral-100">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
+          <div>
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-primary mb-2 block">
+              Interactive Recommendation
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-brand-dark tracking-tight leading-tight">
+              Explore Recommended Usages
+            </h2>
+            <p className="text-neutral-500 text-sm sm:text-base mt-2 max-w-2xl">
+              Tap on an application below to immediately highlight the exact glass system variant recommended for that architectural space.
+            </p>
+          </div>
+        </div>
+
+        {/* Active interactive filter status message */}
+        {selectedApp && (
+          <div className="mb-8 p-4 bg-brand-primary/10 border border-brand-primary/20 rounded-2xl flex flex-wrap items-center justify-between gap-4">
+            <p className="text-sm font-semibold text-brand-dark">
+              Displaying product recommendations suitable for: <span className="text-brand-primary font-bold">{selectedApp}</span>
+            </p>
+            <button
+              onClick={() => setSelectedApp(null)}
+              className="px-4 py-2 bg-white text-xs font-bold uppercase tracking-wider text-brand-primary border border-brand-primary/20 rounded-full hover:bg-brand-primary hover:text-white transition-all cursor-pointer shadow-sm"
+            >
+              Show all systems
+            </button>
+          </div>
+        )}
+
+        {/* 8-Application Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          {apps.map((a, idx) => {
+            const isActive = selectedApp === a.name;
+            return (
+              <div
+                key={idx}
+                onClick={() => handleAppClick(a.name)}
+                className={`relative aspect-[4/3] rounded-3xl overflow-hidden group shadow-sm flex flex-col justify-between p-4 sm:p-6 cursor-pointer border transition-all duration-300 bg-zinc-950 ${isActive ? 'border-brand-primary scale-[1.03] ring-4 ring-brand-primary/20' : 'border-neutral-800 hover:scale-[1.01]'
+                  }`}
+                style={{ backgroundColor: '#09090b' }}
+              >
+                {/* Image with overlay */}
+                <img
+                  src={a.img}
+                  alt={`${a.name} Application`}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-750 group-hover:scale-108 z-0 opacity-80"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent z-10 group-hover:via-black/45 transition-all duration-300" />
+
+                {/* Icon Container */}
+                <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center self-end relative z-20">
+                  {React.cloneElement(a.icon, { size: 20, className: "text-white" })}
+                </div>
+
+                {/* Text Meta (Max 2 lines description) */}
+                <div className="relative z-20 mt-auto">
+                  <span className="text-[8px] sm:text-[9px] font-bold text-brand-primary uppercase tracking-widest block mb-1">
+                    {a.tag}
+                  </span>
+                  <h4 className="text-sm sm:text-base font-bold text-white uppercase tracking-wider mb-1">
+                    {a.name}
+                  </h4>
+                  <p className="text-white/80 text-[10px] sm:text-xs leading-snug line-clamp-2 font-medium">
+                    {a.desc}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Base Action CTA Button */}
+        <div className="flex justify-center mt-12">
+          <a
+            href="#estimator"
+            className="group inline-flex items-center gap-2 bg-brand-dark text-white hover:bg-brand-primary px-8 py-4 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md"
+          >
+            Get Custom Enclosure Quote For Your Space
+            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+          </a>
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+// ==========================================
+// 6. TESTIMONIALS SECTION
+// ==========================================
+function TestimonialsSection() {
+  const testimonials = [
+    {
+      id: 1,
+      name: "Rajesh Devgn",
+      role: "DLF Phase 5 Resident",
+      text: "The Infiwin Slide & Turn system transformed our 12th-floor balcony in Delhi completely. We get absolute protection from heavy monsoon wind gusts and heavy dust while enjoying a 100% frameless visual landscape. Excellent execution team!",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop"
+    },
+    {
+      id: 2,
+      name: "Aman Kapoor",
+      role: "VP, Capital Commercial Hub",
+      text: "Our office glass partitions look incredibly sleek. We chose the Centre Open system. Not only is the architectural glass high-grade, but the acoustic isolation is also fantastic during important executive board calls.",
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop"
+    },
+    {
+      id: 3,
+      name: "Sneha Mehta",
+      role: "Villa Owner, Pune",
+      text: "Unbelievable execution. The cost estimator was accurate and the on-ground installers took extreme safety measures to finish the railing fixed glass + Slide & Turn setup in under 5 hours. Outstanding engineering standard.",
+      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop"
+    }
+  ];
+
+  return (
+    <section className="py-20 md:py-28 bg-[#F8FAFC]">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-primary mb-2 block">
+            Owner Reviews
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-brand-dark tracking-tight leading-tight">
+            What Our Premium Clients Say
+          </h2>
+          <p className="text-neutral-500 text-sm sm:text-base mt-4">
+            We have successfully completed installations spanning major residential developments in Mumbai, Delhi, Bangalore and beyond.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {testimonials.map((t) => (
+            <div
+              key={t.id}
+              className="bg-white p-8 rounded-3xl border border-neutral-100 shadow-sm flex flex-col justify-between hover:shadow-lg transition-shadow duration-300"
+            >
+              <div className="mb-6">
+                {/* Quote Icon */}
+                <span className="text-5xl text-brand-primary/20 font-serif leading-none block h-4 select-none">“</span>
+                <p className="text-neutral-600 text-sm leading-relaxed mt-2">
+                  {t.text}
+                </p>
+              </div>
+
+              <div className="flex items-center gap-4 pt-6 border-t border-neutral-50 mt-auto">
+                <img
+                  src={t.avatar}
+                  alt={`${t.name} Portrait`}
+                  className="h-12 w-12 rounded-full object-cover border border-neutral-100"
+                />
+                <div>
+                  <h4 className="text-sm font-bold text-brand-dark leading-tight">
+                    {t.name}
+                  </h4>
+                  <p className="text-neutral-400 text-[10px] uppercase tracking-wider mt-1">
+                    {t.role}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ==========================================
+// 7. LEAD FORM & COST ESTIMATOR
+// ==========================================
+function LeadFormSection() {
+  const [dimensions, setDimensions] = useState({ length: 10, height: 10 });
+  const [estimate, setEstimate] = useState<number | null>(null);
+
+  const [form, setForm] = useState({ name: '', phone: '', city: '' });
+  const [errors, setErrors] = useState({ name: '', phone: '', city: '' });
+  const [submitted, setSubmitted] = useState(false);
+
+  // Dynamic cost calculation based on: Length x Height x 1800
+  const area = dimensions.length * dimensions.height;
+  const rawCost = area * 1800;
+
+  // Auto calculate when sliders change
+  useEffect(() => {
+    setEstimate(rawCost);
+  }, [dimensions.length, dimensions.height]);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setForm(prev => ({ ...prev, [name]: value }));
+    if (value.trim()) {
+      setErrors(prev => ({ ...prev, [name]: '' }));
+    }
+  };
+
+  const validateForm = () => {
+    let isValid = true;
+    const newErrors = { name: '', phone: '', city: '' };
+
+    if (!form.name.trim()) {
+      newErrors.name = 'Please enter your name';
+      isValid = false;
+    }
+    if (!form.phone.trim()) {
+      newErrors.phone = 'Please provide a valid 10-digit mobile number';
+      isValid = false;
+    } else if (!/^\d{10}$/.test(form.phone.trim().replace(/\D/g, ''))) {
+      newErrors.phone = 'Please provide a valid 10-digit mobile number';
+      isValid = false;
+    }
+    if (!form.city.trim()) {
+      newErrors.city = 'Please specify your delivery city';
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validateForm()) return;
+
+    // Simulate submission / trigger success state
+    setSubmitted(true);
+  };
+
+  const getWhatsAppLink = () => {
+    const message = `Hi Infiwin, I am interested in getting a Slide & Turn Balcony System. My approximate dimensions are:
+Length: ${dimensions.length} ft
+Height: ${dimensions.height} ft
+Computed Area: ${area} sq.ft.
+Projected Estimate: ₹${rawCost.toLocaleString()}.
+Please share your product catalog!`;
+    return `https://wa.me/917337074370?text=${encodeURIComponent(message)}`;
+  };
+
+  return (
+    <section id="estimator" className="py-20 md:py-28 bg-[#18181B] text-white relative overflow-hidden">
+      {/* Background ambient glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-primary/5 rounded-full blur-[150px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
+
+          {/* Cost Estimator Column */}
+          <div className="flex flex-col justify-between bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md">
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-primary mb-2 block">
+                Instant Pricing Guide
+              </span>
+              <h3 className="text-3xl font-bold mb-2">
+                On-Page System Cost Estimator
+              </h3>
+              <p className="text-white/60 text-xs sm:text-sm mb-8">
+                Enter your customized window/balcony dimensions below. Our system instantly runs the correct calculations using the official formula matrix.
+              </p>
+
+              {/* Length Slider */}
+              <div className="mb-6">
+                <div className="flex justify-between items-center text-xs mb-2">
+                  <span className="text-white/60 uppercase tracking-wider">📏 Length of Balcony / Window (ft)</span>
+                  <span className="font-bold text-brand-primary text-sm">{dimensions.length} ft</span>
+                </div>
+                <input
+                  type="range"
+                  min="4"
+                  max="50"
+                  value={dimensions.length}
+                  onChange={(e) => setDimensions(prev => ({ ...prev, length: Number(e.target.value) }))}
+                  className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-brand-primary focus:outline-none"
+                />
+                <div className="flex justify-between text-[10px] text-white/40 mt-1">
+                  <span>Min: 4 ft</span>
+                  <span>Max: 50 ft</span>
+                </div>
+              </div>
+
+              {/* Height Slider */}
+              <div className="mb-8">
+                <div className="flex justify-between items-center text-xs mb-2">
+                  <span className="text-white/60 uppercase tracking-wider">📐 Height of Balcony / Window (ft)</span>
+                  <span className="font-bold text-brand-primary text-sm">{dimensions.height} ft</span>
+                </div>
+                <input
+                  type="range"
+                  min="3"
+                  max="15"
+                  value={dimensions.height}
+                  onChange={(e) => setDimensions(prev => ({ ...prev, height: Number(e.target.value) }))}
+                  className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-brand-primary focus:outline-none"
+                />
+                <div className="flex justify-between text-[10px] text-white/40 mt-1">
+                  <span>Min: 3 ft</span>
+                  <span>Max: 15 ft</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Display Calculated Cost */}
+            {estimate !== null && (
+              <div className="bg-white/5 border border-white/10 p-6 rounded-2xl">
+                <div className="grid grid-cols-2 gap-4 mb-4 border-b border-white/5 pb-4">
+                  <div>
+                    <div className="text-[9px] uppercase tracking-[0.2em] text-white/50 mb-0.5 font-bold">Calculated Area</div>
+                    <div className="text-base font-bold text-white">{area} sq.ft.</div>
+                  </div>
+                  <div>
+                    <div className="text-[9px] uppercase tracking-[0.2em] text-white/50 mb-0.5 font-bold">Base Unit Price</div>
+                    <div className="text-base font-bold text-white">₹1,800 / sq.ft</div>
+                  </div>
+                </div>
+
+                <div className="text-[10px] uppercase tracking-[0.2em] text-white/50 mb-1 font-bold">
+                  Your Approximate Cost:
+                </div>
+                <div className="text-3xl sm:text-4xl font-extrabold text-brand-primary mb-3">
+                  ₹{estimate.toLocaleString()}
+                </div>
+                <p className="text-[11px] text-white/40 leading-relaxed">
+                  <span className="text-white/70 font-semibold">Legalese Disclaimer Note:</span> + Installation Charges. All final quotes exclude regional local taxes & physical freight charges.
+                </p>
+              </div>
+            )}
+          </div>
+
+          {/* Lead Form Column */}
+          <div className="bg-white text-zinc-900 rounded-3xl p-8 flex flex-col justify-between border border-neutral-100 shadow-xl">
+            {submitted ? (
+              <div className="text-center py-12 flex flex-col items-center justify-center h-full">
+                <div className="h-16 w-16 bg-brand-primary/10 rounded-full flex items-center justify-center mb-6">
+                  <CheckCircle size={32} className="text-brand-primary" />
+                </div>
+                <h4 className="text-2xl font-bold text-zinc-950 mb-2">Thank You! Request Received</h4>
+                <p className="text-neutral-500 text-sm max-w-sm mb-8 leading-relaxed">
+                  Your custom estimation metrics have been logged successfully. An Infiwin executive will call you within 15 minutes to confirm logistics.
+                </p>
+                <div className="w-full border-t border-neutral-100 pt-6">
+                  <span className="text-[9px] font-bold uppercase tracking-widest text-neutral-400 block mb-3">OR CHAT DIRECTLY</span>
+                  <a
+                    href={getWhatsAppLink()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold text-xs uppercase tracking-wider py-4.5 px-8 rounded-full shadow-lg transition-all duration-300 w-full min-h-[48px]"
+                  >
+                    <MessageSquare size={16} /> Get Instant Price via WhatsApp
+                  </a>
+                </div>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col justify-between h-full space-y-6">
+                <div>
+                  <h3 className="text-2xl font-bold text-zinc-950 mb-2">
+                    Lock-In Your Deal Price
+                  </h3>
+                  <p className="text-neutral-500 text-xs sm:text-sm">
+                    Fill out this quick 3-field layout to request our premium catalog along with architectural assistance.
+                  </p>
+                </div>
+
+                <div className="space-y-4">
+                  {/* Name Input */}
+                  <div>
+                    <label className="text-[9px] font-bold uppercase tracking-widest text-neutral-400 block mb-1">
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={form.name}
+                      onChange={handleInputChange}
+                      className="w-full border-b border-neutral-200 py-3 text-sm focus:outline-none focus:border-brand-primary transition-colors bg-transparent text-zinc-900 placeholder:text-neutral-350"
+                      placeholder="eg. Rajesh Sharma"
+                    />
+                    {errors.name && <p className="text-red-500 text-[10px] mt-1 font-semibold">{errors.name}</p>}
+                  </div>
+
+                  {/* Phone Input with Numeric Keypad */}
+                  <div>
+                    <label className="text-[9px] font-bold uppercase tracking-widest text-neutral-400 block mb-1">
+                      Phone Number
+                    </label>
+                    <div className="flex items-center border-b border-neutral-200 focus-within:border-brand-primary transition-colors">
+                      <span className="text-sm font-semibold text-neutral-500 pr-2 select-none">+91</span>
+                      <input
+                        type="tel"
+                        name="phone"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
+                        value={form.phone}
+                        onChange={handleInputChange}
+                        className="w-full py-3 text-sm focus:outline-none bg-transparent text-zinc-900 placeholder:text-neutral-350"
+                        placeholder="73370 74370"
+                      />
+                    </div>
+                    {errors.phone && <p className="text-red-500 text-[10px] mt-1 font-semibold">{errors.phone}</p>}
+                  </div>
+
+                  {/* City Input */}
+                  <div>
+                    <label className="text-[9px] font-bold uppercase tracking-widest text-neutral-400 block mb-1">
+                      Your Location City
+                    </label>
+                    <input
+                      type="text"
+                      name="city"
+                      value={form.city}
+                      onChange={handleInputChange}
+                      className="w-full border-b border-neutral-200 py-3 text-sm focus:outline-none focus:border-brand-primary transition-colors bg-transparent text-zinc-900 placeholder:text-neutral-350"
+                      placeholder="eg. Noida, Delhi, Gurgaon"
+                    />
+                    {errors.city && <p className="text-red-500 text-[10px] mt-1 font-semibold">{errors.city}</p>}
+                  </div>
+                </div>
+
+                <div className="space-y-4 pt-4">
+                  <button
+                    type="submit"
+                    className="w-full py-4.5 bg-brand-dark hover:bg-brand-primary text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-lg transition-all duration-300 min-h-[48px] cursor-pointer"
+                  >
+                    🚀 Request Quote & Call Back
+                  </button>
+
+                  <div className="relative flex py-2 items-center">
+                    <div className="flex-grow border-t border-neutral-100"></div>
+                    <span className="flex-shrink mx-4 text-[9px] font-extrabold uppercase tracking-widest text-neutral-400">OR CHAT DIRECTLY</span>
+                    <div className="flex-grow border-t border-neutral-100"></div>
+                  </div>
+
+                  <a
+                    href={getWhatsAppLink()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-4.5 border border-green-500 text-green-500 hover:bg-green-50 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-300 flex items-center justify-center gap-2 min-h-[48px]"
+                  >
+                    <MessageSquare size={14} /> Get Instant Price via WhatsApp
+                  </a>
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ==========================================
+// 8. FAQ ACCORDION SECTION
+// ==========================================
+function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const faqs = [
+    {
+      q: "What is the standard base price for installation of Slide & Turn glass?",
+      a: "Our baseline starting price for premium architectural systems is approximately ₹1,800/sq.ft. This calculation incorporates elite double-tempered structural safety glass, premium heavy-gauge aluminum support rails, customized weatherproof locking rubber seals, and baseline engineering fitting charges. Freight and government taxes are determined additionally based on shipping distance."
+    },
+    {
+      q: "How do Full Length versus Half Length variants differ?",
+      a: "Full Length structures span continuously from the floor straight up to the concrete ceiling line. Half Length systems are designed to begin either at the top boundary of an existing protective balcony metal/concrete railing, or alternatively feature a pre-installed bottom glass panel acting as a rigid structural railing while the Slide & Turn sliding panes operate seamlessly above it."
+    },
+    {
+      q: "Are frameless glass structures totally waterproof during heavy monsoon seasons?",
+      a: "Yes! Infiwin systems feature inter-pane H-profiles containing customized translucent polymer seals designed to block intense windblown rain completely. Our design profiles feature integrated lower drain holes that successfully transport any minor moisture out towards the exterior facade."
+    },
+    {
+      q: "What type of glass is used in fabrication?",
+      a: "We use high-grade 10mm or 12mm double-tempered structural glass sheets that are extremely robust. This glass is structurally rated to withstand massive high-altitude wind pressure loads and is impact-resistant for complete home safety."
+    }
+  ];
+
+  return (
+    <section className="py-20 md:py-28 bg-white border-t border-neutral-100">
+      <div className="max-w-4xl mx-auto px-6 md:px-12">
+
+        <div className="text-center mb-16">
+          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-primary mb-2 block">
+            Common Queries
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-brand-dark tracking-tight leading-tight">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-neutral-500 text-sm sm:text-base mt-4">
+            Everything you need to know about Infiwin product specifications, warranties, and structural calculations.
+          </p>
+        </div>
+
+        {/* Accordion List */}
+        <div className="space-y-4">
+          {faqs.map((faq, i) => {
+            const isOpen = openIndex === i;
+            return (
+              <div
+                key={i}
+                className="bg-slate-50 border border-neutral-100 rounded-2xl overflow-hidden transition-all duration-300"
+              >
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : i)}
+                  className="w-full flex justify-between items-center p-6 text-left focus:outline-none min-h-[48px]"
+                  aria-expanded={isOpen}
+                >
+                  <span className="text-sm sm:text-base font-bold text-brand-dark pr-4">
+                    {faq.q}
+                  </span>
+                  <div className="h-8 w-8 rounded-full bg-white border border-neutral-200 flex items-center justify-center text-neutral-500 shrink-0">
+                    {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                  </div>
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25, ease: "easeInOut" }}
+                    >
+                      <div className="px-6 pb-6 pt-0 text-xs sm:text-sm text-neutral-500 leading-relaxed">
+                        {faq.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
+
+      </div>
+    </section>
+  );
+}

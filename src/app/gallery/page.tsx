@@ -5,18 +5,18 @@ import { motion, AnimatePresence } from 'motion/react';
 import { 
   Play, 
   X, 
-  Maximize2, 
+  ArrowsAngleExpand as Maximize2, 
   ChevronRight, 
-  FileVideo, 
+  FileEarmarkPlay as FileVideo, 
   Image as ImageIcon, 
   Layers, 
   ArrowRight,
   Eye,
-  Info,
+  InfoCircle as Info,
   Calendar,
-  MapPin,
+  GeoAlt as MapPin,
   Activity
-} from 'lucide-react';
+} from 'react-bootstrap-icons';
 
 // --- DATA STRUCTURES ---
 

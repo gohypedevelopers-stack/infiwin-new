@@ -3,12 +3,12 @@
 import { motion } from 'motion/react';
 import { 
   Plus, 
-  Minus, 
-  HelpCircle, 
-  MessageCircle, 
-  Phone,
+  Dash as Minus, 
+  QuestionCircle as HelpCircle, 
+  ChatDots as MessageCircle, 
+  Telephone as Phone,
   ChevronRight
-} from 'lucide-react';
+} from 'react-bootstrap-icons';
 import React, { useState } from 'react';
 
 const faqCategories = [
@@ -128,10 +128,10 @@ export default function FAQsPage() {
             Our expert team is ready to help you with any technical or design inquiries you may have.
           </p>
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-            <a href="tel:+971542365212" className="flex items-center gap-3 px-8 py-4 bg-brand-dark text-white text-[10px] font-bold uppercase tracking-widest hover:bg-brand-primary transition-all">
+            <a href="tel:+917337074370" className="flex items-center gap-3 px-8 py-4 bg-brand-dark text-white text-[10px] font-bold uppercase tracking-widest hover:bg-brand-primary transition-all">
               <Phone size={14} /> Call Support
             </a>
-            <a href="https://wa.me/971542365212" target="_blank" className="flex items-center gap-3 px-8 py-4 border border-green-500 text-green-500 text-[10px] font-bold uppercase tracking-widest hover:bg-green-50 transition-all">
+            <a href="https://wa.me/917337074370" target="_blank" className="flex items-center gap-3 px-8 py-4 border border-green-500 text-green-500 text-[10px] font-bold uppercase tracking-widest hover:bg-green-50 transition-all">
               <MessageCircle size={14} /> WhatsApp Us
             </a>
           </div>

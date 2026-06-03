@@ -2,14 +2,14 @@
 
 import { motion } from 'motion/react';
 import { 
-  Home, 
-  Building2, 
-  Monitor, 
-  MapPin, 
-  Coffee, 
-  Paintbrush,
+  House as Home, 
+  Building as Building2, 
+  Display as Monitor, 
+  GeoAlt as MapPin, 
+  CupHot as Coffee, 
+  Brush as Paintbrush,
   ArrowRight
-} from 'lucide-react';
+} from 'react-bootstrap-icons';
 import React from 'react';
 
 const applications = [

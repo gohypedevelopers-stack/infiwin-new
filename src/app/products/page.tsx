@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 import {
   ArrowRight,
   CheckCircle,
-} from 'lucide-react';
+} from 'react-bootstrap-icons';
 import React from 'react';
 
 const products = [
