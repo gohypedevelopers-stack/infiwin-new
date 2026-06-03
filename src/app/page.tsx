@@ -108,8 +108,6 @@ function HeroSection() {
 
   return (
     <section
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       className="relative w-full h-screen min-h-[600px] sm:min-h-[650px] overflow-hidden bg-zinc-950 flex flex-col justify-between pt-20 md:pt-28 pb-6 md:pb-10 px-6 md:px-12 lg:px-16"
     >
       {/* Background Slides */}
@@ -188,16 +186,28 @@ function HeroSection() {
           </div>
         </div>
 
-        {/* Carousel Indicators */}
-        <div className="flex items-center justify-center gap-3">
+        {/* Carousel Indicators (Thumbnails) */}
+        <div className="flex items-center justify-center gap-3 md:gap-4">
           {HERO_SLIDES.map((slide, i) => (
             <button
               key={slide.id}
               onClick={() => setActiveIndex(i)}
-              className={`h-2 rounded-full transition-all duration-500 cursor-pointer ${activeIndex === i ? 'w-8 bg-brand-primary' : 'w-2 bg-white/40 hover:bg-white/70'
-                }`}
+              className={`relative overflow-hidden rounded-lg transition-all duration-500 cursor-pointer border-2 ${
+                activeIndex === i 
+                  ? 'w-20 h-16 sm:w-32 sm:h-20 border-brand-primary scale-110 shadow-lg z-10' 
+                  : 'w-16 h-12 sm:w-24 sm:h-16 border-white/20 hover:border-white/60 opacity-60 hover:opacity-100'
+              }`}
               aria-label={`Slide ${i + 1}`}
-            />
+            >
+              <img 
+                src={slide.img} 
+                alt={`Thumbnail ${i + 1}`} 
+                className="w-full h-full object-cover"
+              />
+              {activeIndex !== i && (
+                <div className="absolute inset-0 bg-black/40" />
+              )}
+            </button>
           ))}
         </div>
       </div>
@@ -287,9 +297,6 @@ function BenefitsSection() {
 // ==========================================
 // 3. BEST SELLING PRODUCT SECTION
 // ==========================================
-// ==========================================
-// 3. BEST SELLING PRODUCT SECTION
-// ==========================================
 function BestSellingProductSection() {
   const [activeVariant, setActiveVariant] = useState<'A' | 'B'>('A');
 
@@ -330,7 +337,7 @@ function BestSellingProductSection() {
               {/* Overlapping Ribbon */}
               <div className="absolute top-6 left-6 z-20 flex items-center gap-1.5 bg-brand-primary text-white text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">
                 <Sparkles size={12} />
-                <span>MOST POPULAR BEST SELLER</span>
+                <span>MOST POPULAR</span>
               </div>
             </div>
 
@@ -730,7 +737,7 @@ function ApplicationsSection({ selectedApp, setSelectedApp }: { selectedApp: str
               <div
                 key={idx}
                 onClick={() => handleAppClick(a.name)}
-                className={`relative aspect-[4/3] rounded-3xl overflow-hidden group shadow-sm flex flex-col justify-between p-4 sm:p-6 cursor-pointer border transition-all duration-300 bg-zinc-950 ${isActive ? 'border-brand-primary scale-[1.03] ring-4 ring-brand-primary/20' : 'border-neutral-800 hover:scale-[1.01]'
+                className={`relative aspect-[4/3] rounded-3xl overflow-hidden group shadow-sm flex flex-col justify-between p-3.5 sm:p-6 cursor-pointer border transition-all duration-300 bg-zinc-950 ${isActive ? 'border-brand-primary scale-[1.03] ring-4 ring-brand-primary/20' : 'border-neutral-800 hover:scale-[1.01]'
                   }`}
                 style={{ backgroundColor: '#09090b' }}
               >
@@ -742,21 +749,21 @@ function ApplicationsSection({ selectedApp, setSelectedApp }: { selectedApp: str
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-750 group-hover:scale-108 z-0 opacity-80"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent z-10 group-hover:via-black/45 transition-all duration-300" />
-
+ 
                 {/* Icon Container */}
-                <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center self-end relative z-20">
-                  {React.cloneElement(a.icon, { size: 20, className: "text-white" })}
+                <div className="h-8 w-8 sm:h-12 sm:w-12 rounded-lg sm:rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center self-end relative z-20">
+                  {React.cloneElement(a.icon, { size: undefined, className: "text-white w-4 h-4 sm:w-5 sm:h-5" })}
                 </div>
-
+ 
                 {/* Text Meta (Max 2 lines description) */}
                 <div className="relative z-20 mt-auto">
-                  <span className="text-[8px] sm:text-[9px] font-bold text-brand-primary uppercase tracking-widest block mb-1">
+                  <span className="text-[7px] sm:text-[9px] font-bold text-brand-primary uppercase tracking-widest block mb-0.5">
                     {a.tag}
                   </span>
-                  <h4 className="text-sm sm:text-base font-bold text-white uppercase tracking-wider mb-1">
+                  <h4 className="text-[11px] sm:text-sm md:text-base font-extrabold text-white uppercase tracking-wider mb-0.5 leading-tight">
                     {a.name}
                   </h4>
-                  <p className="text-white/80 text-[10px] sm:text-xs leading-snug line-clamp-2 font-medium">
+                  <p className="hidden xs:block text-white/80 text-[10px] sm:text-xs leading-snug line-clamp-2 font-medium mt-1">
                     {a.desc}
                   </p>
                 </div>
@@ -766,13 +773,13 @@ function ApplicationsSection({ selectedApp, setSelectedApp }: { selectedApp: str
         </div>
 
         {/* Base Action CTA Button */}
-        <div className="flex justify-center mt-12">
+        <div className="flex justify-center mt-8 sm:mt-12 px-4">
           <a
             href="#estimator"
-            className="group inline-flex items-center gap-2 bg-brand-dark text-white hover:bg-brand-primary px-8 py-4 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md"
+            className="group inline-flex items-center justify-center gap-2 bg-brand-dark text-white hover:bg-brand-primary px-5 py-3 sm:px-8 sm:py-4 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md text-center max-w-full"
           >
-            Get Custom Enclosure Quote For Your Space
-            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            <span>Get Custom Enclosure Quote <span className="hidden xs:inline">For Your Space</span></span>
+            <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform shrink-0" />
           </a>
         </div>
 

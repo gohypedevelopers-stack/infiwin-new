@@ -77,11 +77,10 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
   return (
     <>
       <nav
-        className={`fixed left-0 right-0 top-0 z-[100] transition-all duration-500 ${
-          showSolid
+        className={`fixed left-0 right-0 top-0 z-[100] transition-all duration-500 ${showSolid
             ? 'w-full bg-white/90 backdrop-blur-md py-4 px-6 shadow-[0_12px_40px_rgba(0,0,0,0.08)] border-b border-neutral-100'
             : 'w-full bg-white/10 backdrop-blur-md py-4 px-6 border-b border-white/10 shadow-sm'
-        }`}
+          }`}
         onMouseLeave={() => setActiveMenu(null)}
       >
         <div className="max-w-[1600px] mx-auto flex justify-between items-center relative">
@@ -131,10 +130,10 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
             <div ref={searchContainerRef} className="relative w-full max-w-[200px] xl:max-w-[250px]">
               <div
                 className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all duration-300 ${isSearchFocused
-                    ? 'bg-white border-brand-primary shadow-sm ring-2 ring-brand-primary/10 text-brand-dark'
-                    : showSolid
-                      ? 'bg-neutral-100 border-neutral-200 text-brand-dark'
-                      : 'bg-white/10 border-white/20 text-white'
+                  ? 'bg-white border-brand-primary shadow-sm ring-2 ring-brand-primary/10 text-brand-dark'
+                  : showSolid
+                    ? 'bg-neutral-100 border-neutral-200 text-brand-dark'
+                    : 'bg-white/10 border-white/20 text-white'
                   }`}
               >
                 <Search size={16} className={isSearchFocused ? 'text-brand-primary' : showSolid ? 'text-neutral-400' : 'text-white/60'} />
@@ -144,20 +143,18 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onFocus={() => setIsSearchFocused(true)}
                   placeholder="Search..."
-                  className={`bg-transparent border-none outline-none text-xs w-full focus:ring-0 focus:outline-none p-0 transition-colors duration-300 ${
-                    isSearchFocused || showSolid
+                  className={`bg-transparent border-none outline-none text-xs w-full focus:ring-0 focus:outline-none p-0 transition-colors duration-300 ${isSearchFocused || showSolid
                       ? 'text-brand-dark placeholder:text-neutral-400'
                       : 'text-white placeholder:text-white/60'
-                  }`}
+                    }`}
                 />
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery('')}
-                    className={`transition-colors duration-300 ${
-                      isSearchFocused || showSolid
+                    className={`transition-colors duration-300 ${isSearchFocused || showSolid
                         ? 'text-neutral-400 hover:text-neutral-600'
                         : 'text-white/60 hover:text-white'
-                    }`}
+                      }`}
                   >
                     <X size={14} />
                   </button>
@@ -228,8 +225,8 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
             <Link
               href="/contact"
               className={`px-6 py-2.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 shadow-sm shrink-0 ${showSolid
-                  ? 'bg-brand-primary text-white hover:bg-brand-dark'
-                  : 'bg-white text-brand-dark hover:bg-brand-primary hover:text-white'
+                ? 'bg-brand-primary text-white hover:bg-brand-dark'
+                : 'bg-white text-brand-dark hover:bg-brand-primary hover:text-white'
                 }`}
             >
               Get Free Quote
