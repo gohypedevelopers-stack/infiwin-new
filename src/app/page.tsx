@@ -205,10 +205,11 @@ function HeroSection() {
       {/* Dynamic Marquee absolute base at the bottom of Hero Section */}
       <div className="absolute bottom-0 left-0 right-0 z-30 w-full bg-[#4385F5] text-white py-2 text-xs font-bold overflow-hidden select-none border-t border-white/10 shadow-lg">
         <div className="flex w-max animate-marquee">
-          <span className="px-6">Transform your home with premium India-built glass systems starting from ₹1,800/sq.ft!</span>
-          <span className="px-6">Transform your home with premium India-built glass systems starting from ₹1,800/sq.ft!</span>
-          <span className="px-6">Transform your home with premium India-built glass systems starting from ₹1,800/sq.ft!</span>
-          <span className="px-6">Transform your home with premium India-built glass systems starting from ₹1,800/sq.ft!</span>
+          {Array.from({ length: 16 }).map((_, idx) => (
+            <span key={idx} className="px-6 whitespace-nowrap shrink-0">
+              Transform your home with premium India-built glass systems starting from ₹1,800/sq.ft!
+            </span>
+          ))}
         </div>
       </div>
     </section>
