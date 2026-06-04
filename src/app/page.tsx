@@ -487,7 +487,7 @@ function ProductsGridSection({ selectedApp, setSelectedApp }: { selectedApp: str
       subtitle: "Split-fold Symmetrical",
       benefit: "Panels partition left and right symmetrically to retain optimal balances.",
       img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_29_01 PM.png",
-      href: "/products#insulated"
+      href: "/products#centre-open"
     },
     {
       id: "p4",

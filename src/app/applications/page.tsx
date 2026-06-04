@@ -5,55 +5,71 @@ import {
   House as Home, 
   Building as Building2, 
   Display as Monitor, 
-  GeoAlt as MapPin, 
   CupHot as Coffee, 
   Brush as Paintbrush,
+  Layers,
+  Wind,
+  Stars as Sparkles,
   ArrowRight
 } from 'react-bootstrap-icons';
 import React from 'react';
 
 const applications = [
   {
-    id: "balcony-terrace",
-    title: "Balcony & Terrace",
-    desc: "Reclaim your outdoor space. Our systems protect against dust, rain, and noise while maintaining a perfect panoramic view.",
+    id: "balcony",
+    title: "Balcony",
+    desc: "Unobstructed frameless premium safety glazing barriers. Reclaim your outdoor space with systems that protect against dust, rain, and noise.",
     img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_25_52 PM.png",
     icon: <Home size={32} />
   },
   {
-    id: "partitions",
-    title: "Interior Partitions",
-    desc: "Create flexible living and working environments. Our frameless glass partitions provide sound insulation without visual barriers.",
+    id: "partition",
+    title: "Int. Partition",
+    desc: "Sleek separation zones for functional multi-use spaces. Create flexible living and working environments without visual barriers.",
     img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_15_29 PM.png",
-    icon: <Building2 size={32} />
-  },
-  {
-    id: "office",
-    title: "Office Spaces",
-    desc: "Modern executive environments designed for focus and collaboration. Seamlessly divide conference rooms and private offices.",
-    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_16_49 PM.png",
-    icon: <Monitor size={32} />
+    icon: <Layers size={32} />
   },
   {
     id: "commercial",
-    title: "Commercial & Retail",
-    desc: "Invite customers in with wide-open storefronts. Our systems are durable, secure, and visually arresting for any retail space.",
+    title: "Commercial",
+    desc: "High durability storefront facades & internal partition grids. Invite customers in with wide-open, secure, and visually arresting storefronts.",
     img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_52_36 PM.png",
     icon: <Building2 size={32} />
   },
   {
-    id: "garden-farmhouses",
-    title: "Garden & Farmhouses",
-    desc: "Blend your architecture with nature. Create stunning glass pavilions and winter gardens that can be fully opened during pleasant weather.",
-    img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_27_22 PM.png",
-    icon: <MapPin size={32} />
+    id: "exterior",
+    title: "Exterior",
+    desc: "Rigid wind resistance profile constructs for elevations. Protect your building's exterior while maintaining premium aesthetic appeal.",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 01_10_02 PM.png",
+    icon: <Wind size={32} />
   },
   {
-    id: "hospitality",
-    title: "Hospitality",
-    desc: "Cafes, restaurants, and hotels can maximize their seating capacity and offer guests a unique 'alfresco' experience year-round.",
+    id: "terrace",
+    title: "Terrace",
+    desc: "Convert open terraces into delightful year-round glass lounges. Enjoy the outdoors in any weather with our robust glazing systems.",
     img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_30_38 PM.png",
     icon: <Coffee size={32} />
+  },
+  {
+    id: "farm-house",
+    title: "Farm House",
+    desc: "Connect beautiful country landscaping with spacious interiors. Create stunning glass pavilions that can be fully opened during pleasant weather.",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_27_22 PM.png",
+    icon: <Sparkles size={32} />
+  },
+  {
+    id: "office",
+    title: "Office Space",
+    desc: "Acoustically isolated conference cubes & manager cabins. Modern executive environments designed for focus and seamless collaboration.",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_16_49 PM.png",
+    icon: <Monitor size={32} />
+  },
+  {
+    id: "garden",
+    title: "Garden",
+    desc: "Sleek verandas merging beautiful greenery with indoor thermal comfort. Blend your architecture with nature effortlessly.",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_20_57 PM.png",
+    icon: <Paintbrush size={32} />
   }
 ];
 

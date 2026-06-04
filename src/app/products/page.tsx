@@ -10,213 +10,129 @@ import React from 'react';
 const products = [
   {
     id: "folding",
-    title: "Folding glass balcony systems",
-    tagline: "Unobstructed views & seamless protection",
-    desc: "Learn more about the INFIWIN folding balcony glazing. All the benefits, planning and see what other customers worldwide have done and get inspired. Perfect for creating a 100% clear opening.",
+    title: "Slide & Turn System",
+    tagline: "Perfect view maximization with foldaway tracking system layout.",
+    desc: "Our iconic signature slide and turn glides on ultra-smooth tracks, allowing individual sheets of toughened glass to fully stack to either extreme corner. Offers 100% opening potential when desired, making it absolute king of balcony utility layout concepts.",
     features: [
-      "No vertical profiles for maximum transparency",
-      "Protects against dust, wind, and rain",
-      "Reduces noise levels significantly",
-      "Toughened 8mm or 10mm safety glass",
-      "Panels slide and fold to the side easily"
+      "No vertical frames for unobstructed views",
+      "100% opening potential",
+      "Premium smooth-gliding tracks",
+      "Individual panels stack neatly",
+      "Excellent weather protection"
     ],
     technical: {
-      glass: "8mm / 10mm Toughened",
-      sealing: "UV-Resistant Gaskets",
-      profiles: "Minimalist Aluminum Rails",
+      glass: "Toughened Safety Glass",
+      sealing: "Transparent H-Gaskets",
+      profiles: "Premium Aluminum Rails",
       opening: "100% Clear Opening"
     },
-    img: "/infi new/Folding glass balcony systems.png",
-    category: "Balcony systems"
-  },
-  {
-    id: "slide-and-turn",
-    title: "Slide & Turn Systems",
-    tagline: "Signature frameless stackable glazing",
-    desc: "The ultimate signature INFIWIN glazing system. Panels slide independently along a single track and turn 90 degrees at the end to stack completely out of the way. Ideal for high-end balconies, terraces, and cafe partitions.",
-    features: [
-      "Independently sliding and folding panels",
-      "100% opening potential with zero vertical posts",
-      "Premium double weather stripping for high performance",
-      "Suitable for complex polygonal or curved tracks",
-      "Available in single or insulated double-glazed profiles"
-    ],
-    technical: {
-      hardware: "Heavy Duty Concealed Rollers",
-      profiles: "Anodized Structural Aluminum T6063",
-      sealing: "Acoustic EPDM & Transparent H-Gaskets",
-      capacity: "Up to 80kg panel weight capacity"
-    },
-    img: "/infi new/Slide & Turn Systems.png",
-    category: "Sliding folding systems"
-  },
-  {
-    id: "insulated",
-    title: "Insulated glass balcony systems",
-    tagline: "Thermal comfort for every climate",
-    desc: "Engineered with advanced thermal break technology, the INFIWIN insulated glass balcony system keeps your living space comfortable year-round, regardless of extreme temperatures.",
-    features: [
-      "Advanced thermal-break aluminum profiles",
-      "Double or triple glazing options",
-      "Superior energy efficiency and insulation",
-      "Enhanced acoustic dampening",
-      "High weather resistance for extreme heat/cold"
-    ],
-    technical: {
-      glass: "Double Glazed / Low-E",
-      uValue: "Low Thermal Transmittance",
-      sealing: "Multi-layered EPDM",
-      insulation: "Thermal Break Profiles"
-    },
-    img: "/infi new/Insulated glass balcony systems image.png",
-    category: "Balcony systems"
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_13_49 PM.png",
+    category: "Balcony Enclosure"
   },
   {
     id: "sliding",
-    title: "Sliding glass systems",
-    tagline: "Effortless spatial transitions",
-    desc: "Transform your unused outdoor places into inspiring and stylish spaces. The INFIWIN sliding glass system provides smooth movement and a sleek, modern aesthetic for terraces and patios.",
+    title: "Telescopic Slider System",
+    tagline: "Overlapping glazed sheets for continuous uninterrupted tracks.",
+    desc: "Experience super smooth gliding with our telescopic sliding system. Multiple glass panels overlap and slide seamlessly to provide a wide, continuous opening, ideal for large architectural spans and balcony enclosures.",
     features: [
       "Smooth multi-track sliding mechanism",
+      "Overlapping panels for continuous tracking",
       "Slim profiles for minimalist design",
-      "Space-efficient operation (no folding space needed)",
       "High-performance roller technology",
-      "Perfect for large architectural spans"
+      "Space-efficient operation"
     ],
     technical: {
-      tracks: "2, 3, 4, or 5 Track options",
-      operation: "Telescopic / Parallel Sliding",
-      glass: "10mm / 12mm Toughened",
-      hardware: "Stainless Steel Rollers"
-    },
-    img: "/infi new/Sliding glass systems images.png",
-    category: "Sliding systems"
-  },
-  {
-    id: "shop",
-    title: "Shop window glass systems",
-    tagline: "Maximum visibility, maximum security",
-    desc: "Designed specifically for commercial storefronts, INFIWIN shop window systems provide crystal-clear visibility for merchandise while offering robust security and easy access.",
-    features: [
-      "Large-scale glass panels for maximum display",
-      "Heavy-duty security locking mechanisms",
-      "Frameless or slim-frame commercial designs",
-      "Easy maintenance and high durability",
-      "Customizable configurations for grand entrances"
-    ],
-    technical: {
-      use: "Retail / Commercial Fronts",
-      security: "Multi-point locking",
-      glass: "12mm+ Toughened / Laminated",
-      profiles: "Commercial Grade Aluminum"
-    },
-    img: "/infi new/Shop window glass.png",
-    category: "Commercial"
-  },
-  {
-    id: "guillotine",
-    title: "Guillotine glass systems",
-    tagline: "The future of motorized glazing",
-    desc: "A remote-controlled vertical sliding glass system. The INFIWIN guillotine system acts as a glass railing when open and a full enclosure when closed, making it ideal for cafes and luxury patios.",
-    features: [
-      "Fully motorized IoT-enabled operation",
-      "Remote control and mobile app integration",
-      "Acts as a safety railing in 'half-open' state",
-      "Quiet and smooth vertical movement",
-      "High wind resistance and stability"
-    ],
-    technical: {
-      motor: "SOMFY / Premium Electric Drive",
-      control: "Remote / App / Smart Home",
-      glass: "8mm / 10mm / Double Glazed",
-      safety: "Automatic Stop Sensors"
-    },
-    img: "/infi new/Guillotine glass systems.png",
-    category: "Motorized systems"
-  },
-  {
-    id: "motor",
-    title: "Walking motor system",
-    tagline: "Precision engineering in motion",
-    desc: "An innovative motorized solution designed for specialized glass movements. The walking motor ensures precise and silent operation for complex architectural glazing requirements.",
-    features: [
-      "High torque with silent operation",
-      "Designed for heavy-duty glass panels",
-      "Precise positioning technology",
-      "Long-term reliability and low maintenance",
-      "Seamless integration with INFIWIN systems"
-    ],
-    technical: {
-      type: "Architectural Grade Motor",
-      capacity: "Heavy-duty Load Bearing",
-      integration: "Plug-and-play with INFIWIN systems",
-      durability: "Tested for 100,000+ cycles"
-    },
-    img: "/infi new/Walking motor system.png",
-    category: "Accessories & automation"
-  },
-  {
-    id: "roof",
-    title: "Fixed glass roof",
-    tagline: "Let the light in, keep the weather out",
-    desc: "High-performance veranda roof systems that provide permanent protection while allowing maximum natural light. Engineered for durability and high-end aesthetics.",
-    features: [
-      "Structural glass panels for permanent roofs",
-      "Integrated drainage and gutter systems",
-      "Self-cleaning glass options available",
-      "High load-bearing aluminum structure",
-      "UV protection for the space below"
-    ],
-    technical: {
-      structure: "Reinforced Aluminum Beam",
-      glass: "Laminated Safety / Double Glazed",
-      loading: "Engineered for Wind & Snow",
-      sealing: "Traction-fit Sealing Technology"
-    },
-    img: "/infi new/Fixed glass roof.png",
-    category: "Roof systems"
-  },
-  {
-    id: "windbreaker",
-    title: "Windbreaker system",
-    tagline: "Stylish protection for outdoor areas",
-    desc: "Protect your outdoor seating from wind and noise without losing the view. Ideal for garden terraces and restaurant patios in windy environments.",
-    features: [
-      "Adjustable height options",
-      "Easy-to-use manual or motorized adjustment",
-      "Clear view with high-quality safety glass",
-      "Stable even in high wind conditions",
-      "Modern minimalist design"
-    ],
-    technical: {
-      type: "Adjustable Glass Shield",
-      height: "Variable up to 1800mm",
+      tracks: "Multiple Tracks",
+      operation: "Telescopic Sliding",
       glass: "Toughened Safety Glass",
-      base: "Heavy-duty Floor Mount"
+      hardware: "Premium Rollers"
     },
-    img: "/infi new/Windbreaker system.png",
-    category: "Outdoor protection"
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_50_39 PM.png",
+    category: "Super Smooth Gliding"
   },
   {
-    id: "bioclimatic",
-    title: "Bioclimatic pergola",
-    tagline: "The ultimate outdoor living space",
-    desc: "An IoT-enabled smart roof system with rotatable aluminum slats. The INFIWIN bioclimatic pergola offers perfect light control, ventilation, and full rain protection.",
+    id: "centre-open",
+    title: "Centre Open System",
+    tagline: "Panels partition left and right symmetrically to retain optimal balances.",
+    desc: "A beautifully balanced system where panels split and fold to both left and right sides. This symmetrical operation is perfect for wide openings, ensuring structural stability and an elegant aesthetic.",
     features: [
-      "Motorized rotating aluminum louvers",
-      "Built-in LED lighting and heating options",
-      "Fully watertight when slats are closed",
-      "Smart sensors for rain and wind protection",
-      "Compatible with all INFIWIN glass wall systems"
+      "Symmetrical split-fold operation",
+      "Retains optimal balance for wide spans",
+      "No vertical framing when closed",
+      "Easy and secure locking mechanisms",
+      "Seamless indoor-outdoor flow"
     ],
     technical: {
-      roof: "IoT Smart Rotating Slats",
-      control: "Somfy Smart Home / App",
-      structure: "Extruded Aluminum T6063",
-      lighting: "Integrated RGB/White LED"
+      operation: "Centre Opening / Split Fold",
+      glass: "Toughened Safety Glass",
+      profiles: "Symmetrical Aluminum Framing",
+      locking: "Secure Centre Lock"
     },
-    img: "/infi new/Bioclimatic pergola.png",
-    category: "Roof systems"
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_29_01 PM.png",
+    category: "Split-fold Symmetrical"
+  },
+  {
+    id: "bifold",
+    title: "Bi-fold Glass System",
+    tagline: "Sleek folding structure for rapid internal partition transition zones.",
+    desc: "Create dynamic and flexible spaces with our premium bi-fold glass system. Perfect for internal partitions or external boundaries, these connected panels fold concertina-style for rapid transitions.",
+    features: [
+      "Concertina-style folding mechanism",
+      "Rapid and easy transitions",
+      "Sleek and modern aesthetic",
+      "Excellent acoustic dampening for partitions",
+      "High-quality hinged hardware"
+    ],
+    technical: {
+      operation: "Bi-folding Panels",
+      hardware: "Heavy Duty Hinges",
+      glass: "Safety Glass Options",
+      profiles: "Slimline Aluminum"
+    },
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_27_22 PM.png",
+    category: "Premium Partition"
+  },
+  {
+    id: "sliding-2track",
+    title: "2 Track Slider",
+    tagline: "Classic, cost-effective structural system layout with premium hardware profiles.",
+    desc: "A reliable and classic sliding system featuring a 2-track layout. It combines cost-effectiveness with our signature premium hardware, making it a versatile choice for standard doors and windows.",
+    features: [
+      "Classic 2-track sliding layout",
+      "Cost-effective yet premium build",
+      "Smooth and reliable rollers",
+      "Excellent weather sealing",
+      "Customizable for various spaces"
+    ],
+    technical: {
+      tracks: "2 Track Profile",
+      operation: "Parallel Sliding",
+      glass: "Toughened Glass",
+      sealing: "Weather-resistant EPDM"
+    },
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_25_52 PM.png",
+    category: "Doors & Windows"
+  },
+  {
+    id: "sliding-3track",
+    title: "3 Track Slider",
+    tagline: "Wider spans of clear structural views integrating bug mesh slider capability.",
+    desc: "Expand your horizons with our 3-track sliding system. Designed for wider architectural spans, it offers the added benefit of integrating a dedicated bug mesh slider, providing fresh air without the insects.",
+    features: [
+      "3-track layout for wider openings",
+      "Integrated bug mesh capability",
+      "Maximizes natural ventilation",
+      "Sturdy structural view profiles",
+      "Smooth parallel sliding action"
+    ],
+    technical: {
+      tracks: "3 Track Profile",
+      mesh: "Integrated Bug Mesh Option",
+      glass: "Toughened Glass",
+      hardware: "Premium Roller System"
+    },
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_30_38 PM.png",
+    category: "Doors & Windows"
   }
 ];
 
