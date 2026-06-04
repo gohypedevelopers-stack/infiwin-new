@@ -53,7 +53,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative w-full h-screen min-h-[620px] md:min-h-[680px] xl:min-h-[760px] overflow-hidden bg-zinc-950 flex flex-col justify-between pt-20 md:pt-24 xl:pt-28 pb-6 md:pb-8 xl:pb-10 px-6 md:px-10 xl:px-16"
+      className="relative w-full h-screen min-h-[620px] md:min-h-[720px] xl:min-h-[760px] overflow-hidden bg-zinc-950 flex flex-col justify-between pt-20 md:pt-24 xl:pt-28 pb-6 md:pb-8 xl:pb-10 px-6 md:px-10 xl:px-16"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -116,7 +116,7 @@ export default function HeroSection() {
       </div>
 
       {/* Carousel Dots & Trust Badges */}
-      <div className="relative z-20 w-full flex flex-col md:flex-row items-center justify-between gap-4 border-t border-white/10 pt-4 mt-4 pb-12 md:pb-10 xl:pb-12">
+      <div className="relative z-20 w-full flex flex-col md:flex-row items-center justify-between gap-4 border-t border-white/10 pt-4 mt-4 mb-9 md:mb-10 xl:mb-9">
         {/* Trust Indicators / Live Proof Statistics */}
         <div className="grid grid-cols-3 gap-2 w-full md:flex md:w-auto md:flex-wrap md:items-center md:gap-8 xl:gap-12 text-white">
           <div className="flex flex-col">
@@ -134,15 +134,15 @@ export default function HeroSection() {
         </div>
 
         {/* Carousel Indicators (Thumbnails) */}
-        <div className="flex items-center justify-center gap-3 md:gap-4">
+        <div className="flex items-center justify-center gap-3 md:gap-3 xl:gap-4">
           {HERO_SLIDES.map((slide, i) => (
             <button
               key={slide.id}
               onClick={() => setActiveIndex(i)}
               className={`relative overflow-hidden rounded-lg transition-all duration-500 cursor-pointer border-2 ${
                 activeIndex === i 
-                  ? 'w-20 h-16 sm:w-32 sm:h-20 md:w-24 md:h-16 xl:w-32 xl:h-20 border-brand-primary scale-110 shadow-lg z-10' 
-                  : 'w-16 h-12 sm:w-24 sm:h-16 md:w-20 md:h-14 xl:w-24 xl:h-16 border-white/20 hover:border-white/60 opacity-60 hover:opacity-100'
+                  ? 'w-20 h-16 sm:w-32 sm:h-20 md:w-[88px] md:h-14 xl:w-32 xl:h-20 border-brand-primary scale-110 shadow-lg z-10' 
+                  : 'w-16 h-12 sm:w-24 sm:h-16 md:w-[72px] md:h-12 xl:w-24 xl:h-16 border-white/20 hover:border-white/60 opacity-60 hover:opacity-100'
               }`}
               aria-label={`Slide ${i + 1}`}
             >
