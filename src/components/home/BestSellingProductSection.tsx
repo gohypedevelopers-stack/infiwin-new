@@ -12,12 +12,12 @@ export default function BestSellingProductSection() {
     A: {
       name: "Full Length Option",
       desc: "Floor to ceiling coverage structure. Spans continuously from the floor straight up to the concrete ceiling line, creating a stunning, seamless floor-to-ceiling glazed sunroom style with direct outdoor views.",
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_13_49 PM.png"
+      img: "https://i.postimg.cc/R05g4PxJ/IMG-20250119-WA0011.jpg"
     },
     B: {
       name: "Half Length Option",
       desc: "Railing to ceiling / fixed system. Designed to begin either at the top boundary of an existing protective balcony metal/concrete railing, or alternatively feature a pre-installed bottom glass panel acting as a rigid structural railing while the Slide & Turn sliding panes operate seamlessly above it.",
-      img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_18_04 PM.png"
+      img: "https://i.postimg.cc/x10dhQcV/Chat-GPT-Image-Jun-4-2026-03-02-04-PM.png"
     }
   };
 

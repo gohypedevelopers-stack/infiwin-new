@@ -73,7 +73,7 @@ export default function ApplicationsSection({ selectedApp, setSelectedApp }: { s
 
   return (
     <section className="py-20 md:py-28 bg-white border-t border-neutral-100">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
 
         {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
@@ -106,14 +106,22 @@ export default function ApplicationsSection({ selectedApp, setSelectedApp }: { s
         )}
 
         {/* 8-Application Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 md:gap-7">
           {apps.map((a, idx) => {
             const isActive = selectedApp === a.name;
             return (
               <div
                 key={idx}
                 onClick={() => handleAppClick(a.name)}
-                className={`relative aspect-[4/3] rounded-3xl overflow-hidden group shadow-sm flex flex-col justify-between p-3.5 sm:p-6 cursor-pointer border transition-all duration-300 bg-zinc-950 ${isActive ? 'border-brand-primary scale-[1.03] ring-4 ring-brand-primary/20' : 'border-neutral-800 hover:scale-[1.01]'
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleAppClick(a.name);
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                className={`relative aspect-[4/5] md:aspect-[5/4] rounded-3xl overflow-hidden group shadow-sm flex flex-col justify-between p-4 md:p-7 cursor-pointer border transition-all duration-300 bg-zinc-950 outline-none focus-visible:ring-4 focus-visible:ring-brand-primary/20 ${isActive ? 'border-brand-primary md:scale-[1.03] ring-4 ring-brand-primary/20' : 'border-neutral-800 md:hover:scale-[1.015]'
                   }`}
                 style={{ backgroundColor: '#09090b' }}
               >
@@ -122,12 +130,12 @@ export default function ApplicationsSection({ selectedApp, setSelectedApp }: { s
                   src={a.img}
                   alt={`${a.name} Application`}
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-750 group-hover:scale-108 z-0 opacity-80"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-750 md:group-hover:scale-108 z-0 opacity-80"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent z-10 group-hover:via-black/45 transition-all duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent z-10 md:group-hover:via-black/50 transition-all duration-300" />
  
                 {/* Icon Container */}
-                <div className="h-8 w-8 sm:h-12 sm:w-12 rounded-lg sm:rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center self-end relative z-20">
+                <div className="h-9 w-9 md:h-13 md:w-13 rounded-lg md:rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center self-end relative z-20">
                   {React.cloneElement(a.icon, { size: undefined, className: "text-white w-4 h-4 sm:w-5 sm:h-5" })}
                 </div>
  
@@ -139,7 +147,7 @@ export default function ApplicationsSection({ selectedApp, setSelectedApp }: { s
                   <h4 className="text-[11px] sm:text-sm md:text-base font-extrabold text-white uppercase tracking-wider mb-0.5 leading-tight">
                     {a.name}
                   </h4>
-                  <p className="hidden xs:block text-white/80 text-[10px] sm:text-xs leading-snug line-clamp-2 font-medium mt-1">
+                  <p className="text-white/80 text-[10px] sm:text-xs leading-snug line-clamp-2 font-medium mt-1 md:max-h-0 md:overflow-hidden md:opacity-0 md:translate-y-2 md:transition-all md:duration-300 md:ease-out md:group-hover:max-h-10 md:group-hover:opacity-100 md:group-hover:translate-y-0 md:group-focus-visible:max-h-10 md:group-focus-visible:opacity-100 md:group-focus-visible:translate-y-0">
                     {a.desc}
                   </p>
                 </div>
