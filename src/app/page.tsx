@@ -10,7 +10,6 @@ import ProductsGridSection from '@/components/home/ProductsGridSection';
 import ApplicationsSection from '@/components/home/ApplicationsSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import LeadFormSection from '@/components/home/LeadFormSection';
-import FAQSection from '@/components/home/FAQSection';
 
 export default function Page() {
   const [hasMounted, setHasMounted] = useState(false);
@@ -32,7 +31,6 @@ export default function Page() {
         <ApplicationsSection selectedApp={selectedApp} setSelectedApp={setSelectedApp} />
         <TestimonialsSection />
         <LeadFormSection />
-        <FAQSection />
       </div>
     </div>
   );
