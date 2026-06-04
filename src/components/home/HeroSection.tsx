@@ -53,7 +53,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative w-full h-screen min-h-[620px] md:min-h-[720px] xl:min-h-[760px] overflow-hidden bg-zinc-950 flex flex-col justify-between pt-20 md:pt-24 xl:pt-28 pb-6 md:pb-8 xl:pb-10 px-6 md:px-10 xl:px-16"
+      className="relative w-full h-screen min-h-[620px] md:min-h-[680px] xl:min-h-[700px] 2xl:min-h-[760px] overflow-hidden bg-zinc-950 flex flex-col justify-between pt-20 md:pt-24 xl:pt-24 2xl:pt-28 pb-12 md:pb-14 xl:pb-16 2xl:pb-20 px-6 md:px-10 xl:px-16"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -82,22 +82,22 @@ export default function HeroSection() {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-20 flex-1 flex flex-col justify-center max-w-[720px] mt-4 md:mt-2 xl:mt-8">
-        <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-brand-primary bg-white/10 backdrop-blur-md border border-white/20 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full font-bold self-start mb-4 md:mb-5 xl:mb-6">
+      <div className="relative z-20 flex-1 flex flex-col justify-center max-w-[720px] mt-4 md:mt-2 xl:mt-6 2xl:mt-8">
+        <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-brand-primary bg-white/10 backdrop-blur-md border border-white/20 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full font-bold self-start mb-4 md:mb-5 xl:mb-5 2xl:mb-6">
           Frameless Glazing Redefined
         </span>
 
-        <h1 className="text-3xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-[1.08] mb-4 md:mb-5 xl:mb-6 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+        <h1 className="text-3xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl 2xl:text-7xl font-extrabold text-white leading-[1.08] mb-4 md:mb-5 xl:mb-5 2xl:mb-6 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
           Breathtaking Views,<br />
           Uncompromised Protection
         </h1>
 
-        <p className="text-white/90 text-sm sm:text-lg md:text-lg xl:text-xl font-medium leading-[1.5] max-w-[600px] mb-6 md:mb-7 xl:mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
+        <p className="text-white/90 text-sm sm:text-lg md:text-lg xl:text-lg 2xl:text-xl font-medium leading-[1.5] max-w-[600px] mb-6 md:mb-7 xl:mb-6 2xl:mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
           Infiwin manufactures premier Slide & Turn frameless glass balcony enclosures. Extend your home space with architectural glass walls.
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto mt-2 xl:mt-4">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto mt-2 xl:mt-2 2xl:mt-4">
           <a
             href="#estimator"
             className="group inline-flex items-center justify-center gap-2 bg-brand-primary text-white text-xs font-bold uppercase tracking-wider px-6 py-3.5 sm:px-8 sm:py-4 rounded-full shadow-lg shadow-brand-primary/20 hover:bg-white hover:text-black hover:scale-[1.02] transition-all duration-300 w-full sm:w-auto text-center"
@@ -116,7 +116,7 @@ export default function HeroSection() {
       </div>
 
       {/* Carousel Dots & Trust Badges */}
-      <div className="relative z-20 w-full flex flex-col md:flex-row items-center justify-between gap-4 border-t border-white/10 pt-4 mt-4 mb-9 md:mb-10 xl:mb-9">
+      <div className="relative z-20 w-full flex flex-col md:flex-row items-center justify-between gap-4 border-t border-white/10 pt-4 mt-4 mb-2 md:mb-2 xl:mb-2 2xl:mb-4">
         {/* Trust Indicators / Live Proof Statistics */}
         <div className="grid grid-cols-3 gap-2 w-full md:flex md:w-auto md:flex-wrap md:items-center md:gap-8 xl:gap-12 text-white">
           <div className="flex flex-col">
@@ -141,8 +141,8 @@ export default function HeroSection() {
               onClick={() => setActiveIndex(i)}
               className={`relative overflow-hidden rounded-lg transition-all duration-500 cursor-pointer border-2 ${
                 activeIndex === i 
-                  ? 'w-20 h-16 sm:w-32 sm:h-20 md:w-[88px] md:h-14 xl:w-32 xl:h-20 border-brand-primary scale-110 shadow-lg z-10' 
-                  : 'w-16 h-12 sm:w-24 sm:h-16 md:w-[72px] md:h-12 xl:w-24 xl:h-16 border-white/20 hover:border-white/60 opacity-60 hover:opacity-100'
+                  ? 'w-20 h-16 sm:w-32 sm:h-20 md:w-[88px] md:h-14 xl:w-28 xl:h-16 2xl:w-32 2xl:h-20 border-brand-primary scale-110 shadow-lg z-10' 
+                  : 'w-16 h-12 sm:w-24 sm:h-16 md:w-[72px] md:h-12 xl:w-24 xl:h-12 2xl:w-24 2xl:h-16 border-white/20 hover:border-white/60 opacity-60 hover:opacity-100'
               }`}
               aria-label={`Slide ${i + 1}`}
             >
