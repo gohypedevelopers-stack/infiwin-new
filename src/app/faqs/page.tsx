@@ -13,6 +13,27 @@ import React, { useState } from 'react';
 
 const faqCategories = [
   {
+    name: "Common Queries",
+    faqs: [
+      {
+        q: "What is the standard base price for installation of Slide & Turn glass?",
+        a: "Our baseline starting price for premium architectural systems is approximately ₹1,800/sq.ft. This calculation incorporates elite double-tempered structural safety glass, premium heavy-gauge aluminum support rails, customized weatherproof locking rubber seals, and baseline engineering fitting charges. Freight and government taxes are determined additionally based on shipping distance."
+      },
+      {
+        q: "How do Full Length versus Half Length variants differ?",
+        a: "Full Length structures span continuously from the floor straight up to the concrete ceiling line. Half Length systems are designed to begin either at the top boundary of an existing protective balcony metal/concrete railing, or alternatively feature a pre-installed bottom glass panel acting as a rigid structural railing while the Slide & Turn sliding panes operate seamlessly above it."
+      },
+      {
+        q: "Are frameless glass structures totally waterproof during heavy monsoon seasons?",
+        a: "Yes! Infiwin systems feature inter-pane H-profiles containing customized translucent polymer seals designed to block intense windblown rain completely. Our design profiles feature integrated lower drain holes that successfully transport any minor moisture out towards the exterior facade."
+      },
+      {
+        q: "What type of glass is used in fabrication?",
+        a: "We use high-grade 10mm or 12mm double-tempered structural glass sheets that are extremely robust. This glass is structurally rated to withstand massive high-altitude wind pressure loads and is impact-resistant for complete home safety."
+      }
+    ]
+  },
+  {
     name: "Safety & Quality",
     faqs: [
       { q: "Is the glass safe?", a: "Yes, we use 8mm, 10mm, or 12mm toughened safety glass which is highly resistant to impact. If it were to break, it shatters into small, blunt granules to prevent injury." },
@@ -81,6 +102,17 @@ export default function FAQsPage() {
       {/* FAQs Section */}
       <section className="py-12 md:py-32">
         <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-primary mb-2 block">
+              Common Queries
+            </span>
+            <h2 className="text-3xl md:text-5xl font-semibold text-brand-dark tracking-tight leading-tight uppercase font-serif">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-neutral-500 text-sm md:text-base mt-4 font-light">
+              Everything you need to know about Infiwin product specifications, warranties, and structural calculations.
+            </p>
+          </div>
           {faqCategories.map((category, catIdx) => (
             <div key={catIdx} className="mb-10 md:mb-20">
               <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-brand-primary mb-4 md:mb-10 border-b border-neutral-100 pb-4">
