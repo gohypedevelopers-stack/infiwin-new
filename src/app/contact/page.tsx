@@ -14,11 +14,36 @@ import React, { useState } from 'react';
 export default function ContactPage() {
   const [estimate, setEstimate] = useState<number | null>(null);
   const [dimensions, setDimensions] = useState({ length: 10, height: 10 });
+  const [form, setForm] = useState({ name: '', phone: '', subject: 'General Inquiry', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const calculateEstimate = (e: React.FormEvent) => {
     e.preventDefault();
     const area = dimensions.length * dimensions.height;
     setEstimate(area * 1800);
+  };
+
+  const handleInquirySubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.name || !form.phone || !form.message) return;
+
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('/api/inquiries', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (response.ok) {
+        setSubmitted(true);
+        setForm({ name: '', phone: '', subject: 'General Inquiry', message: '' });
+      }
+    } catch (error) {
+      console.error('Error submitting inquiry:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -102,20 +127,27 @@ export default function ContactPage() {
 
               <div className="bg-neutral-50 p-6 sm:p-12 rounded-sm">
                 <h3 className="text-2xl text-brand-dark mb-8 uppercase tracking-widest">Inquiry Form</h3>
-                <form className="space-y-8">
+                {submitted ? (
+                  <div className="text-center py-12">
+                    <h4 className="text-2xl font-bold text-brand-dark mb-2">Thank You!</h4>
+                    <p className="text-neutral-500 text-sm">Your inquiry has been received. We will get back to you shortly.</p>
+                    <button onClick={() => setSubmitted(false)} className="mt-6 text-brand-primary text-xs font-bold uppercase tracking-widest hover:underline">Send another message</button>
+                  </div>
+                ) : (
+                <form onSubmit={handleInquirySubmit} className="space-y-8">
                   <div className="grid md:grid-cols-2 gap-8">
                     <div>
                       <label className="text-[9px] font-bold uppercase tracking-widest text-neutral-400 block mb-2">Full Name</label>
-                      <input type="text" className="w-full bg-transparent border-b border-neutral-200 py-3 text-sm focus:outline-none focus:border-brand-primary transition-colors" placeholder="John Doe" />
+                      <input type="text" value={form.name} onChange={e => setForm({...form, name: e.target.value})} required className="w-full bg-transparent border-b border-neutral-200 py-3 text-sm focus:outline-none focus:border-brand-primary transition-colors" placeholder="John Doe" />
                     </div>
                     <div>
                       <label className="text-[9px] font-bold uppercase tracking-widest text-neutral-400 block mb-2">Phone Number</label>
-                      <input type="tel" className="w-full bg-transparent border-b border-neutral-200 py-3 text-sm focus:outline-none focus:border-brand-primary transition-colors" placeholder="+91" />
+                      <input type="tel" value={form.phone} onChange={e => setForm({...form, phone: e.target.value})} required className="w-full bg-transparent border-b border-neutral-200 py-3 text-sm focus:outline-none focus:border-brand-primary transition-colors" placeholder="+91" />
                     </div>
                   </div>
                   <div>
                     <label className="text-[9px] font-bold uppercase tracking-widest text-neutral-400 block mb-2">Subject</label>
-                    <select className="w-full bg-transparent border-b border-neutral-200 py-3 text-sm focus:outline-none focus:border-brand-primary transition-colors">
+                    <select value={form.subject} onChange={e => setForm({...form, subject: e.target.value})} className="w-full bg-transparent border-b border-neutral-200 py-3 text-sm focus:outline-none focus:border-brand-primary transition-colors">
                       <option>General Inquiry</option>
                       <option>Request a Quote</option>
                       <option>Technical Support</option>
@@ -124,12 +156,13 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <label className="text-[9px] font-bold uppercase tracking-widest text-neutral-400 block mb-2">Message</label>
-                    <textarea rows={4} className="w-full bg-transparent border-b border-neutral-200 py-3 text-sm focus:outline-none focus:border-brand-primary transition-colors resize-none" placeholder="How can we help you?"></textarea>
+                    <textarea rows={4} value={form.message} onChange={e => setForm({...form, message: e.target.value})} required className="w-full bg-transparent border-b border-neutral-200 py-3 text-sm focus:outline-none focus:border-brand-primary transition-colors resize-none" placeholder="How can we help you?"></textarea>
                   </div>
-                  <button className="w-full py-5 bg-brand-dark text-white text-[10px] font-bold uppercase tracking-widest hover:bg-brand-primary transition-all flex items-center justify-center gap-3 group">
-                    Send Message <Send size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  <button disabled={isSubmitting} type="submit" className="w-full py-5 bg-brand-dark text-white text-[10px] font-bold uppercase tracking-widest hover:bg-brand-primary transition-all flex items-center justify-center gap-3 group disabled:opacity-50">
+                    {isSubmitting ? 'Sending...' : 'Send Message'} <Send size={14} className={isSubmitting ? '' : "group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"} />
                   </button>
                 </form>
+                )}
               </div>
             </div>
 

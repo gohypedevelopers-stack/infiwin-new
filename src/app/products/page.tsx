@@ -5,7 +5,7 @@ import {
   ArrowRight,
   CheckCircle,
 } from 'react-bootstrap-icons';
-import React from 'react';
+import React, { useState } from 'react';
 
 const products = [
   {
@@ -27,7 +27,17 @@ const products = [
       opening: "100% Clear Opening"
     },
     img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_13_49 PM.png",
-    category: "Balcony Enclosure"
+    category: "Balcony Enclosure",
+    variants: [
+      { id: 'standard', name: 'Standard' },
+      { id: 'premium', name: 'Premium' }
+    ],
+    availableColors: [
+      { id: 'black', name: 'Black', hex: '#222222' },
+      { id: 'white', name: 'White', hex: '#ffffff' },
+      { id: 'silver', name: 'Silver', hex: '#c0c0c0' },
+      { id: 'anthracite', name: 'Anthracite', hex: '#383e42' }
+    ]
   },
   {
     id: "sliding",
@@ -48,7 +58,11 @@ const products = [
       hardware: "Premium Rollers"
     },
     img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_50_39 PM.png",
-    category: "Super Smooth Gliding"
+    category: "Super Smooth Gliding",
+    variants: [
+      { id: 'standard', name: 'Standard' },
+      { id: 'premium', name: 'Premium' }
+    ]
   },
   {
     id: "centre-open",
@@ -69,7 +83,11 @@ const products = [
       locking: "Secure Centre Lock"
     },
     img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_29_01 PM.png",
-    category: "Split-fold Symmetrical"
+    category: "Split-fold Symmetrical",
+    variants: [
+      { id: 'standard', name: 'Standard' },
+      { id: 'premium', name: 'Premium' }
+    ]
   },
   {
     id: "bifold",
@@ -90,7 +108,11 @@ const products = [
       profiles: "Slimline Aluminum"
     },
     img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_27_22 PM.png",
-    category: "Premium Partition"
+    category: "Premium Partition",
+    variants: [
+      { id: 'standard', name: 'Standard' },
+      { id: 'premium', name: 'Premium' }
+    ]
   },
   {
     id: "sliding-2track",
@@ -111,7 +133,11 @@ const products = [
       sealing: "Weather-resistant EPDM"
     },
     img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_25_52 PM.png",
-    category: "Doors & Windows"
+    category: "Doors & Windows",
+    variants: [
+      { id: 'standard', name: 'Standard' },
+      { id: 'premium', name: 'Premium' }
+    ]
   },
   {
     id: "sliding-3track",
@@ -132,11 +158,26 @@ const products = [
       hardware: "Premium Roller System"
     },
     img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_30_38 PM.png",
-    category: "Doors & Windows"
+    category: "Doors & Windows",
+    variants: [
+      { id: 'standard', name: 'Standard' },
+      { id: 'premium', name: 'Premium' }
+    ]
   }
 ];
 
 export default function ProductsPage() {
+  const [selectedVariants, setSelectedVariants] = useState<Record<string, string>>({});
+  const [selectedColors, setSelectedColors] = useState<Record<string, string>>({});
+
+  const handleVariantChange = (productId: string, variantId: string) => {
+    setSelectedVariants(prev => ({ ...prev, [productId]: variantId }));
+  };
+
+  const handleColorChange = (productId: string, colorHex: string) => {
+    setSelectedColors(prev => ({ ...prev, [productId]: colorHex }));
+  };
+
   return (
     <main className="bg-white min-h-screen">
       
@@ -201,6 +242,61 @@ export default function ProductsPage() {
                   {product.desc}
                 </p>
 
+                {/* Variants & Color Palette */}
+                <div className="mb-6 md:mb-10 space-y-6">
+                  {/* Variant Selector */}
+                  {(product as any).variants && (
+                    <div>
+                      <span className="text-[10px] font-bold tracking-widest text-neutral-400 block mb-3 uppercase">
+                        Select Variant
+                      </span>
+                      <div className="flex gap-3 flex-wrap">
+                        {(product as any).variants.map((v: any) => {
+                          const isSelected = (selectedVariants[product.id] || (product as any).variants[0].id) === v.id;
+                          return (
+                            <button
+                              key={v.id}
+                              onClick={() => handleVariantChange(product.id, v.id)}
+                              className={`px-4 py-2 text-sm font-semibold rounded-full border transition-all ${
+                                isSelected
+                                  ? 'border-brand-primary bg-brand-primary text-white'
+                                  : 'border-neutral-200 text-neutral-600 hover:border-brand-primary hover:text-brand-primary'
+                              }`}
+                            >
+                              {v.name}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Color Palette */}
+                  {(product as any).availableColors && (
+                    <div>
+                      <span className="text-[10px] font-bold tracking-widest text-neutral-400 block mb-3 uppercase">
+                        Frame Color
+                      </span>
+                      <div className="flex gap-4">
+                        {(product as any).availableColors.map((color: any) => {
+                          const isSelected = (selectedColors[product.id] || (product as any).availableColors[0].hex) === color.hex;
+                          return (
+                            <button
+                              key={color.id}
+                              onClick={() => handleColorChange(product.id, color.hex)}
+                              title={color.name}
+                              className={`w-8 h-8 rounded-full border-2 transition-all ${
+                                isSelected ? 'border-brand-primary scale-110 shadow-md' : 'border-neutral-200 hover:scale-105'
+                              }`}
+                              style={{ backgroundColor: color.hex }}
+                            />
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
                 {/* Features Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 md:mb-12">
                   {product.features.map((feature, i) => (
@@ -225,9 +321,7 @@ export default function ProductsPage() {
                   ))}
                 </div>
 
-                <a href="/contact" className="mt-6 md:mt-12 group inline-flex items-center gap-4 px-10 py-4 bg-brand-dark text-white rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-brand-primary transition-all shadow-xl shadow-brand-dark/10">
-                  Contact us <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform" />
-                </a>
+
               </motion.div>
             </div>
 
@@ -239,6 +333,12 @@ export default function ProductsPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                 className="relative aspect-[4/5] rounded-none overflow-hidden shadow-xl group"
+                style={{
+                  border: (product as any).availableColors 
+                    ? `12px solid ${selectedColors[product.id] || (product as any).availableColors[0].hex}` 
+                    : 'none',
+                  transition: 'border-color 0.3s ease'
+                }}
               >
                 <img 
                   src={product.img} 

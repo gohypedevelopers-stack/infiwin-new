@@ -11,6 +11,7 @@ export default function LeadFormSection() {
   const [form, setForm] = useState({ name: '', phone: '', city: '' });
   const [errors, setErrors] = useState({ name: '', phone: '', city: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Dynamic cost calculation based on: Length x Height x 1800
   const area = dimensions.length * dimensions.height;
@@ -53,12 +54,33 @@ export default function LeadFormSection() {
     return isValid;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
 
-    // Simulate submission / trigger success state
-    setSubmitted(true);
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          city: form.city,
+          dimensions,
+          estimate
+        }),
+      });
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        console.error('Failed to submit');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const getWhatsAppLink = () => {
@@ -252,9 +274,10 @@ Please share your product catalog!`;
                 <div className="space-y-4 pt-4">
                   <button
                     type="submit"
-                    className="w-full py-4.5 bg-brand-dark hover:bg-brand-primary text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-lg transition-all duration-300 min-h-[48px] cursor-pointer"
+                    disabled={isSubmitting}
+                    className="w-full py-4.5 bg-brand-dark hover:bg-brand-primary text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-lg transition-all duration-300 min-h-[48px] cursor-pointer disabled:opacity-50"
                   >
-                    🚀 Request Quote & Call Back
+                    {isSubmitting ? 'Submitting...' : '🚀 Request Quote & Call Back'}
                   </button>
 
                   <div className="relative flex py-2 items-center">
