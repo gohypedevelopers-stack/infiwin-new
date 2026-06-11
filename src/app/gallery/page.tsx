@@ -305,7 +305,7 @@ export default function GalleryPage() {
     : IMAGES.filter(img => img.category === photoFilter);
 
   return (
-    <main className="bg-[#030712] text-white min-h-screen font-sans selection:bg-brand-primary selection:text-white pb-12 md:pb-32">
+    <main className="bg-[#030712] text-white min-h-screen font-sans selection:bg-brand-primary selection:text-white pb-12 md:pb-32 overflow-x-hidden w-full max-w-[100vw]">
       
       {/* Cinematic Hero Header */}
       <section className="relative h-[65vh] flex items-center justify-center overflow-hidden border-b border-white/10">
@@ -333,10 +333,11 @@ export default function GalleryPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.6em] text-brand-primary mb-6 bg-white/5 border border-white/10 px-4 py-2 rounded-none backdrop-blur-md">
-              <Activity size={10} className="text-brand-primary animate-pulse" /> Interactive Media Center
+            <span className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] md:tracking-[0.6em] text-brand-primary mb-6 bg-white/5 border border-white/10 px-4 py-2 rounded-none backdrop-blur-md text-center max-w-full">
+              <Activity size={10} className="text-brand-primary animate-pulse shrink-0" /> 
+              <span className="truncate">Interactive Media Center</span>
             </span>
-            <h1 className="text-5xl md:text-8xl tracking-tighter uppercase font-serif mb-8 leading-none">
+            <h1 className="text-4xl sm:text-5xl md:text-8xl tracking-tighter uppercase font-serif mb-6 md:mb-8 leading-none">
               Cinematic <br />
               <span className="text-brand-primary font-light lowercase font-signature">Showcase</span>
             </h1>
@@ -348,18 +349,18 @@ export default function GalleryPage() {
       </section>
 
       {/* Main Tab Controller */}
-      <section className="max-w-[1600px] mx-auto px-6 md:px-12 -mt-6 md:-mt-10 relative z-20">
-        <div className="bg-[#0b0f19] border border-white/10 p-2 flex flex-col md:flex-row gap-2 justify-between items-center backdrop-blur-xl shadow-2xl rounded-none">
+      <section className="max-w-[1600px] mx-auto px-4 md:px-12 -mt-6 md:-mt-10 relative z-20 w-full">
+        <div className="bg-[#0b0f19] border border-white/10 p-2 flex flex-col md:flex-row gap-2 justify-between items-center backdrop-blur-xl shadow-2xl rounded-none w-full">
           <div className="flex flex-col sm:flex-row w-full md:w-auto gap-2">
             {[
-              { id: 'concepts', label: '3D Concepts & Renders', icon: <Layers size={14} /> },
+              { id: 'concepts', label: '3D Concepts', icon: <Layers size={14} /> },
               { id: 'videos', label: 'Video Realizations', icon: <FileVideo size={14} /> },
-              { id: 'photos', label: 'Execution Portfolio', icon: <ImageIcon size={14} /> },
+              { id: 'photos', label: 'Portfolio', icon: <ImageIcon size={14} /> },
             ].map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as any)}
-                className={`flex items-center justify-center gap-3 px-8 py-4 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-none w-full sm:w-auto relative ${
+                className={`flex items-center justify-center gap-2 md:gap-3 px-4 md:px-8 py-3 md:py-4 text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-none w-full sm:w-auto relative ${
                   activeTab === tab.id 
                     ? 'text-white bg-brand-primary' 
                     : 'text-neutral-400 hover:text-white hover:bg-white/5'
@@ -377,7 +378,7 @@ export default function GalleryPage() {
       </section>
 
       {/* Tab Contents */}
-      <section className="max-w-[1600px] mx-auto px-6 md:px-12 py-10 md:py-20 px-4 md:px-12">
+      <section className="max-w-[1600px] mx-auto px-4 md:px-12 py-8 md:py-20 w-full">
         <AnimatePresence mode="wait">
           
           {/* TAB 1: CONCEPTS & 3D RENDERS */}
@@ -388,10 +389,10 @@ export default function GalleryPage() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="space-y-8 md:space-y-16"
+              className="space-y-8 md:space-y-16 w-full"
             >
               {/* Theater Layout */}
-              <div className="grid lg:grid-cols-12 gap-6 lg:gap-10 bg-[#070b13] border border-white/5 p-4 md:p-10 rounded-none shadow-2xl">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 bg-[#070b13] border border-white/5 p-4 md:p-10 rounded-none shadow-2xl w-full">
                 
                 {/* Main Player Area (8 Cols) */}
                 <div className="lg:col-span-8 space-y-4 md:space-y-6">
@@ -444,9 +445,9 @@ export default function GalleryPage() {
                       </h4>
                       <div className="space-y-4 text-xs">
                         {Object.entries(selectedConcept.specs).map(([key, val], i) => (
-                          <div key={i} className="flex justify-between border-b border-white/5 pb-2">
-                            <span className="text-neutral-500 capitalize">{key}</span>
-                            <span className="font-semibold text-neutral-300 text-right">{val}</span>
+                          <div key={i} className="flex flex-col sm:flex-row justify-between border-b border-white/5 pb-2 gap-1 sm:gap-4">
+                            <span className="text-neutral-500 capitalize shrink-0">{key}</span>
+                            <span className="font-semibold text-neutral-300 sm:text-right text-left break-words">{val}</span>
                           </div>
                         ))}
                       </div>
@@ -516,12 +517,12 @@ export default function GalleryPage() {
               className="space-y-6 md:space-y-12"
             >
               {/* Secondary Category Filters */}
-              <div className="flex flex-wrap gap-3 border-b border-white/5 pb-4 md:pb-8">
+              <div className="flex flex-wrap gap-2 md:gap-3 border-b border-white/5 pb-4 md:pb-8">
                 {['All', 'S&T', 'Telescopic', 'Bathroom'].map((cat) => (
                   <button
                     key={cat}
                     onClick={() => setVideoFilter(cat as any)}
-                    className={`px-6 py-2.5 text-[10px] font-bold uppercase tracking-widest border transition-all ${
+                    className={`px-4 md:px-6 py-2 md:py-2.5 text-[9px] md:text-[10px] font-bold uppercase tracking-widest border transition-all flex-1 sm:flex-none ${
                       videoFilter === cat 
                         ? 'bg-brand-primary text-white border-brand-primary' 
                         : 'text-neutral-400 border-white/10 hover:border-white/30 hover:text-white'
@@ -533,7 +534,7 @@ export default function GalleryPage() {
               </div>
 
               {/* Video Masonry Grid */}
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8 w-full">
                 {filteredVideos.map((item, idx) => (
                   <motion.div
                     key={item.id}
@@ -622,12 +623,12 @@ export default function GalleryPage() {
               className="space-y-6 md:space-y-12"
             >
               {/* Portfolio Filters */}
-              <div className="flex flex-wrap gap-3 border-b border-white/5 pb-4 md:pb-8">
+              <div className="flex flex-wrap gap-2 md:gap-3 border-b border-white/5 pb-4 md:pb-8">
                 {photoCategories.map((cat) => (
                   <button
                     key={cat}
                     onClick={() => setPhotoFilter(cat)}
-                    className={`px-6 py-2.5 text-[10px] font-bold uppercase tracking-widest border transition-all ${
+                    className={`px-3 md:px-6 py-2 md:py-2.5 text-[9px] md:text-[10px] font-bold uppercase tracking-widest border transition-all flex-grow sm:flex-grow-0 ${
                       photoFilter === cat 
                         ? 'bg-brand-primary text-white border-brand-primary' 
                         : 'text-neutral-400 border-white/10 hover:border-white/30 hover:text-white'
@@ -639,7 +640,7 @@ export default function GalleryPage() {
               </div>
 
               {/* Photos Grid */}
-              <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 w-full">
                 {filteredPhotos.map((item, idx) => (
                   <motion.div
                     key={item.id}
@@ -712,7 +713,7 @@ export default function GalleryPage() {
           >
             <button 
               onClick={() => setModalVideoUrl(null)} 
-              className="absolute top-8 right-8 h-12 w-12 flex items-center justify-center rounded-none bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors"
+              className="absolute top-4 right-4 md:top-8 md:right-8 h-10 w-10 md:h-12 md:w-12 z-50 flex items-center justify-center rounded-none bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-colors"
             >
               <X size={20} />
             </button>
@@ -721,7 +722,7 @@ export default function GalleryPage() {
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="w-full max-w-5xl bg-[#070b13] border border-white/10 overflow-hidden"
+              className="w-full max-w-5xl bg-[#070b13] border border-white/10 overflow-hidden relative"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative aspect-video bg-black">
@@ -752,7 +753,7 @@ export default function GalleryPage() {
           >
             <button 
               onClick={() => setModalImageUrl(null)} 
-              className="absolute top-8 right-8 h-12 w-12 flex items-center justify-center rounded-none bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors"
+              className="absolute top-4 right-4 md:top-8 md:right-8 h-10 w-10 md:h-12 md:w-12 z-50 flex items-center justify-center rounded-none bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-colors"
             >
               <X size={20} />
             </button>
@@ -761,7 +762,7 @@ export default function GalleryPage() {
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="w-full max-w-4xl bg-[#070b13] border border-white/10 overflow-hidden"
+              className="w-full max-w-4xl bg-[#070b13] border border-white/10 overflow-hidden relative"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative max-h-[70vh] bg-black flex justify-center items-center overflow-hidden">
