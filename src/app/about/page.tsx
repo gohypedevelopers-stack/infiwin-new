@@ -2,46 +2,49 @@
 
 import { motion } from 'motion/react';
 import {
-  ClockHistory as History,
-  Bullseye as Target,
   Eye,
   Award,
-  People as Users,
-  ShieldCheck
+  ShieldCheck,
+  CheckCircle
 } from 'react-bootstrap-icons';
 import React from 'react';
 
 export default function AboutPage() {
-  const stats = [
-    { label: "Years Experience", value: "15+" },
-    { label: "Projects Completed", value: "2500+" },
-    { label: "Happy Clients", value: "1800+" },
-    { label: "Design Awards", value: "12" }
-  ];
-
   const values = [
     {
-      title: "Innovation First",
-      desc: "Continually testing new technologies—such as our smart-sensor Bioclimatic Pergolas and motorized Walking Motor Systems—to stay at the forefront of automated luxury glazing.",
-      icon: <Eye size={32} />
-    },
-    {
-      title: "Uncompromising Integrity",
-      desc: "Providing honest, transparent quotes with zero hidden charges. All our baseline estimations are calculated using a uniform, area-based cost formulation at ₹1,800/sq.ft.",
+      title: "Easy Maintenance & Zero Cleaning Cost",
+      desc: "Designed for easy maintenance, reducing the need for frequent cleaning to save time and effort for homeowners and building managers.",
       icon: <ShieldCheck size={32} />
     },
     {
-      title: "Client-Centric Customization",
-      desc: "Working closely with architects, interior designers, and estate managers to bring custom spatial visions to life.",
+      title: "Simple Operation",
+      desc: "The slide & turn mechanism allows for easy opening and closing of the windows entirely from the inside, enhancing convenience and safety.",
+      icon: <CheckCircle size={32} />
+    },
+    {
+      title: "Connect Inside & Outside",
+      desc: "Merge indoor and outdoor spaces seamlessly. Perfect for creating a more open, inviting atmosphere that enhances the overall experience.",
+      icon: <Eye size={32} />
+    },
+    {
+      title: "Shape Is Not An Issue",
+      desc: "Slide through any shape - straight, L, or curved. This flexibility empowers tailored designs and ensures a perfect fit for diverse architectural layouts.",
       icon: <Award size={32} />
     }
   ];
 
+  const milestones = [
+    { year: "2010", title: "The Beginning", desc: "Started as a small architectural hardware supplier, laying the foundation for excellence." },
+    { year: "2015", title: "Pioneering S&T", desc: "Introduced our signature Slide & Turn frameless balcony systems to the domestic market." },
+    { year: "2018", title: "Commercial Expansion", desc: "Expanded operations to cover large-scale commercial facades and hotel projects." },
+    { year: "2023", title: "Automated Luxury", desc: "Launched motorized guillotine systems and bioclimatic pergolas." }
+  ];
+
   return (
-    <main className="bg-white min-h-screen">
+    <main className="bg-white min-h-screen pb-24">
 
       {/* Hero Section */}
-      <section className="relative h-[65vh] flex items-center justify-center overflow-hidden bg-brand-dark pt-20">
+      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-brand-dark pt-20">
         <div className="absolute inset-0 z-0">
           <video
             autoPlay
@@ -60,15 +63,15 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary mb-4 block"
           >
-            The Infiwin Story
+            Behind the Brand
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl lg:text-6xl text-white font-extrabold mb-4 leading-tight"
+            className="text-4xl md:text-6xl lg:text-7xl text-white font-serif mb-4 leading-tight uppercase"
           >
-            Redefining Views, Engineering Safety: The Infiwin Story
+            About Infiwin
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -76,186 +79,150 @@ export default function AboutPage() {
             transition={{ delay: 0.2 }}
             className="text-white/70 text-sm md:text-base tracking-wide max-w-2xl mx-auto font-medium"
           >
-            Crafting India’s Premier Frameless Glass Solutions Aligned with Global Standards of Architectural Excellence
+            Crafting Premium Frameless Glass Solutions Aligned with Global Standards of Architectural Excellence
           </motion.p>
         </div>
       </section>
 
-      {/* Brand Manifesto & Mission */}
-      <section className="py-12 md:py-24">
+      {/* 1. Our Story */}
+      <section className="py-20 md:py-32">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-100px" }}
             >
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-primary mb-2 block">
-                Our Story
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-primary mb-4 block">
+                1. Our Story
               </span>
-              <h2 className="text-3xl md:text-5xl text-brand-dark font-bold mb-6 leading-tight">
+              <h2 className="text-4xl md:text-6xl text-brand-dark font-bold mb-8 leading-tight tracking-tight">
                 Beyond Boundaries
               </h2>
-              <p className="text-neutral-600 text-base md:text-lg leading-relaxed mb-6 font-medium">
-                At Infiwin, we believe that your connection to the outside world should never be obstructed by bulky metal frames, nor should it be compromised by extreme weather. Our mission is simple: To expand your functional living space while providing absolute protection.
+
+              <p className="text-neutral-500 text-lg leading-relaxed mb-6 font-light">
+                INFIWIN is a premium Foldable Glass Door and Window system for Exterior or Interior applications. Our innovative window, door, and movable glass wall systems are designed to maximize the efficiency of your existing space over conventional windows and doors, specially designed for full length panoramic views and full openings without any obstacles.
               </p>
-              <p className="text-neutral-500 text-sm leading-relaxed mb-6">
-                We manufacture, deliver, and install India's most advanced Slide & Turn glass systems, motorized vertical barriers, and smart structural roofs. By blending high-luxury minimalist designs with rugged, heavy-gauge materials, we turn underutilized balconies, terraces, and commercial spaces into pristine, year-round sanctuaries.
+              <p className="text-neutral-500 text-lg leading-relaxed font-light">
+                Infiwin's Glass House. Crafted with precision and innovation. The frameless glass design offers unobstructed views, creating a sense of openness while providing protection from the elements. Whether used as a private retreat, a stylish entertainment area, or a contemporary workspace, the Infiwin Glass House is the ultimate expression of luxury and functionality for outdoor living.
               </p>
             </motion.div>
-
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="relative"
+              viewport={{ once: true, margin: "-100px" }}
+              className="relative aspect-square md:aspect-[4/3] lg:aspect-square overflow-hidden rounded-[3rem] shadow-2xl"
             >
-              <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
-                <img
-                  src="/infiwin images new/ChatGPT Image May 23, 2026, 03_18_04 PM.png"
-                  className="w-full h-full object-cover"
-                  alt="Our Work"
-                />
-              </div>
+              <img
+                src="/infiwin images new/ChatGPT Image May 23, 2026, 02_30_38 PM.png"
+                alt="Infiwin Installation"
+                className="w-full h-full object-cover"
+              />
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* The Infiwin Genesis */}
-      <section className="py-12 md:py-24 bg-[#F8FAFC]">
+      {/* 2. Our Journey */}
+      <section className="py-20 md:py-32 bg-neutral-50 border-y border-neutral-100">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="order-2 lg:order-1"
-            >
-              <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
-                <img
-                  src="/infiwin images new/ChatGPT Image May 23, 2026, 02_16_49 PM.png"
-                  className="w-full h-full object-cover"
-                  alt="Genesis Context"
-                />
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="order-1 lg:order-2"
-            >
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-primary mb-2 block">
-                Our Journey
-              </span>
-              <h2 className="text-3xl md:text-5xl text-brand-dark font-bold mb-6 leading-tight">
-                Born to Conquer the Extreme Indian Climate
-              </h2>
-              <p className="text-neutral-600 text-sm leading-relaxed mb-4">
-                The concept of Infiwin was born out of a clear structural gap in modern Indian architecture. Standard balconies, patios, and terraces across high-rise residential projects and commercial hubs in cities like Delhi NCR, Noida, Mumbai, and Bangalore frequently sit unused.
-              </p>
-
-              <div className="mb-4">
-                <p className="text-brand-dark font-bold text-xs uppercase tracking-wider mb-2">Homeowners find themselves locked indoors due to:</p>
-                <ul className="list-disc pl-5 text-neutral-500 text-xs space-y-1">
-                  <li>Scorching summer heatwaves exceeding 45 degree.</li>
-                  <li>Intense monsoon downpours and high-altitude wind pressures.</li>
-                  <li>High levels of urban noise pollution and heavy dust layers.</li>
-                </ul>
-              </div>
-
-              <p className="text-neutral-600 text-sm leading-relaxed">
-                Traditional sliding doors rely on wide aluminum partitions that disrupt beautiful panoramic views. On the other hand, leaving outdoor spaces completely open invites dust, rain, and safety hazards.
-              </p>
-            </motion.div>
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-primary mb-4 block">
+              2. Our Journey
+            </span>
+            <h2 className="text-4xl md:text-6xl font-bold text-brand-dark mb-6 tracking-tight">
+              A Decade of Excellence
+            </h2>
           </div>
-        </div>
-      </section>
 
-      {/* Stats Section */}
-      <section className="py-12 md:py-20 bg-brand-dark text-white">
-        <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
-            {stats.map((stat, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="text-center"
-              >
-                <p className="text-5xl md:text-6xl font-extrabold text-brand-primary mb-3">{stat.value}</p>
-                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/50">{stat.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Values Section */}
-      <section className="py-12 md:py-24 bg-white">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="text-center mb-16">
-            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary mb-4 block">What Sets Us Apart</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl text-brand-dark font-bold">Our Core Differentiators</h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {values.map((v, i) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {milestones.map((stone, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-100px" }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-[#F8FAFC] p-8 rounded-3xl border border-neutral-100 group hover:border-brand-primary transition-all duration-500 flex flex-col justify-between"
+                className="bg-white p-8 md:p-10 rounded-[2rem] shadow-xl border border-neutral-100 relative overflow-hidden group"
               >
-                <div>
-                  <div className="text-brand-primary mb-8 group-hover:scale-110 transition-transform duration-500">
-                    {v.icon}
-                  </div>
-                  <h3 className="text-lg font-bold text-brand-dark mb-4 uppercase tracking-wider">{v.title}</h3>
-                  <p className="text-neutral-500 text-sm leading-relaxed">{v.desc}</p>
+                <div className="absolute top-0 right-0 p-8 opacity-5 text-8xl font-black text-brand-dark pointer-events-none transition-transform duration-500 group-hover:scale-110">
+                  {stone.year.slice(2)}
                 </div>
+                <span className="text-brand-primary font-bold text-2xl block mb-4">{stone.year}</span>
+                <h3 className="text-xl font-bold text-brand-dark mb-4">{stone.title}</h3>
+                <p className="text-neutral-500 font-light leading-relaxed text-sm">
+                  {stone.desc}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Vision Section */}
-      <section className="py-16 md:py-32 bg-brand-dark text-white text-center">
-        <div className="max-w-[1000px] mx-auto px-6 md:px-12">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-primary mb-4 block"
-          >
-            Vision
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl font-serif leading-tight mb-8"
-          >
-            To transform structural constraints into limitless spatial experiences.
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-white/70 text-lg md:text-xl font-light leading-relaxed"
-          >
-            We envision a world where architecture embraces the outdoors seamlessly. Through continuous innovation, robust engineering, and an uncompromising dedication to luxury, we aim to be the paramount choice for architectural glazing across residential and commercial landscapes.
-          </motion.p>
+      {/* 3. What Sets Us Apart */}
+      <section className="py-20 md:py-32">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-primary mb-4 block">
+              3. What Sets Us Apart
+            </span>
+            <h2 className="text-4xl md:text-6xl font-bold text-brand-dark mb-6 tracking-tight">
+              The Infiwin Difference
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+            {values.map((val, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ delay: i * 0.1 }}
+                className="text-center"
+              >
+                <div className="w-20 h-20 mx-auto bg-brand-primary/10 rounded-full flex items-center justify-center text-brand-primary mb-8 shadow-sm">
+                  {val.icon}
+                </div>
+                <h3 className="text-2xl font-bold text-brand-dark mb-4">{val.title}</h3>
+                <p className="text-neutral-500 font-light leading-relaxed max-w-sm mx-auto">
+                  {val.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
+
+      {/* 4. Vision */}
+      <section className="py-24 md:py-40 bg-brand-dark text-white relative overflow-hidden rounded-t-[3rem] md:rounded-t-[5rem]">
+        <div className="absolute inset-0 z-0">
+          <img src="/infiwin images new/ChatGPT Image May 23, 2026, 03_18_04 PM.png" alt="Vision Background" className="w-full h-full object-cover opacity-20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/80 to-transparent" />
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-primary mb-6 block">
+              4. Our Vision
+            </span>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif mb-10 leading-tight">
+              Engineering the Future of Living Spaces
+            </h2>
+            <p className="text-lg md:text-xl text-white/70 font-light leading-relaxed mb-12">
+              We envision a world where architectural boundaries are invisible, where homes and offices seamlessly transition into the surrounding environment, protected entirely by unyielding, intelligent glass engineering.
+            </p>
+            <a href="/contact" className="inline-block px-12 py-5 bg-brand-primary text-white text-[10px] font-bold uppercase tracking-widest hover:brightness-110 transition-all rounded-full shadow-xl shadow-brand-primary/20 hover:shadow-brand-primary/40 hover:-translate-y-1">
+              Start Your Project
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
     </main>
   );
 }
