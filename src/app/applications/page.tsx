@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
+import Link from 'next/link';
 import {
   House as Home,
   Building as Building2,
@@ -164,20 +165,6 @@ const applications = [
 ];
 
 export default function ApplicationsPage() {
-  const [selectedApp, setSelectedApp] = useState<typeof applications[0] | null>(null);
-
-  // Prevent scrolling when modal is open
-  useEffect(() => {
-    if (selectedApp) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [selectedApp]);
-
   return (
     <main className="bg-white min-h-screen">
 
@@ -215,40 +202,50 @@ export default function ApplicationsPage() {
         </div>
       </section>
 
-      {/* Application Grid */}
-      <section className="py-12 md:py-32">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12">
-            {applications.map((app, i) => (
-              <motion.div
-                id={app.id}
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group cursor-pointer scroll-mt-24 flex flex-col h-full"
-                onClick={() => setSelectedApp(app)}
-              >
-                <div className="relative aspect-video rounded-sm overflow-hidden mb-4 md:mb-8 shadow-xl shrink-0">
-                  <img src={app.img} alt={app.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-brand-dark/0 transition-all duration-500" />
-                  <div className="absolute top-6 left-6 p-4 bg-white/90 backdrop-blur-md rounded-full text-brand-primary">
-                    {app.icon}
-                  </div>
+      {/* Immersive Application Sections */}
+      <div className="w-full py-16 md:py-24 space-y-24 md:space-y-40 relative pb-32">
+        {applications.map((app, index) => (
+          <section 
+            id={app.id} 
+            key={app.id} 
+            className={`sticky flex flex-col lg:flex-row gap-8 lg:gap-16 items-center bg-white py-12 md:py-24 px-6 md:px-16 lg:px-32 w-full border-t border-neutral-100 ${index % 2 !== 0 ? 'lg:flex-row-reverse bg-neutral-50' : ''}`}
+            style={{ 
+              top: `calc(100px + ${index * 20}px)`, 
+              zIndex: index + 10,
+              marginTop: index > 0 ? '4rem' : '0',
+              marginBottom: '4rem'
+            }}
+          >
+            <div className="w-full lg:w-1/2 flex flex-col items-start">
+              <motion.div initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8 }}>
+                <div className="p-4 bg-brand-primary/10 rounded-full text-brand-primary w-fit mb-6 md:mb-8">
+                  {app.icon}
                 </div>
-                <h3 className="text-2xl text-brand-dark mb-2 md:mb-4 uppercase tracking-widest">{app.title}</h3>
-                <p className="text-neutral-400 text-sm font-light leading-relaxed mb-4 md:mb-6 flex-grow">
+                <h2 className="text-4xl md:text-6xl font-bold text-brand-dark mb-6 tracking-tight uppercase">
+                  {app.title}
+                </h2>
+                <p className="text-lg md:text-xl text-neutral-500 font-light leading-relaxed mb-8 md:mb-12 max-w-2xl">
                   {app.desc}
                 </p>
-                <button className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-brand-primary opacity-0 group-hover:opacity-100 transition-all duration-500 w-fit">
-                  View Gallery <ArrowRight size={14} />
-                </button>
+                <Link 
+                  href={`/applications/${app.id}`}
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-brand-dark text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-primary transition-all duration-300"
+                >
+                  LEARN MORE <ArrowRight size={16} />
+                </Link>
               </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </div>
+            <div className="w-full lg:w-1/2">
+              <Link href={`/applications/${app.id}`}>
+                <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }} className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl group cursor-pointer">
+                  <img src={app.img} alt={app.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-brand-dark/0 transition-colors duration-500" />
+                </motion.div>
+              </Link>
+            </div>
+          </section>
+        ))}
+      </div>
 
       {/* Full Width Callout */}
       <section className="py-20 md:py-32 lg:py-48 bg-brand-dark text-white relative overflow-hidden">
@@ -265,96 +262,6 @@ export default function ApplicationsPage() {
           </a>
         </div>
       </section>
-
-      {/* Interactive Gallery Modal */}
-      <AnimatePresence>
-        {selectedApp && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/90 backdrop-blur-sm z-[200] flex items-center justify-center p-4 md:p-10"
-            onClick={() => setSelectedApp(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.95, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.95, y: 20 }}
-              className="bg-[#0b0f19] border border-white/10 rounded-sm w-full max-w-6xl max-h-[90vh] overflow-y-auto overflow-x-hidden shadow-2xl relative custom-scrollbar"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Close Button */}
-              <button
-                onClick={() => setSelectedApp(null)}
-                className="absolute top-4 right-4 md:top-6 md:right-6 p-2 bg-black/50 hover:bg-white text-white hover:text-black border border-white/20 transition-all z-20"
-              >
-                <X size={24} />
-              </button>
-
-              <div className="p-8 md:p-12 border-b border-white/10">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 bg-brand-primary/10 text-brand-primary rounded-full">
-                    {selectedApp.icon}
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-brand-primary block mb-1">
-                      Execution Gallery
-                    </span>
-                    <h2 className="text-3xl md:text-5xl text-white font-serif tracking-tight">
-                      {selectedApp.title}
-                    </h2>
-                  </div>
-                </div>
-                <p className="text-neutral-400 text-sm md:text-base font-light leading-relaxed max-w-3xl">
-                  {selectedApp.desc}
-                </p>
-              </div>
-
-              {/* Gallery Grid */}
-              <div className="p-8 md:p-12 bg-[#070b13]">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {IMAGES.filter(img => img.category === selectedApp.galleryCategory).map((img, idx) => (
-                    <motion.div
-                      key={img.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: idx * 0.1 }}
-                      className="group relative aspect-square overflow-hidden bg-black border border-white/5"
-                    >
-                      <img
-                        src={img.src}
-                        alt={img.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                        <span className="text-[10px] font-bold text-brand-primary uppercase tracking-widest block mb-1">
-                          {img.location}
-                        </span>
-                        <h4 className="text-white text-sm font-semibold uppercase tracking-wider">
-                          {img.title}
-                        </h4>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-
-                {IMAGES.filter(img => img.category === selectedApp.galleryCategory).length === 0 && (
-                  <div className="text-center py-12 text-neutral-500 font-light text-sm">
-                    No gallery images available for this specific category yet.
-                  </div>
-                )}
-
-                <div className="mt-12 text-center">
-                  <a href="/gallery" className="inline-flex items-center gap-3 px-8 py-4 bg-brand-primary text-white text-[10px] font-bold uppercase tracking-widest hover:brightness-110 transition-all">
-                    View Full Gallery <ArrowRight size={14} />
-                  </a>
-                </div>
-              </div>
-
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </main>
   );
 }
