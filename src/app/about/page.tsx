@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from 'motion/react';
-import { 
-  ClockHistory as History, 
-  Bullseye as Target, 
-  Eye, 
-  Award, 
-  People as Users, 
-  ShieldCheck 
+import {
+  ClockHistory as History,
+  Bullseye as Target,
+  Eye,
+  Award,
+  People as Users,
+  ShieldCheck
 } from 'react-bootstrap-icons';
 import React from 'react';
 
@@ -43,22 +43,26 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="relative h-[65vh] flex items-center justify-center overflow-hidden bg-brand-dark pt-20">
         <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-60 scale-105"
+          >
+            <source src="/extracted_assets/Website/Concepts/Facade.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-black/75 z-10" />
-          <img 
-            src="/infiwin images new/ChatGPT Image May 23, 2026, 01_10_02 PM.png" 
-            className="w-full h-full object-cover opacity-60"
-            alt="About Hero"
-          />
         </div>
         <div className="relative z-20 text-center px-6 max-w-4xl">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary mb-4 block"
           >
             The Infiwin Story
           </motion.span>
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -87,7 +91,7 @@ export default function AboutPage() {
               viewport={{ once: true }}
             >
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-primary mb-2 block">
-                Brand Manifesto & Mission
+                Our Story
               </span>
               <h2 className="text-3xl md:text-5xl text-brand-dark font-bold mb-6 leading-tight">
                 Beyond Boundaries
@@ -107,8 +111,8 @@ export default function AboutPage() {
               className="relative"
             >
               <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
-                <img 
-                  src="/infiwin images new/ChatGPT Image May 23, 2026, 03_18_04 PM.png" 
+                <img
+                  src="/infiwin images new/ChatGPT Image May 23, 2026, 03_18_04 PM.png"
                   className="w-full h-full object-cover"
                   alt="Our Work"
                 />
@@ -129,8 +133,8 @@ export default function AboutPage() {
               className="order-2 lg:order-1"
             >
               <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
-                <img 
-                  src="/infiwin images new/ChatGPT Image May 23, 2026, 02_16_49 PM.png" 
+                <img
+                  src="/infiwin images new/ChatGPT Image May 23, 2026, 02_16_49 PM.png"
                   className="w-full h-full object-cover"
                   alt="Genesis Context"
                 />
@@ -144,7 +148,7 @@ export default function AboutPage() {
               className="order-1 lg:order-2"
             >
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-primary mb-2 block">
-                The Infiwin Genesis
+                Our Journey
               </span>
               <h2 className="text-3xl md:text-5xl text-brand-dark font-bold mb-6 leading-tight">
                 Born to Conquer the Extreme Indian Climate
@@ -152,7 +156,7 @@ export default function AboutPage() {
               <p className="text-neutral-600 text-sm leading-relaxed mb-4">
                 The concept of Infiwin was born out of a clear structural gap in modern Indian architecture. Standard balconies, patios, and terraces across high-rise residential projects and commercial hubs in cities like Delhi NCR, Noida, Mumbai, and Bangalore frequently sit unused.
               </p>
-              
+
               <div className="mb-4">
                 <p className="text-brand-dark font-bold text-xs uppercase tracking-wider mb-2">Homeowners find themselves locked indoors due to:</p>
                 <ul className="list-disc pl-5 text-neutral-500 text-xs space-y-1">
@@ -175,7 +179,7 @@ export default function AboutPage() {
         <div className="max-w-[1600px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
             {stats.map((stat, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -195,12 +199,12 @@ export default function AboutPage() {
       <section className="py-12 md:py-24 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="text-center mb-16">
-            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary mb-4 block">Our Values</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl text-brand-dark font-bold">What We Stand For</h2>
+            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary mb-4 block">What Sets Us Apart</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl text-brand-dark font-bold">Our Core Differentiators</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {values.map((v, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -218,6 +222,38 @@ export default function AboutPage() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Vision Section */}
+      <section className="py-16 md:py-32 bg-brand-dark text-white text-center">
+        <div className="max-w-[1000px] mx-auto px-6 md:px-12">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-primary mb-4 block"
+          >
+            Vision
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl md:text-5xl font-serif leading-tight mb-8"
+          >
+            To transform structural constraints into limitless spatial experiences.
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-white/70 text-lg md:text-xl font-light leading-relaxed"
+          >
+            We envision a world where architecture embraces the outdoors seamlessly. Through continuous innovation, robust engineering, and an uncompromising dedication to luxury, we aim to be the paramount choice for architectural glazing across residential and commercial landscapes.
+          </motion.p>
         </div>
       </section>
     </main>

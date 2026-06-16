@@ -9,159 +9,68 @@ import React, { useState } from 'react';
 
 const products = [
   {
-    id: "folding",
-    title: "Slide & Turn System",
-    tagline: "Perfect view maximization with foldaway tracking system layout.",
-    desc: "Our iconic signature slide and turn glides on ultra-smooth tracks, allowing individual sheets of toughened glass to fully stack to either extreme corner. Offers 100% opening potential when desired, making it absolute king of balcony utility layout concepts.",
-    features: [
-      "No vertical frames for unobstructed views",
-      "100% opening potential",
-      "Premium smooth-gliding tracks",
-      "Individual panels stack neatly",
-      "Excellent weather protection"
-    ],
-    technical: {
-      glass: "Toughened Safety Glass",
-      sealing: "Transparent H-Gaskets",
-      profiles: "Premium Aluminum Rails",
-      opening: "100% Clear Opening"
-    },
+    id: "balcony-system",
+    title: "Balcony System",
+    category: "Exterior Solutions",
+    tagline: "Premium space-saving balcony partitions.",
+    desc: "Reclaim your outdoor space with our signature balcony systems. Whether you prefer a frameless slide & turn system or a motorized guillotine, our solutions offer 100% opening potential, excellent weather protection, and unobstructed views.",
+    features: ["No vertical frames for unobstructed views", "Premium smooth-gliding tracks", "Motorized remote operation options", "Excellent weather protection"],
+    technical: { glass: "Toughened Safety Glass / Double Glazing", framing: "Premium Aluminum Rails", opening: "100% Clear Opening" },
     img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_13_49 PM.png",
-    category: "Balcony Enclosure",
     variants: [
-      { id: 'standard', name: 'Standard' },
-      { id: 'premium', name: 'Premium' }
+      { id: "slide-turn", name: "Slide & Turn" },
+      { id: "guillotine", name: "Guillotine Glass System" }
     ],
     availableColors: [
       { id: 'black', name: 'Black', hex: '#222222' },
       { id: 'white', name: 'White', hex: '#ffffff' },
-      { id: 'silver', name: 'Silver', hex: '#c0c0c0' },
       { id: 'anthracite', name: 'Anthracite', hex: '#383e42' }
     ]
   },
   {
-    id: "sliding",
-    title: "Telescopic Slider System",
-    tagline: "Overlapping glazed sheets for continuous uninterrupted tracks.",
-    desc: "Experience super smooth gliding with our telescopic sliding system. Multiple glass panels overlap and slide seamlessly to provide a wide, continuous opening, ideal for large architectural spans and balcony enclosures.",
-    features: [
-      "Smooth multi-track sliding mechanism",
-      "Overlapping panels for continuous tracking",
-      "Slim profiles for minimalist design",
-      "High-performance roller technology",
-      "Space-efficient operation"
-    ],
-    technical: {
-      tracks: "Multiple Tracks",
-      operation: "Telescopic Sliding",
-      glass: "Toughened Safety Glass",
-      hardware: "Premium Rollers"
-    },
-    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_50_39 PM.png",
-    category: "Super Smooth Gliding",
+    id: "internal-partition",
+    title: "Internal Partition",
+    category: "Interior Solutions",
+    tagline: "Sleek separation zones for functional multi-use spaces.",
+    desc: "Experience super smooth gliding and rapid space transitions with our internal partition systems. From overlapping telescopic sliders to perfectly balanced synchronized systems and clear-floor top-hang bi-folds.",
+    features: ["Smooth multi-track sliding mechanism", "Symmetrical split-fold operation", "Top-hung clear floor operation", "Slim profiles for minimalist design"],
+    technical: { operation: "Telescopic / Synchronized / Bi-fold", glass: "Toughened Safety Glass", hardware: "Heavy Duty Rollers" },
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_15_29 PM.png",
     variants: [
-      { id: 'standard', name: 'Standard' },
-      { id: 'premium', name: 'Premium' }
+      { id: "telescopic", name: "Telescopic Sliders" },
+      { id: "synchronized", name: "Synchronized Systems" },
+      { id: "top-hang-bifold", name: "Top Hang Bi Fold" }
     ]
   },
   {
-    id: "centre-open",
-    title: "Centre Open System",
-    tagline: "Panels partition left and right symmetrically to retain optimal balances.",
-    desc: "A beautifully balanced system where panels split and fold to both left and right sides. This symmetrical operation is perfect for wide openings, ensuring structural stability and an elegant aesthetic.",
-    features: [
-      "Symmetrical split-fold operation",
-      "Retains optimal balance for wide spans",
-      "No vertical framing when closed",
-      "Easy and secure locking mechanisms",
-      "Seamless indoor-outdoor flow"
-    ],
-    technical: {
-      operation: "Centre Opening / Split Fold",
-      glass: "Toughened Safety Glass",
-      profiles: "Symmetrical Aluminum Framing",
-      locking: "Secure Centre Lock"
-    },
-    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_29_01 PM.png",
-    category: "Split-fold Symmetrical",
-    variants: [
-      { id: 'standard', name: 'Standard' },
-      { id: 'premium', name: 'Premium' }
-    ]
-  },
-  {
-    id: "bifold",
-    title: "Bi-fold Glass System",
-    tagline: "Sleek folding structure for rapid internal partition transition zones.",
-    desc: "Create dynamic and flexible spaces with our premium bi-fold glass system. Perfect for internal partitions or external boundaries, these connected panels fold concertina-style for rapid transitions.",
-    features: [
-      "Concertina-style folding mechanism",
-      "Rapid and easy transitions",
-      "Sleek and modern aesthetic",
-      "Excellent acoustic dampening for partitions",
-      "High-quality hinged hardware"
-    ],
-    technical: {
-      operation: "Bi-folding Panels",
-      hardware: "Heavy Duty Hinges",
-      glass: "Safety Glass Options",
-      profiles: "Slimline Aluminum"
-    },
-    img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_27_22 PM.png",
-    category: "Premium Partition",
-    variants: [
-      { id: 'standard', name: 'Standard' },
-      { id: 'premium', name: 'Premium' }
-    ]
-  },
-  {
-    id: "sliding-2track",
-    title: "2 Track Slider",
-    tagline: "Classic, cost-effective structural system layout with premium hardware profiles.",
-    desc: "A reliable and classic sliding system featuring a 2-track layout. It combines cost-effectiveness with our signature premium hardware, making it a versatile choice for standard doors and windows.",
-    features: [
-      "Classic 2-track sliding layout",
-      "Cost-effective yet premium build",
-      "Smooth and reliable rollers",
-      "Excellent weather sealing",
-      "Customizable for various spaces"
-    ],
-    technical: {
-      tracks: "2 Track Profile",
-      operation: "Parallel Sliding",
-      glass: "Toughened Glass",
-      sealing: "Weather-resistant EPDM"
-    },
+    id: "doors-windows",
+    title: "Doors & Windows",
+    category: "Structural Openings",
+    tagline: "Classic, robust structural system layouts.",
+    desc: "A reliable and classic range of sliding, openable, and foldable systems. Combining cost-effectiveness with signature premium hardware, making them a versatile choice for standard doors and windows.",
+    features: ["Classic multi-track sliding layout", "Maximum ventilation opening", "Heavy-duty exterior folding mechanism", "High acoustic insulation"],
+    technical: { tracks: "2 or 3 Track Profiles", operation: "Parallel / Casement / Bi-fold", glass: "Double Glazed Options" },
     img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_25_52 PM.png",
-    category: "Doors & Windows",
     variants: [
-      { id: 'standard', name: 'Standard' },
-      { id: 'premium', name: 'Premium' }
+      { id: "sliding", name: "Sliding Windows & Doors" },
+      { id: "openable", name: "Openable Windows & Doors" },
+      { id: "foldable", name: "Foldable Doors (Bi Fold)" }
     ]
   },
   {
-    id: "sliding-3track",
-    title: "3 Track Slider",
-    tagline: "Wider spans of clear structural views integrating bug mesh slider capability.",
-    desc: "Expand your horizons with our 3-track sliding system. Designed for wider architectural spans, it offers the added benefit of integrating a dedicated bug mesh slider, providing fresh air without the insects.",
-    features: [
-      "3-track layout for wider openings",
-      "Integrated bug mesh capability",
-      "Maximizes natural ventilation",
-      "Sturdy structural view profiles",
-      "Smooth parallel sliding action"
-    ],
-    technical: {
-      tracks: "3 Track Profile",
-      mesh: "Integrated Bug Mesh Option",
-      glass: "Toughened Glass",
-      hardware: "Premium Roller System"
-    },
-    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_30_38 PM.png",
-    category: "Doors & Windows",
+    id: "bathroom",
+    title: "Bathroom",
+    category: "Sanitary Enclosures",
+    tagline: "Optimal space utilization with premium hardware.",
+    desc: "Maximize your bathroom layout with our sleek glass enclosures. Whether you need a space-saving corner 90-degree enclosure, a smooth sliding screen, an elegant openable door, or a minimalist fixed partition.",
+    features: ["Space-saving corner design", "Zero outward swing space options", "Wide clear entry", "Frameless aesthetics"],
+    technical: { glass: "Tempered Safety Glass", hardware: "Premium Stainless Steel / Brass", sealing: "Magnetic Seals" },
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_52_36 PM.png",
     variants: [
-      { id: 'standard', name: 'Standard' },
-      { id: 'premium', name: 'Premium' }
+      { id: "90-encloser", name: "90 Degree Encloser" },
+      { id: "sliding-enclouser", name: "Sliding Enclouser" },
+      { id: "openable-door", name: "Openable Door" },
+      { id: "fixed-partition", name: "Fixed Partition" }
     ]
   }
 ];
@@ -182,18 +91,23 @@ export default function ProductsPage() {
     <main className="bg-white min-h-screen">
       
       {/* Hero Section */}
-      <section className="relative h-[60vh] md:h-[80vh] flex items-center overflow-hidden bg-brand-dark">
-        {/* Background Image */}
+      <section className="relative h-[60vh] md:h-[80vh] flex items-center justify-center text-center overflow-hidden bg-brand-dark pt-16">
+        {/* Background Video */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="/infiwin images new/ChatGPT Image May 23, 2026, 03_18_04 PM.png" 
-            alt="Architectural Excellence" 
-            className="w-full h-full object-cover opacity-60"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/80 via-brand-dark/40 to-transparent" />
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="w-full h-full object-cover opacity-75 scale-105"
+          >
+            <source src="/extracted_assets/Website/Concepts/glass slab animation.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-transparent" />
+          <div className="absolute inset-0 bg-black/40" />
         </div>
 
-        <div className="max-w-[1600px] mx-auto px-6 md:px-12 relative z-10 w-full">
+        <div className="max-w-[1600px] mx-auto px-6 md:px-12 relative z-10 w-full flex flex-col items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -201,12 +115,12 @@ export default function ProductsPage() {
             className="max-w-4xl"
           >
             <span className="text-[10px] font-bold tracking-[0.6em] text-brand-primary mb-4 md:mb-8 block uppercase">Our solutions</span>
-            <h1 className="text-4xl md:text-8xl text-white tracking-tighter leading-[0.9] mb-6 md:mb-12 select-none">
+            <h1 className="text-5xl md:text-8xl text-white tracking-tighter leading-[0.9] mb-6 md:mb-12 select-none uppercase font-serif">
               Premium <br />
-              <span className="text-white/40 font-semibold" style={{ textTransform: 'none' }}>Architectural</span> <br />
-              <span className="text-white/40 font-semibold" style={{ textTransform: 'none' }}>Glazing</span>
+              <span className="text-white/90 font-semibold lowercase font-signature" style={{ textTransform: 'none' }}>Architectural</span> <br />
+              <span className="text-brand-primary font-light uppercase" style={{ textTransform: 'none' }}>Glazing</span>
             </h1>
-            <p className="text-white/60 text-lg md:text-xl font-semibold leading-relaxed max-w-xl">
+            <p className="text-white/70 text-lg md:text-xl font-medium leading-relaxed max-w-xl mx-auto">
               Explore our range of high-performance glass systems designed to redefine spatial boundaries across the GCC.
             </p>
           </motion.div>
@@ -272,7 +186,7 @@ export default function ProductsPage() {
                   )}
 
                   {/* Color Palette */}
-                  {(product as any).availableColors && (
+                  {((product as any).availableColors && (!selectedVariants[product.id] || selectedVariants[product.id] === 'slide-turn')) && (
                     <div>
                       <span className="text-[10px] font-bold tracking-widest text-neutral-400 block mb-3 uppercase">
                         Frame Color
@@ -354,14 +268,6 @@ export default function ProductsPage() {
         ))}
       </div>
 
-      <section className="py-12 md:py-24 bg-brand-dark text-white text-center">
-        <div className="max-w-[1600px] mx-auto px-6">
-          <h2 className="text-3xl md:text-5xl tracking-tight mb-6 md:mb-12">Ready to start <br /> <span className="text-neutral-500 font-semibold" style={{ textTransform: 'none' }}>your project?</span></h2>
-          <a href="/contact" className="inline-flex items-center gap-4 px-12 py-5 bg-brand-primary text-white rounded-full text-[12px] font-bold tracking-widest hover:scale-105 transition-all">
-            Contact engineering team <ArrowRight className="h-5 w-5" />
-          </a>
-        </div>
-      </section>
     </main>
   );
 }

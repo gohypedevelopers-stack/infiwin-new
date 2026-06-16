@@ -52,12 +52,16 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="relative h-[50vh] flex items-center justify-center overflow-hidden bg-brand-dark pt-20">
         <div className="absolute inset-0 z-0">
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="w-full h-full object-cover opacity-60 scale-105"
+          >
+            <source src="/extracted_assets/Website/Concepts/Pool.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-black/70 z-10" />
-          <img 
-            src="/infiwin images new/ChatGPT Image May 23, 2026, 01_10_02 PM.png" 
-            className="w-full h-full object-cover opacity-60"
-            alt="Contact Hero"
-          />
         </div>
         <div className="relative z-20 text-center px-6">
           <motion.span 

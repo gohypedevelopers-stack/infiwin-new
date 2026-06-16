@@ -1,11 +1,11 @@
 "use client";
 
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  House as Home, 
-  Building as Building2, 
-  Display as Monitor, 
-  CupHot as Coffee, 
+import {
+  House as Home,
+  Building as Building2,
+  Display as Monitor,
+  CupHot as Coffee,
   Brush as Paintbrush,
   Layers,
   Wind,
@@ -132,66 +132,34 @@ const applications = [
   {
     id: "balcony",
     title: "Balcony",
-    desc: "Unobstructed frameless premium safety glazing barriers. Reclaim your outdoor space with systems that protect against dust, rain, and noise.",
+    desc: "Dedicate full page. Showcase our full range of balcony solutions including Full Length, Bottom fix, Curved, L Shape, U Shape, and more. Reclaim your outdoor space with premium safety glazing barriers.",
     img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_25_52 PM.png",
     icon: <Home size={32} />,
     galleryCategory: "Terraces & Balconies"
   },
   {
-    id: "partition",
-    title: "Int. Partition",
-    desc: "Sleek separation zones for functional multi-use spaces. Create flexible living and working environments without visual barriers.",
-    img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_15_29 PM.png",
-    icon: <Layers size={32} />,
-    galleryCategory: "Offices & Partitions"
-  },
-  {
-    id: "commercial",
-    title: "Commercial",
-    desc: "High durability storefront facades & internal partition grids. Invite customers in with wide-open, secure, and visually arresting storefronts.",
-    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_52_36 PM.png",
-    icon: <Building2 size={32} />,
-    galleryCategory: "Hotels & Commercial"
-  },
-  {
-    id: "exterior",
-    title: "Exterior",
-    desc: "Rigid wind resistance profile constructs for elevations. Protect your building's exterior while maintaining premium aesthetic appeal.",
-    img: "/infiwin images new/ChatGPT Image May 23, 2026, 01_10_02 PM.png",
-    icon: <Wind size={32} />,
-    galleryCategory: "Hotels & Commercial"
-  },
-  {
     id: "terrace",
     title: "Terrace",
-    desc: "Convert open terraces into delightful year-round glass lounges. Enjoy the outdoors in any weather with our robust glazing systems.",
+    desc: "Show Glass House, Glass Roof, Etc. Convert open terraces into delightful year-round glass lounges. Enjoy the outdoors in any weather with our robust glazing systems.",
     img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_30_38 PM.png",
     icon: <Coffee size={32} />,
     galleryCategory: "Terraces & Balconies"
   },
   {
-    id: "farm-house",
-    title: "Farm House",
-    desc: "Connect beautiful country landscaping with spacious interiors. Create stunning glass pavilions that can be fully opened during pleasant weather.",
+    id: "farmhouse",
+    title: "Farmhouse",
+    desc: "Show Slide & Turn. Connect beautiful country landscaping with spacious interiors. Create stunning glass pavilions that can be fully opened during pleasant weather.",
     img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_27_22 PM.png",
     icon: <Sparkles size={32} />,
     galleryCategory: "Villas & Farmhouses"
   },
   {
-    id: "office",
-    title: "Office Space",
-    desc: "Acoustically isolated conference cubes & manager cabins. Modern executive environments designed for focus and seamless collaboration.",
-    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_16_49 PM.png",
+    id: "display-window",
+    title: "Display Window",
+    desc: "Showroom Display window Slide & Turn. High durability storefront facades & internal partition grids. Invite customers in with wide-open, secure, and visually arresting storefronts.",
+    img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_52_36 PM.png",
     icon: <Monitor size={32} />,
-    galleryCategory: "Offices & Partitions"
-  },
-  {
-    id: "garden",
-    title: "Garden",
-    desc: "Sleek verandas merging beautiful greenery with indoor thermal comfort. Blend your architecture with nature effortlessly.",
-    img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_20_57 PM.png",
-    icon: <Paintbrush size={32} />,
-    galleryCategory: "Villas & Farmhouses"
+    galleryCategory: "Hotels & Commercial"
   }
 ];
 
@@ -216,22 +184,26 @@ export default function ApplicationsPage() {
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-brand-dark pt-20">
         <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover scale-105"
+          >
+            <source src="/extracted_assets/Website/Concepts/Terrece Large.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-black/60 z-10" />
-          <img 
-            src="/infiwin images new/ChatGPT Image May 23, 2026, 01_10_02 PM.png" 
-            className="w-full h-full object-cover animate-pulse-slow"
-            alt="Applications Hero"
-          />
         </div>
         <div className="relative z-20 text-center px-6">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-primary mb-4 block"
           >
             Versatile Solutions
           </motion.span>
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -248,7 +220,7 @@ export default function ApplicationsPage() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12">
             {applications.map((app, i) => (
-              <motion.div 
+              <motion.div
                 id={app.id}
                 key={i}
                 initial={{ opacity: 0, y: 30 }}
@@ -297,14 +269,14 @@ export default function ApplicationsPage() {
       {/* Interactive Gallery Modal */}
       <AnimatePresence>
         {selectedApp && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 bg-black/90 backdrop-blur-sm z-[200] flex items-center justify-center p-4 md:p-10"
             onClick={() => setSelectedApp(null)}
           >
-            <motion.div 
+            <motion.div
               initial={{ scale: 0.95, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 20 }}
@@ -312,7 +284,7 @@ export default function ApplicationsPage() {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
-              <button 
+              <button
                 onClick={() => setSelectedApp(null)}
                 className="absolute top-4 right-4 md:top-6 md:right-6 p-2 bg-black/50 hover:bg-white text-white hover:text-black border border-white/20 transition-all z-20"
               >
@@ -342,16 +314,16 @@ export default function ApplicationsPage() {
               <div className="p-8 md:p-12 bg-[#070b13]">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {IMAGES.filter(img => img.category === selectedApp.galleryCategory).map((img, idx) => (
-                    <motion.div 
+                    <motion.div
                       key={img.id}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: idx * 0.1 }}
                       className="group relative aspect-square overflow-hidden bg-black border border-white/5"
                     >
-                      <img 
-                        src={img.src} 
-                        alt={img.title} 
+                      <img
+                        src={img.src}
+                        alt={img.title}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
@@ -365,13 +337,13 @@ export default function ApplicationsPage() {
                     </motion.div>
                   ))}
                 </div>
-                
+
                 {IMAGES.filter(img => img.category === selectedApp.galleryCategory).length === 0 && (
                   <div className="text-center py-12 text-neutral-500 font-light text-sm">
                     No gallery images available for this specific category yet.
                   </div>
                 )}
-                
+
                 <div className="mt-12 text-center">
                   <a href="/gallery" className="inline-flex items-center gap-3 px-8 py-4 bg-brand-primary text-white text-[10px] font-bold uppercase tracking-widest hover:brightness-110 transition-all">
                     View Full Gallery <ArrowRight size={14} />

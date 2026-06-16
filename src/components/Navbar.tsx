@@ -9,33 +9,46 @@ const NAV_ITEMS = [
   { name: "Home", href: "/" },
   { name: "Products", href: "/products" },
   { name: "Applications", href: "/applications" },
-  { name: "About", href: "/about" },
-  { name: "FAQs", href: "/faqs" },
+  { name: "Concepts", href: "/concepts" },
+  { name: "About Us", href: "/about" },
 ];
 
 const PRODUCTS = [
-  { name: "Slide & Turn System", href: "/products#folding", category: "Balcony Systems", desc: "Premium space-saving slide and turn balcony partitions", img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_13_49 PM.png" },
-  { name: "Telescopic Slider System", href: "/products#sliding", category: "Balcony Systems", desc: "Overlapping glazed sheets for continuous tracks", img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_50_39 PM.png" },
-  { name: "Centre Open System", href: "/products#centre-open", category: "Balcony Systems", desc: "Panels partition left and right symmetrically", img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_29_01 PM.png" },
-  { name: "Bi-fold Glass System", href: "/products#bifold", category: "Advanced Glass Systems", desc: "Sleek folding structure for rapid partition transition zones", img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_27_22 PM.png" },
-  { name: "2 Track Slider", href: "/products#sliding-2track", category: "Advanced Glass Systems", desc: "Classic, cost-effective structural system layout", img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_25_52 PM.png" },
-  { name: "3 Track Slider", href: "/products#sliding-3track", category: "Advanced Glass Systems", desc: "Wider spans of clear views with bug mesh capability", img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_30_38 PM.png" }
+  // Balcony System
+  { name: "Slide & Turn", href: "/products#slide-turn", category: "Balcony System", desc: "Premium space-saving slide and turn balcony partitions", img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_13_49 PM.png" },
+  { name: "Guillotine Glass System", href: "/products#guillotine", category: "Balcony System", desc: "Motorized vertical sliding panels for maximum convenience", img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_50_39 PM.png" },
+  // Internal Partition
+  { name: "Telescopic Sliders", href: "/products#telescopic", category: "Internal Partition", desc: "Overlapping glazed sheets for continuous tracks", img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_15_29 PM.png" },
+  { name: "Synchronized Systems", href: "/products#synchronized", category: "Internal Partition", desc: "Panels partition left and right symmetrically", img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_29_01 PM.png" },
+  { name: "Top Hang Bi Fold", href: "/products#top-hang-bifold", category: "Internal Partition", desc: "Sleek folding structure for rapid partition transition zones", img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_27_22 PM.png" },
+  // Doors & Windows
+  { name: "Sliding Windows & Doors", href: "/products#sliding-windows", category: "Doors & Windows", desc: "Classic, cost-effective structural system layout", img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_25_52 PM.png" },
+  { name: "Openable Windows & Doors", href: "/products#openable-windows", category: "Doors & Windows", desc: "Traditional hinged solutions for maximum ventilation", img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_30_38 PM.png" },
+  { name: "Foldable Doors (Bi Fold)", href: "/products#foldable-doors", category: "Doors & Windows", desc: "Expansive opening capability with sturdy folding mechanics", img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_16_49 PM.png" },
+  // Bathroom
+  { name: "90 Degree Encloser", href: "/products#90-encloser", category: "Bathroom", desc: "Corner shower enclosures for optimal space utilization", img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_52_36 PM.png" },
+  { name: "Sliding Enclouser", href: "/products#sliding-enclouser", category: "Bathroom", desc: "Space-saving sliding shower screens", img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_20_57 PM.png" },
+  { name: "Openable Door", href: "/products#openable-bathroom", category: "Bathroom", desc: "Hinged glass doors for modern bathroom aesthetics", img: "/infiwin images new/ChatGPT Image May 23, 2026, 01_10_02 PM.png" },
+  { name: "Fixed Partition", href: "/products#fixed-partition", category: "Bathroom", desc: "Minimalist fixed glass panels for walk-in showers", img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_15_29 PM.png" }
 ];
 
 const APPLICATIONS = [
-  { name: "Balcony", href: "/applications#balcony", category: "Residential Applications", desc: "Unobstructed frameless premium safety glazing barriers", img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_25_52 PM.png" },
-  { name: "Int. Partition", href: "/applications#partition", category: "Residential Applications", desc: "Sleek separation zones for functional multi-use spaces", img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_15_29 PM.png" },
-  { name: "Commercial", href: "/applications#commercial", category: "Commercial Applications", desc: "High durability storefront facades & internal partition grids", img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_52_36 PM.png" },
-  { name: "Exterior", href: "/applications#exterior", category: "Residential Applications", desc: "Rigid wind resistance profile constructs for elevations", img: "/infiwin images new/ChatGPT Image May 23, 2026, 01_10_02 PM.png" },
-  { name: "Terrace", href: "/applications#terrace", category: "Residential Applications", desc: "Convert open terraces into year-round glass lounges", img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_30_38 PM.png" },
-  { name: "Farm House", href: "/applications#farm-house", category: "Residential Applications", desc: "Connect country landscaping with spacious interiors", img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_27_22 PM.png" },
-  { name: "Office Space", href: "/applications#office", category: "Commercial Applications", desc: "Acoustically isolated conference cubes & cabins", img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_16_49 PM.png" },
-  { name: "Garden", href: "/applications#garden", category: "Residential Applications", desc: "Sleek verandas merging greenery with thermal comfort", img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_20_57 PM.png" }
+  { name: "Balcony", href: "/applications#balcony", category: "Residential Applications", desc: "Full Length, Bottom fix, Curved, L Shape, U Shape Etc", img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_25_52 PM.png" },
+  { name: "Terrace", href: "/applications#terrace", category: "Residential Applications", desc: "Show Glass House, Glass Roof, Etc", img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_30_38 PM.png" },
+  { name: "Farmhouse", href: "/applications#farmhouse", category: "Residential Applications", desc: "Show Slide & Turn connecting country landscaping", img: "/infiwin images new/ChatGPT Image May 23, 2026, 12_27_22 PM.png" },
+  { name: "Display Window", href: "/applications#display-window", category: "Commercial Applications", desc: "Showroom Display window Slide & Turn", img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_52_36 PM.png" }
+];
+
+const CONCEPTS = [
+  { name: "Façade", href: "/concepts/facade", category: "Concepts", desc: "Animated Video showcase of facade solutions", img: "/infiwin images new/ChatGPT Image May 23, 2026, 01_10_02 PM.png" },
+  { name: "Restaurant", href: "/concepts/restaurant", category: "Concepts", desc: "Animated Video showcase for restaurant settings", img: "/infiwin images new/ChatGPT Image May 23, 2026, 02_16_49 PM.png" },
+  { name: "Pool Side Bar", href: "/concepts/pool-side-bar", category: "Concepts", desc: "Animated Video showcase for pool side bars", img: "/infiwin images new/ChatGPT Image May 23, 2026, 03_20_57 PM.png" }
 ];
 
 const ALL_SEARCH_ITEMS = [
   ...PRODUCTS.map(p => ({ ...p, type: 'Product' })),
-  ...APPLICATIONS.map(a => ({ ...a, type: 'Application' }))
+  ...APPLICATIONS.map(a => ({ ...a, type: 'Application' })),
+  ...CONCEPTS.map(c => ({ ...c, type: 'Concept' }))
 ];
 
 export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
@@ -93,10 +106,10 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
             />
           </Link>
 
-          {/* Desktop Navigation Menu (Home, Products, Applications, About, FAQs, Contact us) */}
-          <div className="hidden lg:flex items-center gap-6 xl:gap-8 font-sans">
+          {/* Desktop Navigation Menu */}
+          <div className="hidden lg:flex items-center justify-center gap-6 xl:gap-8 font-sans absolute left-1/2 -translate-x-1/2">
             {NAV_ITEMS.map((item) => {
-              const hasDropdown = item.name === "Products" || item.name === "Applications";
+              const hasDropdown = item.name === "Products" || item.name === "Applications" || item.name === "Concepts";
               const isDropdownActive = activeMenu === item.name.toLowerCase();
 
               return (
@@ -261,11 +274,11 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
               onMouseLeave={() => setActiveMenu(null)}
             >
               <div className="grid grid-cols-4 gap-8">
-                {/* Column 1: Balcony Systems */}
+                {/* Column 1: Balcony System */}
                 <div>
-                  <h5 className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-4">Balcony Systems</h5>
+                  <h5 className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-4">Balcony System</h5>
                   <div className="flex flex-col gap-3">
-                    {PRODUCTS.filter(p => p.category === "Balcony Systems").map((prod) => (
+                    {PRODUCTS.filter(p => p.category === "Balcony System").map((prod) => (
                       <Link key={prod.name} href={prod.href} onClick={() => setActiveMenu(null)} className="group flex items-start gap-3.5 p-2 rounded-xl hover:bg-neutral-50 transition-colors duration-300">
                         <div className="w-16 h-12 rounded-lg overflow-hidden shrink-0 bg-neutral-100 border border-neutral-200/60 shadow-sm relative">
                           <img src={prod.img} alt={prod.name} className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-500" />
@@ -279,11 +292,11 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                   </div>
                 </div>
 
-                {/* Column 2: Advanced Glass Systems */}
+                {/* Column 2: Internal Partition */}
                 <div>
-                  <h5 className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-4">Advanced Glass Systems</h5>
+                  <h5 className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-4">Internal Partition</h5>
                   <div className="flex flex-col gap-3">
-                    {PRODUCTS.filter(p => p.category === "Advanced Glass Systems").map((prod) => (
+                    {PRODUCTS.filter(p => p.category === "Internal Partition").map((prod) => (
                       <Link key={prod.name} href={prod.href} onClick={() => setActiveMenu(null)} className="group flex items-start gap-3.5 p-2 rounded-xl hover:bg-neutral-50 transition-colors duration-300">
                         <div className="w-16 h-12 rounded-lg overflow-hidden shrink-0 bg-neutral-100 border border-neutral-200/60 shadow-sm relative">
                           <img src={prod.img} alt={prod.name} className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-500" />
@@ -297,11 +310,11 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                   </div>
                 </div>
 
-                {/* Column 3: Roof & Cover Systems */}
+                {/* Column 3: Doors & Windows */}
                 <div>
-                  <h5 className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-4">Roof & Cover Systems</h5>
+                  <h5 className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-4">Doors & Windows</h5>
                   <div className="flex flex-col gap-3">
-                    {PRODUCTS.slice(4).map((prod) => (
+                    {PRODUCTS.filter(p => p.category === "Doors & Windows").map((prod) => (
                       <Link key={prod.name} href={prod.href} onClick={() => setActiveMenu(null)} className="group flex items-start gap-3.5 p-2 rounded-xl hover:bg-neutral-50 transition-colors duration-300">
                         <div className="w-16 h-12 rounded-lg overflow-hidden shrink-0 bg-neutral-100 border border-neutral-200/60 shadow-sm relative">
                           <img src={prod.img} alt={prod.name} className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-500" />
@@ -315,21 +328,21 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                   </div>
                 </div>
 
-                {/* Column 4: Premium Visual Showcase Card */}
-                <div className="relative rounded-2xl overflow-hidden shadow-md border border-neutral-100 flex flex-col justify-end p-6 group aspect-[4/3] bg-neutral-900">
-                  <img
-                    src="/infiwin images new/ChatGPT Image May 23, 2026, 01_10_02 PM.png"
-                    alt="Premium Showcase"
-                    className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-900/30 to-transparent" />
-                  <div className="relative z-10">
-                    <span className="text-[9px] px-2 py-0.5 rounded bg-brand-primary text-white font-bold uppercase tracking-widest mb-2 inline-block">Featured</span>
-                    <h6 className="text-sm font-bold text-white mb-1">Architectural Solutions</h6>
-                    <p className="text-[11px] text-neutral-300 line-clamp-2 leading-tight mb-3">Reclaim and redefine your spaces with modern high-performance glazing.</p>
-                    <Link href="/products" onClick={() => setActiveMenu(null)} className="inline-flex items-center gap-1.5 text-xs font-semibold text-white group-hover:text-brand-primary transition-colors">
-                      Explore Series <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
-                    </Link>
+                {/* Column 4: Bathroom */}
+                <div>
+                  <h5 className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-4">Bathroom</h5>
+                  <div className="flex flex-col gap-3">
+                    {PRODUCTS.filter(p => p.category === "Bathroom").map((prod) => (
+                      <Link key={prod.name} href={prod.href} onClick={() => setActiveMenu(null)} className="group flex items-start gap-3.5 p-2 rounded-xl hover:bg-neutral-50 transition-colors duration-300">
+                        <div className="w-16 h-12 rounded-lg overflow-hidden shrink-0 bg-neutral-100 border border-neutral-200/60 shadow-sm relative">
+                          <img src={prod.img} alt={prod.name} className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-500" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-[13px] font-semibold text-brand-dark group-hover:text-brand-primary transition-colors leading-tight">{prod.name}</div>
+                          <div className="text-[10px] text-neutral-400 leading-tight mt-1 line-clamp-1">{prod.desc}</div>
+                        </div>
+                      </Link>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -346,30 +359,12 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
               onMouseEnter={() => setActiveMenu('applications')}
               onMouseLeave={() => setActiveMenu(null)}
             >
-              <div className="grid grid-cols-3 gap-10">
-                {/* Column 1: Residential Applications */}
+              <div className="grid grid-cols-2 gap-10">
+                {/* Column 1: Applications */}
                 <div>
-                  <h5 className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-4">Residential Applications</h5>
+                  <h5 className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-4">Applications</h5>
                   <div className="flex flex-col gap-3">
-                    {APPLICATIONS.slice(0, 4).map((app) => (
-                      <Link key={app.name} href={app.href} onClick={() => setActiveMenu(null)} className="group flex items-start gap-3.5 p-2 rounded-xl hover:bg-neutral-50 transition-colors duration-300">
-                        <div className="w-16 h-12 rounded-lg overflow-hidden shrink-0 bg-neutral-100 border border-neutral-200/60 shadow-sm relative">
-                          <img src={app.img} alt={app.name} className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-500" />
-                        </div>
-                        <div className="flex-1">
-                          <div className="text-[13px] font-semibold text-brand-dark group-hover:text-brand-primary transition-colors leading-tight">{app.name} Space</div>
-                          <div className="text-[10px] text-neutral-400 leading-tight mt-1 line-clamp-1">{app.desc}</div>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Column 2: Commercial Applications */}
-                <div>
-                  <h5 className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-4">Commercial Applications</h5>
-                  <div className="flex flex-col gap-3">
-                    {APPLICATIONS.slice(4).map((app) => (
+                    {APPLICATIONS.map((app) => (
                       <Link key={app.name} href={app.href} onClick={() => setActiveMenu(null)} className="group flex items-start gap-3.5 p-2 rounded-xl hover:bg-neutral-50 transition-colors duration-300">
                         <div className="w-16 h-12 rounded-lg overflow-hidden shrink-0 bg-neutral-100 border border-neutral-200/60 shadow-sm relative">
                           <img src={app.img} alt={app.name} className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-500" />
@@ -383,7 +378,7 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                   </div>
                 </div>
 
-                {/* Column 3: Featured Partition Banner */}
+                {/* Column 2: Featured Partition Banner */}
                 <div className="relative rounded-2xl overflow-hidden shadow-md border border-neutral-100 flex flex-col justify-end p-6 group bg-neutral-900">
                   <img
                     src="/infiwin images new/ChatGPT Image May 23, 2026, 02_16_49 PM.png"
@@ -397,6 +392,56 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                     <p className="text-[11px] text-neutral-300 line-clamp-2 leading-tight mb-3">Sleek visual frames designed to create acoustic comfort and premium aesthetics.</p>
                     <Link href="/applications" onClick={() => setActiveMenu(null)} className="inline-flex items-center gap-1.5 text-xs font-semibold text-white group-hover:text-brand-primary transition-colors">
                       Learn More <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+
+          {activeMenu === 'concepts' && (
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 15 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute top-[110%] left-1/2 -translate-x-1/2 w-screen max-w-[95vw] lg:max-w-4xl bg-white shadow-2xl border border-neutral-100 rounded-3xl py-8 px-8 z-[110]"
+              onMouseEnter={() => setActiveMenu('concepts')}
+              onMouseLeave={() => setActiveMenu(null)}
+            >
+              <div className="grid grid-cols-2 gap-10">
+                {/* Column 1: Concepts */}
+                <div>
+                  <h5 className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-4">Design Concepts</h5>
+                  <div className="flex flex-col gap-3">
+                    {CONCEPTS.map((concept) => (
+                      <Link key={concept.name} href={concept.href} onClick={() => setActiveMenu(null)} className="group flex items-start gap-3.5 p-2 rounded-xl hover:bg-neutral-50 transition-colors duration-300">
+                        <div className="w-16 h-12 rounded-lg overflow-hidden shrink-0 bg-neutral-100 border border-neutral-200/60 shadow-sm relative">
+                          <img src={concept.img} alt={concept.name} className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-500" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-[13px] font-semibold text-brand-dark group-hover:text-brand-primary transition-colors leading-tight">{concept.name}</div>
+                          <div className="text-[10px] text-neutral-400 leading-tight mt-1 line-clamp-1">{concept.desc}</div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Column 2: Featured Concept Video Placeholder */}
+                <div className="relative rounded-2xl overflow-hidden shadow-md border border-neutral-100 flex flex-col justify-end p-6 group bg-neutral-900">
+                  <img
+                    src="/infiwin images new/ChatGPT Image May 23, 2026, 03_20_57 PM.png"
+                    alt="Concept Preview"
+                    className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-900/30 to-transparent" />
+                  <div className="relative z-10">
+                    <span className="text-[9px] px-2 py-0.5 rounded bg-brand-primary text-white font-bold uppercase tracking-widest mb-2 inline-block">Visionary Designs</span>
+                    <h6 className="text-sm font-bold text-white mb-1">Explore Our Concepts</h6>
+                    <p className="text-[11px] text-neutral-300 line-clamp-2 leading-tight mb-3">Immerse yourself in our animated concepts for Façade, Restaurant, and Pool Side Bars.</p>
+                    <Link href="/concepts/facade" onClick={() => setActiveMenu(null)} className="inline-flex items-center gap-1.5 text-xs font-semibold text-white group-hover:text-brand-primary transition-colors">
+                      Watch Video <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>
                 </div>
@@ -438,8 +483,8 @@ export const Navbar = ({ isSolid = false }: { isSolid?: boolean }) => {
                 { name: "Home", href: "/" },
                 { name: "Products", href: "/products" },
                 { name: "Applications", href: "/applications" },
-                { name: "About Us", href: "/about" },
-                { name: "FAQs", href: "/faqs" }
+                { name: "Concepts", href: "/concepts" },
+                { name: "About Us", href: "/about" }
               ].map((item) => (
                 <div key={item.name} className="flex flex-col border-b border-neutral-100 pb-3">
                   <div className="flex items-center justify-between min-h-[48px]">
