@@ -99,7 +99,9 @@ export default function AboutPage() {
               <h2 className="text-4xl md:text-6xl text-brand-dark font-bold mb-8 leading-tight tracking-tight">
                 Beyond Boundaries
               </h2>
-
+              <p className="text-neutral-500 text-lg leading-relaxed mb-6 font-light">
+                Infi Window System is a pioneer in developing Slide & Turn Glass Window Systems in India. We have launched the "Slide And Turn Glass System" for the first time in India, totally home-grown under the brand name "INFIWIN".
+              </p>
               <p className="text-neutral-500 text-lg leading-relaxed mb-6 font-light">
                 INFIWIN is a premium Foldable Glass Door and Window system for Exterior or Interior applications. Our innovative window, door, and movable glass wall systems are designed to maximize the efficiency of your existing space over conventional windows and doors, specially designed for full length panoramic views and full openings without any obstacles.
               </p>

@@ -1,68 +1,75 @@
 "use client";
 
 import React from 'react';
-import { Eye, Cloud, Lock } from 'react-bootstrap-icons';
+import { Eye, CloudRain, VolumeDownFill, ShieldCheck } from 'react-bootstrap-icons';
+import { motion } from 'motion/react';
+
+const BENEFITS = [
+  {
+    id: 1,
+    icon: <Eye className="w-7 h-7 text-brand-primary" />,
+    title: "Unobstructed Views",
+    desc: "No vertical frames between glass panels ensures completely transparent viewports and expanded natural light.",
+  },
+  {
+    id: 2,
+    icon: <CloudRain className="w-7 h-7 text-brand-primary" />,
+    title: "100% Weather Shield",
+    desc: "Blocks dust, wind, debris and monsoon rains. Custom rubber profiles keep balconies pristine through extreme climates.",
+  },
+  {
+    id: 3,
+    icon: <VolumeDownFill className="w-7 h-7 text-brand-primary" />,
+    title: "Noise Dampening",
+    desc: "Attenuate high-decibel street noise. Convert chaotic urban balconies into tranquil spaces for focus and relaxation.",
+  },
+  {
+    id: 4,
+    icon: <ShieldCheck className="w-7 h-7 text-brand-primary" />,
+    title: "10+ Year Warranty",
+    desc: "ISO-certified manufacturing and premium aluminium hardware backed by a comprehensive long-term warranty.",
+  },
+];
 
 export default function BenefitsSection() {
-  const benefits = [
-    {
-      id: 1,
-      title: "Unobstructed Panoramic Views",
-      desc: "No vertical frames between glass structures ensures completely transparent viewports, expanding visual horizons and natural luxury lighting levels instantly.",
-      icon: <Eye className="h-6 w-6 text-brand-primary" />
-    },
-    {
-      id: 2,
-      title: "100% Weather Shield Protection",
-      desc: "Blocks dust, windstorms, flying debris, and intense monsoon rains. Fully customized rubber profiles keep balconies immaculate through extreme climates.",
-      icon: <Cloud className="h-6 w-6 text-brand-primary" />
-    },
-    {
-      id: 3,
-      title: "Noise Dampening Isolation",
-      desc: "Attenuate high-decibel street noises significantly. Convert chaotic urban balconies into tranquil spaces suited for deep focus and reading.",
-      icon: <Lock className="h-6 w-6 text-brand-primary" />
-    }
-  ];
-
   return (
-    <section className="py-20 md:py-28 bg-[#F8FAFC]">
+    <section className="py-16 md:py-20 bg-[#F8FAFC] border-b border-neutral-100">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-primary mb-2 block">
-            Core Advantages
+
+        {/* Section label */}
+        <div className="text-center mb-12">
+          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-primary block mb-3">
+            Our Approach
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-brand-dark tracking-tight leading-tight">
-            The Premium Slide & Turn Edge
+            Design. Craft. Deliver. Perfect.
           </h2>
-          <p className="text-neutral-500 text-sm sm:text-base mt-4">
-            Discover why modern homeowners and commercial spaces are replacing conventional iron grills with custom frameless folding structures.
-          </p>
         </div>
 
-        {/* Benefits Grid (3 Columns) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {benefits.map((b) => (
-            <div
+        {/* 4-column icon cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {BENEFITS.map((b, i) => (
+            <motion.div
               key={b.id}
-              className="relative bg-white border border-neutral-100 p-8 rounded-3xl transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between overflow-hidden min-h-[280px]"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="flex flex-col items-start gap-4 bg-white border border-neutral-100 rounded-2xl p-7 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="absolute top-0 right-0 h-32 w-32 bg-brand-primary/5 rounded-full blur-2xl pointer-events-none" />
-
-              <div className="relative z-10">
-                <div className="h-12 w-12 rounded-2xl bg-brand-primary/10 flex items-center justify-center mb-6">
-                  {b.icon}
-                </div>
-                <h3 className="text-xl font-bold text-brand-dark mb-4">
-                  {b.title}
-                </h3>
-                <p className="text-neutral-500 text-sm leading-relaxed">
-                  {b.desc}
-                </p>
+              {/* Icon circle */}
+              <div className="w-13 h-13 flex items-center justify-center rounded-xl bg-brand-primary/8 p-3">
+                {b.icon}
               </div>
-            </div>
+
+              <div>
+                <h3 className="text-base font-bold text-brand-dark mb-2">{b.title}</h3>
+                <p className="text-neutral-500 text-sm leading-relaxed">{b.desc}</p>
+              </div>
+            </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   );

@@ -1,8 +1,15 @@
 "use client";
 
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle } from 'react-bootstrap-icons';
 import React, { useState } from 'react';
+
+const FRAME_COLORS = [
+  { id: 'white',      name: 'Arctic White',    swatch: '#e8e8e8', img: '/frame/ChatGPT_Image_Jun_16__2026__05_44_44_PM-removebg-preview.png' },
+  { id: 'bronze',     name: 'Rose Bronze',     swatch: '#b08070', img: '/frame/ChatGPT Image Jun 17, 2026, 11_41_14 AM (3).png' },
+  { id: 'gold',       name: 'Champagne Gold',  swatch: '#c8a84b', img: '/frame/ChatGPT Image Jun 17, 2026, 11_41_14 AM (2).png' },
+  { id: 'anthracite', name: 'Anthracite Grey', swatch: '#3a3a3a', img: '/frame/ChatGPT Image Jun 17, 2026, 11_41_13 AM (1).png' },
+];
 
 const CATEGORIES = [
   {
@@ -151,6 +158,7 @@ const CATEGORIES = [
 export default function ProductsPage() {
   const [selectedColors, setSelectedColors] = useState<Record<string, string>>({});
   const [activeCategory, setActiveCategory] = useState(CATEGORIES[0].id);
+  const [slideFrameColor, setSlideFrameColor] = useState(FRAME_COLORS[0]);
 
   const handleColorChange = (variantId: string, hex: string) => {
     setSelectedColors(prev => ({ ...prev, [variantId]: hex }));
@@ -227,15 +235,52 @@ export default function ProductsPage() {
                         ))}
                       </div>
                       {(variant as any).availableColors && (
-                        <div>
-                          <span className="text-[10px] font-bold tracking-widest text-brand-dark block mb-3 uppercase">Available Frame Finishes</span>
-                          <div className="flex gap-4">
-                            {(variant as any).availableColors.map((color: any) => {
-                              const isSelected = (selectedColors[variant.id] || (variant as any).availableColors[0].hex) === color.hex;
-                              return (
-                                <button key={color.id} onClick={() => handleColorChange(variant.id, color.hex)} title={color.name} className={`w-8 h-8 rounded-full border-2 transition-all ${isSelected ? 'border-brand-primary scale-110 shadow-md' : 'border-neutral-200 hover:scale-105'}`} style={{ backgroundColor: color.hex }} />
-                              );
-                            })}
+                        <div className="w-full bg-slate-50 p-5 rounded-2xl border border-neutral-100">
+                          <span className="text-[10px] font-bold tracking-widest text-neutral-400 block mb-4 uppercase">Frame Finish Selector</span>
+
+                          {/* Colour swatches */}
+                          <div className="flex items-center gap-3 mb-4 flex-wrap">
+                            {FRAME_COLORS.map((color) => (
+                              <button
+                                key={color.id}
+                                onClick={() => setSlideFrameColor(color)}
+                                title={color.name}
+                                className="flex flex-col items-center gap-1"
+                              >
+                                <span
+                                  className={`block w-8 h-8 rounded-full border-[3px] shadow-md transition-all duration-200 ${
+                                    slideFrameColor.id === color.id
+                                      ? 'scale-110 border-brand-primary ring-2 ring-brand-primary ring-offset-2'
+                                      : 'border-neutral-300 hover:scale-105'
+                                  }`}
+                                  style={{ backgroundColor: color.swatch }}
+                                />
+                                <span className={`text-[8px] font-semibold uppercase tracking-wide ${
+                                  slideFrameColor.id === color.id ? 'text-brand-primary' : 'text-neutral-400'
+                                }`}>
+                                  {color.id === 'white' ? 'White' : color.id === 'bronze' ? 'Bronze' : color.id === 'gold' ? 'Gold' : 'Anthracite'}
+                                </span>
+                              </button>
+                            ))}
+                          </div>
+
+                          {/* Mini frame preview */}
+                          <div className="relative w-full rounded-xl overflow-hidden bg-neutral-900 flex items-center justify-center" style={{ minHeight: '130px' }}>
+                            <AnimatePresence mode="wait">
+                              <motion.img
+                                key={slideFrameColor.id}
+                                src={slideFrameColor.img}
+                                alt={`${slideFrameColor.name} frame`}
+                                initial={{ opacity: 0, scale: 0.96 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 1.04 }}
+                                transition={{ duration: 0.35, ease: 'easeInOut' }}
+                                className="w-full h-auto object-contain max-h-[160px]"
+                              />
+                            </AnimatePresence>
+                            <div className="absolute bottom-2 right-2 bg-black/50 backdrop-blur-sm text-white text-[8px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">
+                              {slideFrameColor.name}
+                            </div>
                           </div>
                         </div>
                       )}
