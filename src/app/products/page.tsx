@@ -263,34 +263,41 @@ export default function ProductsPage() {
                               </button>
                             ))}
                           </div>
-
-                          {/* Mini frame preview */}
-                          <div className="relative w-full rounded-xl overflow-hidden bg-neutral-900 flex items-center justify-center" style={{ minHeight: '130px' }}>
-                            <AnimatePresence mode="wait">
-                              <motion.img
-                                key={slideFrameColor.id}
-                                src={slideFrameColor.img}
-                                alt={`${slideFrameColor.name} frame`}
-                                initial={{ opacity: 0, scale: 0.96 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 1.04 }}
-                                transition={{ duration: 0.35, ease: 'easeInOut' }}
-                                className="w-full h-auto object-contain max-h-[160px]"
-                              />
-                            </AnimatePresence>
-                            <div className="absolute bottom-2 right-2 bg-black/50 backdrop-blur-sm text-white text-[8px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">
-                              {slideFrameColor.name}
-                            </div>
-                          </div>
                         </div>
                       )}
                     </motion.div>
                   </div>
                   <div className="w-full lg:w-1/2">
-                    <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }} className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl group">
-                      <img src={variant.img} alt={variant.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-                      {(variant as any).availableColors && (
-                        <div className="absolute inset-0 pointer-events-none transition-colors duration-500" style={{ border: `12px solid ${selectedColors[variant.id] || (variant as any).availableColors[0].hex}`, opacity: 0.9 }} />
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true, margin: "-100px" }}
+                      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                      className="relative rounded-3xl overflow-hidden"
+                    >
+                      {(variant as any).availableColors ? (
+                        /* Frame image — swaps with colour selector */
+                        <AnimatePresence mode="wait">
+                          <motion.img
+                            key={slideFrameColor.id}
+                            src={slideFrameColor.img}
+                            alt={`${slideFrameColor.name} Slide & Turn frame`}
+                            initial={{ opacity: 0, scale: 0.96 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 1.04 }}
+                            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                            className="w-full h-auto object-contain"
+                          />
+                        </AnimatePresence>
+                      ) : (
+                        /* Regular product photo for all other variants */
+                        <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-xl group">
+                          <img
+                            src={variant.img}
+                            alt={variant.name}
+                            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                          />
+                        </div>
                       )}
                     </motion.div>
                   </div>
