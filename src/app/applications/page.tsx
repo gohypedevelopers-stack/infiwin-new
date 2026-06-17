@@ -15,6 +15,7 @@ import {
   X
 } from 'react-bootstrap-icons';
 import React, { useState, useEffect } from 'react';
+import { useIsMobile } from '@/hooks/useIsMobile';
 
 const IMAGES = [
   // --- Farmhouses & Villas ---
@@ -165,6 +166,7 @@ const applications = [
 ];
 
 export default function ApplicationsPage() {
+  const isMobile = useIsMobile();
   return (
     <main className="bg-white min-h-screen">
 
@@ -208,8 +210,10 @@ export default function ApplicationsPage() {
           <section 
             id={app.id} 
             key={app.id} 
-            className={`sticky flex flex-col lg:flex-row gap-8 lg:gap-16 items-center bg-white py-12 md:py-24 px-6 md:px-16 lg:px-32 w-full border-t border-neutral-100 ${index % 2 !== 0 ? 'lg:flex-row-reverse bg-neutral-50' : ''}`}
-            style={{ 
+            className={`${isMobile ? 'relative' : 'sticky'} flex flex-col lg:flex-row gap-8 lg:gap-16 items-center bg-white py-12 md:py-24 px-6 md:px-16 lg:px-32 w-full border-t border-neutral-100 ${index % 2 !== 0 ? 'lg:flex-row-reverse bg-neutral-50' : ''}`}
+            style={isMobile ? {
+              marginBottom: '4rem'
+            } : { 
               top: `calc(100px + ${index * 20}px)`, 
               zIndex: index + 10,
               marginTop: index > 0 ? '4rem' : '0',

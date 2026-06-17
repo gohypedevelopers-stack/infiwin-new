@@ -17,6 +17,7 @@ import {
   GeoAlt as MapPin,
   Activity
 } from 'react-bootstrap-icons';
+import { useIsMobile } from '@/hooks/useIsMobile';
 
 // --- DATA STRUCTURES ---
 
@@ -269,6 +270,7 @@ const IMAGES = [
 ];
 
 export default function GalleryPage() {
+  const isMobile = useIsMobile();
   const [activeTab, setActiveTab] = useState<'concepts' | 'videos' | 'photos'>('concepts');
   
   // Concept Theater State
@@ -541,7 +543,7 @@ export default function GalleryPage() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: idx * 0.05 }}
+                    transition={{ duration: 0.4, delay: isMobile ? 0 : idx * 0.05 }}
                     className="bg-[#070b13] border border-white/5 overflow-hidden group flex flex-col justify-between"
                   >
                     {/* Hover Looping Video Preview */}
@@ -647,7 +649,7 @@ export default function GalleryPage() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: idx * 0.05 }}
+                    transition={{ duration: 0.4, delay: isMobile ? 0 : idx * 0.05 }}
                     className="relative group cursor-pointer aspect-[3/4] bg-[#070b13] border border-white/5 overflow-hidden"
                     onClick={() => {
                       setModalImageUrl(item.src);

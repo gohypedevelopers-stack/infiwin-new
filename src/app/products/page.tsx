@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle } from 'react-bootstrap-icons';
 import React, { useState } from 'react';
+import { useIsMobile } from '@/hooks/useIsMobile';
 
 const FRAME_COLORS = [
   { id: 'white',      name: 'Arctic White',    swatch: '#e8e8e8', img: '/frame/ChatGPT_Image_Jun_16__2026__05_44_44_PM-removebg-preview.png' },
@@ -156,6 +157,7 @@ const CATEGORIES = [
 ];
 
 export default function ProductsPage() {
+  const isMobile = useIsMobile();
   const [selectedColors, setSelectedColors] = useState<Record<string, string>>({});
   const [activeCategory, setActiveCategory] = useState(CATEGORIES[0].id);
   const [slideFrameColor, setSlideFrameColor] = useState(FRAME_COLORS[0]);
@@ -203,8 +205,10 @@ export default function ProductsPage() {
               {category.variants.map((variant, index) => (
                 <div 
                   key={variant.id} 
-                  className={`sticky flex flex-col lg:flex-row gap-8 lg:gap-16 items-center bg-white py-12 md:py-20 px-6 md:px-16 lg:px-32 border-t border-neutral-200 w-full ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
-                  style={{ 
+                  className={`${isMobile ? 'relative' : 'sticky'} flex flex-col lg:flex-row gap-8 lg:gap-16 items-center bg-white py-12 md:py-20 px-6 md:px-16 lg:px-32 border-t border-neutral-200 w-full ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
+                  style={isMobile ? {
+                    marginBottom: '4rem'
+                  } : { 
                     top: `calc(100px + ${index * 20}px)`, 
                     zIndex: index + 10,
                     marginTop: index > 0 ? '4rem' : '0',
