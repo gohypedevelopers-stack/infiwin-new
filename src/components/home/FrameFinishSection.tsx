@@ -91,6 +91,36 @@ export default function FrameFinishSection() {
             ))}
           </div>
 
+          {/* MOBILE IMAGE (Visible only < lg) */}
+          <div className="lg:hidden relative bg-neutral-50 flex items-center justify-center overflow-hidden min-h-[350px] sm:min-h-[450px] -mx-8 md:-mx-14 border-y border-neutral-100">
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={activeColor.id}
+                src={activeColor.img}
+                alt={`${activeColor.name} Slide & Turn frame`}
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.04 }}
+                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                className="w-full h-full object-contain absolute inset-0 p-8"
+              />
+            </AnimatePresence>
+
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 z-10">
+              {FRAME_COLORS.map((color) => (
+                <button
+                  key={`mob-${color.id}`}
+                  onClick={() => setActiveColor(color)}
+                  title={color.name}
+                  className={`rounded-full transition-all duration-300 ${
+                    activeColor.id === color.id ? 'w-8 h-3' : 'w-3 h-3 opacity-40 hover:opacity-70'
+                  }`}
+                  style={{ backgroundColor: color.swatch }}
+                />
+              ))}
+            </div>
+          </div>
+
           {/* Colour Swatches */}
           <div className="flex flex-col gap-4">
             <span className="text-sm font-bold text-brand-dark">Select Colour</span>
@@ -164,8 +194,8 @@ export default function FrameFinishSection() {
           </div>
         </div>
 
-        {/* RIGHT — Full-height image column */}
-        <div className="relative bg-neutral-50 flex items-center justify-center overflow-hidden min-h-[400px] lg:min-h-full">
+        {/* RIGHT — Full-height image column (Desktop only) */}
+        <div className="hidden lg:flex relative bg-neutral-50 items-center justify-center overflow-hidden lg:min-h-full border-l border-neutral-100">
           <AnimatePresence mode="wait">
             <motion.img
               key={activeColor.id}

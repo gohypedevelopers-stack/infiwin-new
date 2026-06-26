@@ -26,7 +26,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 md:gap-24 w-full md:w-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-12 md:gap-24 w-full md:w-auto">
             {/* Column 1: 6 Product Lines */}
             <div>
               <h5 className="text-[11px] font-bold uppercase tracking-[0.3em] mb-6 md:mb-10 text-brand-dark">6 Product Lines</h5>
@@ -52,7 +52,7 @@ const Footer = () => {
             </div>
 
             {/* Column 3: Contact Info */}
-            <div>
+            <div className="col-span-2 sm:col-span-1">
               <h5 className="text-[11px] font-bold uppercase tracking-[0.3em] mb-6 md:mb-10 text-brand-dark">Contact Info</h5>
               <ul className="space-y-4 text-neutral-500 text-[11px] font-medium">
                 <li className="flex items-start gap-2 text-neutral-500">
